@@ -1,2 +1,12 @@
 # Visual Studio #
 /.vs/
+
+# Binary Files #
+/Model/bin/
+/Model/obj/
+/ModelUtil/bin/
+/ModelUtil/obj/
+/Test/bin/
+/Test/obj/
+/Web/bin/
+/Web/obj/
