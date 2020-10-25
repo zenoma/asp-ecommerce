@@ -25,6 +25,7 @@ D:\Universidad\Cuarto\MaD\mad2021\ModelUtil\bin\Debug\Ninject.Extensions.Interce
 D:\Universidad\Cuarto\MaD\mad2021\ModelUtil\obj\Debug\ModelUtil.csproj.CopyComplete
 D:\Universidad\Cuarto\MaD\mad2021\ModelUtil\obj\Debug\ModelUtil.dll
 D:\Universidad\Cuarto\MaD\mad2021\ModelUtil\obj\Debug\ModelUtil.pdb
+<<<<<<< HEAD
 C:\Users\ricas\Documents\MEGAsync\UNIVERSIDAD\04CUARTO\1CUATRIMESTRE\MaD\PRACTICAS\PRACTICA\mad2021\ModelUtil\bin\Debug\ModelUtil.dll.config
 C:\Users\ricas\Documents\MEGAsync\UNIVERSIDAD\04CUARTO\1CUATRIMESTRE\MaD\PRACTICAS\PRACTICA\mad2021\ModelUtil\bin\Debug\ModelUtil.dll
 C:\Users\ricas\Documents\MEGAsync\UNIVERSIDAD\04CUARTO\1CUATRIMESTRE\MaD\PRACTICAS\PRACTICA\mad2021\ModelUtil\bin\Debug\ModelUtil.pdb
@@ -52,3 +53,32 @@ C:\Users\ricas\Documents\MEGAsync\UNIVERSIDAD\04CUARTO\1CUATRIMESTRE\MaD\PRACTIC
 C:\Users\ricas\Documents\MEGAsync\UNIVERSIDAD\04CUARTO\1CUATRIMESTRE\MaD\PRACTICAS\PRACTICA\mad2021\ModelUtil\obj\Debug\ModelUtil.csproj.CopyComplete
 C:\Users\ricas\Documents\MEGAsync\UNIVERSIDAD\04CUARTO\1CUATRIMESTRE\MaD\PRACTICAS\PRACTICA\mad2021\ModelUtil\obj\Debug\ModelUtil.dll
 C:\Users\ricas\Documents\MEGAsync\UNIVERSIDAD\04CUARTO\1CUATRIMESTRE\MaD\PRACTICAS\PRACTICA\mad2021\ModelUtil\obj\Debug\ModelUtil.pdb
+=======
+D:\MAD\mad2021\ModelUtil\bin\Debug\ModelUtil.dll.config
+D:\MAD\mad2021\ModelUtil\bin\Debug\ModelUtil.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\ModelUtil.pdb
+D:\MAD\mad2021\ModelUtil\bin\Debug\Castle.Core.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\EntityFramework.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\EntityFramework.SqlServer.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\Ninject.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\Ninject.Extensions.Interception.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.dll
+D:\MAD\mad2021\ModelUtil\bin\Debug\Castle.Core.xml
+D:\MAD\mad2021\ModelUtil\bin\Debug\EntityFramework.xml
+D:\MAD\mad2021\ModelUtil\bin\Debug\EntityFramework.SqlServer.xml
+D:\MAD\mad2021\ModelUtil\bin\Debug\Ninject.xml
+D:\MAD\mad2021\ModelUtil\bin\Debug\Ninject.Extensions.Interception.xml
+D:\MAD\mad2021\ModelUtil\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.xml
+D:\MAD\mad2021\ModelUtil\obj\Debug\ModelUtil.csprojAssemblyReference.cache
+D:\MAD\mad2021\ModelUtil\obj\Debug\ModelUtil.csproj.CoreCompileInputs.cache
+D:\MAD\mad2021\ModelUtil\obj\Debug\ModelUtil.csproj.CopyComplete
+D:\MAD\mad2021\ModelUtil\obj\Debug\ModelUtil.dll
+D:\MAD\mad2021\ModelUtil\obj\Debug\ModelUtil.pdb
+>>>>>>> 8bc9d93c29c943bab866b9f570e7b1c15988d237
