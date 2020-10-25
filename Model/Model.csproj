@@ -181,6 +181,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model1Daos\CategoryDao\CategoryDaoEntityFramework.cs" />
+    <Compile Include="Model1Daos\CategoryDao\ICategoryDao.cs" />
+    <Compile Include="Model1Daos\CommentDao\CommentDaoEntityFramework.cs" />
+    <Compile Include="Model1Daos\CommentDao\ICommentDao.cs" />
+    <Compile Include="Model1Daos\CreditCardDao\CreditCardDaoEntityFramework.cs" />
+    <Compile Include="Model1Daos\CreditCardDao\ICreditCardDao.cs" />
+    <Compile Include="Model1Daos\MusicDao\IMusicDao.cs" />
+    <Compile Include="Model1Daos\MusicDao\MusicDaoEntityFramework.cs" />
     <Compile Include="Model1Daos\ProductDao\ProductDaoEntityFramework.cs" />
     <Compile Include="Model1Daos\ProductDao\IProductDao.cs" />
     <Compile Include="Movie.cs">
@@ -247,11 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model1Daos\BookDao\" />
-    <Folder Include="Model1Daos\CategoryDao\" />
-    <Folder Include="Model1Daos\CommentDao\" />
-    <Folder Include="Model1Daos\CreditCardDao\" />
     <Folder Include="Model1Daos\MovieDao\" />
-    <Folder Include="Model1Daos\MusicDao\" />
     <Folder Include="Model1Daos\OrderDao\" />
     <Folder Include="Model1Daos\OrderItemDao\" />
     <Folder Include="Model1Daos\TagDao\" />

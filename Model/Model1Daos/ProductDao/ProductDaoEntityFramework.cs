@@ -13,7 +13,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao
         {
             DbSet<Product> products = Context.Set<Product>();
 
-            var result =
+            List<Product> result =
                 (from b in products
                  where b.productId == productId
                  orderby b.productId
