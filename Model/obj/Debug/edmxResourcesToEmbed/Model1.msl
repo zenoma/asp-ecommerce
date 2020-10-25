@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EsUDCDotNetecommerceStoreContainer" CdmEntityContainer="ecommerceEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="Es.UDC.DotNet.ecommerce.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="visualName" ColumnName="visualName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="Es.UDC.DotNet.ecommerce.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="commentId" ColumnName="commentId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="body" ColumnName="body" />
+          <ScalarProperty Name="publicationDate" ColumnName="publicationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditCards">
+      <EntityTypeMapping TypeName="Es.UDC.DotNet.ecommerce.CreditCard">
+        <MappingFragment StoreEntitySet="CreditCard">
+          <ScalarProperty Name="creditcardId" ColumnName="creditcardId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="verifyCode" ColumnName="verifyCode" />
+          <ScalarProperty Name="expDate" ColumnName="expDate" />
+          <ScalarProperty Name="isFav" ColumnName="isFav" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="Es.UDC.DotNet.ecommerce.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+          <ScalarProperty Name="creditCardNumber" ColumnName="creditCardNumber" />
+          <ScalarProperty Name="creditCardVerifyCode" ColumnName="creditCardVerifyCode" />
+          <ScalarProperty Name="creditCardExpDate" ColumnName="creditCardExpDate" />
+          <ScalarProperty Name="userPostalAddress" ColumnName="userPostalAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="Es.UDC.DotNet.ecommerce.OrderItem">
+        <MappingFragment StoreEntitySet="OrderItem">
+          <ScalarProperty Name="orderItemId" ColumnName="orderItemId" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="units" ColumnName="units" />
+          <ScalarProperty Name="unitPrice" ColumnName="unitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(Es.UDC.DotNet.ecommerce.Product)">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="subtype" ColumnName="subtype" />
+          <ScalarProperty Name="unitPrice" ColumnName="unitPrice" />
+          <ScalarProperty Name="stockUnits" ColumnName="stockUnits" />
+          <ScalarProperty Name="entryDate" ColumnName="entryDate" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Es.UDC.DotNet.ecommerce.Book)">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="editionNumber" ColumnName="editionNumber" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Es.UDC.DotNet.ecommerce.Music)">
+        <MappingFragment StoreEntitySet="Music">
+          <ScalarProperty Name="artist" ColumnName="artist" />
+          <ScalarProperty Name="album" ColumnName="album" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Es.UDC.DotNet.ecommerce.Movie)">
+        <MappingFragment StoreEntitySet="Movie">
+          <ScalarProperty Name="premiereDate" ColumnName="premiereDate" />
+          <ScalarProperty Name="director" ColumnName="director" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="Es.UDC.DotNet.ecommerce.Tag">
+        <MappingFragment StoreEntitySet="Tag">
+          <ScalarProperty Name="tagId" ColumnName="tagId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Es.UDC.DotNet.ecommerce.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surnames" ColumnName="surnames" />
+          <ScalarProperty Name="postalAddress" ColumnName="postalAddress" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CommentTag" TypeName="Es.UDC.DotNet.ecommerce.CommentTag" StoreEntitySet="CommentTag">
+      <EndProperty Name="Comment">
+        <ScalarProperty Name="commentId" ColumnName="commentId" />
+      </EndProperty>
+      <EndProperty Name="Tag">
+        <ScalarProperty Name="tagId" ColumnName="tagId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
