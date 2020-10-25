@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{9B69F35D-D4DE-4083-BD71-04CB958D4C71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelUtil", "..\Tutorial\Projects\ModelUtil-src-4.2.0.0\ModelUtil-src-4.2.0.0\ModelUtil.csproj", "{9CB4634A-6A31-4009-A471-E7D51AA94500}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelUtil", "ModelUtil\ModelUtil.csproj", "{9CB4634A-6A31-4009-A471-E7D51AA94500}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
