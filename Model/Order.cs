@@ -10,11 +10,11 @@
 namespace Es.Udc.DotNet.PracticaMaD.Model
 {
     using System;
+    using System.Text;
     using System.Collections.Generic;
     
     public partial class Order
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
             this.OrderItems = new HashSet<OrderItem>();
@@ -28,8 +28,112 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         public System.DateTime creditCardExpDate { get; set; }
         public string userPostalAddress { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
+        /// <summary>
+        /// Relationship Name (Foreign Key in ER-Model): FK_OrderItemOrderId
+        /// </summary>
         public virtual ICollection<OrderItem> OrderItems { get; set; }
+        
+        /// <summary>
+        /// Relationship Name (Foreign Key in ER-Model): FK_OrderUserId
+        /// </summary>
         public virtual User User { get; set; }
+    
+    	/// <summary>
+    	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 
+    	/// like a hash table. It uses the Josh Bloch implementation from "Effective Java"
+        /// Primary key of entity is not included in the hash calculation to avoid errors
+    	/// with Entity Framework creation of key values.
+    	/// </summary>
+    	/// <returns>
+    	/// Returns a hash code for this instance.
+    	/// </returns>
+    	public override int GetHashCode()
+    	{
+    	    unchecked
+    	    {
+    			int multiplier = 31;
+    			int hash = GetType().GetHashCode();
+    
+    			hash = hash * multiplier + userId.GetHashCode();
+    			hash = hash * multiplier + creationDate.GetHashCode();
+    			hash = hash * multiplier + (creditCardNumber == null ? 0 : creditCardNumber.GetHashCode());
+    			hash = hash * multiplier + creditCardVerifyCode.GetHashCode();
+    			hash = hash * multiplier + creditCardExpDate.GetHashCode();
+    			hash = hash * multiplier + (userPostalAddress == null ? 0 : userPostalAddress.GetHashCode());
+    
+    			return hash;
+    	    }
+    
+    	}
+        
+        /// <summary>
+        /// Compare this object against another instance using a value approach (field-by-field) 
+        /// </summary>
+        /// <remarks>See http://www.loganfranken.com/blog/687/overriding-equals-in-c-part-1/ for detailed info </remarks>
+    	public override bool Equals(object obj)
+    	{
+    
+            if (ReferenceEquals(null, obj)) return false;        // Is Null?
+            if (ReferenceEquals(this, obj)) return true;         // Is same object?
+            if (obj.GetType() != this.GetType()) return false;   // Is same type? 
+    
+            Order target = obj as Order;
+    
+    		return true
+               &&  (this.orderId == target.orderId )       
+               &&  (this.userId == target.userId )       
+               &&  (this.creationDate == target.creationDate )       
+               &&  (this.creditCardNumber == target.creditCardNumber )       
+               &&  (this.creditCardVerifyCode == target.creditCardVerifyCode )       
+               &&  (this.creditCardExpDate == target.creditCardExpDate )       
+               &&  (this.userPostalAddress == target.userPostalAddress )       
+               ;
+    
+        }
+    
+    
+    	public static bool operator ==(Order  objA, Order  objB)
+        {
+            // Check if the objets are the same Order entity
+            if(Object.ReferenceEquals(objA, objB))
+                return true;
+      
+            return objA.Equals(objB);
+    }
+    
+    
+    	public static bool operator !=(Order  objA, Order  objB)
+        {
+            return !(objA == objB);
+        }
+    
+    
+        /// <summary>
+        /// Returns a <see cref="T:System.String"></see> that represents the 
+        /// current <see cref="T:System.Object"></see>.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="T:System.String"></see> that represents the current 
+        /// <see cref="T:System.Object"></see>.
+        /// </returns>
+    	public override String ToString()
+    	{
+    	    StringBuilder strOrder = new StringBuilder();
+    
+    		strOrder.Append("[ ");
+           strOrder.Append(" orderId = " + orderId + " | " );       
+           strOrder.Append(" userId = " + userId + " | " );       
+           strOrder.Append(" creationDate = " + creationDate + " | " );       
+           strOrder.Append(" creditCardNumber = " + creditCardNumber + " | " );       
+           strOrder.Append(" creditCardVerifyCode = " + creditCardVerifyCode + " | " );       
+           strOrder.Append(" creditCardExpDate = " + creditCardExpDate + " | " );       
+           strOrder.Append(" userPostalAddress = " + userPostalAddress + " | " );       
+            strOrder.Append("] ");    
+    
+    		return strOrder.ToString();
+        }
+    
+    
     }
 }

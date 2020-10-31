@@ -1,0 +1,42 @@
+﻿using Es.Udc.DotNet.ModelUtil.Transactions;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
+using Ninject;
+using System;
+using System.Collections.Generic;
+
+namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
+{
+    public class ProductService : IProductService
+    {
+        [Inject]
+        public IProductDao ProductDao { private get; set; }
+
+        [Transactional]
+        public List<Product> FindProducts(string name, long categoryId)
+        {
+            if(categoryId > 0)
+            {
+                return ProductDao.FindByNameAndCategory(name, categoryId, 0, 10);
+            }
+            else
+            { 
+                return ProductDao.FindByName(name, 0, 10);
+            }
+        }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public void UpdateProduct(long productId, ProductDetails productDetails)
+        {
+            Product product = ProductDao.Find(productId);
+            product.categoryId = productDetails.categoryId;
+            product.name = productDetails.name;
+            product.price = productDetails.price;
+            product.stockUnits = productDetails.stockUnits;
+            product.unitPrice = productDetails.unitPrice;
+            product.subtype = productDetails.subtype;
+
+            ProductDao.Update(product);
+        }
+    }
+}
