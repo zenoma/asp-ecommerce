@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
 {
-    class TagDaoEntityFramework :
+    public class TagDaoEntityFramework :
         GenericDaoEntityFramework<Tag, Int64>, ITagDao
     {
         public List<Tag> FindByCommentId(long commentId)
