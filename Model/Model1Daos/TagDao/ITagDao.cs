@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
 {
-    interface ITagDao : IGenericDao<Tag, Int64>
+    public interface ITagDao : IGenericDao<Tag, Int64>
     {
         List<Tag> FindByCommentId(long commentId);
     }
