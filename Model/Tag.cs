@@ -17,7 +17,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     {
         public Tag()
         {
-            this.Comments = new HashSet<Comment>();
+            this.Comment = new HashSet<Comment>();
         }
     
         public long tagId { get; set; }
@@ -27,7 +27,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         /// <summary>
         /// Relationship Name (Foreign Key in ER-Model): CommentTag
         /// </summary>
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comment { get; set; }
     
     	/// <summary>
     	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 

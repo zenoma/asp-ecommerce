@@ -17,14 +17,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     {
         public Comment()
         {
-            this.Tags = new HashSet<Tag>();
+            this.Tag = new HashSet<Tag>();
         }
     
         public long commentId { get; set; }
         public long userId { get; set; }
         public long productId { get; set; }
         public string body { get; set; }
-        public System.DateTime publicationDate { get; set; }
+        public System.DateTime commentDate { get; set; }
     
         
         /// <summary>
@@ -40,7 +40,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         /// <summary>
         /// Relationship Name (Foreign Key in ER-Model): CommentTag
         /// </summary>
-        public virtual ICollection<Tag> Tags { get; set; }
+        public virtual ICollection<Tag> Tag { get; set; }
     
     	/// <summary>
     	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 
@@ -61,7 +61,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			hash = hash * multiplier + userId.GetHashCode();
     			hash = hash * multiplier + productId.GetHashCode();
     			hash = hash * multiplier + (body == null ? 0 : body.GetHashCode());
-    			hash = hash * multiplier + publicationDate.GetHashCode();
+    			hash = hash * multiplier + commentDate.GetHashCode();
     
     			return hash;
     	    }
@@ -86,7 +86,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                &&  (this.userId == target.userId )       
                &&  (this.productId == target.productId )       
                &&  (this.body == target.body )       
-               &&  (this.publicationDate == target.publicationDate )       
+               &&  (this.commentDate == target.commentDate )       
                ;
     
         }
@@ -125,7 +125,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
            strComment.Append(" userId = " + userId + " | " );       
            strComment.Append(" productId = " + productId + " | " );       
            strComment.Append(" body = " + body + " | " );       
-           strComment.Append(" publicationDate = " + publicationDate + " | " );       
+           strComment.Append(" commentDate = " + commentDate + " | " );       
             strComment.Append("] ");    
     
     		return strComment.ToString();

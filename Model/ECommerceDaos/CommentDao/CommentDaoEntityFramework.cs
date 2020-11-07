@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao
 {
-    class CommentDaoEntityFramework :
+    public class CommentDaoEntityFramework :
         GenericDaoEntityFramework<Comment, Int64>, ICommentDao
     {
         public List<Comment> FindByUserId(long userId, int startIndex, int count)

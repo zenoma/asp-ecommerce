@@ -84,7 +84,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model1Daos\ProductDao\IProductDaoEntityFrameworkTests.cs" />
+    <Compile Include="ECommerceDaos\ProductDao\IProductDaoEntityFrameworkTests.cs" />
+    <Compile Include="ECommerceDaos\UserDao\IUserDaoEntityFrameworkTests.cs" />
+    <Compile Include="ECommerceServices\UserService\IUserServiceTest.cs" />
     <Compile Include="TestManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,11 +95,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\createTables.Test.sql" />
+    <Content Include="Sql\createTables.Test.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\ProductService\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{AD09486F-274D-4182-A745-7C2549EB718F}</Project>

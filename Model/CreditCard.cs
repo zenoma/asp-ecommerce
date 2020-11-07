@@ -15,11 +15,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     public partial class CreditCard
     {
-        public long creditcardId { get; set; }
+        public CreditCard()
+        {
+            this.Order = new HashSet<Order>();
+        }
+    
+        public long creditCardId { get; set; }
         public long userId { get; set; }
         public string tipo { get; set; }
         public long number { get; set; }
-        public byte verifyCode { get; set; }
+        public short verifyCode { get; set; }
         public System.DateTime expDate { get; set; }
         public bool isFav { get; set; }
     
@@ -28,6 +33,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         /// Relationship Name (Foreign Key in ER-Model): FK_CreditCardUserId
         /// </summary>
         public virtual User User { get; set; }
+        
+        /// <summary>
+        /// Relationship Name (Foreign Key in ER-Model): FK_OrderCreditCardId
+        /// </summary>
+        public virtual ICollection<Order> Order { get; set; }
     
     	/// <summary>
     	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 
@@ -71,7 +81,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
             CreditCard target = obj as CreditCard;
     
     		return true
-               &&  (this.creditcardId == target.creditcardId )       
+               &&  (this.creditCardId == target.creditCardId )       
                &&  (this.userId == target.userId )       
                &&  (this.tipo == target.tipo )       
                &&  (this.number == target.number )       
@@ -112,7 +122,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     	    StringBuilder strCreditCard = new StringBuilder();
     
     		strCreditCard.Append("[ ");
-           strCreditCard.Append(" creditcardId = " + creditcardId + " | " );       
+           strCreditCard.Append(" creditCardId = " + creditCardId + " | " );       
            strCreditCard.Append(" userId = " + userId + " | " );       
            strCreditCard.Append(" tipo = " + tipo + " | " );       
            strCreditCard.Append(" number = " + number + " | " );       
