@@ -7,10 +7,15 @@ using Ninject;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 {
-    public class UserService
+    public class UserService : IUserService
     {
+        public UserService()
+        {
+
+        }
+
         [Inject]
-        IUserDao UserDao { set; get; }
+        public IUserDao UserDao { set; get; }
 
         /// <exception cref="DuplicateInstanceException"/>
         [Transactional]
@@ -24,13 +29,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
             }
             catch (InstanceNotFoundException)
             {
-                string encryptedPassword = PasswordEncrypter.Crypt(user.password);
+                UserDao.Create(user);
 
+                return user.userId;
             }
-
-            UserDao.Create(user);
-
-            return user.userId;
         }
 
         /// <exception cref="InstanceNotFoundException"/>
@@ -58,17 +60,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 }
             }
 
-            if (user.password.Equals(password))
-            {
-                return new LoginUser(user.userId, user.name, user.surnames,
-                    user.postalAddress, user.email);
-            }
-            else
-            {
-                throw new IncorrectPasswordException(login);
-            }
-
-            
+            return new LoginUser(user.userId, user.name, user.surnames,
+                user.postalAddress, user.email);
         }
     }
 }

@@ -3,6 +3,7 @@ using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
+using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Ninject;
 using System.Configuration;
 using System.Data.Entity;
@@ -30,6 +31,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             kernel.Bind<ICategoryDao>().To<CategoryDaoEntityFramework>();
 
             kernel.Bind<ITagDao>().To<TagDaoEntityFramework>();
+
+            kernel.Bind<IUserService>().To<UserService>();
 
             kernel.Bind<IUserDao>().
                 To<UserDaoEntityFramework>();
