@@ -16,7 +16,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     public partial class Movie : Product
     {
         public string director { get; set; }
-        public System.DateTime premiereDate { get; set; }
+        public System.DateTime movieDate { get; set; }
     
     	/// <summary>
     	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 
@@ -35,7 +35,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			int hash = GetType().GetHashCode();
     
     			hash = hash * multiplier + (director == null ? 0 : director.GetHashCode());
-    			hash = hash * multiplier + premiereDate.GetHashCode();
+    			hash = hash * multiplier + movieDate.GetHashCode();
     
     			return hash;
     	    }
@@ -57,7 +57,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     		return true
                &&  (this.director == target.director )       
-               &&  (this.premiereDate == target.premiereDate )       
+               &&  (this.movieDate == target.movieDate )       
                ;
     
         }
@@ -93,7 +93,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     		strMovie.Append("[ ");
            strMovie.Append(" director = " + director + " | " );       
-           strMovie.Append(" premiereDate = " + premiereDate + " | " );       
+           strMovie.Append(" movieDate = " + movieDate + " | " );       
             strMovie.Append("] ");    
     
     		return strMovie.ToString();

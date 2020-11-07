@@ -3,12 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao
 {
-    class CreditCardDaoEntityFramework :
+    public class CreditCardDaoEntityFramework :
         GenericDaoEntityFramework<CreditCard, Int64>, ICreditCardDao
     {
         public List<CreditCard> FindByUserId(long userId, int startIndex, int count)
@@ -17,7 +15,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao
 
             List<CreditCard> result = (from c in creditCards
                                        where c.userId == userId
-                                       orderby c.creditcardId
+                                       orderby c.creditCardId
                                        select c).Skip(startIndex).Take(count).ToList();
 
             return result;

@@ -17,18 +17,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     {
         public Product()
         {
-            this.Comments = new HashSet<Comment>();
-            this.OrderItems = new HashSet<OrderItem>();
+            this.Comment = new HashSet<Comment>();
+            this.OrderItem = new HashSet<OrderItem>();
         }
     
         public long productId { get; set; }
         public long categoryId { get; set; }
         public string name { get; set; }
-        public double price { get; set; }
-        public System.DateTime entryDate { get; set; }
-        public int stockUnits { get; set; }
         public double unitPrice { get; set; }
-        public string subtype { get; set; }
+        public System.DateTime productDate { get; set; }
+        public int stockUnits { get; set; }
+        public string type { get; set; }
     
         
         /// <summary>
@@ -39,12 +38,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         /// <summary>
         /// Relationship Name (Foreign Key in ER-Model): FK_CommentProductId
         /// </summary>
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comment { get; set; }
         
         /// <summary>
         /// Relationship Name (Foreign Key in ER-Model): FK_OrderItemProductId
         /// </summary>
-        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public virtual ICollection<OrderItem> OrderItem { get; set; }
     
     	/// <summary>
     	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 
@@ -64,11 +63,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     			hash = hash * multiplier + categoryId.GetHashCode();
     			hash = hash * multiplier + (name == null ? 0 : name.GetHashCode());
-    			hash = hash * multiplier + price.GetHashCode();
-    			hash = hash * multiplier + entryDate.GetHashCode();
-    			hash = hash * multiplier + stockUnits.GetHashCode();
     			hash = hash * multiplier + unitPrice.GetHashCode();
-    			hash = hash * multiplier + (subtype == null ? 0 : subtype.GetHashCode());
+    			hash = hash * multiplier + productDate.GetHashCode();
+    			hash = hash * multiplier + stockUnits.GetHashCode();
+    			hash = hash * multiplier + (type == null ? 0 : type.GetHashCode());
     
     			return hash;
     	    }
@@ -92,11 +90,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                &&  (this.productId == target.productId )       
                &&  (this.categoryId == target.categoryId )       
                &&  (this.name == target.name )       
-               &&  (this.price == target.price )       
-               &&  (this.entryDate == target.entryDate )       
-               &&  (this.stockUnits == target.stockUnits )       
                &&  (this.unitPrice == target.unitPrice )       
-               &&  (this.subtype == target.subtype )       
+               &&  (this.productDate == target.productDate )       
+               &&  (this.stockUnits == target.stockUnits )       
+               &&  (this.type == target.type )       
                ;
     
         }
@@ -134,11 +131,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
            strProduct.Append(" productId = " + productId + " | " );       
            strProduct.Append(" categoryId = " + categoryId + " | " );       
            strProduct.Append(" name = " + name + " | " );       
-           strProduct.Append(" price = " + price + " | " );       
-           strProduct.Append(" entryDate = " + entryDate + " | " );       
-           strProduct.Append(" stockUnits = " + stockUnits + " | " );       
            strProduct.Append(" unitPrice = " + unitPrice + " | " );       
-           strProduct.Append(" subtype = " + subtype + " | " );       
+           strProduct.Append(" productDate = " + productDate + " | " );       
+           strProduct.Append(" stockUnits = " + stockUnits + " | " );       
+           strProduct.Append(" type = " + type + " | " );       
             strProduct.Append("] ");    
     
     		return strProduct.ToString();

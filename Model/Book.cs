@@ -15,7 +15,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     public partial class Book : Product
     {
-        public string ISBN { get; set; }
+        public string isbn { get; set; }
         public int editionNumber { get; set; }
         public string author { get; set; }
     
@@ -35,7 +35,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			int multiplier = 31;
     			int hash = GetType().GetHashCode();
     
-    			hash = hash * multiplier + (ISBN == null ? 0 : ISBN.GetHashCode());
+    			hash = hash * multiplier + (isbn == null ? 0 : isbn.GetHashCode());
     			hash = hash * multiplier + editionNumber.GetHashCode();
     			hash = hash * multiplier + (author == null ? 0 : author.GetHashCode());
     
@@ -58,7 +58,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
             Book target = obj as Book;
     
     		return true
-               &&  (this.ISBN == target.ISBN )       
+               &&  (this.isbn == target.isbn )       
                &&  (this.editionNumber == target.editionNumber )       
                &&  (this.author == target.author )       
                ;
@@ -95,7 +95,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     	    StringBuilder strBook = new StringBuilder();
     
     		strBook.Append("[ ");
-           strBook.Append(" ISBN = " + ISBN + " | " );       
+           strBook.Append(" isbn = " + isbn + " | " );       
            strBook.Append(" editionNumber = " + editionNumber + " | " );       
            strBook.Append(" author = " + author + " | " );       
             strBook.Append("] ");    

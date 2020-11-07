@@ -31,10 +31,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
             Product product = ProductDao.Find(productId);
             product.categoryId = productDetails.categoryId;
             product.name = productDetails.name;
-            product.price = productDetails.price;
             product.stockUnits = productDetails.stockUnits;
             product.unitPrice = productDetails.unitPrice;
-            product.subtype = productDetails.subtype;
+            product.type = productDetails.type;
 
             ProductDao.Update(product);
         }

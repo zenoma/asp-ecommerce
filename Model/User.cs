@@ -17,9 +17,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     {
         public User()
         {
-            this.Comments = new HashSet<Comment>();
-            this.CreditCards = new HashSet<CreditCard>();
-            this.Orders = new HashSet<Order>();
+            this.Comment = new HashSet<Comment>();
+            this.CreditCard = new HashSet<CreditCard>();
+            this.Order = new HashSet<Order>();
         }
     
         public long userId { get; set; }
@@ -34,17 +34,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         /// <summary>
         /// Relationship Name (Foreign Key in ER-Model): FK_CommentUserId
         /// </summary>
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comment { get; set; }
         
         /// <summary>
         /// Relationship Name (Foreign Key in ER-Model): FK_CreditCardUserId
         /// </summary>
-        public virtual ICollection<CreditCard> CreditCards { get; set; }
+        public virtual ICollection<CreditCard> CreditCard { get; set; }
         
         /// <summary>
         /// Relationship Name (Foreign Key in ER-Model): FK_OrderUserId
         /// </summary>
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
     
     	/// <summary>
     	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 

@@ -176,101 +176,106 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Category.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Comment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="CreditCard.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Context.cs">
+    <Compile Include="ECommerce.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>ECommerce.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.cs">
+    <Compile Include="ECommerce.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Designer.cs">
+    <Compile Include="ECommerce.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>ECommerce.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model1Daos\BookDao\BookDaoEntityFramework.cs" />
-    <Compile Include="Model1Daos\BookDao\IBookDao.cs" />
-    <Compile Include="Model1Daos\CategoryDao\CategoryDaoEntityFramework.cs" />
-    <Compile Include="Model1Daos\CategoryDao\ICategoryDao.cs" />
-    <Compile Include="Model1Daos\CommentDao\CommentDaoEntityFramework.cs" />
-    <Compile Include="Model1Daos\CommentDao\ICommentDao.cs" />
-    <Compile Include="Model1Daos\CreditCardDao\CreditCardDaoEntityFramework.cs" />
-    <Compile Include="Model1Daos\CreditCardDao\ICreditCardDao.cs" />
-    <Compile Include="Model1Daos\MusicDao\IMusicDao.cs" />
-    <Compile Include="Model1Daos\MusicDao\MusicDaoEntityFramework.cs" />
-    <Compile Include="Model1Daos\MovieDao\IMovieDao.cs" />
-    <Compile Include="Model1Daos\MovieDao\MovieDaoEntityFramework.cs" />
-    <Compile Include="Model1Daos\OrderDao\IOrderDao.cs" />
-    <Compile Include="Model1Daos\OrderDao\OrderDaoEntityFramework.cs" />
-    <Compile Include="Model1Daos\OrderItemDao\IOrderItemDao.cs" />
-    <Compile Include="Model1Daos\OrderItemDao\OrderItemDaoEntityFramework.cs" />
-    <Compile Include="Model1Daos\ProductDao\ProductDaoEntityFramework.cs" />
-    <Compile Include="Model1Daos\ProductDao\IProductDao.cs" />
-    <Compile Include="Model1Daos\TagDao\ITagDao.cs" />
-    <Compile Include="Model1Daos\TagDao\TagDaoEntityFramework.cs" />
-    <Compile Include="Model1Daos\UserDao\IUserDao.cs" />
-    <Compile Include="Model1Daos\UserDao\UserDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\BookDao\BookDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\BookDao\IBookDao.cs" />
+    <Compile Include="ECommerceDaos\CategoryDao\CategoryDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\CategoryDao\ICategoryDao.cs" />
+    <Compile Include="ECommerceDaos\CommentDao\CommentDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\CommentDao\ICommentDao.cs" />
+    <Compile Include="ECommerceDaos\CreditCardDao\CreditCardDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\CreditCardDao\ICreditCardDao.cs" />
+    <Compile Include="ECommerceDaos\MusicDao\IMusicDao.cs" />
+    <Compile Include="ECommerceDaos\MusicDao\MusicDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\MovieDao\IMovieDao.cs" />
+    <Compile Include="ECommerceDaos\MovieDao\MovieDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\OrderDao\IOrderDao.cs" />
+    <Compile Include="ECommerceDaos\OrderDao\OrderDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\OrderItemDao\IOrderItemDao.cs" />
+    <Compile Include="ECommerceDaos\OrderItemDao\OrderItemDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\ProductDao\ProductDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\ProductDao\IProductDao.cs" />
+    <Compile Include="ECommerceDaos\TagDao\ITagDao.cs" />
+    <Compile Include="ECommerceDaos\TagDao\TagDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\UserDao\IUserDao.cs" />
+    <Compile Include="ECommerceDaos\UserDao\UserDaoEntityFramework.cs" />
     <Compile Include="Movie.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Music.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Order.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderItem.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ProductService\ProductDetails.cs" />
-    <Compile Include="Services\ProductService\IProductService.cs" />
-    <Compile Include="Services\ProductService\ProductService.cs" />
+    <Compile Include="ECommerceServices\Exceptions\IncorrectPasswordException.cs" />
+    <Compile Include="ECommerceServices\ProductService\ProductDetails.cs" />
+    <Compile Include="ECommerceServices\ProductService\IProductService.cs" />
+    <Compile Include="ECommerceServices\ProductService\ProductService.cs" />
+    <Compile Include="ECommerceServices\UserService\IUserService.cs" />
+    <Compile Include="ECommerceServices\UserService\LoginUser.cs" />
+    <Compile Include="ECommerceServices\UserService\UserService.cs" />
+    <Compile Include="ECommerceServices\Util\PasswordEncrypter.cs" />
     <Compile Include="Tag.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Model1.edmx">
+    <EntityDeploy Include="ECommerce.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>ECommerce.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="ECommerce.edmx.diagram">
+      <DependentUpon>ECommerce.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
+    <Content Include="ECommerce.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>ECommerce.edmx</DependentUpon>
+      <LastGenOutput>ECommerce.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model1.tt">
+    <Content Include="ECommerce.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>ECommerce.edmx</DependentUpon>
+      <LastGenOutput>ECommerce.cs</LastGenOutput>
     </Content>
     <Content Include="Sql\createTables.sql" />
   </ItemGroup>

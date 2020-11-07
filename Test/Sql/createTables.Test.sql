@@ -139,11 +139,11 @@ GO
 CREATE TABLE [User] (
 	userId bigint IDENTITY(1,1) NOT NULL,
 	login varchar(30) NOT NULL,
-	password varchar(20) NOT NULL,
+	password varchar(64) NOT NULL,
 	name varchar(30) NOT NULL,
 	surnames varchar(60) NOT NULL,
 	postalAddress varchar(60) NOT NULL,
-	email varchar(20) NOT NULL,
+	email varchar(40) NOT NULL,
 
 	CONSTRAINT [PK_User] PRIMARY KEY (userId ASC)
 )
@@ -154,11 +154,11 @@ GO
 /* Credit Card */
 
 CREATE TABLE CreditCard (
-	creditcardId bigint IDENTITY(1,1) NOT NULL, 
+	creditCardId bigint IDENTITY(1,1) NOT NULL, 
 	userId bigint NOT NULL,
 	tipo varchar(10) NOT NULL,
 	number bigint NOT NULL,
-	verifyCode tinyint NOT NULL, 
+	verifyCode smallint NOT NULL, 
 	expDate date NOT NULL,
 	isFav bit NOT NULL, /* Boolean */
 	
@@ -179,16 +179,15 @@ GO
 CREATE TABLE [Order] (
 	orderId bigint IDENTITY(1,1) NOT NULL, 
 	userId bigint NOT NULL,
-	creationDate date NOT NULL,
-	creditCardNumber varchar(20) NOT NULL,
-	creditCardVerifyCode tinyint NOT NULL, 
-	creditCardExpDate date NOT NULL,
-	userPostalAddress varchar(60) NOT NULL,
+	creditCardId bigint NOT NULL,
+	orderDate date NOT NULL
 	
 	CONSTRAINT [PK_Order] PRIMARY KEY (orderId ASC),
 	
 	CONSTRAINT [FK_OrderUserId] FOREIGN KEY(userId)
-		REFERENCES [User] (userId) ON DELETE CASCADE
+		REFERENCES [User] (userId) ON DELETE CASCADE,
+	CONSTRAINT [FK_OrderCreditCardId] FOREIGN KEY(creditCardId)
+		REFERENCES [CreditCard] (creditCardId)
 )
 
 CREATE NONCLUSTERED INDEX IX_FK_OrderIndexByUserId
@@ -215,11 +214,10 @@ CREATE TABLE Product (
 	productId bigint IDENTITY(1,1) NOT NULL,
 	categoryId bigint NOT NULL,
 	name varchar(40) NOT NULL,
-	price float NOT NULL,
-	entryDate date NOT NULL,
-	stockUnits int NOT NULL,
 	unitPrice float NOT NULL,
-	subtype varchar(30) NOT NULL,
+	productDate date NOT NULL,
+	stockUnits int NOT NULL,
+	type varchar(30) NOT NULL,
 	
 	CONSTRAINT [PK_Product] PRIMARY KEY (productId ASC),
 	
@@ -238,7 +236,7 @@ GO
 CREATE TABLE Movie (
 	productId bigint NOT NULL,
 	director varchar(40) NOT NULL,
-	premiereDate date NOT NULL,
+	movieDate date NOT NULL,
 	
 	CONSTRAINT [PK_Movie] PRIMARY KEY (productId ASC),
 	
@@ -253,7 +251,7 @@ GO
 
 CREATE TABLE Book (
 	productId bigint NOT NULL,
-	ISBN varchar(25) NOT NULL,
+	isbn varchar(13) NOT NULL,
 	editionNumber int NOT NULL,
 	author varchar(40) NOT NULL,
 	
@@ -313,7 +311,7 @@ CREATE TABLE Comment  (
 	userId bigint NOT NULL,
 	productId bigint NOT NULL,
 	body varchar(100) NOT NULL,
-	publicationDate date NOT NULL,
+	commentDate date NOT NULL,
 	
 	CONSTRAINT [PK_Comment] PRIMARY KEY (commentId ASC),
 	
@@ -356,17 +354,5 @@ CREATE TABLE CommentTag  (
 
 PRINT N'Table Comment Tag created.'
 GO
-
---CREATE PROCEDURE SP_GetAllUserAccounts
---	(@usrId as bigint)
---AS
---	select *   
---	from Account AS a
---	where (a.usrId =  @usrId)
-	
---	GO
-
---PRINT N'Stored Procedure SP_GetAllUserAccounts(@usrID) created.'
---GO
 
 PRINT N'Done'

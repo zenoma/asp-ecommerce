@@ -15,7 +15,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
 
             var result =
                 (from t in tags
-                 where t.Comments.Any(c => c.commentId == commentId)
+                 where t.Comment.Any(c => c.commentId == commentId)
                  select t).ToList();
 
             return result;

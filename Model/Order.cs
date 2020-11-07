@@ -17,22 +17,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     {
         public Order()
         {
-            this.OrderItems = new HashSet<OrderItem>();
+            this.OrderItem = new HashSet<OrderItem>();
         }
     
         public long orderId { get; set; }
         public long userId { get; set; }
-        public System.DateTime creationDate { get; set; }
-        public string creditCardNumber { get; set; }
-        public byte creditCardVerifyCode { get; set; }
-        public System.DateTime creditCardExpDate { get; set; }
-        public string userPostalAddress { get; set; }
+        public long creditCardId { get; set; }
+        public System.DateTime orderDate { get; set; }
     
+        
+        /// <summary>
+        /// Relationship Name (Foreign Key in ER-Model): FK_OrderCreditCardId
+        /// </summary>
+        public virtual CreditCard CreditCard { get; set; }
         
         /// <summary>
         /// Relationship Name (Foreign Key in ER-Model): FK_OrderItemOrderId
         /// </summary>
-        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public virtual ICollection<OrderItem> OrderItem { get; set; }
         
         /// <summary>
         /// Relationship Name (Foreign Key in ER-Model): FK_OrderUserId
@@ -56,11 +58,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			int hash = GetType().GetHashCode();
     
     			hash = hash * multiplier + userId.GetHashCode();
-    			hash = hash * multiplier + creationDate.GetHashCode();
-    			hash = hash * multiplier + (creditCardNumber == null ? 0 : creditCardNumber.GetHashCode());
-    			hash = hash * multiplier + creditCardVerifyCode.GetHashCode();
-    			hash = hash * multiplier + creditCardExpDate.GetHashCode();
-    			hash = hash * multiplier + (userPostalAddress == null ? 0 : userPostalAddress.GetHashCode());
+    			hash = hash * multiplier + creditCardId.GetHashCode();
+    			hash = hash * multiplier + orderDate.GetHashCode();
     
     			return hash;
     	    }
@@ -83,11 +82,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     		return true
                &&  (this.orderId == target.orderId )       
                &&  (this.userId == target.userId )       
-               &&  (this.creationDate == target.creationDate )       
-               &&  (this.creditCardNumber == target.creditCardNumber )       
-               &&  (this.creditCardVerifyCode == target.creditCardVerifyCode )       
-               &&  (this.creditCardExpDate == target.creditCardExpDate )       
-               &&  (this.userPostalAddress == target.userPostalAddress )       
+               &&  (this.creditCardId == target.creditCardId )       
+               &&  (this.orderDate == target.orderDate )       
                ;
     
         }
@@ -124,11 +120,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     		strOrder.Append("[ ");
            strOrder.Append(" orderId = " + orderId + " | " );       
            strOrder.Append(" userId = " + userId + " | " );       
-           strOrder.Append(" creationDate = " + creationDate + " | " );       
-           strOrder.Append(" creditCardNumber = " + creditCardNumber + " | " );       
-           strOrder.Append(" creditCardVerifyCode = " + creditCardVerifyCode + " | " );       
-           strOrder.Append(" creditCardExpDate = " + creditCardExpDate + " | " );       
-           strOrder.Append(" userPostalAddress = " + userPostalAddress + " | " );       
+           strOrder.Append(" creditCardId = " + creditCardId + " | " );       
+           strOrder.Append(" orderDate = " + orderDate + " | " );       
             strOrder.Append("] ");    
     
     		return strOrder.ToString();

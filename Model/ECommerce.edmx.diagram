@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1d175e484fa84306a45db3bb34a35a31" Name="Diagram1" ZoomLevel="80">
+        <EntityTypeShape EntityType="ecommerceModel.Book" Width="1.5" PointX="5.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Category" Width="1.5" PointX="12.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Comment" Width="1.5" PointX="0.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.CreditCard" Width="1.5" PointX="5.125" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Movie" Width="1.5" PointX="9.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Music" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Order" Width="1.5" PointX="9.125" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.OrderItem" Width="1.5" PointX="10.375" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Product" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.Tag" Width="1.5" PointX="2.875" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.User" Width="1.5" PointX="3" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="ecommerceModel.FK_ProductCategoryId" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ecommerceModel.FK_CommentProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK_CommentUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK_CreditCardUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK_OrderCreditCardId" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK_OrderItemOrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK_OrderUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.FK_OrderItemProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="ecommerceModel.CommentTag" ManuallyRouted="false" />
+        <InheritanceConnector EntityType="ecommerceModel.Music" />
+        <InheritanceConnector EntityType="ecommerceModel.Movie" />
+        <InheritanceConnector EntityType="ecommerceModel.Book" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
