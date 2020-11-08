@@ -1,21 +1,19 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using System.Collections.Generic;
 using System.Transactions;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
 {
     [TestClass()]
     public class IProductDaoEntityFrameworkTests
-    { 
+    {
         private static IKernel kernel;
         private static IProductDao productDao;
         private static ICategoryDao categoryDao;
-        private static ITagDao tagDao;
 
         private const long NON_EXISTENT_PRODUCT_ID = -1;
 
@@ -47,7 +45,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
             kernel = TestManager.ConfigureNInjectKernel();
             productDao = kernel.Get<IProductDao>();
             categoryDao = kernel.Get<ICategoryDao>();
-            tagDao = kernel.Get<ITagDao>();
         }
         //Use ClassCleanup to run code after all tests in a class have run
         [ClassCleanup()]
@@ -73,65 +70,139 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
         #endregion Additional test attributes
 
 
-        /// <summary>
-        /// A test for FindByUserId method.
-        /// </summary>
         [TestMethod()]
         public void FindByNameTest()
         {
             int numberOfProducts = 1;
 
-            //List<Product> createdProducts = new List<Product>(numberOfProducts);
+            List<Product> createdProducts = new List<Product>(numberOfProducts);
             string name = "Some Name";
-
-            Tag tag = new Tag();
-            tag.name = "hola";
-            tagDao.Create(tag);
-           
-
 
             Category category = new Category();
             category.visualName = "Category";
             categoryDao.Create(category);
 
             /*Create numberOfProducts products*/
-            //for (int i = 0; i < numberOfProducts; i++)
-            //{
-            //    Product product = new Product();
-            //    product.categoryId = category.categoryId;
-            //    product.name = name;
-            //    product.price = 10;
-            //    product.entryDate = System.DateTime.Now;
-            //    product.stockUnits = 100;
-            //    product.unitPrice = 5;
-            //    product.subtype = "Subtipo";
-            //    productDao.Create(product);
-            //    createdProducts.Add(product);
-            //}
+            for (int i = 0; i < numberOfProducts; i++)
+            {
+                Product product = new Product();
+                product.categoryId = category.categoryId;
+                product.name = name;
+                product.productDate = System.DateTime.Now;
+                product.stockUnits = 100;
+                product.unitPrice = 5;
+                product.type = "Tipo";
+                productDao.Create(product);
+                createdProducts.Add(product);
+            }
 
-            //int count = 10;
-            //int startIndex = 0;
+            int count = 10;
+            int startIndex = 0;
 
-            //List<Product> listProducts;
-            //List<Product> totalRetrievedProducts = new List<Product>(numberOfProducts);
+            List<Product> listProducts;
+            List<Product> totalRetrievedProducts = new List<Product>(numberOfProducts);
 
-            //do
-            //{
-            //    listProducts = productDao.FindByName(name, startIndex, count);
-            //    totalRetrievedProducts.AddRange(listProducts);
+            do
+            {
+                listProducts = productDao.FindByName(name, startIndex, count);
+                totalRetrievedProducts.AddRange(listProducts);
 
-            //    Assert.IsTrue(listProducts.Count <= count);
-            //    startIndex += count;
-            //} while (startIndex < numberOfProducts);
+                Assert.IsTrue(listProducts.Count <= count);
+                startIndex += count;
+            } while (startIndex < numberOfProducts);
 
 
-            //Assert.AreEqual(numberOfProducts, totalRetrievedProducts.Count);
+            Assert.AreEqual(numberOfProducts, totalRetrievedProducts.Count);
 
-            //// are the accounts retrieved the same than the originals?
-            //for (int i = 0; i < numberOfProducts; i++)
-            //{
-            //    Assert.AreEqual(totalRetrievedProducts[i], createdProducts[i]);
-            //}
+            // are the accounts retrieved the same than the originals?
+            for (int i = 0; i < numberOfProducts; i++)
+            {
+                Assert.AreEqual(totalRetrievedProducts[i], createdProducts[i]);
+            }
+        }
+
+        [TestMethod]
+        public void FindByNameWithoutProductsTest()
+        {
+            string name = "";
+
+            int count = 10;
+            int startIndex = 10;
+
+            List<Product> retrievedProducts = productDao.FindByName(name, startIndex, count);
+
+            Assert.IsTrue(retrievedProducts.Count == 0);
+        }
+
+
+        [TestMethod()]
+        public void FindByNameAndCategoryTest()
+        {
+            int numberOfProducts = 1;
+
+            List<Product> createdProducts = new List<Product>(numberOfProducts);
+            string name = "Some Name";
+
+            Category category = new Category();
+            category.visualName = "Category";
+            categoryDao.Create(category);
+
+            /*Create numberOfProducts products*/
+            for (int i = 0; i < numberOfProducts; i++)
+            {
+                Product product = new Product();
+                product.categoryId = category.categoryId;
+                product.name = name;
+                product.productDate = System.DateTime.Now;
+                product.stockUnits = 100;
+                product.unitPrice = 5;
+                product.type = "Tipo";
+                productDao.Create(product);
+                createdProducts.Add(product);
+            }
+
+            int count = 10;
+            int startIndex = 0;
+
+            List<Product> listProducts;
+            List<Product> totalRetrievedProducts = new List<Product>(numberOfProducts);
+
+            do
+            {
+                listProducts = productDao.FindByNameAndCategory(name, category.categoryId, startIndex, count);
+                totalRetrievedProducts.AddRange(listProducts);
+
+                Assert.IsTrue(listProducts.Count <= count);
+                startIndex += count;
+            } while (startIndex < numberOfProducts);
+
+
+            Assert.AreEqual(numberOfProducts, totalRetrievedProducts.Count);
+
+            // are the accounts retrieved the same than the originals?
+            for (int i = 0; i < numberOfProducts; i++)
+            {
+                Assert.AreEqual(totalRetrievedProducts[i], createdProducts[i]);
+            }
+        }
+
+
+
+        [TestMethod]
+        public void FindByNameAndCategoryWithoutProductsTest()
+        {
+            string name = "";
+
+            Category category = new Category();
+            category.visualName = "Category";
+            categoryDao.Create(category);
+
+            int count = 10;
+            int startIndex = 10;
+
+            List<Product> retrievedProducts = productDao.FindByNameAndCategory(name, category.categoryId, startIndex, count);
+
+            Assert.IsTrue(retrievedProducts.Count == 0);
         }
 
     }

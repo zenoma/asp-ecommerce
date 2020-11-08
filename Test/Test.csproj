@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="ECommerceDaos\ProductDao\IProductDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\UserDao\IUserDaoEntityFrameworkTests.cs" />
+    <Compile Include="ECommerceServices\ProductService\IProductServiceTest.cs" />
     <Compile Include="ECommerceServices\UserService\IUserServiceTest.cs" />
     <Compile Include="TestManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

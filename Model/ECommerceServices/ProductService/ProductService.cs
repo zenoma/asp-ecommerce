@@ -37,5 +37,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
 
             ProductDao.Update(product);
         }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public ProductDetails FindProductDetails(long productId)
+        {
+            Product product = ProductDao.Find(productId);
+
+            ProductDetails productDetails = new ProductDetails(product.categoryId, product.name, product.stockUnits, product.unitPrice, product.type, product.productDate);
+
+            return productDetails;
+        }
     }
 }
