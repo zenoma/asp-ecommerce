@@ -97,7 +97,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
         {
             List<Product> expectedProducts = productDao.FindByName(product.name, 0, 10);
 
-            List<Product> actualProducts = productService.FindProducts(product.name, NON_EXISTENT_CATEGORY_ID);
+            List<Product> actualProducts = productService.FindProducts(product.name, NON_EXISTENT_CATEGORY_ID, 0);
 
             Assert.AreEqual(expectedProducts.Count, actualProducts.Count);
 
@@ -108,7 +108,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
         {
             List<Product> expectedProducts = productDao.FindByName(product.name, 0, 10);
 
-            List<Product> actualProducts = productService.FindProducts(product.name, category.categoryId);
+            List<Product> actualProducts = productService.FindProducts(product.name, category.categoryId, 0);
 
             Assert.AreEqual(expectedProducts.Count, actualProducts.Count);
 
@@ -119,7 +119,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
         {
             productDao.Remove(product.productId);
 
-            List<Product> actualProducts = productService.FindProducts(product.name, category.categoryId);
+            List<Product> actualProducts = productService.FindProducts(product.name, category.categoryId, 0);
 
             Assert.AreEqual(0, actualProducts.Count);
 

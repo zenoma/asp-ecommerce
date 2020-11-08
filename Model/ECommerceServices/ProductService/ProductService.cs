@@ -12,11 +12,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public IProductDao ProductDao { private get; set; }
 
         [Transactional]
-        public List<Product> FindProducts(string name, long categoryId)
+        public List<Product> FindProducts(string name, long categoryId, int startIndex)
         {
             if(categoryId > 0)
             {
-                return ProductDao.FindByNameAndCategory(name, categoryId, 0, 10);
+                return ProductDao.FindByNameAndCategory(name, categoryId, startIndex, 10);
             }
             else
             { 

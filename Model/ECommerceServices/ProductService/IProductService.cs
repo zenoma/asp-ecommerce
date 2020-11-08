@@ -12,7 +12,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         IProductDao ProductDao { set; }
 
         [Transactional]
-        List<Product> FindProducts(string name, long categoryId);
+        List<Product> FindProducts(string name, long categoryId, int startIndex);
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
