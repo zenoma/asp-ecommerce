@@ -1,5 +1,8 @@
-﻿using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
+﻿using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
@@ -24,23 +27,27 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
             IKernel kernel = new StandardKernel();
 
-            kernel.Bind<IProductService>().To<ProductService>();
-
-            kernel.Bind<IProductDao>().
-                To<ProductDaoEntityFramework>();
+            // DAOS
+            kernel.Bind<IProductDao>().To<ProductDaoEntityFramework>();
 
             kernel.Bind<ICategoryDao>().To<CategoryDaoEntityFramework>();
 
             kernel.Bind<ITagDao>().To<TagDaoEntityFramework>();
 
+            kernel.Bind<IOrderDao>().To<OrderDaoEntityFramework>();
+
+            kernel.Bind<IOrderItemDao>().To<OrderItemDaoEntityFramework>();
+
+            kernel.Bind<IUserDao>().To<UserDaoEntityFramework>();
+
+            kernel.Bind<ICreditCardDao>().To<CreditCardDaoEntityFramework>();
+
+            // SERVICES
+            kernel.Bind<IProductService>().To<ProductService>();
+
             kernel.Bind<IUserService>().To<UserService>();
 
-            kernel.Bind<IUserDao>().
-                To<UserDaoEntityFramework>();
-
-            kernel.Bind<ICreditCardDao>().
-                To<CreditCardDaoEntityFramework>();
-
+            kernel.Bind<IOrderService>().To<OrderService>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["ecommerceEntities"].ConnectionString;

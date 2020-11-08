@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao
 {
-    interface IOrderItemDao : IGenericDao<OrderItem, Int64>
+    public interface IOrderItemDao : IGenericDao<OrderItem, Int64>
     {
         List<OrderItem> findByOrderId(long orderId, int startIndex, int count);
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao
 {
-    class OrderItemDaoEntityFramework : GenericDaoEntityFramework<OrderItem, Int64>, IOrderItemDao
+    public class OrderItemDaoEntityFramework : GenericDaoEntityFramework<OrderItem, Int64>, IOrderItemDao
     {
         public List<OrderItem> findByOrderId(long orderId, int startIndex, int count)
         {

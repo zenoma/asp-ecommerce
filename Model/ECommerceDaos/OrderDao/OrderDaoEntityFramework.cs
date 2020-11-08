@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao
 {
-    class OrderDaoEntityFramework : GenericDaoEntityFramework<Order, Int64>, IOrderDao
+    public class OrderDaoEntityFramework : GenericDaoEntityFramework<Order, Int64>, IOrderDao
     {
         public List<Order> findByUserId(long userId, int startIndex, int count)
         {

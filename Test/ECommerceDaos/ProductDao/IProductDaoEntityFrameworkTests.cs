@@ -73,7 +73,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
         [TestMethod()]
         public void FindByNameTest()
         {
-            int numberOfProducts = 1;
+            int numberOfProducts = 10;
 
             List<Product> createdProducts = new List<Product>(numberOfProducts);
             string name = "Some Name";
@@ -138,7 +138,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
         [TestMethod()]
         public void FindByNameAndCategoryTest()
         {
-            int numberOfProducts = 1;
+            int numberOfProducts = 10;
 
             List<Product> createdProducts = new List<Product>(numberOfProducts);
             string name = "Some Name";
