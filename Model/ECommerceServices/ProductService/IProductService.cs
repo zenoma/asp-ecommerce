@@ -9,7 +9,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
     {
 
         [Inject]
-        IProductDao ProductDao { set; }
+        IProductDao productDao { set; }
 
         [Transactional]
         List<Product> FindProducts(string name, long categoryId, int startIndex);
