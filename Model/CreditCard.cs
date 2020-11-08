@@ -91,9 +91,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                ;
     
         }
-    
-    
-    	public static bool operator ==(CreditCard  objA, CreditCard  objB)
+
+        public CreditCard FindByUserId(long userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool operator ==(CreditCard  objA, CreditCard  objB)
         {
             // Check if the objets are the same CreditCard entity
             if(Object.ReferenceEquals(objA, objB))

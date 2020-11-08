@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
@@ -36,6 +37,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
             kernel.Bind<IUserDao>().
                 To<UserDaoEntityFramework>();
+
+            kernel.Bind<ICreditCardDao>().
+                To<CreditCardDaoEntityFramework>();
 
 
             string connectionString =
