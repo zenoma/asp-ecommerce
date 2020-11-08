@@ -1,16 +1,26 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.Transactions;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.Util;
 using Ninject;
+using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 {
-    public class UserService
+    public class UserService : IUserService
     {
+        public UserService()
+        {
+
+        }
+
         [Inject]
-        IUserDao UserDao { set; get; }
+        public IUserDao UserDao { set; get; }
+
+        [Inject]
+        public ICreditCardDao CreditCardDao { set; get; }
 
         /// <exception cref="DuplicateInstanceException"/>
         [Transactional]
@@ -24,13 +34,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
             }
             catch (InstanceNotFoundException)
             {
-                string encryptedPassword = PasswordEncrypter.Crypt(user.password);
+                UserDao.Create(user);
 
+                return user.userId;
             }
-
-            UserDao.Create(user);
-
-            return user.userId;
         }
 
         /// <exception cref="InstanceNotFoundException"/>
@@ -58,17 +65,80 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 }
             }
 
-            if (user.password.Equals(password))
+            return new LoginUser(user.userId, user.name, user.surnames,
+                user.postalAddress, user.email);
+        }
+
+        /// <exception cref="DuplicateInstanceException"/>
+        [Transactional]
+        public long CreateCreditCard(CreditCard creditCard)
+        {
+            List<CreditCard> creditCards = CreditCardDao.FindAllByUserId(creditCard.userId);
+
+            if (creditCards.Contains(creditCard))
             {
-                return new LoginUser(user.userId, user.name, user.surnames,
-                    user.postalAddress, user.email);
-            }
-            else
-            {
-                throw new IncorrectPasswordException(login);
+                throw new DuplicateInstanceException(creditCard, "CreditCard");
             }
 
-            
+            CreditCardDao.Create(creditCard);
+
+            return creditCard.creditCardId;
+        }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public void UpdateCreditCard(CreditCard creditCard)
+        {
+            CreditCard creditCardFound = CreditCardDao.Find(creditCard.creditCardId);
+
+            if (creditCardFound.Equals(null))
+            {
+                throw new InstanceNotFoundException(creditCard, "CreditCard");
+            }
+
+            CreditCardDao.Update(creditCard);
+        }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public List<CreditCard> FindCreditCardsByUserId(long userId, int startPage)
+        {
+            User userFound = UserDao.Find(userId);
+
+            if (userFound.Equals(null))
+            {
+                throw new InstanceNotFoundException(userId, "User");
+            }
+
+            return CreditCardDao.FindByUserId(userId, startPage, 10);
+        }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public CreditCard FindFavCreditCardByUserId(long userId)
+        {
+            User userFound = UserDao.Find(userId);
+
+            if (userFound.Equals(null))
+            {
+                throw new InstanceNotFoundException(userId, "User");
+            }
+
+            return CreditCardDao.FindFavByUserId(userId);
+        }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public void DeleteCreditCard(long creditCardId)
+        {
+            CreditCard creditCardFound = CreditCardDao.Find(creditCardId);
+
+            if (creditCardFound.Equals(null))
+            {
+                throw new InstanceNotFoundException(creditCardId, "CreditCard");
+            }
+
+            CreditCardDao.Remove(creditCardId);
         }
     }
 }

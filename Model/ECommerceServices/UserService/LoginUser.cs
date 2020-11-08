@@ -53,7 +53,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
             if (ReferenceEquals(this, obj)) return true;         // Is same object?
             if (obj.GetType() != this.GetType()) return false;   // Is same type? 
 
-            User target = obj as User;
+            LoginUser target = obj as LoginUser;
 
             return true
                && (this.userId == target.userId)

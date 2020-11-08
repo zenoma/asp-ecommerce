@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ECommerceDaos\CreditCardDao\ICreditCardDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\ProductDao\IProductDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\UserDao\IUserDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceServices\UserService\IUserServiceTest.cs" />
