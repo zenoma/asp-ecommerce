@@ -12,11 +12,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public IProductDao ProductDao { private get; set; }
 
         [Transactional]
-        public List<Product> FindProducts(string name, long categoryId)
+        public List<Product> FindProducts(string name, long categoryId, int startIndex)
         {
             if(categoryId > 0)
             {
-                return ProductDao.FindByNameAndCategory(name, categoryId, 0, 10);
+                return ProductDao.FindByNameAndCategory(name, categoryId, startIndex, 10);
             }
             else
             { 
@@ -36,6 +36,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
             product.type = productDetails.type;
 
             ProductDao.Update(product);
+        }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public ProductDetails FindProductDetails(long productId)
+        {
+            Product product = ProductDao.Find(productId);
+
+            ProductDetails productDetails = new ProductDetails(product.categoryId, product.name, product.stockUnits, product.unitPrice, product.type, product.productDate);
+
+            return productDetails;
         }
     }
 }
