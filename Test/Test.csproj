@@ -85,6 +85,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ECommerceDaos\CreditCardDao\ICreditCardDaoEntityFrameworkTests.cs" />
+    <Compile Include="ECommerceDaos\OrderDao\IOrderDaoEntityFrameworkTests.cs" />
+    <Compile Include="ECommerceDaos\OrderItemDao\IOrderItemDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\ProductDao\IProductDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\UserDao\IUserDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceServices\ProductService\IProductServiceTest.cs" />

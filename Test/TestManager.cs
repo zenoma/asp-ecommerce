@@ -1,5 +1,7 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
@@ -32,6 +34,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             kernel.Bind<ICategoryDao>().To<CategoryDaoEntityFramework>();
 
             kernel.Bind<ITagDao>().To<TagDaoEntityFramework>();
+
+            kernel.Bind<IOrderDao>().To<OrderDaoEntityFramework>();
+
+            kernel.Bind<IOrderItemDao>().To<OrderItemDaoEntityFramework>();
 
             kernel.Bind<IUserService>().To<UserService>();
 
