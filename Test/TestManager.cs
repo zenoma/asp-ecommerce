@@ -29,11 +29,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
             kernel.Bind<ICategoryDao>().To<CategoryDaoEntityFramework>();
 
-            kernel.Bind<ITagDao>().To<TagDaoEntityFramework>();
-
             kernel.Bind<IUserDao>().
                 To<UserDaoEntityFramework>();
-
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["ecommerceEntities"].ConnectionString;
