@@ -23,6 +23,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
             comment.userId = userId;
             comment.body = body;
             comment.Tag = tags;
+            comment.commentDate = System.DateTime.Now;
 
             commentDao.Create(comment);
 
