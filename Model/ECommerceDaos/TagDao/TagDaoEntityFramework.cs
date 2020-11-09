@@ -2,20 +2,31 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
 {
+
+    public class Item {
+        public long id { get; set; }
+        public int count { get; set; }
+    }
+
     public class TagDaoEntityFramework :
         GenericDaoEntityFramework<Tag, Int64>, ITagDao
     {
-        public int CountTag(long tagId) //cuantas veces aparece un tag en la bbdd
+        public Dictionary<long, int> FindTopTags(long tagId) // cuantas veces aparece un tag en la bbdd
         {
             DbSet<Tag> tags = Context.Set<Tag>();
 
-            int result = (from t in tags
-                          where t.tagId == tagId
-                          select t).Count();
+            var result = (from t in tags
+                          select new Item
+                          { 
+                              id = t.tagId,
+                              count = t.Comment.Count()
+                          }
+                          ).OrderByDescending(o => o.count).Take(5).ToDictionary(item => item.id, item => item.count);
 
             return result;
         }
@@ -31,14 +42,5 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
 
             return result;
         }
-
-        //public List<Tag> FindTop5MoreUsedTags()
-        //{
-        //    DbSet<Tag> tags = Context.Set<Tag>();
-
-        //    var result = tags.GroupBy(t => t.tagId).OrderByDescending(gt => gt.Count()).Take(5).Select(t => t.Key).ToList();
-
-        //    return result;
-        //}
     }
 }
