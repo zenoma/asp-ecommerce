@@ -14,5 +14,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao
         List<Comment> FindByProductId(long productId, int startIndex, int count);
 
         List<Comment> FindByUserIdAndProductId(long userId, long productId, int startIndex, int count);
+
+        List<Comment> FindByTag(long tagId, int startIndex, int count);
     }
 }

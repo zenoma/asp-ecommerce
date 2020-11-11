@@ -18,7 +18,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
         [Inject]
         ITagDao tagDao { set; }
 
-        //[Transactional]
-        //List<Tag> GetTopUsedTags();
+        [Transactional]
+        List<TagDetails> GetTopFiveTags();
     }
 }

@@ -154,5 +154,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
 
             Assert.AreEqual(commentDao.Find(comment.commentId).Tag, tagList);
         }
+
+        [TestMethod()]
+        public void TestListCommentsByTag()
+        {
+            tagList.Add(tag);
+            comment = commentService.CreateComment(product.productId, user.userId, "Comment1", tagList);
+
+            Assert.AreEqual(true, commentService.ListCommentsByTag(tag.tagId, 0).Contains(comment));
+        }
     }
 }

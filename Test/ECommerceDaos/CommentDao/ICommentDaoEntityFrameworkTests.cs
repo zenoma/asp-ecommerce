@@ -149,5 +149,35 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
                 Assert.Fail(e.Message);
             }
         }
+
+        [TestMethod()]
+        public void DAO_FindAllByTagId()
+        {
+            try
+            {
+                comment = new Comment();
+                comment.productId = product.productId;
+                comment.userId = user.userId;
+                comment.body = body;
+                comment.commentDate = System.DateTime.Now;
+
+                tag = new Tag();
+                tag.name = "Tag Name";
+
+                tagDao.Create(tag);
+
+                comment.Tag.Add(tag);
+
+                commentDao.Create(comment);
+
+                List<Comment> actual = commentDao.FindByTag(tag.tagId, 0, 10);
+
+                Assert.IsTrue(actual.Contains(comment));
+            }
+            catch (Exception e)
+            {
+                Assert.Fail(e.Message);
+            }
+        }
     }
 }

@@ -26,5 +26,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
         [Transactional]
         List<Comment> ShowCommentsOfProduct(long productId, int startIndex);
+
+        [Transactional]
+        List<Comment> ListCommentsByTag(long tagId, int startIndex);
     }
 }

@@ -16,20 +16,25 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
     public class TagDaoEntityFramework :
         GenericDaoEntityFramework<Tag, Int64>, ITagDao
     {
-        public Dictionary<long, int> FindTopTags(long tagId) // cuantas veces aparece un tag en la bbdd
+        public List<Tag> FindTopTags() // cuantas veces aparece un tag en la bbdd
         {
             DbSet<Tag> tags = Context.Set<Tag>();
 
             var result = (from t in tags
-                          select new Item
-                          { 
-                              id = t.tagId,
-                              count = t.Comment.Count()
-                          }
-                          ).OrderByDescending(o => o.count).Take(5).ToDictionary(item => item.id, item => item.count);
+                          select t).OrderByDescending(t => t.Comment.Count).Take(5).ToList();
+                          //select new Item
+                          //{ 
+                          //    id = t.tagId,
+                          //    count = t.Comment.Count()
+                          //}
+                          //).OrderByDescending(o => o.count).Take(5).ToDictionary(item => item.id, item => item.count);
 
             return result;
         }
+
+        //var query = tapesTable.GroupBy(x => x.Tape)
+        //              .Select(x => x.OrderByDescending(t => t.Count)
+        //                            .First());
 
         public List<Tag> FindByCommentId(long commentId)
         {

@@ -94,6 +94,7 @@
     <Compile Include="ECommerceServices\CommentService\ICommentServiceTest.cs" />
     <Compile Include="ECommerceServices\OrderService\IOrderServiceTest.cs" />
     <Compile Include="ECommerceServices\ProductService\IProductServiceTest.cs" />
+    <Compile Include="ECommerceServices\TagService\ITagServiceTest.cs" />
     <Compile Include="ECommerceServices\UserService\IUserServiceTest.cs" />
     <Compile Include="TestManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

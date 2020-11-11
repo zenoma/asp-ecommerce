@@ -1,4 +1,6 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
@@ -13,25 +15,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
+namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
 {
     [TestClass()]
-    public class ITagDaoEntityFrameworkTests
+    public class ITagServiceTest
     {
         private static IKernel kernel;
-        private static ICommentDao commentDao;
+        private static ITagService tagService;
         private static IProductDao productDao;
-        private static ITagDao tagDao;
+        private static ICommentDao commentDao;
         private static IUserDao userDao;
         private static ICategoryDao categoryDao;
+        private static ITagDao tagDao;
 
-        private static User user;
-        private static Product product;
-        private static Comment comment;
-        private static Comment comment2;
-        private static Category category;
-        private static Tag tag;
-        private static Tag tag2;
+        // Variables used in several tests are initialized 
+        private User user = new User();
+        private Product product = new Product();
+        private Comment comment = new Comment();
+        private Comment comment2 = new Comment();
+        private Category category = new Category();
+        private Tag tag = new Tag();
+        private Tag tag2 = new Tag();
+        private List<Tag> tagList = new List<Tag>();
 
         private const string login = "loginTest";
         private const string password = "password";
@@ -53,8 +58,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
         private const string categoryName = "Category Name";
 
         private TransactionScope transactionScope;
+
         private TestContext testContextInstance;
 
+        /// <summary>
+        ///Gets or sets the test context which provides
+        ///information about and functionality for the current test run.
+        ///</summary>
         public TestContext TestContext
         {
             get
@@ -68,17 +78,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
         }
 
         #region Additional test attributes
+
         //Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext)
         {
             kernel = TestManager.ConfigureNInjectKernel();
+            tagService = kernel.Get<ITagService>();
             productDao = kernel.Get<IProductDao>();
             commentDao = kernel.Get<ICommentDao>();
+            categoryDao = kernel.Get<ICategoryDao>();
             userDao = kernel.Get<IUserDao>();
             tagDao = kernel.Get<ITagDao>();
-            categoryDao = kernel.Get<ICategoryDao>();
         }
+
         //Use ClassCleanup to run code after all tests in a class have run
         [ClassCleanup()]
         public static void MyClassCleanup()
@@ -91,7 +104,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
         public void MyTestInitialize()
         {
             transactionScope = new TransactionScope();
-
             user = new User();
             user.login = login;
             user.password = password;
@@ -140,11 +152,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
             tagDao.Create(tag2);
 
             comment.Tag.Add(tag);
-            comment2.Tag.Add(tag);
 
             commentDao.Create(comment);
             commentDao.Create(comment2);
-
         }
 
         //Use TestCleanup to run code after each test has run
@@ -157,25 +167,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
         #endregion Additional test attributes
 
         [TestMethod()]
-        public void DAO_FindTopTagsTest()
+        public void TestGetTopFiveTags()
         {
-            List<Tag> topFive = new List<Tag>();
-            topFive = tagDao.FindTopTags();
+            List<TagDetails> listTags = tagService.GetTopFiveTags();
 
-            Assert.AreEqual(2, topFive.Count);
-            Assert.AreEqual(true, topFive.Contains(tag));
-            Assert.AreEqual(true, topFive.Contains(tag2));
-        }
-
-        [TestMethod()]
-        public void DAO_FindByCommentId()
-        {
-            List<Tag> listTag = tagDao.FindByCommentId(comment.commentId);
-
-            List<Tag> listTag2 = tagDao.FindByCommentId(comment2.commentId);
-
-            Assert.AreEqual(tag, listTag.First());
-            Assert.AreEqual(listTag.First(), listTag2.First());
+            Assert.AreEqual(2, listTags.Count);
+            Assert.AreEqual(1, listTags.First().count);
+            Assert.AreEqual(true, listTags.Contains(new TagDetails(tag.tagId, tag.name, tag.Comment.Count)));
+            Assert.AreEqual(true, listTags.Contains(new TagDetails(tag2.tagId, tag2.name, tag2.Comment.Count)));
         }
     }
 }

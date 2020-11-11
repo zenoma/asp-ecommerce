@@ -8,6 +8,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
     {
         List<Tag> FindByCommentId(long commentId);
 
-        Dictionary<long, int> FindTopTags(long tagId);
+        List<Tag> FindTopTags();
     }
 }

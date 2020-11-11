@@ -46,5 +46,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao
 
             return result;
         }
+
+        public List<Comment> FindByTag(long tagId, int startIndex, int count)
+        {
+            DbSet<Comment> comments = Context.Set<Comment>();
+
+            List<Comment> result = (from c in comments
+                                    where c.Tag.Any(t => t.tagId == tagId)
+                                    orderby c.commentId
+                                    select c).Skip(startIndex).Take(count).ToList();
+
+            return result;
+        }
     }
 }

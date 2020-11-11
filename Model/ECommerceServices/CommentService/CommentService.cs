@@ -53,5 +53,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
             commentDao.Update(comment);
         }
+
+        public List<Comment> ListCommentsByTag(long tagId, int startIndex)
+        {
+            return commentDao.FindByTag(tagId, startIndex, 10);
+        }
     }
 }

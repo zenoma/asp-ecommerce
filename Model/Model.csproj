@@ -229,6 +229,7 @@
     <Compile Include="ECommerceServices\Exceptions\EmptyOrderItemListException.cs" />
     <Compile Include="ECommerceServices\OrderService\IOrderService.cs" />
     <Compile Include="ECommerceServices\OrderService\OrderService.cs" />
+    <Compile Include="ECommerceServices\TagService\TagDetails.cs" />
     <Compile Include="ECommerceServices\TagService\TagService.cs" />
     <Compile Include="ECommerceServices\TagService\ITagService.cs" />
     <Compile Include="Movie.cs">

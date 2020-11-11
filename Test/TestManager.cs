@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
@@ -54,6 +55,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             kernel.Bind<IOrderService>().To<OrderService>();
 
             kernel.Bind<ICommentService>().To<CommentService>();
+
+            kernel.Bind<ITagService>().To<TagService>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["ecommerceEntities"].ConnectionString;
