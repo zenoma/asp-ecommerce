@@ -86,7 +86,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
 
             creditCard = new CreditCard();
             creditCard.userId = user.userId;
-            creditCard.tipo = "Visa";
+            creditCard.type = "Visa";
             creditCard.verifyCode = 303;
             creditCard.expDate = System.DateTime.Now.AddDays(20);
             creditCard.isFav = true;
@@ -96,6 +96,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
             order = new Order();
             order.userId = user.userId;
             order.orderDate = System.DateTime.Now;
+            order.address = user.postalAddress;
             order.creditCardId = creditCard.creditCardId;
 
             orderDao.Create(order);

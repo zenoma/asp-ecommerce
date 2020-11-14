@@ -1,16 +1,8 @@
-﻿using Es.Udc.DotNet.ModelUtil.Dao;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MusicDao
 {
-    interface IMusicDao : IGenericDao<Music, Int64>
+    interface IMusicDao : IProductDao
     {
-        List<Music> FindByAlbum(String album);
-
-        List<Music> FindByArtist(String artist);
     }
 }

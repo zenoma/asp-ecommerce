@@ -29,7 +29,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CreditCardDao
         private const string email = "email@email.es";
         private const string postalAddress = "address";
 
-        private const string tipo = "VISA";
+        private const string type = "VISA";
         private const long number = 1234123412341234L;
         private const short verifyCode = 123;
         private System.DateTime expDate = System.DateTime.Now;
@@ -84,7 +84,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CreditCardDao
             creditCard = new CreditCard();
 
             creditCard.userId = user.userId;
-            creditCard.tipo = tipo;
+            creditCard.type = type;
             creditCard.number = number;
             creditCard.verifyCode = verifyCode;
             creditCard.expDate = expDate;

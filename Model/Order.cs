@@ -23,6 +23,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         public long orderId { get; set; }
         public long userId { get; set; }
         public long creditCardId { get; set; }
+        public string address { get; set; }
         public System.DateTime orderDate { get; set; }
     
         
@@ -59,6 +60,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     			hash = hash * multiplier + userId.GetHashCode();
     			hash = hash * multiplier + creditCardId.GetHashCode();
+    			hash = hash * multiplier + (address == null ? 0 : address.GetHashCode());
     			hash = hash * multiplier + orderDate.GetHashCode();
     
     			return hash;
@@ -83,6 +85,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                &&  (this.orderId == target.orderId )       
                &&  (this.userId == target.userId )       
                &&  (this.creditCardId == target.creditCardId )       
+               &&  (this.address == target.address )       
                &&  (this.orderDate == target.orderDate )       
                ;
     
@@ -121,6 +124,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
            strOrder.Append(" orderId = " + orderId + " | " );       
            strOrder.Append(" userId = " + userId + " | " );       
            strOrder.Append(" creditCardId = " + creditCardId + " | " );       
+           strOrder.Append(" address = " + address + " | " );       
            strOrder.Append(" orderDate = " + orderDate + " | " );       
             strOrder.Append("] ");    
     

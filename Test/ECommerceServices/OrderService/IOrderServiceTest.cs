@@ -85,7 +85,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.OrderService
 
             creditCard = new CreditCard();
             creditCard.userId = user.userId;
-            creditCard.tipo = "VISA";
+            creditCard.type = "VISA";
             creditCard.number = 1234123412341234L;
             creditCard.verifyCode = 123;
             creditCard.expDate = DateTime.Now;

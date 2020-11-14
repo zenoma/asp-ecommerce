@@ -22,7 +22,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
         public long creditCardId { get; set; }
         public long userId { get; set; }
-        public string tipo { get; set; }
+        public string type { get; set; }
         public long number { get; set; }
         public short verifyCode { get; set; }
         public System.DateTime expDate { get; set; }
@@ -56,7 +56,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			int hash = GetType().GetHashCode();
     
     			hash = hash * multiplier + userId.GetHashCode();
-    			hash = hash * multiplier + (tipo == null ? 0 : tipo.GetHashCode());
+    			hash = hash * multiplier + (type == null ? 0 : type.GetHashCode());
     			hash = hash * multiplier + number.GetHashCode();
     			hash = hash * multiplier + verifyCode.GetHashCode();
     			hash = hash * multiplier + expDate.GetHashCode();
@@ -83,7 +83,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     		return true
                &&  (this.creditCardId == target.creditCardId )       
                &&  (this.userId == target.userId )       
-               &&  (this.tipo == target.tipo )       
+               &&  (this.type == target.type )       
                &&  (this.number == target.number )       
                &&  (this.verifyCode == target.verifyCode )       
                &&  (this.expDate == target.expDate )       
@@ -91,13 +91,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                ;
     
         }
-
-        public CreditCard FindByUserId(long userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static bool operator ==(CreditCard  objA, CreditCard  objB)
+    
+    
+    	public static bool operator ==(CreditCard  objA, CreditCard  objB)
         {
             // Check if the objets are the same CreditCard entity
             if(Object.ReferenceEquals(objA, objB))
@@ -128,7 +124,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     		strCreditCard.Append("[ ");
            strCreditCard.Append(" creditCardId = " + creditCardId + " | " );       
            strCreditCard.Append(" userId = " + userId + " | " );       
-           strCreditCard.Append(" tipo = " + tipo + " | " );       
+           strCreditCard.Append(" type = " + type + " | " );       
            strCreditCard.Append(" number = " + number + " | " );       
            strCreditCard.Append(" verifyCode = " + verifyCode + " | " );       
            strCreditCard.Append(" expDate = " + expDate + " | " );       

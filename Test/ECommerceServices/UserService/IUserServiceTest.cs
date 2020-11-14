@@ -83,7 +83,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
 
             creditCard = new CreditCard();
 
-            creditCard.tipo = tipo;
+            creditCard.type = tipo;
             creditCard.number = number;
             creditCard.verifyCode = verifyCode;
             creditCard.expDate = expDate;
@@ -181,7 +181,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
 
             Assert.AreEqual(creditCardId, creditCardFound.creditCardId);
             Assert.AreEqual(userId, creditCardFound.userId);
-            Assert.AreEqual(tipo, creditCardFound.tipo);
+            Assert.AreEqual(tipo, creditCardFound.type);
             Assert.AreEqual(number, creditCardFound.number);
             Assert.AreEqual(verifyCode, creditCardFound.verifyCode);
             Assert.AreEqual(expDate, creditCardFound.expDate);
@@ -214,7 +214,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
 
             Assert.AreEqual(creditCardId, creditCardFound.creditCardId);
             Assert.AreEqual(userId, creditCardFound.userId);
-            Assert.AreEqual(tipo, creditCardFound.tipo);
+            Assert.AreEqual(tipo, creditCardFound.type);
             Assert.AreEqual(number, creditCardFound.number);
             Assert.AreEqual(verifyCode, creditCardFound.verifyCode);
             Assert.AreEqual(expDate, creditCardFound.expDate);

@@ -40,6 +40,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
                 User user = userDao.FindByLogin(login);
                 order.userId = user.userId;
                 order.creditCardId = creditCardId;
+                order.address = address;
                 order.orderDate = DateTime.Now;
                 orderDao.Create(order);
 

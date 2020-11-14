@@ -156,7 +156,7 @@ GO
 CREATE TABLE CreditCard (
 	creditCardId bigint IDENTITY(1,1) NOT NULL, 
 	userId bigint NOT NULL,
-	tipo varchar(10) NOT NULL,
+	type varchar(10) NOT NULL,
 	number bigint NOT NULL,
 	verifyCode smallint NOT NULL, 
 	expDate date NOT NULL,
@@ -180,6 +180,7 @@ CREATE TABLE [Order] (
 	orderId bigint IDENTITY(1,1) NOT NULL, 
 	userId bigint NOT NULL,
 	creditCardId bigint NOT NULL,
+	address varchar(50) NOT NULL,
 	orderDate date NOT NULL
 	
 	CONSTRAINT [PK_Order] PRIMARY KEY (orderId ASC),
@@ -217,7 +218,7 @@ CREATE TABLE Product (
 	unitPrice float NOT NULL,
 	productDate date NOT NULL,
 	stockUnits int NOT NULL,
-	type varchar(30) NOT NULL,
+	type varchar(30),
 	
 	CONSTRAINT [PK_Product] PRIMARY KEY (productId ASC),
 	
