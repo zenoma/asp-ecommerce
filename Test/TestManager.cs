@@ -1,5 +1,8 @@
-﻿using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
+﻿using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
@@ -42,12 +45,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
 
             kernel.Bind<ICreditCardDao>().To<CreditCardDaoEntityFramework>();
 
+            kernel.Bind<ICommentDao>().To<CommentDaoEntityFramework>();
+
             // SERVICES
             kernel.Bind<IProductService>().To<ProductService>();
 
             kernel.Bind<IUserService>().To<UserService>();
 
             kernel.Bind<IOrderService>().To<OrderService>();
+
+            kernel.Bind<ICommentService>().To<CommentService>();
+
+            kernel.Bind<ITagService>().To<TagService>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["ecommerceEntities"].ConnectionString;

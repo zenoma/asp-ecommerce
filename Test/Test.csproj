@@ -84,13 +84,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ECommerceDaos\CommentDao\ICommentDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\CreditCardDao\ICreditCardDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\OrderDao\IOrderDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\OrderItemDao\IOrderItemDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\ProductDao\IProductDaoEntityFrameworkTests.cs" />
+    <Compile Include="ECommerceDaos\TagDao\ITagDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\UserDao\IUserDaoEntityFrameworkTests.cs" />
+    <Compile Include="ECommerceServices\CommentService\ICommentServiceTest.cs" />
     <Compile Include="ECommerceServices\OrderService\IOrderServiceTest.cs" />
     <Compile Include="ECommerceServices\ProductService\IProductServiceTest.cs" />
+    <Compile Include="ECommerceServices\TagService\ITagServiceTest.cs" />
     <Compile Include="ECommerceServices\UserService\IUserServiceTest.cs" />
     <Compile Include="TestManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
