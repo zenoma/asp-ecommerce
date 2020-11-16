@@ -33,5 +33,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
 
             return listTagDetails;
         }
+        
+        [Transactional]
+        public Tag CreateTag(string name)
+        {
+            Tag tag = new Tag();
+            tag.name = name;
+            tagDao.Create(tag);
+
+            return tag;
+        }
+
+        public List<Tag> ListAllTags()
+        {
+            return tagDao.FindAllTags();
+        }
     }
 }

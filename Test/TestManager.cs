@@ -14,6 +14,7 @@ using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Ninject;
 using System.Configuration;
 using System.Data.Entity;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test
 {
@@ -57,6 +58,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             kernel.Bind<ICommentService>().To<CommentService>();
 
             kernel.Bind<ITagService>().To<TagService>();
+
+            kernel.Bind<ICategoryService>().To<CategoryService>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["ecommerceEntities"].ConnectionString;

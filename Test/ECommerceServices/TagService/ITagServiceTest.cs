@@ -176,5 +176,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
             Assert.AreEqual(true, listTags.Contains(new TagDetails(tag.tagId, tag.name, tag.Comment.Count)));
             Assert.AreEqual(true, listTags.Contains(new TagDetails(tag2.tagId, tag2.name, tag2.Comment.Count)));
         }
+
+        [TestMethod()]
+        public void TestFindAllTags()
+        {
+            List<Tag> listTags = tagService.ListAllTags();
+
+            Assert.AreEqual(2, listTags.Count);
+        }
     }
 }

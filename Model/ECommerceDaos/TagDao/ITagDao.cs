@@ -9,5 +9,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
         List<Tag> FindByCommentId(long commentId);
 
         List<Tag> FindTopTags();
+
+        List<Tag> FindAllTags();
+
+        Tag FindByVisualName(string visualName);
     }
 }

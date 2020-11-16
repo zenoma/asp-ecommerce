@@ -32,6 +32,30 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
             return result;
         }
 
+        public List<Tag> FindAllTags()
+        {
+            DbSet<Tag> tags = Context.Set<Tag>();
+
+            var result =
+                (from t in tags
+                    select t).ToList();
+
+            return result;
+        }
+
+
+        public Tag FindByVisualName(string visualName)
+        {
+            DbSet<Tag> tags = Context.Set<Tag>();
+
+            var result =
+                (from t in tags
+                    where t.name == visualName
+                    select t).SingleOrDefault();
+
+            return result ;
+        }
+
         //var query = tapesTable.GroupBy(x => x.Tape)
         //              .Select(x => x.OrderByDescending(t => t.Count)
         //                            .First());

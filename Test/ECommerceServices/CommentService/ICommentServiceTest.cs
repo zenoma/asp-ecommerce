@@ -34,7 +34,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
         private Comment comment = new Comment();
         private Category category = new Category();
         private Tag tag = new Tag();
-        private List<Tag> tagList = new List<Tag>();
+        private List<string> tagList = new List<string>();
 
         private TransactionScope transactionScope;
 
@@ -149,19 +149,37 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
         [TestMethod()]
         public void TestTagComment()
         {
-            tagList.Add(tag);
-            comment = commentService.CreateComment(product.productId, user.userId, "Comment1", tagList);
+            tagList.AddRange(new List<String>() { "tag", "tag2" });
 
-            Assert.AreEqual(commentDao.Find(comment.commentId).Tag, tagList);
+            comment = commentService.CreateComment(product.productId, user.userId, "Body of Comment1", tagList);
+
+            Assert.AreEqual(true, commentDao.Find(comment.commentId).Tag.Contains(tag));
+            Assert.AreEqual(tagList.Count, commentDao.Find(comment.commentId).Tag.Count);
         }
 
         [TestMethod()]
         public void TestListCommentsByTag()
         {
-            tagList.Add(tag);
+            tagList.Add("tag");
             comment = commentService.CreateComment(product.productId, user.userId, "Comment1", tagList);
 
             Assert.AreEqual(true, commentService.ListCommentsByTag(tag.tagId, 0).Contains(comment));
+        }
+
+        [TestMethod()]
+        public void TestUpdateComment()
+        {
+            
+            comment = commentService.CreateComment(product.productId, user.userId, "Comment1", null);
+
+            Assert.AreEqual(0, commentDao.Find(comment.commentId).Tag.Count);
+
+            tagList.Add("tag3");
+
+            commentService.UpdateComment(comment.commentId, "new comment body", tagList);
+
+            Assert.AreEqual(1, commentDao.Find(comment.commentId).Tag.Count);
+            Assert.AreEqual("tag3", tagDao.FindByVisualName("tag3").name);
         }
     }
 }

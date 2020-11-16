@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ECommerceDaos\CategoryDao\ICategoryDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\CommentDao\ICommentDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\CreditCardDao\ICreditCardDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\OrderDao\IOrderDaoEntityFrameworkTests.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="ECommerceDaos\ProductDao\IProductDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\TagDao\ITagDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\UserDao\IUserDaoEntityFrameworkTests.cs" />
+    <Compile Include="ECommerceServices\CategoryService\ICategoryServiceTest.cs" />
     <Compile Include="ECommerceServices\CommentService\ICommentServiceTest.cs" />
     <Compile Include="ECommerceServices\OrderService\IOrderServiceTest.cs" />
     <Compile Include="ECommerceServices\ProductService\IProductServiceTest.cs" />

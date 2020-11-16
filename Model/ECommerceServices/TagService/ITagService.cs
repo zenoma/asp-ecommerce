@@ -20,5 +20,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
 
         [Transactional]
         List<TagDetails> GetTopFiveTags();
+
+        [Transactional]
+        Tag CreateTag(string name);
+
+        [Transactional]
+        List<Tag> ListAllTags();
     }
 }

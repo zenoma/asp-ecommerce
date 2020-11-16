@@ -16,10 +16,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         ICommentDao commentDao { set; }
 
         [Transactional]
-        Comment CreateComment(long productId, long userId, string body, ICollection<Tag> tags);
+        Comment CreateComment(long productId, long userId, string body, ICollection<string> tags);
 
         [Transactional]
-        void UpdateComment(long commentId, string body, ICollection<Tag> tags);
+        void UpdateComment(long commentId, string body, ICollection<string> tags);
 
         [Transactional]
         void RemoveComment(long commentId);

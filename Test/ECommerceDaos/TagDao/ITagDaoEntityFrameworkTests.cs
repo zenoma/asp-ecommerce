@@ -177,5 +177,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
             Assert.AreEqual(tag, listTag.First());
             Assert.AreEqual(listTag.First(), listTag2.First());
         }
+
+        [TestMethod()]
+        public void DAO_FindAllTags()
+        {
+            Assert.AreEqual(true, tagDao.FindAllTags().Contains(tag));
+            Assert.AreEqual(true, tagDao.FindAllTags().Contains(tag2));
+            Assert.AreEqual(2, tagDao.FindAllTags().Count);
+        }
     }
 }

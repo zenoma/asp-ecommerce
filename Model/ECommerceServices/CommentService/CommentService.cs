@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 {
@@ -14,16 +15,37 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         [Inject]
         public ICommentDao commentDao { private get; set; }
 
+        [Inject]
+        public ITagDao tagDao { private get; set; }
+
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
-        public Comment CreateComment(long productId, long userId, string body, ICollection<Tag> tags)
+        public Comment CreateComment(long productId, long userId, string body, ICollection<string> tags)
         {
             Comment comment = new Comment();
             comment.productId = productId;
             comment.userId = userId;
             comment.body = body;
-            comment.Tag = tags;
             comment.commentDate = System.DateTime.Now;
+
+            if (tags != null)
+            {
+                foreach (var item in tags)
+                {
+                    Tag tag = new Tag();
+                    if (tagDao.FindByVisualName(item) != null)
+                    {
+                        tag = tagDao.FindByVisualName(item);
+                        comment.Tag.Add(tag);
+                    }
+                    else
+                    {
+                        tag.name = item;
+                        tagDao.Create(tag);
+                        comment.Tag.Add(tag);
+                    }
+                }
+            }
 
             commentDao.Create(comment);
 
@@ -45,11 +67,29 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
-        public void UpdateComment(long commentId, string body, ICollection<Tag> tags)
+        public void UpdateComment(long commentId, string body, ICollection<string> tags)
         {
             Comment comment = commentDao.Find(commentId);
             comment.body = body;
-            comment.Tag = tags;
+
+            if (tags != null)
+            {
+                foreach (var item in tags)
+                {
+                    Tag tag = new Tag();
+                    if (tagDao.FindByVisualName(item) != null)
+                    {
+                        tag = tagDao.FindByVisualName(item);
+                        comment.Tag.Add(tag);
+                    }
+                    else
+                    {
+                        tag.name = item;
+                        tagDao.Create(tag);
+                        comment.Tag.Add(tag);
+                    }
+                }
+            }
 
             commentDao.Update(comment);
         }
