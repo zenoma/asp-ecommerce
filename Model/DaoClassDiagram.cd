@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao.ProductDaoEntityFramework">
+    <Position X="2" Y="5.75" Width="6" />
+    <InheritanceLine Type="Es.Udc.DotNet.ModelUtil.Dao.GenericDaoEntityFramework&lt;E, PK&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="5.125" Y="4.901" />
+        <Point X="5.125" Y="5.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>ECommerceDaos\ProductDao\ProductDaoEntityFramework.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Es.Udc.DotNet.ModelUtil.Dao.GenericDaoEntityFramework&lt;E, PK&gt;">
+    <Position X="3.75" Y="2" Width="2.75" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
