@@ -60,9 +60,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         }
 
         [Transactional]
-        public List<Comment> ShowCommentsOfProduct(long productId, int startIndex)
+        public CommentBlock ShowCommentsOfProduct(long productId, int startIndex, int count)
         {
-            return commentDao.FindByProductId(productId, startIndex, 10);
+
+           /*
+           * Find count+1 comments to determine if there exist more accounts above
+           * the specified range.
+           */
+            List<Comment> comments =
+                commentDao.FindByProductId(productId, startIndex, count + 1);
+
+            
+
+            bool existMoreComments = (comments.Count == count + 1);
+
+            if (existMoreComments)
+                comments.RemoveAt(count);
+
+            return new CommentBlock(comments, existMoreComments);
         }
 
         /// <exception cref="InstanceNotFoundException"/>
@@ -94,9 +109,23 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
             commentDao.Update(comment);
         }
 
-        public List<Comment> ListCommentsByTag(long tagId, int startIndex)
+        public CommentBlock ListCommentsByTag(long tagId, int startIndex, int count)
         {
-            return commentDao.FindByTag(tagId, startIndex, 10);
+            /*
+           * Find count+1 comments to determine if there exist more accounts above
+           * the specified range.
+           */
+            List<Comment> comments =
+                commentDao.FindByTag(tagId, startIndex, count + 1);
+
+
+
+            bool existMoreComments = (comments.Count == count + 1);
+
+            if (existMoreComments)
+                comments.RemoveAt(count);
+
+            return new CommentBlock(comments, existMoreComments);
         }
     }
 }

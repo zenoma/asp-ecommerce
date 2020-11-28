@@ -226,6 +226,7 @@
     <Compile Include="ECommerceDaos\UserDao\UserDaoEntityFramework.cs" />
     <Compile Include="ECommerceServices\CategoryService\CategoryService.cs" />
     <Compile Include="ECommerceServices\CategoryService\ICategoryService.cs" />
+    <Compile Include="ECommerceServices\CommentService\CommentBlock.cs" />
     <Compile Include="ECommerceServices\CommentService\CommentService.cs" />
     <Compile Include="ECommerceServices\CommentService\ICommentService.cs" />
     <Compile Include="ECommerceServices\Exceptions\EmptyOrderItemListException.cs" />
