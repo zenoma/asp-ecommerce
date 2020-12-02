@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Transactions;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Ninject;
 using System;
@@ -12,16 +13,29 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public IProductDao productDao { private get; set; }
 
         [Transactional]
-        public List<Product> FindProducts(string name, long categoryId, int startIndex)
+        public ProductBlock FindProducts(string name, long categoryId, int startIndex, int count)
         {
-            if(categoryId > 0)
+            List<Product> products = new List<Product>();
+
+            /*
+           * Find count+1 comments to determine if there exist more accounts above
+           * the specified range.
+           */
+            if (categoryId > 0)
             {
-                return productDao.FindByNameAndCategory(name, categoryId, startIndex, 10);
+                products = productDao.FindByNameAndCategory(name, categoryId, startIndex, count + 1);
             }
             else
-            { 
-                return productDao.FindByName(name, 0, 10);
+            {
+                products = productDao.FindByName(name, startIndex, count + 1);
             }
+
+            bool existMoreProducts = (products.Count == count + 1);
+
+            if (existMoreProducts)
+                products.RemoveAt(count);
+
+            return new ProductBlock(products, existMoreProducts);
         }
 
         /// <exception cref="InstanceNotFoundException"/>

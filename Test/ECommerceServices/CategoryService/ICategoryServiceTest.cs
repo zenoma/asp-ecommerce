@@ -96,9 +96,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CategoryService
         [TestMethod()]
         public void TestListAllCategories()
         {
-            Assert.AreEqual(true, categoryService.ListAllCategories().Contains(category));
-            Assert.AreEqual(true, categoryService.ListAllCategories().Contains(category2));
-            Assert.AreEqual(2, categoryService.ListAllCategories().Count);
+            Assert.AreEqual(true, categoryService.ListAllCategories(0, 5).Categories.Contains(category));
+            Assert.AreEqual(true, categoryService.ListAllCategories(0, 5).Categories.Contains(category2));
+            Assert.AreEqual(2, categoryService.ListAllCategories(0, 5).Categories.Count);
         }
     }
 }

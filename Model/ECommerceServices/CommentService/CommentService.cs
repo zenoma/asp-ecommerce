@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Transactions;
+using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
 using Ninject;
 using System;
@@ -33,14 +34,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
                 foreach (var item in tags)
                 {
                     Tag tag = new Tag();
-                    if (tagDao.FindByVisualName(item) != null)
+                    if (tagDao.FindByVisualName(item.ToLower()) != null)
                     {
-                        tag = tagDao.FindByVisualName(item);
+                        tag = tagDao.FindByVisualName(item.ToLower());
                         comment.Tag.Add(tag);
                     }
                     else
                     {
-                        tag.name = item;
+                        tag.name = item.ToLower();
                         tagDao.Create(tag);
                         comment.Tag.Add(tag);
                     }
@@ -54,18 +55,36 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
-        public void RemoveComment(long commentId)
+        public void RemoveComment(long userId, long commentId)
         {
+            Comment comment = commentDao.Find(commentId);
+
+            if (comment.User.userId != userId)
+            {
+                throw new ArgumentException("Invalid user");
+            }
+
             commentDao.Remove(commentId);
         }
 
         [Transactional]
-        public List<Comment> ShowCommentsOfProduct(long productId, int startIndex)
+        public CommentBlock ShowCommentsOfProduct(long productId, int startIndex, int count)
         {
-            return commentDao.FindByProductId(productId, startIndex, 10);
+           /*
+           * Find count+1 comments to determine if there exist more accounts above
+           * the specified range.
+           */
+            List<Comment> comments =
+                commentDao.FindByProductId(productId, startIndex, count + 1);            
+
+            bool existMoreComments = (comments.Count == count + 1);
+
+            if (existMoreComments)
+                comments.RemoveAt(count);
+
+            return new CommentBlock(comments, existMoreComments);
         }
 
-        /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
         public void UpdateComment(long commentId, string body, ICollection<string> tags)
         {
@@ -94,9 +113,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
             commentDao.Update(comment);
         }
 
-        public List<Comment> ListCommentsByTag(long tagId, int startIndex)
+        public CommentBlock ListCommentsByTag(long tagId, int startIndex, int count)
         {
-            return commentDao.FindByTag(tagId, startIndex, 10);
+            /*
+           * Find count+1 comments to determine if there exist more accounts above
+           * the specified range.
+           */
+            List<Comment> comments =
+                commentDao.FindByTag(tagId, startIndex, count + 1);
+
+            bool existMoreComments = (comments.Count == count + 1);
+
+            if (existMoreComments)
+                comments.RemoveAt(count);
+
+            return new CommentBlock(comments, existMoreComments);
         }
     }
 }

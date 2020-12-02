@@ -20,12 +20,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
         public ITagDao tagDao { private get; set; }
 
         [Transactional]
-        public List<TagDetails> GetTopFiveTags()
+        public List<TagDetails> GetTopTags(int n)
         {
-            List<Tag> topFiveTags = tagDao.FindTopTags();
+            List<Tag> topTags = tagDao.FindTopTags(n);
             List<TagDetails> listTagDetails = new List<TagDetails>();
 
-            foreach (Tag tag in topFiveTags)
+            foreach (Tag tag in topTags)
             {
                 TagDetails tagDetails = new TagDetails(tag.tagId, tag.name, tag.Comment.Count);
                 listTagDetails.Add(tagDetails);
@@ -38,7 +38,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
         public Tag CreateTag(string name)
         {
             Tag tag = new Tag();
-            tag.name = name;
+            tag.name = name.ToLower();
             tagDao.Create(tag);
 
             return tag;

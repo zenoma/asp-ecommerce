@@ -128,7 +128,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
         public void TestCommentExistingProductAndRemove()
         {
             comment = commentService.CreateComment(product.productId, user.userId, "Comment", null);
-            commentService.RemoveComment(comment.commentId);
+            commentService.RemoveComment(user.userId, comment.commentId);
 
             Assert.AreEqual(commentDao.Find(comment.commentId), comment);
 
@@ -143,7 +143,22 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
             comment = commentService.CreateComment(product.productId, user.userId, "Comment2", null);
             comment = commentService.CreateComment(product.productId, user.userId, "Comment3", null);
 
-            Assert.AreEqual(commentService.ShowCommentsOfProduct(product.productId, 0).Count(), 3);
+            int count = 10;
+            int startIndex = 0;
+            CommentBlock commentBlock;
+
+            do
+            {
+                commentBlock = commentService.ShowCommentsOfProduct(product.productId, startIndex, count);
+
+                Assert.IsTrue(commentBlock.Comments.Count <= count);
+
+                startIndex += count;
+
+            } while (commentBlock.ExistMoreComments);
+
+            Assert.AreEqual(3,
+                startIndex - count + commentBlock.Comments.Count);
         }
 
         [TestMethod()]
@@ -160,10 +175,26 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
         [TestMethod()]
         public void TestListCommentsByTag()
         {
+
+            int count = 10;
+            int startIndex = 0;
+            CommentBlock commentBlock;
+
             tagList.Add("tag");
             comment = commentService.CreateComment(product.productId, user.userId, "Comment1", tagList);
 
-            Assert.AreEqual(true, commentService.ListCommentsByTag(tag.tagId, 0).Contains(comment));
+            do
+            {
+                commentBlock = commentService.ListCommentsByTag(tag.tagId, startIndex, count);
+
+                Assert.IsTrue(commentBlock.Comments.Count <= count);
+
+                startIndex += count;
+
+            } while (commentBlock.ExistMoreComments);
+
+            Assert.AreEqual(1,
+                startIndex - count + commentBlock.Comments.Count);
         }
 
         [TestMethod()]

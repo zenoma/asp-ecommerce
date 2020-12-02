@@ -27,7 +27,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
         Order CreateOrder(string login, List<OrderItem> orderItems, long creditCardId, string address);
 
         [Transactional]
-        List<Order> FindByUserLogin(string login, int page);
+        OrderBlock FindByUserLogin(string login, int startIndex, int count);
 
         [Transactional]
         Order FindByOrderId(long orderId);

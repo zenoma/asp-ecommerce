@@ -2,6 +2,7 @@
 using Es.Udc.DotNet.ModelUtil.Transactions;
 using Ninject;
 using System.Collections.Generic;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
 {
@@ -12,7 +13,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         IProductDao productDao { set; }
 
         [Transactional]
-        List<Product> FindProducts(string name, long categoryId, int startIndex);
+        ProductBlock FindProducts(string name, long categoryId, int startIndex, int count);
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
