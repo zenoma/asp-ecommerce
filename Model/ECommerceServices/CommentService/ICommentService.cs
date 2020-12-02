@@ -22,7 +22,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         void UpdateComment(long commentId, string body, ICollection<string> tags);
 
         [Transactional]
-        void RemoveComment(long commentId);
+        void RemoveComment(long userId, long commentId);
 
         [Transactional]
         CommentBlock ShowCommentsOfProduct(long productId, int startIndex, int count);

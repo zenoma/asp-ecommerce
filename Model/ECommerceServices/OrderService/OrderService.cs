@@ -63,10 +63,23 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
             return orderDao.Find(orderId);
         }
 
-        public List<Order> FindByUserLogin(string login, int page)
+        public OrderBlock FindByUserLogin(string login, int startIndex, int count)
         {
             User user = userDao.FindByLogin(login);
-            return orderDao.findByUserId(user.userId, page, 10);
+
+            /*
+           * Find count+1 comments to determine if there exist more accounts above
+           * the specified range.
+           */
+            List<Order> orders =
+                orderDao.findByUserId(user.userId, startIndex, count + 1);
+
+            bool existMoreOrders = (orders.Count == count + 1);
+
+            if (existMoreOrders)
+                orders.RemoveAt(count);
+
+            return new OrderBlock(orders, existMoreOrders);
         }
     }
 }

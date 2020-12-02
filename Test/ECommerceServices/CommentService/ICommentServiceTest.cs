@@ -128,7 +128,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
         public void TestCommentExistingProductAndRemove()
         {
             comment = commentService.CreateComment(product.productId, user.userId, "Comment", null);
-            commentService.RemoveComment(comment.commentId);
+            commentService.RemoveComment(user.userId, comment.commentId);
 
             Assert.AreEqual(commentDao.Find(comment.commentId), comment);
 
@@ -159,8 +159,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
 
             Assert.AreEqual(3,
                 startIndex - count + commentBlock.Comments.Count);
-
-            //Assert.AreEqual(commentService.ShowCommentsOfProduct(product.productId, startIndex, count).Count(), 3);
         }
 
         [TestMethod()]
@@ -197,8 +195,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
 
             Assert.AreEqual(1,
                 startIndex - count + commentBlock.Comments.Count);
-
-            //Assert.AreEqual(true, commentService.ListCommentsByTag(tag.tagId, 0, 5).Contains(comment));
         }
 
         [TestMethod()]

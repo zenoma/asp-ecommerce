@@ -160,7 +160,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
         public void DAO_FindTopTagsTest()
         {
             List<Tag> topFive = new List<Tag>();
-            topFive = tagDao.FindTopTags();
+            topFive = tagDao.FindTopTags(3);
 
             Assert.AreEqual(2, topFive.Count);
             Assert.AreEqual(true, topFive.Contains(tag));

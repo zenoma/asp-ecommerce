@@ -169,7 +169,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
         [TestMethod()]
         public void TestGetTopFiveTags()
         {
-            List<TagDetails> listTags = tagService.GetTopFiveTags();
+            List<TagDetails> listTags = tagService.GetTopTags(5);
 
             Assert.AreEqual(2, listTags.Count);
             Assert.AreEqual(1, listTags.First().count);

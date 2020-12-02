@@ -8,7 +8,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
     {
         List<Tag> FindByCommentId(long commentId);
 
-        List<Tag> FindTopTags();
+        List<Tag> FindTopTags(int n);
 
         List<Tag> FindAllTags();
 

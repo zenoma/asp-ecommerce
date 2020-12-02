@@ -19,7 +19,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
         ITagDao tagDao { set; }
 
         [Transactional]
-        List<TagDetails> GetTopFiveTags();
+        List<TagDetails> GetTopTags(int n);
 
         [Transactional]
         Tag CreateTag(string name);

@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Transactions;
+using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
 using Ninject;
 using System;
@@ -54,23 +55,27 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
-        public void RemoveComment(long commentId)
+        public void RemoveComment(long userId, long commentId)
         {
+            Comment comment = commentDao.Find(commentId);
+
+            if (comment.User.userId != userId)
+            {
+                throw new ArgumentException("Invalid user");
+            }
+
             commentDao.Remove(commentId);
         }
 
         [Transactional]
         public CommentBlock ShowCommentsOfProduct(long productId, int startIndex, int count)
         {
-
            /*
            * Find count+1 comments to determine if there exist more accounts above
            * the specified range.
            */
             List<Comment> comments =
-                commentDao.FindByProductId(productId, startIndex, count + 1);
-
-            
+                commentDao.FindByProductId(productId, startIndex, count + 1);            
 
             bool existMoreComments = (comments.Count == count + 1);
 
@@ -80,7 +85,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
             return new CommentBlock(comments, existMoreComments);
         }
 
-        /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
         public void UpdateComment(long commentId, string body, ICollection<string> tags)
         {
@@ -117,8 +121,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
            */
             List<Comment> comments =
                 commentDao.FindByTag(tagId, startIndex, count + 1);
-
-
 
             bool existMoreComments = (comments.Count == count + 1);
 
