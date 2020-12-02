@@ -34,14 +34,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
                 foreach (var item in tags)
                 {
                     Tag tag = new Tag();
-                    if (tagDao.FindByVisualName(item) != null)
+                    if (tagDao.FindByVisualName(item.ToLower()) != null)
                     {
-                        tag = tagDao.FindByVisualName(item);
+                        tag = tagDao.FindByVisualName(item.ToLower());
                         comment.Tag.Add(tag);
                     }
                     else
                     {
-                        tag.name = item;
+                        tag.name = item.ToLower();
                         tagDao.Create(tag);
                         comment.Tag.Add(tag);
                     }

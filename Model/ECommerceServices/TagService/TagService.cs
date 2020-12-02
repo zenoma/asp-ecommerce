@@ -27,7 +27,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
 
             foreach (Tag tag in topTags)
             {
-                TagDetails tagDetails = new TagDetails(tag.tagId, tag.name, tag.Comment.Count);
+                TagDetails tagDetails = new TagDetails(tag.tagId, tag.name, tag.Comment.Count, tag.Comment.ToList());
                 listTagDetails.Add(tagDetails);
             }
 
@@ -38,7 +38,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
         public Tag CreateTag(string name)
         {
             Tag tag = new Tag();
-            tag.name = name;
+            tag.name = name.ToLower();
             tagDao.Create(tag);
 
             return tag;
