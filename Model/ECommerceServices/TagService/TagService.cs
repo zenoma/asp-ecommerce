@@ -27,7 +27,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
 
             foreach (Tag tag in topTags)
             {
-                TagDetails tagDetails = new TagDetails(tag.tagId, tag.name, tag.Comment.Count, tag.Comment.ToList());
+                TagDetails tagDetails = new TagDetails(tag.tagId, tag.name, tag.Comment.Count);
                 listTagDetails.Add(tagDetails);
             }
 

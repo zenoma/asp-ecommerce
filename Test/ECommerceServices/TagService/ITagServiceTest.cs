@@ -145,7 +145,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
             tag.name = "Tag Name";
 
             tag2 = new Tag();
-            tag2.name = "Tag Name2";
+            tag2.name = "Tag Name";
             //tag.Comment.Add(comment);
 
             tagDao.Create(tag);
@@ -173,7 +173,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
 
             Assert.AreEqual(2, listTags.Count);
             Assert.AreEqual(1, listTags.First().count);
-            Assert.AreEqual(true, listTags.First().Comments.Contains(comment));
+            Assert.AreEqual(true, listTags.Contains(new TagDetails(tag.tagId, tag.name, tag.Comment.Count)));
+            Assert.AreEqual(true, listTags.Contains(new TagDetails(tag2.tagId, tag2.name, tag2.Comment.Count)));
         }
 
         [TestMethod()]

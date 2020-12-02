@@ -13,16 +13,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
         public long tagId { get; set; }
         public string visualName { get; set; }
         public int count { get; set; }
-        public List<Comment> Comments { get; set; }
+        //public List<Comment> Comments { get; set; }
 
         #endregion
 
-        public TagDetails(long tagId, string visualName, int count, List<Comment> comments)
+        public TagDetails(long tagId, string visualName, int count)
         {
             this.tagId = tagId;
             this.visualName = visualName;
             this.count = count;
-            this.Comments = comments;
+            //this.Comments = comments;
     
         }
 
@@ -31,13 +31,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
             return obj is TagDetails details &&
                    tagId == details.tagId &&
                    visualName == details.visualName &&
-                   count == details.count &&
-                   EqualityComparer<List<Comment>>.Default.Equals(Comments, details.Comments);
+                   count == details.count;
+                   //EqualityComparer<List<Comment>>.Default.Equals(Comments, details.Comments);
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(tagId, visualName, count, Comments);
+            return HashCode.Combine(tagId, visualName, count);
         }
     }
 }
