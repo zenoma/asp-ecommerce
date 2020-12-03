@@ -14,19 +14,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
         [Inject]
         public IProductService ProductService { private get; set; }
 
-        public CartDto createCart()
+        public CartDto CreateCart()
         {
             return new CartDto();
         }
 
-        public CartDto addProductToCart(CartDto cart, long productId, int quantity)
+        public CartDto AddProductToCart(CartDto cart, long productId, int quantity)
         {
             ProductDetails product = ProductService.FindProductDetails(productId);
             CartLineDto line = new CartLineDto(productId, quantity, false);
 
             if (cart.cartLines.Contains(line))
             {
-                return this.updateCart(cart, productId, quantity, false);
+                return this.UpdateCart(cart, productId, quantity, false);
             }
 
             if (product.stockUnits < quantity)
@@ -39,12 +39,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
             return cart;
         }
 
-        public CartDto updateCart(CartDto cart, long productId, int quantity, bool toPresent)
+        public CartDto UpdateCart(CartDto cart, long productId, int quantity, bool toPresent)
         {
             if(cart.cartLines.Count > 0)
             {
-                cart.cartLines.ForEach(cartLine => {
-                    if(cartLine.productId == productId)
+                foreach (CartLineDto cartLine in cart.cartLines) {
+                    if (cartLine.productId == productId)
                     {
                         ProductDetails product = ProductService.FindProductDetails(productId);
                         if(quantity != 0)
@@ -57,23 +57,25 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
                             cartLine.quantity = quantity;
                         }
                         cartLine.toPresent = toPresent;
+                        break;
                     }
-                });
+                };
             }
 
             return cart;
         }
 
-        public CartDto removeProductFromCart(CartDto cart, long productId)
+        public CartDto RemoveProductFromCart(CartDto cart, long productId)
         {
             if (cart.cartLines.Count > 0)
             {
-                cart.cartLines.ForEach(cartLine => {
+                foreach(CartLineDto cartLine in cart.cartLines){
                     if (cartLine.productId == productId)
                     {
                         cart.cartLines.Remove(cartLine);
+                        break;
                     }
-                });
+                }
             }
 
             return cart;

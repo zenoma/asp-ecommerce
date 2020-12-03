@@ -15,6 +15,7 @@ using Ninject;
 using System.Configuration;
 using System.Data.Entity;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test
 {
@@ -60,6 +61,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             kernel.Bind<ITagService>().To<TagService>();
 
             kernel.Bind<ICategoryService>().To<CategoryService>();
+
+            kernel.Bind<ICartService>().To<CartService>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["ecommerceEntities"].ConnectionString;

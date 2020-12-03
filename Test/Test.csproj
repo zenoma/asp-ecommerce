@@ -92,6 +92,7 @@
     <Compile Include="ECommerceDaos\ProductDao\IProductDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\TagDao\ITagDaoEntityFrameworkTests.cs" />
     <Compile Include="ECommerceDaos\UserDao\IUserDaoEntityFrameworkTests.cs" />
+    <Compile Include="ECommerceServices\CartService\ICartServiceTest.cs" />
     <Compile Include="ECommerceServices\CategoryService\ICategoryServiceTest.cs" />
     <Compile Include="ECommerceServices\CommentService\ICommentServiceTest.cs" />
     <Compile Include="ECommerceServices\OrderService\IOrderServiceTest.cs" />
