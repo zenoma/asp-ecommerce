@@ -97,7 +97,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
         {
             List<Product> expectedProducts = productDao.FindByName(product.name, 0, 10);
 
-            List<Product> actualProducts = productService.FindProducts(product.name, NON_EXISTENT_CATEGORY_ID, 0, 10).Products;
+            List<ProductDetails> actualProducts = productService.FindProducts(product.name, NON_EXISTENT_CATEGORY_ID, 0, 10).Products;
 
             Assert.AreEqual(expectedProducts.Count, actualProducts.Count);
 
@@ -108,7 +108,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
         {
             List<Product> expectedProducts = productDao.FindByName(product.name, 0, 10);
 
-            List<Product> actualProducts = productService.FindProducts(product.name, category.categoryId, 0, 10).Products;
+            List<ProductDetails> actualProducts = productService.FindProducts(product.name, category.categoryId, 0, 10).Products;
 
             Assert.AreEqual(expectedProducts.Count, actualProducts.Count);
 
@@ -119,7 +119,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
         {
             productDao.Remove(product.productId);
 
-            List<Product> actualProducts = productService.FindProducts(product.name, category.categoryId, 0, 10).Products;
+            List<ProductDetails> actualProducts = productService.FindProducts(product.name, category.categoryId, 0, 10).Products;
 
             Assert.AreEqual(0, actualProducts.Count);
 
@@ -130,7 +130,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
         {
             using (var scope = new TransactionScope())
             {
-                var expected = new ProductDetails(category.categoryId, "New name", 1, 1, "Type", product.productDate);
+                var expected = new ProductDetails(category.visualName, "New name", 1, 1, "Type", product.productDate);
                 productService.UpdateProduct(product.productId, expected);
 
                 var obtained =

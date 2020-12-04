@@ -213,7 +213,7 @@ GO
 
 CREATE TABLE Product (
 	productId bigint IDENTITY(1,1) NOT NULL,
-	categoryId bigint NOT NULL,
+	categoryId bigint DEFAULT NULL,
 	name varchar(40) NOT NULL,
 	unitPrice float NOT NULL,
 	productDate date NOT NULL,

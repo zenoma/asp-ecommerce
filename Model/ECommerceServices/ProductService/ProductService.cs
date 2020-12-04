@@ -39,7 +39,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
             if (existMoreProducts)
                 products.RemoveAt(count);
 
-            return new ProductBlock(products, existMoreProducts);
+            return new ProductBlock(toProductDetails(products), existMoreProducts);
         }
 
         /// <exception cref="InstanceNotFoundException"/>
@@ -60,11 +60,26 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public ProductDetails FindProductDetails(long productId)
         {
             Product product = productDao.Find(productId);
-            Category category = categoryDao.Find(product.categoryId);
+            Category category = categoryDao.Find(product.categoryId.GetValueOrDefault());
 
             ProductDetails productDetails = new ProductDetails(category.visualName, product.name, product.stockUnits, product.unitPrice, product.type, product.productDate);
 
             return productDetails;
+        }
+
+        private List<ProductDetails> toProductDetails(List<Product> products)
+        {
+            List<ProductDetails> productsDetail = new List<ProductDetails>();
+            Category category;
+            products.ForEach(product =>
+            {
+                category = categoryDao.Find(product.categoryId.GetValueOrDefault());
+                productsDetail.Add(new ProductDetails(category.visualName,
+                    product.name, product.stockUnits, product.unitPrice,
+                    product.type, product.productDate));
+            });
+
+            return productsDetail;
         }
     }
 }

@@ -280,11 +280,11 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ECommerce.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ServiceClassDiagram.cd" />
-    <None Include="DaoClassDiagram.cd" />
     <None Include="ECommerce.edmx.diagram">
       <DependentUpon>ECommerce.edmx</DependentUpon>
     </None>
+    <None Include="ServiceClassDiagram.cd" />
+    <None Include="DaoClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
