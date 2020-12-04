@@ -11,7 +11,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
     {
         #region Properties Region
 
-        public long categoryId { get; set; }
+        public string category { get; set; }
         public string name { get; set; }
         public double unitPrice { get; set; }
         public DateTime productDate { get; set; }
@@ -19,9 +19,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public string type { get; set; }
 
         #endregion
-        public ProductDetails(long categoryId, string name, int stockUnits, double unitPrice, string type, DateTime productDate)
+        public ProductDetails(string category, string name, int stockUnits, double unitPrice, string type, DateTime productDate)
         {
-            this.categoryId = categoryId;
+            this.category = category;
             this.name = name;
             this.stockUnits = stockUnits;
             this.unitPrice = unitPrice;
@@ -32,7 +32,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public override bool Equals(object obj)
         {
             return obj is ProductDetails details &&
-                   categoryId == details.categoryId &&
+                   category == details.category &&
                    name == details.name &&
                    stockUnits == details.stockUnits &&
                    unitPrice == details.unitPrice &&
@@ -41,7 +41,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(categoryId, name, stockUnits, unitPrice, type, productDate);
+            return HashCode.Combine(category, name, stockUnits, unitPrice, type, productDate);
         }
 
     }

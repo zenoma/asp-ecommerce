@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Transactions;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Ninject;
 using System;
@@ -11,6 +12,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
     {
         [Inject]
         public IProductDao productDao { private get; set; }
+
+        [Inject]
+        public ICategoryDao categoryDao { private get; set; }
 
         [Transactional]
         public ProductBlock FindProducts(string name, long categoryId, int startIndex, int count)
@@ -43,7 +47,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public void UpdateProduct(long productId, ProductDetails productDetails)
         {
             Product product = productDao.Find(productId);
-            product.categoryId = productDetails.categoryId;
             product.name = productDetails.name;
             product.stockUnits = productDetails.stockUnits;
             product.unitPrice = productDetails.unitPrice;
@@ -57,8 +60,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public ProductDetails FindProductDetails(long productId)
         {
             Product product = productDao.Find(productId);
+            Category category = categoryDao.Find(product.categoryId);
 
-            ProductDetails productDetails = new ProductDetails(product.categoryId, product.name, product.stockUnits, product.unitPrice, product.type, product.productDate);
+            ProductDetails productDetails = new ProductDetails(category.visualName, product.name, product.stockUnits, product.unitPrice, product.type, product.productDate);
 
             return productDetails;
         }

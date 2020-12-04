@@ -3,6 +3,7 @@ using Es.Udc.DotNet.ModelUtil.Transactions;
 using Ninject;
 using System.Collections.Generic;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
 {
@@ -11,6 +12,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
 
         [Inject]
         IProductDao productDao { set; }
+
+        [Inject]
+        ICategoryDao categoryDao { set; }
 
         [Transactional]
         ProductBlock FindProducts(string name, long categoryId, int startIndex, int count);
