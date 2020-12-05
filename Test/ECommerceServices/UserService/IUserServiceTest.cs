@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.Exceptions;
@@ -174,8 +175,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         public void CreateCreditCardTest()
         {
             var userId = userService.SignUp(user);
-            creditCard.userId = userId;
-            var creditCardId = userService.CreateCreditCard(creditCard);
+            var creditCardId = userService.CreateCreditCard(creditCard, userId);
 
             var creditCardFound = creditCardDao.Find(creditCardId);
 
@@ -193,40 +193,57 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         public void CreateDuplicateCreditCardTest()
         {
             var userId = userService.SignUp(user);
-            creditCard.userId = userId;
             
-            userService.CreateCreditCard(creditCard);
-            userService.CreateCreditCard(creditCard);
+            userService.CreateCreditCard(creditCard, userId);
+            userService.CreateCreditCard(creditCard, userId);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InstanceNotFoundException))]
+        public void CreateUserNotFoundCreditCardTest()
+        {
+            userService.CreateCreditCard(creditCard, -1L);
         }
 
         [TestMethod]
         public void UpdateCreditCardTest()
         {
             var userId = userService.SignUp(user);
-            creditCard.userId = userId;
-            var creditCardId = userService.CreateCreditCard(creditCard);
-
-            var creditCardFound = creditCardDao.Find(creditCardId);
+            var creditCardId = userService.CreateCreditCard(creditCard, userId);
 
             creditCard.isFav = true;
 
-            creditCardDao.Update(creditCard);
+            userService.UpdateCreditCard(creditCard, userId);
 
-            Assert.AreEqual(creditCardId, creditCardFound.creditCardId);
-            Assert.AreEqual(userId, creditCardFound.userId);
-            Assert.AreEqual(tipo, creditCardFound.type);
-            Assert.AreEqual(number, creditCardFound.number);
-            Assert.AreEqual(verifyCode, creditCardFound.verifyCode);
-            Assert.AreEqual(expDate, creditCardFound.expDate);
-            Assert.AreEqual(true, creditCardFound.isFav);
+            var creditCardFound = creditCardDao.Find(creditCardId);
+
+            Assert.AreEqual(creditCard, creditCardFound);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InstanceNotFoundException))]
+        public void UpdateInstanceNotFoundCreditCardTest()
+        {
+            var userId = userService.SignUp(user);
+
+            userService.UpdateCreditCard(creditCard, userId);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ForbiddenException))]
+        public void UpdateForbiddenCreditCardTest()
+        {
+            var userId = userService.SignUp(user);
+            userService.CreateCreditCard(creditCard, userId);
+
+            userService.UpdateCreditCard(creditCard, -1L);
         }
 
         [TestMethod]
         public void FindCreditCardsByUserIdTest()
         {
             var userId = userService.SignUp(user);
-            creditCard.userId = userId;
-            var creditCardId = userService.CreateCreditCard(creditCard);
+            var creditCardId = userService.CreateCreditCard(creditCard, userId);
 
             creditCard.creditCardId = creditCardId;
 
@@ -246,9 +263,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         public void FindFavCreditCardByUserIdTest()
         {
             var userId = userService.SignUp(user);
-            creditCard.userId = userId;
             creditCard.isFav = true;
-            var creditCardId = userService.CreateCreditCard(creditCard);
+            var creditCardId = userService.CreateCreditCard(creditCard, userId);
 
             creditCard.creditCardId = creditCardId;
 
@@ -269,10 +285,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         public void DeleteCreditCardTest()
         {
             var userId = userService.SignUp(user);
-            creditCard.userId = userId;
-            var creditCardId = userService.CreateCreditCard(creditCard);
+            var creditCardId = userService.CreateCreditCard(creditCard, userId);
 
-            userService.DeleteCreditCard(creditCardId);
+            userService.DeleteCreditCard(creditCardId, userId);
 
             creditCardDao.Find(creditCardId);
         }
@@ -281,7 +296,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         [ExpectedException(typeof(InstanceNotFoundException))]
         public void DeleteCreditCardInstanceNotFoundExceptionTest()
         {
-            userService.DeleteCreditCard(-1L);
+            userService.DeleteCreditCard(-1L, -1L);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ForbiddenException))]
+        public void DeleteForbiddenCreditCardTest()
+        {
+            var userId = userService.SignUp(user);
+            var creditCardId = userService.CreateCreditCard(creditCard, userId);
+
+            userService.DeleteCreditCard(creditCardId, -1L);
         }
     }
 }

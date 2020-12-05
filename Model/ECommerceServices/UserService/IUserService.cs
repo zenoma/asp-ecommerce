@@ -24,11 +24,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
         /// <exception cref="DuplicateInstanceException"/>
         [Transactional]
-        long CreateCreditCard(CreditCard creditCard);
+        long CreateCreditCard(CreditCard creditCard, long userId);
 
         /// <exception cref="InstanceNotFoundException"/>
+        /// <exception cref="ForbiddenException"/>
         [Transactional]
-        void UpdateCreditCard(CreditCard creditCard);
+        void UpdateCreditCard(CreditCard creditCard, long userId);
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
@@ -39,7 +40,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
         CreditCard FindFavCreditCardByUserId(long userId);
 
         /// <exception cref="InstanceNotFoundException"/>
+        /// <exception cref="ForbiddenException"/>
         [Transactional]
-        void DeleteCreditCard(long creditCardId);
+        void DeleteCreditCard(long creditCardId, long userId);
     }
 }

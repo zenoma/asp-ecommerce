@@ -234,6 +234,7 @@
     <Compile Include="ECommerceServices\CommentService\CommentBlock.cs" />
     <Compile Include="ECommerceServices\CommentService\CommentService.cs" />
     <Compile Include="ECommerceServices\CommentService\ICommentService.cs" />
+    <Compile Include="ECommerceServices\Exceptions\ForbiddenException.cs" />
     <Compile Include="ECommerceServices\Exceptions\EmptyOrderItemListException.cs" />
     <Compile Include="ECommerceServices\Exceptions\OutOfStockProductException.cs" />
     <Compile Include="ECommerceServices\OrderService\IOrderService.cs" />
