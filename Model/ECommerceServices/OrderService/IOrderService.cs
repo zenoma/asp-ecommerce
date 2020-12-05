@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Transactions;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
@@ -32,7 +33,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
         ICreditCardDao creditCardDao { set; }
 
         [Transactional]
-        OrderDto CreateOrder(string login, List<OrderItem> orderItems, long creditCardId, string address);
+        OrderDto CreateOrder(string login, CartDto cart, long creditCardId, string address);
 
         [Transactional]
         OrderBlock FindByUserLogin(string login, int startIndex, int count);

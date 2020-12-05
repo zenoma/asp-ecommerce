@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
@@ -20,15 +21,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.OrderService
     {
         private static IKernel kernel;
         private static IOrderService orderService;
+        private static ICartService cartService;
         private static IUserDao userDao;
         private static ICreditCardDao creditCardDao;
         private static IProductDao productDao;
         private static ICategoryDao categoryDao;
 
+
         // Variables used in several tests are initialized 
         private static Category category;
         private static Product productA;
         private static Product productB;
+        private static CartDto cart;
 
         private static User user;
         private static CreditCard creditCard;
@@ -59,6 +63,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.OrderService
             productDao = kernel.Get<IProductDao>();
             categoryDao = kernel.Get<ICategoryDao>();
             userDao = kernel.Get<IUserDao>();
+            cartService = kernel.Get<ICartService>();
         }
         //Use ClassCleanup to run code after all tests in a class have run
         [ClassCleanup()]
@@ -128,24 +133,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.OrderService
 
         [TestMethod]
         public void CreateOrderTest()
-        { 
-            List<OrderItem> orderItems = new List<OrderItem>();
+        {
+            cart = cartService.CreateCart();
 
-            OrderItem orderA = new OrderItem();
-            orderA.productId = productA.productId;
-            orderA.orderId = -1;
-            orderA.units = 5;
-            orderA.unitPrice = productA.unitPrice;
-            orderItems.Add(orderA);
+            cart = cartService.AddProductToCart(cart, productA.productId, 1);
+            cart = cartService.AddProductToCart(cart, productB.productId, 2);
 
-            OrderItem orderB = new OrderItem();
-            orderB.productId = productB.productId;
-            orderB.orderId = -1;
-            orderB.units = 5;
-            orderB.unitPrice = productB.unitPrice;
-            orderItems.Add(orderB);
-
-            OrderDto actual = orderService.CreateOrder(user.login,orderItems,creditCard.creditCardId, "New address");
+            OrderDto actual = orderService.CreateOrder(user.login,cart,creditCard.creditCardId, "New address");
 
             OrderDto expected = orderService.FindByOrderId(actual.orderId);
            Assert.AreEqual(expected.orderItems.Count, actual.orderItems.Count);

@@ -1,4 +1,5 @@
 ﻿using Castle.Core.Internal;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
@@ -32,34 +33,37 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
 
 
         /// <exception cref="EmptyOrderItemListException"/>
-        public OrderDto CreateOrder(string login, List<OrderItem> orderItems, long creditCardId, string address)
+        public OrderDto CreateOrder(string login, CartDto cart, long creditCardId, string address)
         {
             
-            if (orderItems.IsNullOrEmpty())
+            if (cart.cartLines.IsNullOrEmpty())
             {
                 throw new EmptyOrderItemListException(login);
             }
             else
             {
-                Order order = new Order();
+                Order order = new Order(); 
+                Product product;
                 double price = 0;
                 User user = userDao.FindByLogin(login);
+
                 order.userId = user.userId;
                 order.creditCardId = creditCardId;
                 order.address = address;
                 order.orderDate = DateTime.Now;
                 orderDao.Create(order);
 
-                foreach (var item in orderItems)
+                foreach (var cartLine in cart.cartLines)
                 {
-                    if (isSalable(item)) {
+                    product = productDao.Find(cartLine.productId);
+                    if (isSalable(product, cartLine.quantity)) {
                         OrderItem orderItem = new OrderItem();
                         orderItem.orderId = order.orderId;
-                        orderItem.productId = item.productId;
-                        orderItem.units = item.units;
-                        orderItem.unitPrice = item.unitPrice;
+                        orderItem.productId = cartLine.productId;
+                        orderItem.units = cartLine.quantity;
+                        orderItem.unitPrice = product.unitPrice;
                         orderItemDao.Create(orderItem);
-                        price += item.units * item.unitPrice;
+                        price += cartLine.quantity * product.unitPrice;
                     }
                     
                 }
@@ -120,10 +124,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
             return ordersDTO;
         }
 
-        private bool isSalable(OrderItem order)
+        private bool isSalable(Product product, int quantity)
         {
-            Product product = productDao.Find(order.productId);
-            if (product.stockUnits < order.units)
+            
+            if (product.stockUnits < quantity)
             {
                 throw new OutOfStockProductException(product.name);
             }
