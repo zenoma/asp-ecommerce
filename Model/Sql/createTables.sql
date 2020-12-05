@@ -181,7 +181,8 @@ CREATE TABLE [Order] (
 	userId bigint NOT NULL,
 	creditCardId bigint NOT NULL,
 	address varchar(50) NOT NULL,
-	orderDate date NOT NULL
+	orderDate date NOT NULL,
+	price float NOT NULL,
 	
 	CONSTRAINT [PK_Order] PRIMARY KEY (orderId ASC),
 	

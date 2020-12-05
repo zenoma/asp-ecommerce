@@ -145,22 +145,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.OrderService
             orderB.unitPrice = productB.unitPrice;
             orderItems.Add(orderB);
 
-            Order actual = orderService.CreateOrder(user.login,orderItems,creditCard.creditCardId, "New address");
+            OrderDto actual = orderService.CreateOrder(user.login,orderItems,creditCard.creditCardId, "New address");
 
-            Order expected = orderService.FindByOrderId(actual.orderId);
-
-            Assert.AreEqual(expected, actual);
+            OrderDto expected = orderService.FindByOrderId(actual.orderId);
+           Assert.AreEqual(expected.orderItems.Count, actual.orderItems.Count);
             
         }
 
         [TestMethod]
         public void FindByUserIdTest()
         {
-            List<Order> orders;
+            OrderBlock orders;
 
-            orders = orderService.FindByUserLogin(user.login, 0, 10).Orders;
+            orders = orderService.FindByUserLogin(user.login, 0, 10);
 
-            Assert.AreEqual(orders.Count, 0);
+            Assert.AreEqual(orders.Orders.Count, 0);
 
         }
     }

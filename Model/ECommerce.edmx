@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ecommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ecommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Book">
           <Key>
             <PropertyRef Name="productId" />
@@ -76,6 +76,7 @@
           <Property Name="creditCardId" Type="bigint" Nullable="false" />
           <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="orderDate" Type="date" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderItem">
           <Key>
@@ -364,8 +365,7 @@
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ecommerceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -429,6 +429,7 @@
           <NavigationProperty Name="CreditCard" Relationship="Self.FK_OrderCreditCardId" FromRole="Order" ToRole="CreditCard" />
           <NavigationProperty Name="OrderItem" Relationship="Self.FK_OrderItemOrderId" FromRole="Order" ToRole="OrderItem" />
           <NavigationProperty Name="User" Relationship="Self.FK_OrderUserId" FromRole="Order" ToRole="User" />
+          <Property Name="price" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderItem">
           <Key>
@@ -681,6 +682,7 @@
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="ecommerceModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="orderId" ColumnName="orderId" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="creditCardId" ColumnName="creditCardId" />

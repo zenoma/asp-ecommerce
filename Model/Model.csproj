@@ -239,6 +239,8 @@
     <Compile Include="ECommerceServices\Exceptions\OutOfStockProductException.cs" />
     <Compile Include="ECommerceServices\OrderService\IOrderService.cs" />
     <Compile Include="ECommerceServices\OrderService\OrderBlock.cs" />
+    <Compile Include="ECommerceServices\OrderService\OrderDto.cs" />
+    <Compile Include="ECommerceServices\OrderService\OrderItemDto.cs" />
     <Compile Include="ECommerceServices\OrderService\OrderService.cs" />
     <Compile Include="ECommerceServices\ProductService\ProductBlock.cs" />
     <Compile Include="ECommerceServices\TagService\TagDetails.cs" />

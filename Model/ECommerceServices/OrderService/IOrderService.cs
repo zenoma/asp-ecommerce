@@ -1,6 +1,8 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Transactions;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Ninject;
 using System;
@@ -18,19 +20,25 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
         IOrderDao orderDao { set; }
 
         [Inject]
+        IOrderItemDao orderItemDao { set; }
+
+        [Inject]
         IUserDao userDao { set; }
+
+        [Inject]
+        IProductDao productDao { set; }
 
         [Inject]
         ICreditCardDao creditCardDao { set; }
 
         [Transactional]
-        Order CreateOrder(string login, List<OrderItem> orderItems, long creditCardId, string address);
+        OrderDto CreateOrder(string login, List<OrderItem> orderItems, long creditCardId, string address);
 
         [Transactional]
         OrderBlock FindByUserLogin(string login, int startIndex, int count);
 
         [Transactional]
-        Order FindByOrderId(long orderId);
+        OrderDto FindByOrderId(long orderId);
 
     }
 }

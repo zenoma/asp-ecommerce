@@ -10,11 +10,95 @@
 namespace Es.Udc.DotNet.PracticaMaD.Model
 {
     using System;
+    using System.Text;
     using System.Collections.Generic;
     
     public partial class Music : Product
     {
         public string album { get; set; }
         public string artist { get; set; }
+    
+    	/// <summary>
+    	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 
+    	/// like a hash table. It uses the Josh Bloch implementation from "Effective Java"
+        /// Primary key of entity is not included in the hash calculation to avoid errors
+    	/// with Entity Framework creation of key values.
+    	/// </summary>
+    	/// <returns>
+    	/// Returns a hash code for this instance.
+    	/// </returns>
+    	public override int GetHashCode()
+    	{
+    	    unchecked
+    	    {
+    			int multiplier = 31;
+    			int hash = GetType().GetHashCode();
+    
+    			hash = hash * multiplier + (album == null ? 0 : album.GetHashCode());
+    			hash = hash * multiplier + (artist == null ? 0 : artist.GetHashCode());
+    
+    			return hash;
+    	    }
+    
+    	}
+        
+        /// <summary>
+        /// Compare this object against another instance using a value approach (field-by-field) 
+        /// </summary>
+        /// <remarks>See http://www.loganfranken.com/blog/687/overriding-equals-in-c-part-1/ for detailed info </remarks>
+    	public override bool Equals(object obj)
+    	{
+    
+            if (ReferenceEquals(null, obj)) return false;        // Is Null?
+            if (ReferenceEquals(this, obj)) return true;         // Is same object?
+            if (obj.GetType() != this.GetType()) return false;   // Is same type?
+    	    
+            Music target = obj as Music;
+    
+    		return true
+               &&  (this.album == target.album )       
+               &&  (this.artist == target.artist )       
+               ;
+    
+        }
+    
+    
+    	public static bool operator ==(Music  objA, Music  objB)
+        {
+            // Check if the objets are the same Music entity
+            if(Object.ReferenceEquals(objA, objB))
+                return true;
+      
+            return objA.Equals(objB);
+    }
+    
+    
+    	public static bool operator !=(Music  objA, Music  objB)
+        {
+            return !(objA == objB);
+        }
+    
+    
+        /// <summary>
+        /// Returns a <see cref="T:System.String"></see> that represents the 
+        /// current <see cref="T:System.Object"></see>.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="T:System.String"></see> that represents the current 
+        /// <see cref="T:System.Object"></see>.
+        /// </returns>
+    	public override String ToString()
+    	{
+    	    StringBuilder strMusic = new StringBuilder();
+    
+    		strMusic.Append("[ ");
+           strMusic.Append(" album = " + album + " | " );       
+           strMusic.Append(" artist = " + artist + " | " );       
+            strMusic.Append("] ");    
+    
+    		return strMusic.ToString();
+        }
+    
+    
     }
 }
