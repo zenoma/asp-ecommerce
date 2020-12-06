@@ -22,9 +22,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
         List<TagDetails> GetTopTags(int n);
 
         [Transactional]
-        Tag CreateTag(string name);
+        Tag CreateTag(string name, List<Comment> comments);
 
         [Transactional]
         List<Tag> ListAllTags();
+
+        [Transactional]
+        List<Tag> ListTagsByComment(long commentId);
     }
 }

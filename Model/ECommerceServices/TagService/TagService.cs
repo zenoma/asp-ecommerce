@@ -35,18 +35,31 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
         }
         
         [Transactional]
-        public Tag CreateTag(string name)
+        public Tag CreateTag(string name, List<Comment> comments)
         {
             Tag tag = new Tag();
             tag.name = name.ToLower();
+
+            comments.ForEach(comment =>
+            {
+                tag.Comment.Add(comment);
+            });
+            
             tagDao.Create(tag);
 
             return tag;
         }
 
+        [Transactional]
         public List<Tag> ListAllTags()
         {
             return tagDao.FindAllTags();
+        }
+
+        [Transactional]
+        public List<Tag> ListTagsByComment(long commentId)
+        {
+            return tagDao.FindByCommentId(commentId);
         }
     }
 }
