@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
@@ -112,18 +113,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderDao
             }
 
             int count = 10;
-            int startIndex = 0;
+            int page = 1;
 
-            List<Order> listOrders;
+            Block<Order> listOrders;
             List<Order> totalRetrievedOrders = new List<Order>(numberOfOrders);
             do
             {
-                listOrders = orderDao.findByUserId(user.userId, startIndex, count);
-                totalRetrievedOrders.AddRange(listOrders);
+                listOrders = orderDao.findByUserId(user.userId, page, count);
+                totalRetrievedOrders.AddRange(listOrders.Results);
 
-                Assert.IsTrue(listOrders.Count <= count);
-                startIndex += count;
-            } while (startIndex < numberOfOrders);
+                Assert.IsTrue(listOrders.Results.Count <= count);
+                page += count;
+            } while (page < numberOfOrders);
 
 
             Assert.AreEqual(numberOfOrders, totalRetrievedOrders.Count);
@@ -139,11 +140,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderDao
         public void FindByUserIdWithoutOrdersTest()
         {
             int count = 10;
-            int startIndex = 10;
+            int page = 10;
 
-            List<Order> retrievedOrders = orderDao.findByUserId(user.userId, startIndex, count);
+            Block<Order> retrievedOrders = orderDao.findByUserId(user.userId, page, count);
 
-            Assert.IsTrue(retrievedOrders.Count == 0);
+            Assert.IsTrue(retrievedOrders.Results.Count == 0);
         }
     }
 }

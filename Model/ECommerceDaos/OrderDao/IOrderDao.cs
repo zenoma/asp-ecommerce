@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Dao;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao
 {
     public interface IOrderDao : IGenericDao<Order, Int64>
     {
-        List<Order> findByUserId(long userId, int startIndex, int count);
+        Block<Order> findByUserId(long userId, int page, int count);
     }
 }

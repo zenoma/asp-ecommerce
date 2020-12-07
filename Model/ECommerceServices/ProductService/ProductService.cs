@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Transactions;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
@@ -17,29 +18,22 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public ICategoryDao categoryDao { private get; set; }
 
         [Transactional]
-        public ProductBlock FindProducts(string name, long categoryId, int startIndex, int count)
+        public ProductBlock FindProducts(string name, long categoryId, int page, int count)
         {
-            List<Product> products = new List<Product>();
+            Block<Product> products = new Block<Product>();
 
-            /*
-           * Find count+1 comments to determine if there exist more accounts above
-           * the specified range.
-           */
             if (categoryId > 0)
             {
-                products = productDao.FindByNameAndCategory(name, categoryId, startIndex, count + 1);
+                products = productDao.FindByNameAndCategory(name, categoryId, page, count);
             }
             else
             {
-                products = productDao.FindByName(name, startIndex, count + 1);
+                products = productDao.FindByName(name, page, count);
             }
 
-            bool existMoreProducts = (products.Count == count + 1);
+            bool existMoreProducts = products.CurrentPage < products.PageCount;
 
-            if (existMoreProducts)
-                products.RemoveAt(count);
-
-            return new ProductBlock(toProductDetails(products), existMoreProducts);
+            return new ProductBlock(toProductDetails(products.Results), existMoreProducts);
         }
 
         /// <exception cref="InstanceNotFoundException"/>

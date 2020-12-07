@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 {
@@ -74,15 +75,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
            * Find count+1 comments to determine if there exist more accounts above
            * the specified range.
            */
-            List<Comment> comments =
+            Block<Comment> comments =
                 commentDao.FindByProductId(productId, startIndex, count + 1);            
 
-            bool existMoreComments = (comments.Count == count + 1);
+            bool existMoreComments = comments.CurrentPage < comments.PageCount;
 
-            if (existMoreComments)
-                comments.RemoveAt(count);
-
-            return new CommentBlock(comments, existMoreComments);
+            return new CommentBlock(comments.Results, existMoreComments);
         }
 
         [Transactional]
@@ -119,15 +117,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
            * Find count+1 comments to determine if there exist more accounts above
            * the specified range.
            */
-            List<Comment> comments =
+            Block<Comment> comments =
                 commentDao.FindByTag(tagId, startIndex, count + 1);
 
-            bool existMoreComments = (comments.Count == count + 1);
+            bool existMoreComments = comments.CurrentPage < comments.PageCount;
 
-            if (existMoreComments)
-                comments.RemoveAt(count);
-
-            return new CommentBlock(comments, existMoreComments);
+            return new CommentBlock(comments.Results, existMoreComments);
         }
     }
 }

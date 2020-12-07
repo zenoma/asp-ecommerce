@@ -25,9 +25,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         void RemoveComment(long userId, long commentId);
 
         [Transactional]
-        CommentBlock ShowCommentsOfProduct(long productId, int startIndex, int count);
+        CommentBlock ShowCommentsOfProduct(long productId, int page, int count);
 
         [Transactional]
-        CommentBlock ListCommentsByTag(long tagId, int startIndex, int count);
+        CommentBlock ListCommentsByTag(long tagId, int page, int count);
     }
 }

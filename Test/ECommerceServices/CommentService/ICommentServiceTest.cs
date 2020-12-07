@@ -144,21 +144,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
             comment = commentService.CreateComment(product.productId, user.userId, "Comment3", null);
 
             int count = 10;
-            int startIndex = 0;
+            int page = 1;
             CommentBlock commentBlock;
 
             do
             {
-                commentBlock = commentService.ShowCommentsOfProduct(product.productId, startIndex, count);
+                commentBlock = commentService.ShowCommentsOfProduct(product.productId, page, count);
 
                 Assert.IsTrue(commentBlock.Comments.Count <= count);
 
-                startIndex += count;
+                page += count;
 
             } while (commentBlock.ExistMoreComments);
-
-            Assert.AreEqual(3,
-                startIndex - count + commentBlock.Comments.Count);
         }
 
         [TestMethod()]
@@ -177,7 +174,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
         {
 
             int count = 10;
-            int startIndex = 0;
+            int page = 1;
             CommentBlock commentBlock;
 
             tagList.Add("tag");
@@ -185,16 +182,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
 
             do
             {
-                commentBlock = commentService.ListCommentsByTag(tag.tagId, startIndex, count);
+                commentBlock = commentService.ListCommentsByTag(tag.tagId, page, count);
 
                 Assert.IsTrue(commentBlock.Comments.Count <= count);
 
-                startIndex += count;
+                page += count;
 
             } while (commentBlock.ExistMoreComments);
-
-            Assert.AreEqual(1,
-                startIndex - count + commentBlock.Comments.Count);
         }
 
         [TestMethod()]

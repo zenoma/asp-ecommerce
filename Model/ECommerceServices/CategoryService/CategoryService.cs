@@ -16,21 +16,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService
         public ICategoryDao CategoryDao { private get; set; }
 
         [Transactional]
-        public CategoryBlock ListAllCategories(int startIndex, int count)
+        public CategoryBlock ListAllCategories()
         {
-            /*
-           * Find count+1 comments to determine if there exist more accounts above
-           * the specified range.
-           */
             List<Category> categories =
                 CategoryDao.FindAllCategory();
 
-            bool existMoreCategories = (categories.Count == count + 1);
-
-            if (existMoreCategories)
-                categories.RemoveAt(count);
-
-            return new CategoryBlock(categories, existMoreCategories);
+            return new CategoryBlock(categories, true);
         }
     }
 }

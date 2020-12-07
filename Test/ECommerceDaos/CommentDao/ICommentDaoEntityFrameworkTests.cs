@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
@@ -140,9 +141,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
 
                 commentDao.Create(comment);
 
-                List<Comment> actual = commentDao.FindByUserId(user.userId, 0, 10);
+                Block<Comment> actual = commentDao.FindByProductId(product.productId, 1, 10);
 
-                Assert.IsTrue(actual.Contains(comment));
+                Assert.IsTrue(actual.Results.Contains(comment));
             }
             catch (Exception e)
             {
@@ -170,9 +171,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
 
                 commentDao.Create(comment);
 
-                List<Comment> actual = commentDao.FindByTag(tag.tagId, 0, 10);
+                Block<Comment> actual = commentDao.FindByTag(tag.tagId, 1, 10);
 
-                Assert.IsTrue(actual.Contains(comment));
+                Assert.IsTrue(actual.Results.Contains(comment));
             }
             catch (Exception e)
             {
