@@ -115,10 +115,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
 
             Assert.AreEqual(numberOfProducts, totalRetrievedProducts.Count);
 
-            // are the accounts retrieved the same than the originals?
             for (int i = 0; i < numberOfProducts; i++)
             {
-                Assert.AreEqual(totalRetrievedProducts[i], createdProducts[i]);
+                Assert.AreEqual(totalRetrievedProducts[i].productId, createdProducts[i].productId);
             }
         }
 
@@ -183,7 +182,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
             // are the accounts retrieved the same than the originals?
             for (int i = 0; i < numberOfProducts; i++)
             {
-                Assert.AreEqual(totalRetrievedProducts[i], createdProducts[i]);
+                Assert.AreEqual(totalRetrievedProducts[i].productId, createdProducts[i].productId);
             }
         }
 

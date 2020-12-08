@@ -109,22 +109,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CreditCardDao
             {
                 List<CreditCard> actual = creditCardDao.FindAllByUserId(user.userId);
 
-                Assert.IsTrue(actual.Contains(creditCard));
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
-        }
-
-        [TestMethod()]
-        public void DAO_FindByUserIdTest()
-        {
-            try
-            {
-                List<CreditCard> actual = creditCardDao.FindByUserId(user.userId, 0, 10);
-
-                Assert.IsTrue(actual.Contains(creditCard));
+                actual.ForEach(cc =>
+                {
+                    Assert.AreEqual(cc.type, creditCard.type);
+                    Assert.AreEqual(cc.userId, creditCard.userId);
+                });
             }
             catch (Exception e)
             {
@@ -141,7 +130,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CreditCardDao
             {
                 CreditCard actual = creditCardDao.FindFavByUserId(user.userId);
 
-                Assert.AreEqual(creditCard, actual);
+                Assert.AreEqual(actual.type, creditCard.type);
+                Assert.AreEqual(actual.userId, creditCard.userId);
             }
             catch (Exception e)
             {

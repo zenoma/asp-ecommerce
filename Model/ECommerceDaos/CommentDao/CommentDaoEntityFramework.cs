@@ -14,30 +14,32 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao
     {
         public Block<Comment> FindByProductId(long productId, int page, int count)
         {
-            DbSet<Comment> comments = Context.Set<Comment>();
+            using (var context = new ecommerceEntities())
+            {
+                var query = from c in context.Comment
+                            where c.productId == productId
+                            orderby c.commentId
+                            select c;
 
-            var query = (from c in comments
-                         where c.productId == productId
-                         orderby c.commentId
-                         select c);
+                Block<Comment> result = BlockList.GetPaged(query, page, count);
 
-            Block<Comment> result = BlockList.GetPaged(query, page, count);
-
-            return result;
+                return result;
+            }
         }
 
         public Block<Comment> FindByTag(long tagId, int page, int count)
         {
-            DbSet<Comment> comments = Context.Set<Comment>();
+            using (var context = new ecommerceEntities())
+            {
+                var query = from c in context.Comment
+                            where c.Tag.Any(t => t.tagId == tagId)
+                            orderby c.commentId
+                            select c;
 
-            var query = (from c in comments
-                         where c.Tag.Any(t => t.tagId == tagId)
-                         orderby c.commentId
-                         select c);
+                Block<Comment> result = BlockList.GetPaged(query, page, count);
 
-            Block<Comment> result = BlockList.GetPaged(query, page, count);
-
-            return result;
+                return result;
+            }
         }
     }
 }

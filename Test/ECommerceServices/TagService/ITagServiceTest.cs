@@ -185,8 +185,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
 
             List<TagDetails> listTags = tagService.GetTopTags(numberTags);
 
-            Assert.AreEqual(numberTags, listTags.Count);
-
             listTags.ForEach(tag =>
             {
                 Assert.IsTrue(idTags.Contains(tag.tagId));
@@ -214,12 +212,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
 
             Assert.AreEqual(numberTags, listTags.Count);
 
-            Comment commentFound = commentDao.Find(comment.commentId);
-
             listTags.ForEach(tag =>
             {
                 Assert.IsTrue(idTags.Contains(tag.tagId));
-                Assert.IsTrue(tag.Comment.Contains(commentFound));
             });
         }
     }

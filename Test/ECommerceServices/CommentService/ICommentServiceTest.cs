@@ -164,8 +164,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
             tagList.AddRange(new List<String>() { "tag", "tag2" });
 
             comment = commentService.CreateComment(product.productId, user.userId, "Body of Comment1", tagList);
+            Comment commentFound = commentDao.Find(comment.commentId);
 
-            Assert.AreEqual(true, commentDao.Find(comment.commentId).Tag.Contains(tag));
+            Assert.IsTrue(commentFound.Tag.Contains(tag));
             Assert.AreEqual(tagList.Count, commentDao.Find(comment.commentId).Tag.Count);
         }
 

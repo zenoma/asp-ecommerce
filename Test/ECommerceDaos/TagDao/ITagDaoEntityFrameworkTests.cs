@@ -134,17 +134,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
 
             tag2 = new Tag();
             tag2.name = "Tag Name";
-            //tag.Comment.Add(comment);
 
             tagDao.Create(tag);
             tagDao.Create(tag2);
-
-            comment.Tag.Add(tag);
-            comment2.Tag.Add(tag);
-
-            commentDao.Create(comment);
-            commentDao.Create(comment2);
-
         }
 
         //Use TestCleanup to run code after each test has run
@@ -159,31 +151,54 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
         [TestMethod()]
         public void DAO_FindTopTagsTest()
         {
-            List<Tag> topFive = new List<Tag>();
-            topFive = tagDao.FindTopTags(3);
+            tagDao.Create(tag);
+            tagDao.Create(tag2);
 
-            Assert.AreEqual(2, topFive.Count);
-            Assert.AreEqual(true, topFive.Contains(tag));
-            Assert.AreEqual(true, topFive.Contains(tag2));
+            List<Tag> top = tagDao.FindTopTags(3);
+
+            Assert.IsTrue(top.Count > 0 && top.Count <= 3);
+
+            top.ForEach(t =>
+            {
+                Assert.AreEqual(t.name, tagName);
+            });
         }
 
         [TestMethod()]
         public void DAO_FindByCommentId()
         {
+            tagDao.Create(tag);
+            tagDao.Create(tag2);
+
+            comment.Tag.Add(tag);
+            comment2.Tag.Add(tag);
+            commentDao.Create(comment);
+            commentDao.Create(comment2);
+
             List<Tag> listTag = tagDao.FindByCommentId(comment.commentId);
+            
+            Assert.IsTrue(listTag.Count > 0);
 
-            List<Tag> listTag2 = tagDao.FindByCommentId(comment2.commentId);
-
-            Assert.AreEqual(tag, listTag.First());
-            Assert.AreEqual(listTag.First(), listTag2.First());
+            listTag.ForEach(t =>
+            {
+                Assert.AreEqual(t.name, tagName);
+            });
         }
 
         [TestMethod()]
         public void DAO_FindAllTags()
         {
-            Assert.AreEqual(true, tagDao.FindAllTags().Contains(tag));
-            Assert.AreEqual(true, tagDao.FindAllTags().Contains(tag2));
-            Assert.AreEqual(2, tagDao.FindAllTags().Count);
+            tagDao.Create(tag);
+            tagDao.Create(tag2);
+
+            List<Tag> listTag = tagDao.FindAllTags();
+
+            Assert.IsTrue(listTag.Count > 0);
+
+            listTag.ForEach(t =>
+            {
+                Assert.AreEqual(t.name, tagName);
+            });
         }
     }
 }

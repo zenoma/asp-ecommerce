@@ -12,30 +12,32 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao
     {
         public Block<Product> FindByName(String name, int page, int count)
         {
-            DbSet<Product> products = Context.Set<Product>();
+            using(var context = new ecommerceEntities())
+            {
+                var query = from b in context.Product
+                             where b.name.Contains(name)
+                             orderby b.productId
+                             select b;
 
-            var query = (from b in products
-                         where b.name.Contains(name)
-                         orderby b.productId
-                         select b);
+                Block<Product> result = BlockList.GetPaged(query, page, count);
 
-            Block<Product> result = BlockList.GetPaged(query, page, count);
-
-            return result;
+                return result;
+            }
         }
 
         public Block<Product> FindByNameAndCategory(string name, long categoryId, int page, int count)
         {
-            DbSet<Product> products = Context.Set<Product>();
+            using (var context = new ecommerceEntities())
+            {
+                var query = (from b in context.Product
+                             where b.name.Contains(name) && b.categoryId == categoryId
+                             orderby b.productId
+                             select b);
 
-            var query = (from b in products
-                 where b.name.Contains(name) && b.categoryId == categoryId
-                 orderby b.productId
-                 select b);
+                Block<Product> result = BlockList.GetPaged(query, page, count);
 
-            Block<Product> result = BlockList.GetPaged(query, page, count);
-
-            return result;
+                return result;
+            }
         }
     }
 }

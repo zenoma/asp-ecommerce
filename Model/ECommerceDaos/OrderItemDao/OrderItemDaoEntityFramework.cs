@@ -12,14 +12,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao
     {
         public List<OrderItem> findByOrderId(long orderId, int startIndex, int count)
         {
-            DbSet<OrderItem> orderItems = Context.Set<OrderItem>();
+            using (var context = new ecommerceEntities())
+            {
+                var result = (from oi in context.OrderItem
+                              where oi.orderId == orderId
+                              orderby oi.orderId
+                              select oi).Skip(startIndex).Take(count).ToList();
 
-            List<OrderItem> result = (from oi in orderItems
-                                      where oi.orderId == orderId
-                                      orderby oi.orderId
-                                      select oi).Skip(startIndex).Take(count).ToList();
-
-            return result;
+                return result;
+            }
         }
     }
 }

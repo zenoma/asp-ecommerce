@@ -21,44 +21,43 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
             DbSet<Tag> tags = Context.Set<Tag>();
 
             var result = (from t in tags
-                          select t).OrderByDescending(t => t.Comment.Count).Take(n).ToList();
+                             select t).OrderByDescending(t => t.Comment.Count).Take(n).ToList();
 
             return result;
         }
 
         public List<Tag> FindAllTags()
         {
-            DbSet<Tag> tags = Context.Set<Tag>();
+            using (var context = new ecommerceEntities())
+            {
+                var result = (from t in context.Tag
+                              select t).ToList();
 
-            var result =
-                (from t in tags
-                    select t).ToList();
-
-            return result;
+                return result;
+            }
         }
 
         public Tag FindByVisualName(string visualName)
         {
             DbSet<Tag> tags = Context.Set<Tag>();
 
-            var result =
-                (from t in tags
-                    where t.name == visualName
-                    select t).SingleOrDefault();
+            var result = (from t in tags
+                              where t.name == visualName
+                              select t).SingleOrDefault();
 
-            return result ;
+            return result;
         }
 
         public List<Tag> FindByCommentId(long commentId)
         {
-            DbSet<Tag> tags = Context.Set<Tag>();
+            using (var context = new ecommerceEntities())
+            {
+                var result = (from t in context.Tag
+                              where t.Comment.Any(c => c.commentId == commentId)
+                              select t).ToList();
 
-            var result =
-                (from t in tags
-                 where t.Comment.Any(c => c.commentId == commentId)
-                 select t).ToList();
-
-            return result;
+                return result;
+            }
         }
     }
 }

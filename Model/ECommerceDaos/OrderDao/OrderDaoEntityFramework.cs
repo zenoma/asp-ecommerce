@@ -11,16 +11,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao
     {
         public Block<Order> findByUserId(long userId, int page, int count)
         {
-            DbSet<Order> orders = Context.Set<Order>();
+            using (var context = new ecommerceEntities())
+            {
+                var query = from o in context.Order
+                            where o.userId == userId
+                            orderby o.userId
+                            select o;
 
-            var query = (from o in orders
-                         where o.userId == userId
-                         orderby o.userId
-                         select o);
+                Block<Order> result = BlockList.GetPaged(query, page, count);
 
-            Block<Order> result = BlockList.GetPaged(query, page, count);
-
-            return result;
+                return result;
+            }
         }
     }
 }

@@ -143,7 +143,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
 
                 Block<Comment> actual = commentDao.FindByProductId(product.productId, 1, 10);
 
-                Assert.IsTrue(actual.Results.Contains(comment));
+                actual.Results.ForEach(com =>
+                {
+                    Assert.AreEqual(com.body, comment.body);
+                });
             }
             catch (Exception e)
             {
@@ -173,7 +176,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
 
                 Block<Comment> actual = commentDao.FindByTag(tag.tagId, 1, 10);
 
-                Assert.IsTrue(actual.Results.Contains(comment));
+                actual.Results.ForEach(com =>
+                {
+                    Assert.AreEqual(com.body, comment.body);
+                });
             }
             catch (Exception e)
             {
