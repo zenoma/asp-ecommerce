@@ -33,7 +33,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
-        List<CreditCard> FindCreditCardsByUserId(long userId, int page);
+        List<CreditCard> FindCreditCardsByUserId(long userId);
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]

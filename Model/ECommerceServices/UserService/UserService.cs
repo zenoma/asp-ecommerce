@@ -120,7 +120,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
-        public List<CreditCard> FindCreditCardsByUserId(long userId, int startPage)
+        public List<CreditCard> FindCreditCardsByUserId(long userId)
         {
             User userFound = UserDao.Find(userId);
 
@@ -129,7 +129,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 throw new InstanceNotFoundException(userId, "User");
             }
 
-            return CreditCardDao.FindByUserId(userId, startPage, 10);
+            return CreditCardDao.FindAllByUserId(userId);
         }
 
         /// <exception cref="InstanceNotFoundException"/>

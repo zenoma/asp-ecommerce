@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
@@ -9,12 +10,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao
 {
     public interface ICommentDao : ModelUtil.Dao.IGenericDao<Comment, Int64>
     {
-        List<Comment> FindByUserId(long userId, int startIndex, int count);
+        Block<Comment> FindByProductId(long productId, int page, int count);
 
-        List<Comment> FindByProductId(long productId, int startIndex, int count);
-
-        List<Comment> FindByUserIdAndProductId(long userId, long productId, int startIndex, int count);
-
-        List<Comment> FindByTag(long tagId, int startIndex, int count);
+        Block<Comment> FindByTag(long tagId, int page, int count);
     }
 }

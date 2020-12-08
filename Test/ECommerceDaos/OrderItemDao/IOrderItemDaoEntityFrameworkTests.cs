@@ -163,7 +163,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
             // are the accounts retrieved the same than the originals?
             for (int i = 0; i < numberOfOrderItems; i++)
             {
-                Assert.AreEqual(totalRetrievedOrderItems[i], createdOrderItems[i]);
+                Assert.AreEqual(totalRetrievedOrderItems[i].orderItemId, createdOrderItems[i].orderItemId);
             }
         }
 

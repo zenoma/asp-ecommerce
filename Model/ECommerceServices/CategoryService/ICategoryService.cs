@@ -16,6 +16,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService
         ICategoryDao CategoryDao { set; }
 
         [Transactional]
-        CategoryBlock ListAllCategories(int startIndex, int count);
+        CategoryBlock ListAllCategories();
     }
 }

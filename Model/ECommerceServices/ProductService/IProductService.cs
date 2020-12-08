@@ -17,7 +17,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         ICategoryDao categoryDao { set; }
 
         [Transactional]
-        ProductBlock FindProducts(string name, long categoryId, int startIndex, int count);
+        ProductBlock FindProducts(string name, long categoryId, int page, int count);
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]

@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -97,27 +98,26 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
             }
 
             int count = 10;
-            int startIndex = 0;
+            int page = 1;
 
-            List<Product> listProducts;
+            Block<Product> listProducts;
             List<Product> totalRetrievedProducts = new List<Product>(numberOfProducts);
 
             do
             {
-                listProducts = productDao.FindByName(name, startIndex, count);
-                totalRetrievedProducts.AddRange(listProducts);
+                listProducts = productDao.FindByName(name, page, count);
+                totalRetrievedProducts.AddRange(listProducts.Results);
 
-                Assert.IsTrue(listProducts.Count <= count);
-                startIndex += count;
-            } while (startIndex < numberOfProducts);
+                Assert.IsTrue(listProducts.Results.Count <= count);
+                page += count;
+            } while (page < numberOfProducts);
 
 
             Assert.AreEqual(numberOfProducts, totalRetrievedProducts.Count);
 
-            // are the accounts retrieved the same than the originals?
             for (int i = 0; i < numberOfProducts; i++)
             {
-                Assert.AreEqual(totalRetrievedProducts[i], createdProducts[i]);
+                Assert.AreEqual(totalRetrievedProducts[i].productId, createdProducts[i].productId);
             }
         }
 
@@ -129,9 +129,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
             int count = 10;
             int startIndex = 10;
 
-            List<Product> retrievedProducts = productDao.FindByName(name, startIndex, count);
+            Block<Product> retrievedProducts = productDao.FindByName(name, startIndex, count);
 
-            Assert.IsTrue(retrievedProducts.Count == 0);
+            Assert.IsTrue(retrievedProducts.Results.Count == 0);
         }
 
 
@@ -162,19 +162,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
             }
 
             int count = 10;
-            int startIndex = 0;
+            int page = 1;
 
-            List<Product> listProducts;
+            Block<Product> listProducts;
             List<Product> totalRetrievedProducts = new List<Product>(numberOfProducts);
 
             do
             {
-                listProducts = productDao.FindByNameAndCategory(name, category.categoryId, startIndex, count);
-                totalRetrievedProducts.AddRange(listProducts);
+                listProducts = productDao.FindByNameAndCategory(name, category.categoryId, page, count);
+                totalRetrievedProducts.AddRange(listProducts.Results);
 
-                Assert.IsTrue(listProducts.Count <= count);
-                startIndex += count;
-            } while (startIndex < numberOfProducts);
+                Assert.IsTrue(listProducts.Results.Count <= count);
+                page += count;
+            } while (page < numberOfProducts);
 
 
             Assert.AreEqual(numberOfProducts, totalRetrievedProducts.Count);
@@ -182,7 +182,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
             // are the accounts retrieved the same than the originals?
             for (int i = 0; i < numberOfProducts; i++)
             {
-                Assert.AreEqual(totalRetrievedProducts[i], createdProducts[i]);
+                Assert.AreEqual(totalRetrievedProducts[i].productId, createdProducts[i].productId);
             }
         }
 
@@ -200,9 +200,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
             int count = 10;
             int startIndex = 10;
 
-            List<Product> retrievedProducts = productDao.FindByNameAndCategory(name, category.categoryId, startIndex, count);
+            Block<Product> retrievedProducts = productDao.FindByNameAndCategory(name, category.categoryId, startIndex, count);
 
-            Assert.IsTrue(retrievedProducts.Count == 0);
+            Assert.IsTrue(retrievedProducts.Results.Count == 0);
         }
 
     }

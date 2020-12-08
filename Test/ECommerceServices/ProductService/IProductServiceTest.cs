@@ -1,4 +1,6 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
@@ -75,12 +77,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
             categoryDao.Create(category);
 
             product.categoryId = category.categoryId;
-            product.name = "Some name";
             product.productDate = System.DateTime.Now;
             product.stockUnits = 100;
             product.unitPrice = 5;
             product.type = "Tipo";
-            productDao.Create(product);
         }
 
         //Use TestCleanup to run code after each test has run
@@ -92,53 +92,77 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
 
         #endregion Additional test attributes
 
+        private void createProductsTest(int size)
+        {
+            for(int i = 0; i<size; i++)
+            {
+                product.name = "Test " + i;
+                productDao.Create(product);
+            }
+        }
+
         [TestMethod()]
         public void FindProductsWithNameTest()
         {
-            List<Product> expectedProducts = productDao.FindByName(product.name, 0, 10);
+            int numberProducts = 10;
+            createProductsTest(numberProducts);
 
-            List<ProductDetails> actualProducts = productService.FindProducts(product.name, NON_EXISTENT_CATEGORY_ID, 0, 10).Products;
+            ProductBlock list = productService.FindProducts("Test", NON_EXISTENT_CATEGORY_ID, 1, numberProducts/2);
 
-            Assert.AreEqual(expectedProducts.Count, actualProducts.Count);
+            Assert.IsTrue(list.Products.Count <= numberProducts / 2);
+            Assert.IsTrue(list.ExistMoreProducts);
 
+            list.Products.ForEach(product =>
+            {
+                Assert.IsTrue(product.name.Contains("Test"));
+            });
         }
 
         [TestMethod()]
         public void FindProductsWithNameAndCategoryTest()
         {
-            List<Product> expectedProducts = productDao.FindByName(product.name, 0, 10);
+            int numberProducts = 10;
+            createProductsTest(numberProducts);
 
-            List<ProductDetails> actualProducts = productService.FindProducts(product.name, category.categoryId, 0, 10).Products;
+            ProductBlock list = productService.FindProducts("Test", category.categoryId, 1, numberProducts / 2);
 
-            Assert.AreEqual(expectedProducts.Count, actualProducts.Count);
+            Assert.IsTrue(list.Products.Count <= numberProducts / 2);
+            Assert.IsTrue(list.ExistMoreProducts);
 
+            list.Products.ForEach(product =>
+            {
+                Assert.AreEqual(product.category, category.visualName);
+            });
         }
 
         [TestMethod()]
         public void FindProductsWithNameWithoutProductsTest()
         {
+            productDao.Remove(product.productId);
 
-            List<ProductDetails> actualProducts = productService.FindProducts("test", category.categoryId, 0, 10).Products;
+            List<ProductDetails> actualProducts = productService.FindProducts(product.name, category.categoryId, 0, 10).Products;
 
-            Assert.AreEqual(0, actualProducts.Count);
+            Assert.AreEqual(0, list.Products.Count);
 
         }
 
         [TestMethod()]
         public void UpdateProductTest()
         {
+            int numberProducts = 10;
+            createProductsTest(numberProducts);
+
             using (var scope = new TransactionScope())
             {
-                var expected = new ProductDetails(category.visualName, "New name", 1, 1, "Type", product.productDate);
-                productService.UpdateProduct(product.productId, expected);
+                Block<Product> list = productDao.FindByName("Test", 1, 1);
+                Product productFound = list.Results.Find(p => p.name.Contains("Test"));
+                ProductDetails product = new ProductDetails(category.visualName, "proba", 100, 500, "test", System.DateTime.Now);
+                productService.UpdateProduct(productFound.productId, product);
 
                 var obtained =
-                    productService.FindProductDetails(product.productId);
+                    productService.FindProductDetails(productFound.productId);
 
-                // Check changes
-                Assert.AreEqual(expected, obtained);
-
-                // transaction.Complete() is not called, so Rollback is executed.
+                Assert.AreEqual(product.name, obtained.name);
             }
 
         }

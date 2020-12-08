@@ -24,12 +24,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CategoryService
         private static ICategoryDao categoryDao;
         private static ICategoryService categoryService;
 
-        private static Category category;
-        private static Category category2;
-
-        private const string categoryName = "Category Name";
-        private const string categoryName2 = "Category Name 2";
-
         private TransactionScope transactionScope;
 
         private TestContext testContextInstance;
@@ -73,15 +67,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CategoryService
         public void MyTestInitialize()
         {
             transactionScope = new TransactionScope();
-
-            category = new Category();
-            category2 = new Category();
-
-            category.visualName = categoryName;
-            category2.visualName = categoryName2;
-
-            categoryDao.Create(category);
-            categoryDao.Create(category2);
         }
 
         //Use TestCleanup to run code after each test has run
@@ -93,12 +78,29 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CategoryService
 
         #endregion Additional test attributes
 
+        private void createCategoryTest(int size)
+        {
+            List<long> categories = new List<long>();
+            Category category = new Category();
+            for (int i=0; i<size; i++)
+            {
+                category.visualName = "Test " + i;
+                categoryDao.Create(category);
+            }
+        }
+
         [TestMethod()]
         public void TestListAllCategories()
         {
-            Assert.AreEqual(true, categoryService.ListAllCategories(0, 5).Categories.Contains(category));
-            Assert.AreEqual(true, categoryService.ListAllCategories(0, 5).Categories.Contains(category2));
-            Assert.AreEqual(2, categoryService.ListAllCategories(0, 5).Categories.Count);
+            int numberCategories = 10;
+            createCategoryTest(numberCategories);
+
+            CategoryBlock list = categoryService.ListAllCategories();
+
+            list.Categories.ForEach(category =>
+            {
+                Assert.IsTrue(category.visualName.Contains("Test"));
+            });
         }
     }
 }

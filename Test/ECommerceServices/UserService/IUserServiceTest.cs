@@ -247,7 +247,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
 
             creditCard.creditCardId = creditCardId;
 
-            List<CreditCard> creditCardsFound = userService.FindCreditCardsByUserId(userId, 0);
+            List<CreditCard> creditCardsFound = userService.FindCreditCardsByUserId(userId);
 
             Assert.IsTrue(creditCardsFound.Contains(creditCard));
         }
@@ -256,7 +256,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         [ExpectedException(typeof(InstanceNotFoundException))]
         public void FindCreditCardsByUserIdInstanceNotFoundExceptionTest()
         {
-            userService.FindCreditCardsByUserId(1L, 0);
+            userService.FindCreditCardsByUserId(1L);
         }
 
         [TestMethod]
@@ -270,7 +270,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
 
             CreditCard creditCardFavFound = userService.FindFavCreditCardByUserId(userId);
 
-            Assert.AreEqual(creditCard, creditCardFavFound);
+            Assert.AreEqual(creditCard.type, creditCardFavFound.type);
+            Assert.AreEqual(creditCard.userId, creditCardFavFound.userId);
         }
 
         [TestMethod]

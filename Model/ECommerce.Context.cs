@@ -13,10 +13,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ecommerceEntities1 : DbContext
+    public partial class ecommerceEntities : DbContext
     {
-        public ecommerceEntities1()
-            : base("name=ecommerceEntities1")
+        public ecommerceEntities()
+            : base("name=ecommerceEntities")
         {
         }
     

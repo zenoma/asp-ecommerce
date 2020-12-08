@@ -224,6 +224,8 @@
     <Compile Include="ECommerceDaos\TagDao\TagDaoEntityFramework.cs" />
     <Compile Include="ECommerceDaos\UserDao\IUserDao.cs" />
     <Compile Include="ECommerceDaos\UserDao\UserDaoEntityFramework.cs" />
+    <Compile Include="ECommerceDaos\Util\Block.cs" />
+    <Compile Include="ECommerceDaos\Util\BlockList.cs" />
     <Compile Include="ECommerceServices\CartService\CartDto.cs" />
     <Compile Include="ECommerceServices\CartService\CartLineDto.cs" />
     <Compile Include="ECommerceServices\CartService\CartService.cs" />

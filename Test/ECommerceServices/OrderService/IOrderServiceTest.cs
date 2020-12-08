@@ -151,7 +151,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.OrderService
         {
             OrderBlock orders;
 
-            orders = orderService.FindByUserLogin(user.login, 0, 10);
+            orders = orderService.FindByUserLogin(user.login, 0, 10).Orders;
 
             Assert.AreEqual(orders.Orders.Count, 0);
 

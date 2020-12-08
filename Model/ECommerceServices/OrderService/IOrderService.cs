@@ -36,7 +36,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
         OrderDto CreateOrder(string login, CartDto cart, long creditCardId, string address);
 
         [Transactional]
-        OrderBlock FindByUserLogin(string login, int startIndex, int count);
+        OrderBlock FindByUserLogin(string login, int page, int count);
 
         [Transactional]
         OrderDto FindByOrderId(long orderId);

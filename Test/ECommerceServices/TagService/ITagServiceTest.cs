@@ -10,6 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,9 +35,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
         private Comment comment = new Comment();
         private Comment comment2 = new Comment();
         private Category category = new Category();
-        private Tag tag = new Tag();
-        private Tag tag2 = new Tag();
-        private List<Tag> tagList = new List<Tag>();
 
         private const string login = "loginTest";
         private const string password = "password";
@@ -52,8 +50,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
         private const string type = "Tipo";
 
         private const string body = "body";
-
-        private const string tagName = "Tag Name";
 
         private const string categoryName = "Category Name";
 
@@ -122,9 +118,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
             product = new Product();
             product.name = productName;
             product.productDate = productDate;
-            product.stockUnits = 100;
-            product.unitPrice = 5;
-            product.type = "Tipo";
+            product.stockUnits = stockUnits;
+            product.unitPrice = unitPrice;
+            product.type = type;
             product.categoryId = category.categoryId;
 
             productDao.Create(product);
@@ -135,25 +131,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
             comment.userId = user.userId;
             comment.body = body;
 
+            commentDao.Create(comment);
+
             comment2 = new Comment();
             comment2.commentDate = System.DateTime.Now;
             comment2.productId = product.productId;
             comment2.userId = user.userId;
             comment2.body = body;
 
-            tag = new Tag();
-            tag.name = "Tag Name";
-
-            tag2 = new Tag();
-            tag2.name = "Tag Name";
-            //tag.Comment.Add(comment);
-
-            tagDao.Create(tag);
-            tagDao.Create(tag2);
-
-            comment.Tag.Add(tag);
-
-            commentDao.Create(comment);
             commentDao.Create(comment2);
         }
 
@@ -166,23 +151,71 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
 
         #endregion Additional test attributes
 
+        private List<long> createTestTags(int size)
+        {
+            List<long> idTags = new List<long>();
+            Tag t;
+            for (int i = 0; i < size; i++)
+            {
+                t = tagService.CreateTag("Test " + i, new List<Comment>() { comment });
+                idTags.Add(t.tagId);
+            }
+            return idTags;
+        }
+
+        [TestMethod()]
+        public void TestCreateTag()
+        {
+            ICollection<Comment> comments = new Collection<Comment>();
+            Tag tagExpected = new Tag();
+            tagExpected.name = "test";
+            comments.Add(comment);
+            tagExpected.Comment = comments;
+
+            Tag tag = tagService.CreateTag("test", new List<Comment>() { comment });
+
+            Assert.AreEqual(tag.name, tagExpected.name);
+        }
+
         [TestMethod()]
         public void TestGetTopFiveTags()
         {
-            List<TagDetails> listTags = tagService.GetTopTags(5);
+            int numberTags = 5;
+            List<long> idTags = createTestTags(numberTags);
 
-            Assert.AreEqual(2, listTags.Count);
-            Assert.AreEqual(1, listTags.First().count);
-            Assert.AreEqual(true, listTags.Contains(new TagDetails(tag.tagId, tag.name, tag.Comment.Count)));
-            Assert.AreEqual(true, listTags.Contains(new TagDetails(tag2.tagId, tag2.name, tag2.Comment.Count)));
+            List<TagDetails> listTags = tagService.GetTopTags(numberTags);
+
+            listTags.ForEach(tag =>
+            {
+                Assert.IsTrue(idTags.Contains(tag.tagId));
+            });
         }
 
         [TestMethod()]
         public void TestFindAllTags()
         {
+            int numberTags = 20;
+            List<long> idTags = createTestTags(numberTags);
+
             List<Tag> listTags = tagService.ListAllTags();
 
-            Assert.AreEqual(2, listTags.Count);
+            Assert.AreEqual(numberTags, listTags.Count);
+        }
+
+        [TestMethod()]
+        public void TesListTagsByCommentId()
+        {
+            int numberTags = 20;
+            List<long> idTags = createTestTags(numberTags);
+
+            List<Tag> listTags = tagService.ListTagsByComment(comment.commentId);
+
+            Assert.AreEqual(numberTags, listTags.Count);
+
+            listTags.ForEach(tag =>
+            {
+                Assert.IsTrue(idTags.Contains(tag.tagId));
+            });
         }
     }
 }

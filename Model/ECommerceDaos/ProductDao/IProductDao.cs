@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Dao;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using System;
 using System.Collections.Generic;
 
@@ -6,8 +7,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao
 {
     public interface IProductDao : IGenericDao<Product, Int64>
     {
-        List<Product> FindByName(string name, int startIndex, int count);
+        Block<Product> FindByName(string name, int page, int count);
 
-        List<Product> FindByNameAndCategory(string name, long categoryId, int startIndex, int count);
+        Block<Product> FindByNameAndCategory(string name, long categoryId, int page, int count);
     }
 }

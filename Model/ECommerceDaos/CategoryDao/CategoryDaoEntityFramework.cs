@@ -13,12 +13,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao
     {
         public List<Category> FindAllCategory()
         {
-            DbSet<Category> category = Context.Set<Category>();
+            using (var context = new ecommerceEntities())
+            {
+                var result = (from c in context.Category
+                             select c).ToList();
 
-            List<Category> result = (from c in category
-                select c).ToList();
-
-            return result;
+                return result;
+            }
         }
     }
 }
