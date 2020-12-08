@@ -129,7 +129,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderDao
 
             Assert.AreEqual(numberOfOrders, totalRetrievedOrders.Count);
 
-            // are the accounts retrieved the same than the originals?
             for (int i = 0; i < numberOfOrders; i++)
             {
                 Assert.AreEqual(totalRetrievedOrders[i].orderId, createdOrders[i].orderId);

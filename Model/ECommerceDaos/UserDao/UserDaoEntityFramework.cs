@@ -12,21 +12,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao
         /// <exception cref="InstanceNotFoundException"/>
         public User FindByLogin(string login)
         {
-            User user = null;
-            DbSet<User> users = Context.Set<User>();
+            using (var context = new ecommerceEntities())
+            {
+                User user = null;
+                var query = from u in context.User
+                            where u.login == login
+                            select u;
 
-            var result =
-                (from u in users
-                 where u.login == login
-                 select u);
+                user = query.FirstOrDefault();
 
-            user = result.FirstOrDefault();
+                if (user == null)
+                    throw new InstanceNotFoundException(login,
+                        typeof(User).FullName);
 
-            if (user == null)
-                throw new InstanceNotFoundException(login,
-                    typeof(User).FullName);
-
-            return user;
+                return user;
+            }
         }
     }
 }

@@ -142,7 +142,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.OrderService
             OrderDto actual = orderService.CreateOrder(user.login,cart,creditCard.creditCardId, "New address");
 
             OrderDto expected = orderService.FindByOrderId(actual.orderId);
-           Assert.AreEqual(expected.orderItems.Count, actual.orderItems.Count);
+            Assert.AreEqual(expected.orderItems.Count, actual.orderItems.Count);
             
         }
 
@@ -151,7 +151,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.OrderService
         {
             OrderBlock orders;
 
-            orders = orderService.FindByUserLogin(user.login, 0, 10).Orders;
+            orders = orderService.FindByUserLogin(user.login, 1, 10);
 
             Assert.AreEqual(orders.Orders.Count, 0);
 

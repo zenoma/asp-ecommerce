@@ -138,9 +138,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
         [TestMethod()]
         public void FindProductsWithNameWithoutProductsTest()
         {
-            productDao.Remove(product.productId);
-
-            List<ProductDetails> actualProducts = productService.FindProducts(product.name, category.categoryId, 0, 10).Products;
+            ProductBlock list = productService.FindProducts(product.name, category.categoryId, 1, 10);
 
             Assert.AreEqual(0, list.Products.Count);
 

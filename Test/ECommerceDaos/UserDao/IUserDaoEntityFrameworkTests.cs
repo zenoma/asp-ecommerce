@@ -90,7 +90,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.UserDao
             {
                 User actual = userDao.FindByLogin(user.login);
 
-                Assert.AreEqual(user, actual, "User found does not correspond with the original one.");
+                Assert.AreEqual(user.userId, actual.userId);
             }
             catch (Exception e)
             {

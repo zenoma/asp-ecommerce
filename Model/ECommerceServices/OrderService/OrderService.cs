@@ -1,4 +1,6 @@
 ﻿using Castle.Core.Internal;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
@@ -85,9 +87,48 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
 
             bool existMoreOrders = orders.CurrentPage < orders.PageCount;
 
-            return new OrderBlock(orders, existMoreOrders);
+            return new OrderBlock(toOrdersDto(orders.Results), existMoreOrders);
         }
 
 
+        private OrderDto toOrderDto(Order order)
+        {
+            OrderDto orderDTO = new OrderDto(order.orderId, order.creditCardId, order.address, order.orderDate, order.price);
+            foreach (var orderItem in order.OrderItem)
+            {
+                orderDTO.orderItems.Add(toOrderItemDto(orderItem));
+            }
+
+            return orderDTO;
+        }
+
+
+        private OrderItemDto toOrderItemDto(OrderItem orderItem)
+        {
+            string product = productDao.Find(orderItem.productId).name;
+            OrderItemDto orderItemDTO = new OrderItemDto(product, orderItem.units, orderItem.unitPrice);
+            return orderItemDTO;
+        }
+
+        private List<OrderDto> toOrdersDto(List<Order> orders)
+        {
+            List<OrderDto> ordersDTO = new List<OrderDto>();
+            orders.ForEach(order =>
+            {
+                ordersDTO.Add(toOrderDto(order));
+            });
+            return ordersDTO;
+        }
+
+        private bool isSalable(Product product, int quantity)
+        {
+
+            if (product.stockUnits < quantity)
+            {
+                throw new OutOfStockProductException(product.name);
+            }
+            return true;
+
+        }
     }
 }
