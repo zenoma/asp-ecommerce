@@ -5,6 +5,11 @@
 <head id="Head1" runat="server">
     <title>ECommerce</title>
     <link href="~/Css/Styles.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #sidebar {
+            width: 145px;
+        }
+    </style>
 </head>
 <body>
     <!-- Window. -->
