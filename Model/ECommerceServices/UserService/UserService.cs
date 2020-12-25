@@ -77,8 +77,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 }
             }
 
-            return new LoginUser(user.userId, user.name, user.surnames,
-                user.postalAddress, user.email);
+            return new LoginUser(user.userId, user.password, user.name, user.language,
+                user.country);
         }
 
         /// <exception cref="DuplicateInstanceException"/>

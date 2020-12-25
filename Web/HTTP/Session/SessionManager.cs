@@ -139,18 +139,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
         public static void Login(HttpContext context, String loginName,
            String clearPassword, Boolean rememberMyPassword)
         {
-            // TODO Añadir a LoginUser la contraseña encriptada
             /* Try to login, and if successful, update session with the necessary
              * objects for an authenticated user. */
             LoginUser loginUser = DoLogin(context, loginName,
-                clearPassword, false, rememberMyPassword);
+                clearPassword, false);
 
             /* Add cookies if requested. */
             if (rememberMyPassword)
             {
-                // TODO Cambiar email por la contraseña encriptada
                 CookiesManager.LeaveCookies(context, loginName,
-                    loginUser.email);
+                    loginUser.encryptedPassword);
             }
         }
 
@@ -169,8 +167,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
         /// <exception cref="IncorrectPasswordException"/>
         /// <exception cref="InstanceNotFoundException"/>
         private static LoginUser DoLogin(HttpContext context,
-             String loginName, String password, Boolean passwordIsEncrypted,
-             Boolean rememberMyPassword)
+             String loginName, String password, Boolean passwordIsEncrypted)
         {
             LoginUser loginUser =
                 userService.Login(loginName, password,
@@ -182,9 +179,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             userSession.UserProfileId = loginUser.userId;
             userSession.FirstName = loginUser.name;
 
-            //TODO descomentar
             Locale locale =
-                new Locale(/*loginUser.Language, loginUser.Country*/);
+                new Locale(loginUser.language, loginUser.country);
 
             UpdateSessionForAuthenticatedUser(context, userSession, locale);
 
@@ -385,7 +381,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
              */
             try
             {
-                DoLogin(context, loginName, encryptedPassword, true, true);
+                DoLogin(context, loginName, encryptedPassword, true);
 
                 /* Authentication Ticket. */
                 FormsAuthentication.SetAuthCookie(loginName, true);
