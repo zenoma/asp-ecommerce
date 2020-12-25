@@ -171,6 +171,42 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         }
 
         [TestMethod]
+        public void FindUserDetailsTest()
+        {
+            var userId = userService.SignUp(login, clearPassword, userDetails);
+
+            var expected = new UserRegisterDetailsDto(name, surnames, email, postalAddress, language, country);
+
+            var actual =
+                userService.FindUserDetails(userId);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void UpdateUserDetailsTest()
+        {
+            var userId = userService.SignUp(login, clearPassword, userDetails);
+
+            var nameUpdate = "testUpdate";
+            var surnamesUpdate = "surnames update";
+            var emailUpdate = "test@update.es";
+            var postalAddressUpdate = "testUpdate";
+            var languageUpdate = "en";
+            var countryUpdate = "en";
+
+            var update = new UserRegisterDetailsDto(nameUpdate, surnamesUpdate, emailUpdate,
+                postalAddressUpdate, languageUpdate, countryUpdate);
+
+            userService.UpdateUserDetails(userId, update);
+
+            var actual =
+                userService.FindUserDetails(userId);
+
+            Assert.AreEqual(update, actual);
+        }
+
+        [TestMethod]
         public void CreateCreditCardTest()
         {
             var userId = userService.SignUp(login, clearPassword, userDetails);

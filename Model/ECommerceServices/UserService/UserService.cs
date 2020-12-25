@@ -81,6 +81,32 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 user.country);
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public UserRegisterDetailsDto FindUserDetails(long userId)
+        {
+            User user = UserDao.Find(userId);
+
+            return new UserRegisterDetailsDto(user.name, user.surnames, user.email, 
+                user.postalAddress, user.language, user.country);
+        }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public void UpdateUserDetails(long userId, UserRegisterDetailsDto userDetails)
+        {
+            User user = UserDao.Find(userId);
+
+            user.name = userDetails.name;
+            user.surnames = userDetails.surnames;
+            user.email = userDetails.email;
+            user.postalAddress = userDetails.postalAddress;
+            user.language = userDetails.language;
+            user.country = userDetails.country;
+
+            UserDao.Update(user);
+        }
+
         /// <exception cref="DuplicateInstanceException"/>
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]

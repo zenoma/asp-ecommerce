@@ -231,22 +231,22 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
         /// <param name="context">The context.</param>
         /// <param name="userProfileDetails">The user profile details.</param>
         public static void UpdateUserProfileDetails(HttpContext context,
-            UserRegisterDetailsDto userProfileDetails)
+            UserRegisterDetailsDto userDto)
         {
             /* Update user's profile details. */
 
             UserSession userSession =
                 (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
 
-            //userService.UpdateUserProfileDetails(userSession.UserProfileId,
-            //    userProfileDetails);
+            userService.UpdateUserDetails(userSession.UserProfileId,
+                userDto);
 
             /* Update user's session objects. */
 
-            Locale locale = new Locale(userProfileDetails.language,
-                userProfileDetails.country);
+            Locale locale = new Locale(userDto.language,
+                userDto.country);
 
-            userSession.FirstName = userProfileDetails.name;
+            userSession.FirstName = userDto.name;
 
             UpdateSessionForAuthenticatedUser(context, userSession, locale);
         }
@@ -256,16 +256,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns></returns>
-        //public static UserProfileDetails FindUserProfileDetails(HttpContext context)
-        //{
-        //    UserSession userSession =
-        //        (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+        public static UserRegisterDetailsDto FindUserProfileDetails(HttpContext context)
+        {
+            UserSession userSession =
+                (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
 
-        //    UserProfileDetails userProfileDetails =
-        //        userService.FindUserProfileDetails(userSession.UserProfileId);
+            UserRegisterDetailsDto userProfileDetails =
+                userService.FindUserDetails(userSession.UserProfileId);
 
-        //    return userProfileDetails;
-        //}
+            return userProfileDetails;
+        }
 
         /// <summary>
         /// Gets the user info stored in the session.

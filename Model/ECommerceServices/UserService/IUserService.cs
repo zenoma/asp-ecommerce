@@ -23,6 +23,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
         [Transactional]
         LoginUser Login(string login, string password, bool passwordIsEncrypted);
 
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        UserRegisterDetailsDto FindUserDetails(long userId);
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        void UpdateUserDetails(long userId, UserRegisterDetailsDto userDetails);
+
         /// <exception cref="DuplicateInstanceException"/>
         [Transactional]
         long CreateCreditCard(CreditCard creditCard, long userId);
