@@ -117,16 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="mandatoryField" xml:space="preserve">
-    <value>Mandatory Field</value>
+  <data name="lclFooter.Text" xml:space="preserve">
+    <value>Copyright &amp;copy; Computer Science Department - Univesity of A Coruña</value>
   </data>
-  <data name="Next" xml:space="preserve">
-    <value>Next</value>
+  <data name="lclHeader.Text" xml:space="preserve">
+    <value>MiniBank: A Sample Model-View-Controller Application with .NET</value>
   </data>
-  <data name="Previous" xml:space="preserve">
-    <value>Previous</value>
+  <data name="lnkHome.Text" xml:space="preserve">
+    <value>Home</value>
   </data>
-  <data name="searchButton" xml:space="preserve">
-    <value>Search</value>
+  <data name="lnkLocale.Text" xml:space="preserve">
+    <value>Select Locale</value>
+  </data>
+  <data name="lnkShowOrderItemsByOrderId.Text" xml:space="preserve">
+    <value>Link to orderItems.</value>
+  </data>
+  <data name="lnkShowOrdersByLogin.Text" xml:space="preserve">
+    <value>Show my orders.</value>
   </data>
 </root>
