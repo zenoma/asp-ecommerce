@@ -31,6 +31,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
         [Transactional]
         void UpdateUserDetails(long userId, UserRegisterDetailsDto userDetails);
 
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        void ChangePassword(long userId, string oldPassword, string newPassword);
+
         /// <exception cref="DuplicateInstanceException"/>
         [Transactional]
         long CreateCreditCard(CreditCard creditCard, long userId);

@@ -280,7 +280,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
                 return null;
         }
 
-        //TODO crear metodo actualizar contraseña en el servicio de usuario
         /// <summary>
         /// Changes the user's password
         /// </summary>
@@ -288,18 +287,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
         /// <param name="oldClearPassword">The old password in clear text</param>
         /// <param name="newClearPassword">The new password in clear text</param>
         /// <exception cref="IncorrectPasswordException"/>
-        //public static void ChangePassword(HttpContext context,
-        //       String oldClearPassword, String newClearPassword)
-        //{
-        //    UserSession userSession =
-        //        (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+        public static void ChangePassword(HttpContext context,
+               String oldClearPassword, String newClearPassword)
+        {
+            UserSession userSession =
+                (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
 
-        //    userService.ChangePassword(userSession.UserProfileId,
-        //        oldClearPassword, newClearPassword);
+            userService.ChangePassword(userSession.UserProfileId,
+                oldClearPassword, newClearPassword);
 
-        //    /* Remove cookies. */
-        //    CookiesManager.RemoveCookies(context);
-        //}
+            /* Remove cookies. */
+            CookiesManager.RemoveCookies(context);
+        }
 
         /// <summary>
         /// Destroys the session, and removes the cookies if the user had

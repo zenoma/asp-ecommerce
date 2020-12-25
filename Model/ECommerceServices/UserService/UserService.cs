@@ -107,6 +107,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
             UserDao.Update(user);
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
+        /// <exception cref="IncorrectPasswordException"/>
+        [Transactional]
+        public void ChangePassword(long userId, string oldPassword, string newPassword)
+        {
+            User user = UserDao.Find(userId);
+
+            if (!PasswordEncrypter.IsClearPasswordCorrect(oldPassword,
+                 user.password))
+            {
+                throw new IncorrectPasswordException(user.login);
+            }
+
+            user.password = PasswordEncrypter.Crypt(newPassword);
+
+            UserDao.Update(user);
+        }
+
         /// <exception cref="DuplicateInstanceException"/>
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]

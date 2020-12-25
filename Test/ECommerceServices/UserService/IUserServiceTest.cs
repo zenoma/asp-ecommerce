@@ -207,6 +207,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         }
 
         [TestMethod]
+        public void ChangePasswordTest()
+        {
+            var userId = userService.SignUp(login, clearPassword, userDetails);
+
+            var newPassword = "newpassword";
+
+            userService.ChangePassword(userId, clearPassword, newPassword);
+
+            var actual =
+                userDao.Find(userId);
+
+            Assert.AreEqual(actual.password, PasswordEncrypter.Crypt(newPassword));
+        }
+
+        [TestMethod]
         public void CreateCreditCardTest()
         {
             var userId = userService.SignUp(login, clearPassword, userDetails);
