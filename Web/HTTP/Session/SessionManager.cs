@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.View.AplicationsObjects;
@@ -99,32 +100,31 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             userService = iocManager.Resolve<IUserService>();
         }
 
-        //TODO Cambiar por userDto(tiene que llevar locales,idioma y contraseña limpia)
         /// <summary>
         /// Registers the user.
         /// </summary>
         /// <param name="context">Http Context includes request, response, etc.</param>
         /// <param name="loginName">Username</param>
         /// <param name="clearPassword">Password in clear text</param>
-        /// <param name="loginUser">The user profile details.</param>
+        /// <param name="userDetails">The user profile details.</param>
         /// <exception cref="DuplicateInstanceException"/>
-        public static void SignUp(HttpContext context,
-            User user)
+        public static void SignUp(HttpContext context, string loginName,
+            string clearPassword, UserRegisterDetailsDto userDetails)
         {
             /* Register user. */
-            long usrId = userService.SignUp(user);
+            long userId = userService.SignUp(loginName, clearPassword, userDetails);
 
             /* Insert necessary objects in the session. */
             UserSession userSession = new UserSession();
-            userSession.UserProfileId = usrId;
-            userSession.FirstName = user.name;
+            userSession.UserProfileId = userId;
+            userSession.FirstName = userDetails.name;
 
-            //Locale locale = new Locale(user.Language,
-            //    loginUser.Country);
+            Locale locale = new Locale(userDetails.language,
+                userDetails.country);
 
-            UpdateSessionForAuthenticatedUser(context, userSession, new Locale());
+            UpdateSessionForAuthenticatedUser(context, userSession, locale);
 
-            FormsAuthentication.SetAuthCookie(user.login, false);
+            FormsAuthentication.SetAuthCookie(loginName, false);
         }
 
         /// <summary>
@@ -229,33 +229,31 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             return locale;
         }
 
-
-        //TODO crear UserProfileDetails 
         /// <summary>
         /// Updates the user profile details.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="userProfileDetails">The user profile details.</param>
-        //public static void UpdateUserProfileDetails(HttpContext context,
-        //    UserProfileDetails userProfileDetails)
-        //{
-        //    /* Update user's profile details. */
+        public static void UpdateUserProfileDetails(HttpContext context,
+            UserRegisterDetailsDto userProfileDetails)
+        {
+            /* Update user's profile details. */
 
-        //    UserSession userSession =
-        //        (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+            UserSession userSession =
+                (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
 
-        //    userService.UpdateUserProfileDetails(userSession.UserProfileId,
-        //        userProfileDetails);
+            //userService.UpdateUserProfileDetails(userSession.UserProfileId,
+            //    userProfileDetails);
 
-        //    /* Update user's session objects. */
+            /* Update user's session objects. */
 
-        //    Locale locale = new Locale(userProfileDetails.Language,
-        //        userProfileDetails.Country);
+            Locale locale = new Locale(userProfileDetails.language,
+                userProfileDetails.country);
 
-        //    userSession.FirstName = userProfileDetails.FirstName;
+            userSession.FirstName = userProfileDetails.name;
 
-        //    UpdateSessionForAuthenticatedUser(context, userSession, locale);
-        //}
+            UpdateSessionForAuthenticatedUser(context, userSession, locale);
+        }
 
         /// <summary>
         /// Finds the user profile with the id stored in the session.

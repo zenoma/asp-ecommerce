@@ -1,6 +1,7 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.Transactions;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.Exceptions;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.Exceptions;
@@ -25,16 +26,26 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
         /// <exception cref="DuplicateInstanceException"/>
         [Transactional]
-        public long SignUp(User user)
+        public long SignUp(string login, string password, UserRegisterDetailsDto userDetails)
         {
             try
             {
-                User alreadyExists = UserDao.FindByLogin(user.login);
+                User alreadyExists = UserDao.FindByLogin(login);
 
                 throw new DuplicateInstanceException(alreadyExists, "User");
             }
             catch (InstanceNotFoundException)
             {
+                User user = new User();
+                user.login = login;
+                user.password = PasswordEncrypter.Crypt(password);
+                user.name = userDetails.name;
+                user.surnames = userDetails.surnames;
+                user.email = userDetails.email;
+                user.postalAddress = userDetails.postalAddress;
+                user.language = userDetails.language;
+                user.country = userDetails.country;
+
                 UserDao.Create(user);
 
                 return user.userId;

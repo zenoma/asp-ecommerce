@@ -89,6 +89,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
             user.postalAddress = "postal adress";
             user.name = "name";
             user.surnames = "surnames";
+            user.language = "es";
+            user.country = "es";
             userDao.Create(user);
 
             category.visualName = "Category";

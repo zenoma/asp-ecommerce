@@ -3,6 +3,7 @@ using Es.Udc.DotNet.ModelUtil.Transactions;
 using Ninject;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using System.Collections.Generic;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 {
@@ -15,7 +16,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
         /// <exception cref="DuplicateInstanceException"/>
         [Transactional]
-        long SignUp(User user);
+        long SignUp(string login, string password, UserRegisterDetailsDto userDetails);
 
         /// <exception cref="InstanceNotFoundException"/>
         /// <exception cref="IncorrectPasswordException"/>

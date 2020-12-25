@@ -26,6 +26,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.UserDao
         private const string surnames = "surname1 surname2";
         private const string email = "email@email.es";
         private const string postalAddress = "address";
+        private const string language = "es";
+        private const string country = "es";
 
         private TransactionScope transactionScope;
         private TestContext testContextInstance;
@@ -70,6 +72,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.UserDao
             user.surnames = surnames;
             user.email = email;
             user.postalAddress = postalAddress;
+            user.language = language;
+            user.country = country;
 
             userDao.Create(user);
         }

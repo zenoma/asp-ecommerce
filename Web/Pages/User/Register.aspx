@@ -85,6 +85,16 @@
             </div>
             <div class="field">
                 <span class="label">
+                    <asp:Localize ID="lclPostalAddress" runat="server" meta:resourcekey="lclPostalAddress" /></span><span
+                        class="entry">
+                        <asp:TextBox ID="txtPostalAddress" runat="server" Width="100px" Columns="16"
+                            meta:resourcekey="txtPostalAddressResource1"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvPostalAdress" runat="server" ControlToValidate="txtPostalAddress"
+                            Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
+                            meta:resourcekey="rfvPostalAddressResource1"></asp:RequiredFieldValidator></span>
+            </div>
+            <div class="field">
+                <span class="label">
                     <asp:Localize ID="lclLanguage" runat="server" meta:resourcekey="lclLanguage" /></span><span
                         class="entry">
                         <asp:DropDownList ID="comboLanguage" runat="server" AutoPostBack="True"

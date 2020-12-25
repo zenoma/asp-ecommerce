@@ -144,6 +144,9 @@
   <data name="lclPassword.Text" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="lclPostalAddress.Text" xml:space="preserve">
+    <value>Postal Address</value>
+  </data>
   <data name="lclRetypePassword.Text" xml:space="preserve">
     <value>Retype password</value>
   </data>

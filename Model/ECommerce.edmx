@@ -118,6 +118,8 @@
           <Property Name="surnames" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="postalAddress" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="language" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="2" Nullable="false" />
         </EntityType>
         <Association Name="FK_BookProductId">
           <End Role="Product" Type="Self.Product" Multiplicity="1">
@@ -480,6 +482,8 @@
           <NavigationProperty Name="Comment" Relationship="Self.FK_CommentUserId" FromRole="User" ToRole="Comment" />
           <NavigationProperty Name="CreditCard" Relationship="Self.FK_CreditCardUserId" FromRole="User" ToRole="CreditCard" />
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderUserId" FromRole="User" ToRole="Order" />
+          <Property Name="language" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_ProductCategoryId">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1">
@@ -748,6 +752,8 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="ecommerceModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="language" ColumnName="language" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
