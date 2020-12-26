@@ -160,6 +160,7 @@
     </Compile>
     <Compile Include="Pages\Products\ShowProducts.aspx.designer.cs">
       <DependentUpon>ShowProducts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\User\Authentication.aspx.cs">
       <DependentUpon>Authentication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -233,9 +234,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\UpdateUserDetails.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\ECommerce.Master.aspx.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\ChangePassword.aspx.resx" />
