@@ -61,6 +61,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Edit.
+        /// </summary>
+        internal static string editButton {
+            get {
+                return ResourceManager.GetString("editButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Expiration Date.
+        /// </summary>
+        internal static string expDate {
+            get {
+                return ResourceManager.GetString("expDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Is Favorite.
+        /// </summary>
+        internal static string isFav {
+            get {
+                return ResourceManager.GetString("isFav", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Mandatory Field.
         /// </summary>
         internal static string mandatoryField {
@@ -70,11 +97,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Number.
+        /// </summary>
+        internal static string number {
+            get {
+                return ResourceManager.GetString("number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Remove.
+        /// </summary>
+        internal static string removeButton {
+            get {
+                return ResourceManager.GetString("removeButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Search.
         /// </summary>
         internal static string searchButton {
             get {
                 return ResourceManager.GetString("searchButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Type.
+        /// </summary>
+        internal static string type {
+            get {
+                return ResourceManager.GetString("type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Verify Code.
+        /// </summary>
+        internal static string verifyCode {
+            get {
+                return ResourceManager.GetString("verifyCode", resourceCulture);
             }
         }
     }

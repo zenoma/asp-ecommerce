@@ -98,9 +98,13 @@
     <Content Include="Css\styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Pages\MainPage.aspx" />
+    <Content Include="Pages\User\AddCreditCard.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
     <Content Include="Pages\User\ChangePassword.aspx" />
+    <Content Include="Pages\User\EditCreditCard.aspx" />
+    <Content Include="Pages\User\ListCreditCards.aspx" />
     <Content Include="Pages\User\Register.aspx" />
+    <Content Include="Pages\User\RemoveCreditCard.aspx" />
     <Content Include="Pages\User\UpdateUserDetails.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -137,6 +141,13 @@
     <Compile Include="Pages\MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\User\AddCreditCard.aspx.cs">
+      <DependentUpon>AddCreditCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\AddCreditCard.aspx.designer.cs">
+      <DependentUpon>AddCreditCard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\User\Authentication.aspx.cs">
       <DependentUpon>Authentication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,12 +162,33 @@
     <Compile Include="Pages\User\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\User\EditCreditCard.aspx.cs">
+      <DependentUpon>EditCreditCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\EditCreditCard.aspx.designer.cs">
+      <DependentUpon>EditCreditCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\ListCreditCards.aspx.cs">
+      <DependentUpon>ListCreditCards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\ListCreditCards.aspx.designer.cs">
+      <DependentUpon>ListCreditCards.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\User\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\User\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\RemoveCreditCard.aspx.cs">
+      <DependentUpon>RemoveCreditCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\RemoveCreditCard.aspx.designer.cs">
+      <DependentUpon>RemoveCreditCard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\UpdateUserDetails.aspx.cs">
       <DependentUpon>UpdateUserDetails.aspx</DependentUpon>
@@ -199,10 +231,16 @@
     <Content Include="Pages\User\App_LocalResources\UpdateUserDetails.aspx.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\ECommerce.Master.aspx.resx" />
+    <Content Include="Pages\User\App_LocalResources\ChangePassword.aspx.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pages\User\App_LocalResources\ChangePassword.aspx.resx" />
+    <Content Include="Pages\User\App_LocalResources\ListCreditCards.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\AddCreditCard.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\EditCreditCard.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
