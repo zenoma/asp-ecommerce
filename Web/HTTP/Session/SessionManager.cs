@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC;
@@ -82,14 +83,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
     {
         public static readonly String LOCALE_SESSION_ATTRIBUTE = "locale";
 
-        public static readonly String USER_SESSION_ATTRIBUTE =
-               "userSession";
+        public static readonly String USER_SESSION_ATTRIBUTE = "userSession"; 
+
+        public static readonly String USER_CART = "userCart";
 
         private static IUserService userService;
+        private static ICartService cartService;
 
         public IUserService UserService
         {
             set { userService = value; }
+        }
+        public ICartService CartService
+        {
+            set { cartService = value; }
         }
 
         static SessionManager()
@@ -98,6 +105,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
                 (IIoCManager)HttpContext.Current.Application["managerIoC"];
 
             userService = iocManager.Resolve<IUserService>();
+            cartService = iocManager.Resolve<ICartService>();
         }
 
         /// <summary>
@@ -389,6 +397,47 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             { // Incorrect loginName or encryptedPassword
                 return;
             }
+        }
+
+
+        /*Cart management*/
+
+        public static void InitializeCart(HttpContext context)
+        {
+            if ((CartDto)context.Session[USER_CART] == null)
+            {
+                context.Session.Add(USER_CART, cartService.CreateCart());
+            }
+        }
+        public static void RemoveCart(HttpContext context)
+        {
+            context.Session.Add(USER_CART, cartService.CreateCart());
+        }
+
+        public static void AddProductToCart(HttpContext context, long productId, int quantity)
+        {
+            CartDto cartDto=
+                (CartDto)context.Session[USER_CART];
+
+            context.Session.Add(USER_CART, cartService.AddProductToCart(cartDto, productId, quantity));
+        }
+
+        /// <exception cref="OutOfStockProductException"/>
+        public static void UpdateCart(HttpContext context, long productId, int quantity, bool isPresent)
+        {
+            CartDto cartDto =
+                (CartDto)context.Session[USER_CART];
+
+            context.Session.Add(USER_CART, cartService.UpdateCart(cartDto, productId, quantity,isPresent));
+        }
+
+        public static void RemoveProductFromCart(HttpContext context, long productId)
+        {
+            CartDto cartDto =
+                   (CartDto)context.Session[USER_CART];
+
+            context.Session.Add(USER_CART, cartService.RemoveProductFromCart(cartDto, productId));
+
         }
     }
 }

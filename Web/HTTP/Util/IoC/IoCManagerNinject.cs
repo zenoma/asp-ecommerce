@@ -1,10 +1,13 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Ninject;
 using System.Configuration;
@@ -26,6 +29,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             kernel.Bind<IUserDao>().
                 To<UserDaoEntityFramework>();
 
+            /* ICreditCardDao  */
             kernel.Bind<ICreditCardDao>().
                  To<CreditCardDaoEntityFramework>();
 
@@ -33,9 +37,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             kernel.Bind<IUserService>().
                 To<UserService>();
 
+            /* ICategoryDao  */
+            kernel.Bind<ICategoryDao>().
+                To<CategoryDaoEntityFramework>();
+
             /* IProductDao  */
             kernel.Bind<IProductDao>().
                 To<ProductDaoEntityFramework>();
+
+            /* IProductService  */
+            kernel.Bind<IProductService>().
+                To<ProductService>();
 
             /* OrderItemDao */
             kernel.Bind<IOrderItemDao>().
@@ -48,6 +60,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             /* OrderService */
             kernel.Bind<IOrderService>().
                 To<OrderService>();
+            
+            /* CartService */
+            kernel.Bind<ICartService>().
+                To<CartService>();
 
             /* DbContext */
             string connectionString =

@@ -120,4 +120,7 @@
   <data name="InstanceNotFound.Text" xml:space="preserve">
     <value>User Login Not Found</value>
   </data>
+  <data name="lblNoUserOrders.Text" xml:space="preserve">
+    <value>No orders</value>
+  </data>
 </root>

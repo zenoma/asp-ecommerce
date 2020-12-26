@@ -120,7 +120,7 @@
   <data name="InstanceNotFound.Text" xml:space="preserve">
     <value>Order Not Found</value>
   </data>
-  <data name="lblNoOrderItems.Text" xml:space="preserve">
-    <value>Order Empty</value>
+  <data name="lblNoCartItems.Text" xml:space="preserve">
+    <value>Cart Empty</value>
   </data>
 </root>
