@@ -7,6 +7,7 @@ using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Ninject;
@@ -41,6 +42,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             kernel.Bind<ICategoryDao>().
                 To<CategoryDaoEntityFramework>();
 
+            /* CategoryService */
+            kernel.Bind<ICategoryService>().
+                To<CategoryService>();
+                
             /* IProductDao  */
             kernel.Bind<IProductDao>().
                 To<ProductDaoEntityFramework>();

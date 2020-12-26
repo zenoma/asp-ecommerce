@@ -154,7 +154,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
             {
                 Block<Product> list = productDao.FindByName("Test", 1, 1);
                 Product productFound = list.Results.Find(p => p.name.Contains("Test"));
-                ProductDetails product = new ProductDetails(category.visualName, "proba", 100, 500, "test", System.DateTime.Now);
+                ProductDetails product = new ProductDetails(productFound.productId, category.visualName, "proba", 100, 500, "test", System.DateTime.Now);
                 productService.UpdateProduct(productFound.productId, product);
 
                 var obtained =

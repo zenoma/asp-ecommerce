@@ -5,6 +5,11 @@
 <head id="Head1" runat="server">
     <title>ECommerce</title>
     <link href="~/Css/Styles.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #sidebar {
+            width: 145px;
+        }
+    </style>
 </head>
 <body>
     <!-- Window. -->
@@ -42,6 +47,10 @@
                     <asp:HyperLink ID="lnkLogout" runat="server"
                         NavigateUrl="~/Pages/User/Logout.aspx"
                         meta:resourcekey="lnkLogout" />
+                    <asp:Label ID="Label1" runat="server" Text="-" />
+                    <asp:HyperLink ID="lnkSearch" runat="server"
+                        NavigateUrl="~/Pages/Products/FindProducts.aspx"
+                        meta:resourcekey="lnkSearch" />
                 </asp:ContentPlaceHolder>
             </span>
         </div>

@@ -7,155 +7,128 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Es.Udc.DotNet.PracticaMaD.Web
+namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
 {
 
 
-    public partial class ECommerce
+    public partial class ShowProductDetails
     {
 
         /// <summary>
-        /// Control Head1.
+        /// Control tbProductDetails.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        protected global::System.Web.UI.WebControls.Table tbProductDetails;
 
         /// <summary>
-        /// Control lclPageTitle.
+        /// Control cellCaptionProductName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lclPageTitle;
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionProductName;
 
         /// <summary>
-        /// Control ContentPlaceHolder_MenuWelcome.
+        /// Control cellProductName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_MenuWelcome;
+        protected global::System.Web.UI.WebControls.TableCell cellProductName;
 
         /// <summary>
-        /// Control lblWelcome.
+        /// Control cellCaptionUnitPrice.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWelcome;
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionUnitPrice;
 
         /// <summary>
-        /// Control ContentPlaceHolder_MenuExplanation.
+        /// Control cellUnitPrice.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_MenuExplanation;
+        protected global::System.Web.UI.WebControls.TableCell cellUnitPrice;
 
         /// <summary>
-        /// Control ContentPlaceHolder_MenuLinks.
+        /// Control cellCaptionStockUnits.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_MenuLinks;
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionStockUnits;
 
         /// <summary>
-        /// Control lblDash1.
+        /// Control cellStockUnits.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDash1;
+        protected global::System.Web.UI.WebControls.TableCell cellStockUnits;
 
         /// <summary>
-        /// Control lnkAuthenticate.
+        /// Control cellCaptionProductDate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkAuthenticate;
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionProductDate;
 
         /// <summary>
-        /// Control lblDash2.
+        /// Control cellProductDate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDash2;
+        protected global::System.Web.UI.WebControls.TableCell cellProductDate;
 
         /// <summary>
-        /// Control lnkUpdate.
+        /// Control cellCaptionProductCategory.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkUpdate;
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionProductCategory;
 
         /// <summary>
-        /// Control lblDash3.
+        /// Control cellProductCategory.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDash3;
+        protected global::System.Web.UI.WebControls.TableCell cellProductCategory;
 
         /// <summary>
-        /// Control lnkLogout.
+        /// Control cellCaptionProductType.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkLogout;
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionProductType;
 
         /// <summary>
-        /// Control Label1.
+        /// Control cellProductType.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// Control lnkSearch.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSearch;
-
-        /// <summary>
-        /// Control ContentPlaceHolder_BodyContent.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_BodyContent;
-
-        /// <summary>
-        /// Control lclFooter.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lclFooter;
+        protected global::System.Web.UI.WebControls.TableCell cellProductType;
     }
 }

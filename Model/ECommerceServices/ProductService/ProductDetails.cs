@@ -11,6 +11,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
     {
         #region Properties Region
 
+        public long productId { get; set; }
         public string category { get; set; }
         public string name { get; set; }
         public double unitPrice { get; set; }
@@ -19,8 +20,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public string type { get; set; }
 
         #endregion
-        public ProductDetails(string category, string name, int stockUnits, double unitPrice, string type, DateTime productDate)
+        public ProductDetails(long productId, string category, string name, int stockUnits, double unitPrice, string type, DateTime productDate)
         {
+            this.productId = productId;
             this.category = category;
             this.name = name;
             this.stockUnits = stockUnits;

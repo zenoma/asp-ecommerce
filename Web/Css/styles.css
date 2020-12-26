@@ -95,7 +95,8 @@ div.field {
         float: right;
         text-align: left;
         width: 49.5%;
-    }
+    height: 60px;
+}
 
 div.checkbox {
     clear: both;
@@ -160,4 +161,45 @@ input, select, textarea {
     text-align: center;
     width: 100%;
     padding-top: 5px;
+}
+
+table th, strong {
+    font-weight: bold;
+}
+
+table th, td {
+    font-size: 12px;
+}
+
+/* Account details. */
+
+table.accountDetails {
+    margin: 0 auto;
+    border: #000 1px solid;
+    text-align: left;
+    width: 35%;
+}
+
+    table.accountDetails th {
+        width: 60%;
+    }
+
+    table.accountDetails td {
+        width: 30%;
+    }
+
+/* User's accounts. */
+
+table.userAccounts {
+    margin: 0 auto;
+    text-align: center;
+    width: 35%;
+}
+
+/* Account operations. */
+
+table.accountOperations {
+    margin: 0 auto;
+    text-align: center;
+    width: 45%;
 }

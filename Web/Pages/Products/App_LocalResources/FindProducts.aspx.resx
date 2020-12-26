@@ -117,62 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblWelcome.Hello.Text" xml:space="preserve">
-    <value>Welcome!</value>
-  <data name="lblDash1Resource1.Text" xml:space="preserve">
-    <value>-</value>
+  <data name="btnFind.Text" xml:space="preserve">
+    <value>Find</value>
   </data>
-  <data name="lblDash1Resource1.ToolTip" xml:space="preserve">
+  <data name="lblKeywordsError.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="lblDash2Resource1.Text" xml:space="preserve">
-    <value>-</value>
+  <data name="lclKeywords.Text" xml:space="preserve">
+    <value>Keywords</value>
   </data>
-  <data name="lblDash2Resource1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="lclMenuExplanation.Text" xml:space="preserve">
+    <value>User registration</value>
   </data>
-  <data name="lblDash3Resource1.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="lblDash3Resource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lblWelcome.Text" xml:space="preserve">
-    <value>Welcome to ECommerce</value>
-  </data>
-  <data name="lclFooter.Text" xml:space="preserve">
-    <value>Copyright &amp;copy; Computer Science Department - Univesity of A Coruña</value>
-  </data>
-  <data name="lclHeader.Text" xml:space="preserve">
-    <value>MiniBank: A Sample Model-View-Controller Application with .NET</value>
-  </data>
-  <data name="lclPageTitle.Text" xml:space="preserve">
-    <value>ECommerce: A MVC Web Application with .NET</value>
-  </data>
-  <data name="lnkAuthenticate.Text" xml:space="preserve">
-    <value>Authentication</value>
-  </data>
-  <data name="lnkHome.Text" xml:space="preserve">
+  <data name="lnkHome" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="lnkLocale.Text" xml:space="preserve">
-    <value>Select Locale</value>
-  <data name="lnkHome.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lnkLogout.Text" xml:space="preserve">
-    <value>Logout</value>
-  </data>
-  <data name="lnkLogout.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lnkSearch.Text" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="lnkUpdate.Text" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="lnkUpdate.ToolTip" xml:space="preserve">
-    <value />
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>ECommerce</value>
   </data>
 </root>

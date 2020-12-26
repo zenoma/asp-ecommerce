@@ -102,6 +102,9 @@
     <Content Include="Pages\Cart\ShowOrderItemsByOrderId.aspx" />
     <Content Include="Pages\Cart\Errors\InstanceNotFoundError.aspx" />
     <Content Include="Pages\MainPage.aspx" />
+    <Content Include="Pages\Products\FindProducts.aspx" />
+    <Content Include="Pages\Products\ShowProductDetails.aspx" />
+    <Content Include="Pages\Products\ShowProducts.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
     <Content Include="Pages\User\ChangePassword.aspx" />
     <Content Include="Pages\User\Register.aspx" />
@@ -174,6 +177,26 @@
     <Compile Include="Pages\MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Products\FindProducts.aspx.cs">
+      <DependentUpon>FindProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Products\FindProducts.aspx.designer.cs">
+      <DependentUpon>FindProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Products\ShowProductDetails.aspx.cs">
+      <DependentUpon>ShowProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Products\ShowProductDetails.aspx.designer.cs">
+      <DependentUpon>ShowProductDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Products\ShowProducts.aspx.cs">
+      <DependentUpon>ShowProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Products\ShowProducts.aspx.designer.cs">
+      <DependentUpon>ShowProducts.aspx</DependentUpon>
     <Compile Include="Pages\User\Authentication.aspx.cs">
       <DependentUpon>Authentication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -248,6 +271,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_LocalResources\ECommerce.Master.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Products\App_LocalResources\FindProducts.aspx.resx" />
     <Content Include="Pages\User\App_LocalResources\Authentication.aspx.resx" />
   </ItemGroup>
   <ItemGroup>
