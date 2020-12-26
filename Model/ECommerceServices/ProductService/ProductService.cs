@@ -56,7 +56,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
             Product product = productDao.Find(productId);
             Category category = categoryDao.Find(product.categoryId.GetValueOrDefault());
 
-            ProductDetails productDetails = new ProductDetails(category.visualName, product.name, product.stockUnits, product.unitPrice, product.type, product.productDate);
+            ProductDetails productDetails = new ProductDetails(product.productId, category.visualName, product.name, product.stockUnits, product.unitPrice, product.type, product.productDate);
 
             return productDetails;
         }
@@ -68,7 +68,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
             products.ForEach(product =>
             {
                 category = categoryDao.Find(product.categoryId.GetValueOrDefault());
-                productsDetail.Add(new ProductDetails(category.visualName,
+                productsDetail.Add(new ProductDetails(product.productId, category.visualName,
                     product.name, product.stockUnits, product.unitPrice,
                     product.type, product.productDate));
             });

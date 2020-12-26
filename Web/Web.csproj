@@ -99,6 +99,7 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\Products\FindProducts.aspx" />
+    <Content Include="Pages\Products\ProductDetails.aspx" />
     <Content Include="Pages\Products\ShowProducts.aspx" />
     <Content Include="Pages\User\Register.aspx" />
     <Content Include="Web.config" />
@@ -142,6 +143,13 @@
     </Compile>
     <Compile Include="Pages\Products\FindProducts.aspx.designer.cs">
       <DependentUpon>FindProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Products\ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Products\ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Products\ShowProducts.aspx.cs">
       <DependentUpon>ShowProducts.aspx</DependentUpon>

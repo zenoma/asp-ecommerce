@@ -24,7 +24,10 @@
                         Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
                         meta:resourcekey="rfvKeywords"></asp:RequiredFieldValidator>--%>
                     <asp:Label ID="lblKeywordsError" runat="server" ForeColor="Red" Style="position: relative"
-                        Visible="False" meta:resourcekey="lblKeywordsError"></asp:Label></span>
+                        Visible="False" meta:resourcekey="lblKeywordsError"></asp:Label>
+                <asp:DropDownList ID="drpdCategory" runat="server" AppendDataBoundItems="true">
+                    <asp:ListItem Text="None" Value="0">None</asp:ListItem>
+                </asp:DropDownList></span>
             </div>
             <div class="button">
                 <asp:Button ID="btnFind" runat="server" OnClick="BtnFindClick" meta:resourcekey="btnFind" />

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Es.Udc.DotNet.ModelUtil.IoC;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +13,23 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /* Get the Service */
+            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
+            ICategoryService categoryService = iocManager.Resolve<ICategoryService>();
+
+            /* Get Accounts Info */
+            CategoryBlock categoryBlock = categoryService.ListAllCategories();
+
+            //if (productBlock.Products.Count == 0)
+            //{
+            //    //lblNoUserAccounts.Visible = true;
+            //    return;
+            //}
+
+            this.drpdCategory.DataSource = categoryBlock.Categories;
+            this.drpdCategory.DataValueField = "categoryId";
+            this.drpdCategory.DataTextField = "visualName";
+            this.drpdCategory.DataBind();
         }
 
         protected void BtnFindClick(object sender, EventArgs e)
@@ -20,11 +39,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                 /* Get data. */
                 //String identifierType = this.ddlFindBy.SelectedValue;
                 String keywords = this.txtKeywords.Text;
+                long category = Convert.ToInt64(this.drpdCategory.SelectedValue);
 
                 /* Do action. */
-                    String url = String.Format("./ShowProducts.aspx?keywords={0}", keywords);
-                    Response.Redirect(Response.ApplyAppPathModifier(url));
+                String url = String.Format("./ShowProducts.aspx?keywords={0}&category={1}", keywords, category);
+                Response.Redirect(Response.ApplyAppPathModifier(url));
             }
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

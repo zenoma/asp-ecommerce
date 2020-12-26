@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
@@ -39,6 +40,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             /* ProductDao */
             kernel.Bind<IProductDao>().
                 To<ProductDaoEntityFramework>();
+
+            /* CategoryService */
+            kernel.Bind<ICategoryService>().
+                To<CategoryService>();
 
             /* CategoryDao */
             kernel.Bind<ICategoryDao>().

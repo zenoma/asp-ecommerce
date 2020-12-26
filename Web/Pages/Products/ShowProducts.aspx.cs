@@ -24,6 +24,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
              * the previous page
              */
             String keywords = Request.Params.Get("keywords");
+            long category = Convert.ToInt64(Request.Params.Get("category"));
 
             /* Get Start Index */
             try
@@ -51,7 +52,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
 
             /* Get Accounts Info */
             ProductBlock productBlock =
-                productService.FindProducts(keywords, 0, startIndex, count);
+                productService.FindProducts(keywords, category, startIndex, count);
 
             if (productBlock.Products.Count == 0)
             {
@@ -66,7 +67,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             if ((startIndex - count) > 0)
             {
                 String url = /*Settings.Default.MiniBank_applicationURL +*/
-                    "/Pages/Products/ShowProducts.aspx" + "?keywords=" + keywords +
+                    "/Pages/Products/ShowProducts.aspx" + "?keywords=" + keywords + "&category=" + category +
                     "&startIndex=" + (startIndex - count) + "&count=" +
                     count;
 
@@ -79,7 +80,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             if (productBlock.ExistMoreProducts)
             {
                 String url = /*Settings.Default.MiniBank_applicationURL +*/
-                    "/Pages/Products/ShowProducts.aspx" + "?keywords=" + keywords +
+                    "/Pages/Products/ShowProducts.aspx" + "?keywords=" + keywords + "&category=" + category +
                     "&startIndex=" + (startIndex + count) + "&count=" +
                     count;
 

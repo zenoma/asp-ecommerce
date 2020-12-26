@@ -95,7 +95,8 @@ div.field {
         float: right;
         text-align: left;
         width: 49.5%;
-    }
+    height: 60px;
+}
 
 div.checkbox {
     clear: both;
