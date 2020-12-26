@@ -117,13 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lnkHome.Text" xml:space="preserve">
-    <value>Home</value>
-  </data>
-  <data name="lnkShowOrderItemsByOrderId.Text" xml:space="preserve">
-    <value>Link to orderItems.</value>
-  </data>
-  <data name="lnkShowOrdersByLogin.Text" xml:space="preserve">
-    <value>Show my orders.</value>
-  </data>
 </root>

@@ -177,4 +177,16 @@
   <data name="lnkUpdate.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="lnkHome.Text1" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="lnkShowCartByLogin.Text" xml:space="preserve">
+    <value>Show my cart</value>
+  </data>
+  <data name="lnkShowOrderItemsByOrderId.Text" xml:space="preserve">
+    <value>Link to orderItems</value>
+  </data>
+  <data name="lnkShowOrdersByLogin.Text" xml:space="preserve">
+    <value>Show my orders</value>
+  </data>
 </root>

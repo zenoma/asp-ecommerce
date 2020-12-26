@@ -7,65 +7,74 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
+namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
 {
 
 
-    public partial class FindProducts
+    public partial class AddToCart
     {
 
         /// <summary>
-        /// Control FindForm.
+        /// Control lblIdentifierError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm FindForm;
+        protected global::System.Web.UI.WebControls.Label lblIdentifierError;
 
         /// <summary>
-        /// Control lclKeywords.
+        /// Control RegisterForm.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lclKeywords;
+        protected global::System.Web.UI.HtmlControls.HtmlForm RegisterForm;
 
         /// <summary>
-        /// Control txtKeywords.
+        /// Control lclQuantity.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtKeywords;
+        protected global::System.Web.UI.WebControls.Localize lclQuantity;
 
         /// <summary>
-        /// Control lblKeywordsError.
+        /// Control txtQuantity.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblKeywordsError;
+        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
 
         /// <summary>
-        /// Control drpdCategory.
+        /// Control rfvQuantity.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpdCategory;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvQuantity;
 
         /// <summary>
-        /// Control btnFind.
+        /// Control lblQuantityError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFind;
+        protected global::System.Web.UI.WebControls.Label lblQuantityError;
+
+        /// <summary>
+        /// Control btnAddToCart.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddToCart;
     }
 }

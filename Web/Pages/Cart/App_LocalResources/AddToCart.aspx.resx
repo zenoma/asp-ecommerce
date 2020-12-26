@@ -117,10 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="InstanceNotFound.Text" xml:space="preserve">
-    <value>Instance Not Found</value>
+  <data name="btnAddToCart.Text" xml:space="preserve">
+    <value>Add to cart</value>
   </data>
-  <data name="Page.Title" xml:space="preserve">
-    <value>ECommerce- Instance Not Found</value>
+  <data name="InstanceNotFound.Text" xml:space="preserve">
+    <value>Product not found</value>
+  </data>
+  <data name="lblSuccess.Text" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="lclQuantity.Text" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="OutOfStockProductException.Text" xml:space="preserve">
+    <value>Not enough stock</value>
+  </data>
+  <data name="txtQuantity" xml:space="preserve">
+    <value>Quantity</value>
   </data>
 </root>

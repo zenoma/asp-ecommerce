@@ -12,10 +12,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
     public partial class ShowCartByLogin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        { 
-            if(Context.Session["userCart"] == null) 
+        {
+            lblNoCartItems.Visible = false;
+
+            CartDto cartDto = (CartDto)Context.Session["userCart"];
+            if (cartDto.cartLines.Count != 0) 
             { 
-                lblNoCartItems.Visible = true; 
+                //TODO Sacar nombre del producto
+                this.gvOrderItems.DataSource = cartDto.cartLines;
+                this.gvOrderItems.DataBind();
+            }
+            else
+            {
+                lblNoCartItems.Visible = true;
             }
            
         }

@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
+namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Order
 {
 
 
-    public partial class MainPage
+    public partial class CreateOrder
     {
     }
 }

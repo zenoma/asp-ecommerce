@@ -33,7 +33,6 @@
             </span>
 
             <span id="menuLinks">
-
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder_MenuLinks" runat="server">
                     <asp:Label ID="lblDash1" runat="server" Text="-" />
                     <asp:HyperLink ID="lnkAuthenticate" runat="server"
@@ -47,16 +46,36 @@
                     <asp:HyperLink ID="lnkLogout" runat="server"
                         NavigateUrl="~/Pages/User/Logout.aspx"
                         meta:resourcekey="lnkLogout" />
-                    <asp:Label ID="Label1" runat="server" Text="-" />
-                    <asp:HyperLink ID="lnkSearch" runat="server"
-                        NavigateUrl="~/Pages/Products/FindProducts.aspx"
-                        meta:resourcekey="lnkSearch" />
                 </asp:ContentPlaceHolder>
             </span>
         </div>
 
         <!-- Body content. -->
         <div id="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder_SideBar" runat="server">
+                <asp:Localize ID="lclContent" runat="server" meta:resourcekey="lclContent" />
+                <div id="sidebar">
+                    <ul>
+                        <li>
+                            <asp:HyperLink ID="lnkHome" runat="server"
+                                meta:resourcekey="lnkHome" NavigateUrl="~/Pages/MainPage.aspx" /></li>
+                        <li>
+                            <asp:HyperLink ID="lnkSearch" runat="server"
+                                NavigateUrl="~/Pages/Products/FindProducts.aspx"
+                                meta:resourcekey="lnkSearch" /></li>
+                        <li>
+                            <asp:HyperLink ID="lnkShowOrdersByLogin" runat="server"
+                                meta:resourcekey="lnkShowOrdersByLogin" NavigateUrl="~/Pages/Cart/ShowOrdersByLogin.aspx" /></li>
+                        <li>
+                            <asp:HyperLink ID="lnkShowOrderItemsByOrderId" runat="server"
+                                meta:resourcekey="lnkShowOrderItemsByOrderId" NavigateUrl="~/Pages/Cart/ShowOrderItemsByOrderId.aspx" /></li>
+                        <li>
+                            <asp:HyperLink ID="lnkShowCartByLogin" runat="server"
+                                meta:resourcekey="lnkShowCartByLogin" NavigateUrl="~/Pages/Cart/ShowCartByLogin.aspx" /></li>
+
+                    </ul>
+                </div>
+            </asp:ContentPlaceHolder>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder_BodyContent" runat="server" />
         </div>
         <!-- Footer. -->
