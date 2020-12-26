@@ -135,6 +135,9 @@
   <data name="lblDash3Resource1.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="lblWelcome.Hello.Text" xml:space="preserve">
+    <value>Welcome!</value>
+  </data>
   <data name="lblWelcome.Text" xml:space="preserve">
     <value>Welcome to ECommerce</value>
   </data>

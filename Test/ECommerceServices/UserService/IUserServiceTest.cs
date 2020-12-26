@@ -22,7 +22,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         private static IUserDao userDao;
         private static ICreditCardDao creditCardDao;
         private static UserRegisterDetailsDto userDetails;
-        private static CreditCard creditCard;
+        private static CreditCardDto creditCard;
 
         private const string login = "loginTest";
 
@@ -79,13 +79,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
 
             userDetails = new UserRegisterDetailsDto(name, surnames, email, postalAddress, language, country);
 
-            creditCard = new CreditCard();
-
-            creditCard.type = tipo;
-            creditCard.number = number;
-            creditCard.verifyCode = verifyCode;
-            creditCard.expDate = expDate;
-            creditCard.isFav = false;
+            creditCard = new CreditCardDto(0, tipo, number, verifyCode, expDate, false);
         }
 
         //Use TestCleanup to run code after each test has run
@@ -129,7 +123,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         {
             var userId = userService.SignUp(login, clearPassword, userDetails);
 
-            var expected = new LoginUser(userId, name, surnames, postalAddress, email);
+            var expected = new LoginUser(userId, PasswordEncrypter.Crypt(clearPassword), name, language, country);
 
             var actual =
                 userService.Login(login,
@@ -143,7 +137,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         {
             var userId = userService.SignUp(login, clearPassword, userDetails);
 
-            var expected = new LoginUser(userId, name, surnames, postalAddress, email);
+            var expected = new LoginUser(userId, PasswordEncrypter.Crypt(clearPassword), name, language, country);
 
             var obtained =
                 userService.Login(login,
@@ -262,12 +256,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
             var creditCardId = userService.CreateCreditCard(creditCard, userId);
 
             creditCard.isFav = true;
+            creditCard.creditCardId = creditCardId;
 
             userService.UpdateCreditCard(creditCard, userId);
 
-            var creditCardFound = creditCardDao.Find(creditCardId);
+            CreditCardDto creditCardFound = userService.FindCreditCardById(creditCardId);
 
-            Assert.AreEqual(creditCard, creditCardFound);
+            Assert.AreEqual(creditCardFound.type, creditCard.type);
+            Assert.AreEqual(creditCardFound.number, creditCard.number);
+            Assert.AreEqual(creditCardFound.verifyCode, creditCard.verifyCode);
+            Assert.AreEqual(creditCardFound.expDate, creditCard.expDate);
+            Assert.AreEqual(creditCardFound.isFav, creditCard.isFav);
         }
 
         [TestMethod]
@@ -284,7 +283,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         public void UpdateForbiddenCreditCardTest()
         {
             var userId = userService.SignUp(login, clearPassword, userDetails);
-            userService.CreateCreditCard(creditCard, userId);
+            creditCard.creditCardId = userService.CreateCreditCard(creditCard, userId);
 
             userService.UpdateCreditCard(creditCard, -1L);
         }
@@ -297,9 +296,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
 
             creditCard.creditCardId = creditCardId;
 
-            List<CreditCard> creditCardsFound = userService.FindCreditCardsByUserId(userId);
+            List<CreditCardDto> creditCardsFound = userService.FindCreditCardsByUserId(userId);
 
-            Assert.IsTrue(creditCardsFound.Contains(creditCard));
+            creditCardsFound.ForEach(creditCardFound =>
+            {
+                Assert.AreEqual(creditCardFound.type, creditCard.type);
+                Assert.AreEqual(creditCardFound.number, creditCard.number);
+                Assert.AreEqual(creditCardFound.verifyCode, creditCard.verifyCode);
+                Assert.AreEqual(creditCardFound.expDate, creditCard.expDate);
+                Assert.AreEqual(creditCardFound.isFav, creditCard.isFav);
+            });
         }
 
         [TestMethod]
@@ -318,10 +324,30 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
 
             creditCard.creditCardId = creditCardId;
 
-            CreditCard creditCardFavFound = userService.FindFavCreditCardByUserId(userId);
+            CreditCardDto creditCardFavFound = userService.FindFavCreditCardByUserId(userId);
 
             Assert.AreEqual(creditCard.type, creditCardFavFound.type);
-            Assert.AreEqual(creditCard.userId, creditCardFavFound.userId);
+            Assert.AreEqual(creditCard.number, creditCardFavFound.number);
+            Assert.AreEqual(creditCard.verifyCode, creditCardFavFound.verifyCode);
+            Assert.AreEqual(creditCard.isFav, creditCardFavFound.isFav);
+        }
+
+
+        [TestMethod]
+        public void FindCreditCardByIdTest()
+        {
+            var userId = userService.SignUp(login, clearPassword, userDetails);
+            var creditCardId = userService.CreateCreditCard(creditCard, userId);
+
+            creditCard.creditCardId = creditCardId;
+
+            CreditCardDto creditCardFound = userService.FindCreditCardById(creditCardId);
+
+            Assert.AreEqual(creditCard.type, creditCardFound.type);
+            Assert.AreEqual(creditCard.number, creditCardFound.number);
+            Assert.AreEqual(creditCard.verifyCode, creditCardFound.verifyCode);
+            Assert.AreEqual(creditCard.expDate, creditCardFound.expDate);
+            Assert.AreEqual(creditCard.isFav, creditCardFound.isFav);
         }
 
         [TestMethod]
