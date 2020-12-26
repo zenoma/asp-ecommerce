@@ -46,10 +46,5 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                 Response.Redirect(Response.ApplyAppPathModifier(url));
             }
         }
-
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

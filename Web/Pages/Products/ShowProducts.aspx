@@ -9,9 +9,9 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
-        <asp:GridView ID="gvProducts" runat="server" AutoGenerateColumns="False" Width="505px">
+        <asp:GridView ID="gvProducts" runat="server" AutoGenerateColumns="False" Width="505px" >
             <Columns>
-                <asp:HyperLinkField DataTextField="name" HeaderText="Name" />
+                <asp:HyperLinkField DataTextField="name" HeaderText="Name" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="./ShowProductDetails.aspx?productID={0}" />
                 <asp:BoundField DataField="category" HeaderText="Category" />
                 <asp:BoundField DataField="productDate" HeaderText="Registration Date" />
                 <asp:BoundField DataField="unitPrice" HeaderText="Price" />
