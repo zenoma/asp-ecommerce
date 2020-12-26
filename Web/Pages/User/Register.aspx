@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.User.Register"  meta:resourcekey="Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.User.Register" meta:resourcekey="Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation"
     runat="server">
@@ -15,14 +15,14 @@
                 <span class="label">
                     <asp:Localize ID="lclUserName" runat="server" meta:resourcekey="lclUserName" />
                 </span><span
-                        class="entry">
-                        <asp:TextBox ID="txtLogin" runat="server" Width="100px" Columns="16"
-                            meta:resourcekey="txtLoginResource1"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ControlToValidate="txtLogin"
-                            Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
-                            meta:resourcekey="rfvUserNameResource1"></asp:RequiredFieldValidator>
-                        <asp:Label ID="lblLoginError" runat="server" ForeColor="Red" Style="position: relative"
-                            Visible="False" meta:resourcekey="lblLoginError"></asp:Label></span>
+                    class="entry">
+                    <asp:TextBox ID="txtLogin" runat="server" Width="100px" Columns="16"
+                        meta:resourcekey="txtLoginResource1"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ControlToValidate="txtLogin"
+                        Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
+                        meta:resourcekey="rfvUserNameResource1"></asp:RequiredFieldValidator>
+                    <asp:Label ID="lblLoginError" runat="server" ForeColor="Red" Style="position: relative"
+                        Visible="False" meta:resourcekey="lblLoginError"></asp:Label></span>
             </div>
             <div class="field">
                 <span class="label">
