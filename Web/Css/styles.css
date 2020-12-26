@@ -115,6 +115,35 @@ input, select, textarea {
     background-color: #f4f4f4;
 }
 
+/* Sidebar. */
+
+#sidebar {
+    margin: 10px;
+    background-color: #097099;
+    width: 20%;
+}
+
+#sidebar a {
+    color: #fffac6;
+}
+
+#sidebar a:hover {
+    color: #cc0000;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding-top: 0px;
+    /* Hack for correct indentation (the following three lines). */
+    margin-left: 0;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+#sidebar li {
+    padding: 0 0 3px 5px;
+}
+
 /* Error messages. */
 
 .errorMessage {

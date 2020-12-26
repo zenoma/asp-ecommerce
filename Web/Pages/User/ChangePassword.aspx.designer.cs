@@ -7,137 +7,146 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Es.Udc.DotNet.PracticaMaD.Web
+namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 {
 
 
-    public partial class ECommerce
+    public partial class ChangePassword
     {
 
         /// <summary>
-        /// Control Head1.
+        /// Control lclMenuExplanation.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        protected global::System.Web.UI.WebControls.Localize lclMenuExplanation;
 
         /// <summary>
-        /// Control lclPageTitle.
+        /// Control ChangePasswordForm.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lclPageTitle;
+        protected global::System.Web.UI.HtmlControls.HtmlForm ChangePasswordForm;
 
         /// <summary>
-        /// Control ContentPlaceHolder_MenuWelcome.
+        /// Control lclOldPassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_MenuWelcome;
+        protected global::System.Web.UI.WebControls.Localize lclOldPassword;
 
         /// <summary>
-        /// Control lblWelcome.
+        /// Control txtOldPassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWelcome;
+        protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
 
         /// <summary>
-        /// Control ContentPlaceHolder_MenuExplanation.
+        /// Control rfvOldPassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_MenuExplanation;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvOldPassword;
 
         /// <summary>
-        /// Control ContentPlaceHolder_MenuLinks.
+        /// Control lblOldPasswordError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_MenuLinks;
+        protected global::System.Web.UI.WebControls.Label lblOldPasswordError;
 
         /// <summary>
-        /// Control lblDash1.
+        /// Control lclNewPassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDash1;
+        protected global::System.Web.UI.WebControls.Localize lclNewPassword;
 
         /// <summary>
-        /// Control lnkAuthenticate.
+        /// Control txtNewPassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkAuthenticate;
+        protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
 
         /// <summary>
-        /// Control lblDash2.
+        /// Control rfvNewPassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDash2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNewPassword;
 
         /// <summary>
-        /// Control lnkUpdate.
+        /// Control cvCreateNewPassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkUpdate;
+        protected global::System.Web.UI.WebControls.CompareValidator cvCreateNewPassword;
 
         /// <summary>
-        /// Control lblDash3.
+        /// Control lclRetypePassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDash3;
+        protected global::System.Web.UI.WebControls.Localize lclRetypePassword;
 
         /// <summary>
-        /// Control lnkLogout.
+        /// Control txtRetypePassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkLogout;
+        protected global::System.Web.UI.WebControls.TextBox txtRetypePassword;
 
         /// <summary>
-        /// Control ContentPlaceHolder_BodyContent.
+        /// Control rfvRetypePassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_BodyContent;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRetypePassword;
 
         /// <summary>
-        /// Control lclFooter.
+        /// Control cvPasswordCheck.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lclFooter;
+        protected global::System.Web.UI.WebControls.CompareValidator cvPasswordCheck;
+
+        /// <summary>
+        /// Control btnChangePassword.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangePassword;
     }
 }

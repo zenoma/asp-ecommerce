@@ -9,21 +9,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
     [Serializable()]
     public class LoginUser
     {
-        public LoginUser(long userId, string name, string surnames,
-            string postalAddress, string email)
+        public LoginUser(long userId, string encryptedPassword, string name, string language,
+            string country)
         {
             this.userId = userId;
+            this.encryptedPassword = encryptedPassword;
             this.name = name;
-            this.surnames = surnames;
-            this.postalAddress = postalAddress;
-            this.email = email;
+            this.language = language;
+            this.country = country;
         }
 
         public long userId { get; set; }
+        public string encryptedPassword { get; set; }
         public string name { get; set; }
-        public string surnames { get; set; }
-        public string postalAddress { get; set; }
-        public string email { get; set; }
+        public string language { get; set; }
+        public string country { get; set; }
 
         public override int GetHashCode()
         {
@@ -32,10 +32,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 int multiplier = 31;
                 int hash = GetType().GetHashCode();
 
+                hash = hash * multiplier + (encryptedPassword == null ? 0 : encryptedPassword.GetHashCode());
                 hash = hash * multiplier + (name == null ? 0 : name.GetHashCode());
-                hash = hash * multiplier + (surnames == null ? 0 : surnames.GetHashCode());
-                hash = hash * multiplier + (postalAddress == null ? 0 : postalAddress.GetHashCode());
-                hash = hash * multiplier + (email == null ? 0 : email.GetHashCode());
+                hash = hash * multiplier + (language == null ? 0 : language.GetHashCode());
+                hash = hash * multiplier + (country == null ? 0 : country.GetHashCode());
 
                 return hash;
             }
@@ -57,10 +57,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
             return true
                && (this.userId == target.userId)
+               && (this.encryptedPassword == target.encryptedPassword)
                && (this.name == target.name)
-               && (this.surnames == target.surnames)
-               && (this.postalAddress == target.postalAddress)
-               && (this.email == target.email)
+               && (this.language == target.language)
+               && (this.country == target.country)
                ;
 
         }
@@ -71,10 +71,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
             strUser.Append("[ ");
             strUser.Append(" userId = " + userId + " | ");
+            strUser.Append(" encryptedPassword = " + encryptedPassword + " | ");
             strUser.Append(" name = " + name + " | ");
-            strUser.Append(" surnames = " + surnames + " | ");
-            strUser.Append(" postalAddress = " + postalAddress + " | ");
-            strUser.Append(" email = " + email + " | ");
+            strUser.Append(" language = " + language + " | ");
+            strUser.Append(" country = " + country + " | ");
             strUser.Append("] ");
 
             return strUser.ToString();

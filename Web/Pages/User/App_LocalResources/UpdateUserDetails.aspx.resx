@@ -117,34 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblWelcome.Hello.Text" xml:space="preserve">
-    <value>Welcome!</value>
+  <data name="btnUpdate.Text" xml:space="preserve">
+    <value>Update</value>
   </data>
-  <data name="lblWelcome.Text" xml:space="preserve">
-    <value>Welcome to ECommerce</value>
+  <data name="lclCountry.Text" xml:space="preserve">
+    <value>Country</value>
   </data>
-  <data name="lclFooter.Text" xml:space="preserve">
-    <value>Copyright &amp;copy; Computer Science Department - Univesity of A Coruña</value>
+  <data name="lclEmail.Text" xml:space="preserve">
+    <value>Email</value>
   </data>
-  <data name="lclHeader.Text" xml:space="preserve">
-    <value>MiniBank: A Sample Model-View-Controller Application with .NET</value>
+  <data name="lclLanguage.Text" xml:space="preserve">
+    <value>Language</value>
   </data>
-  <data name="lclPageTitle.Text" xml:space="preserve">
-    <value>ECommerce: A MVC Web Application with .NET</value>
+  <data name="lclMenuExplanation.Text" xml:space="preserve">
+    <value>User details</value>
   </data>
-  <data name="lnkAuthenticate.Text" xml:space="preserve">
-    <value>Authentication</value>
+  <data name="lclName.Text" xml:space="preserve">
+    <value>Name</value>
   </data>
-  <data name="lnkHome.Text" xml:space="preserve">
-    <value>Home</value>
+  <data name="lclPostalAddress.Text" xml:space="preserve">
+    <value>Postal Address</value>
   </data>
-  <data name="lnkLocale.Text" xml:space="preserve">
-    <value>Select Locale</value>
+  <data name="lclSurnames.Text" xml:space="preserve">
+    <value>Surnames</value>
   </data>
-  <data name="lnkLogout.Text" xml:space="preserve">
-    <value>Logout</value>
+  <data name="lnkChangePassword.Text" xml:space="preserve">
+    <value>Change password</value>
   </data>
-  <data name="lnkUpdate.Text" xml:space="preserve">
-    <value>Update Profile</value>
+  <data name="Page.Title" xml:space="preserve">
+    <value>ECommerce - Update User Profile</value>
+  </data>
+  <data name="revEmail.ErrorMessage" xml:space="preserve">
+    <value>Incorrect email syntax</value>
   </data>
 </root>

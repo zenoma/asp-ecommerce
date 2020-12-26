@@ -61,6 +61,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.App_LocalResources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Welcome!.
+        /// </summary>
+        internal static string lblWelcome_Hello_Text {
+            get {
+                return ResourceManager.GetString("lblWelcome.Hello.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Welcome to ECommerce.
+        /// </summary>
+        internal static string lblWelcome_Text {
+            get {
+                return ResourceManager.GetString("lblWelcome.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Copyright &amp;copy; Computer Science Department - Univesity of A Coruña.
         /// </summary>
         internal static string lclFooter_Text {
@@ -75,6 +93,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.App_LocalResources {
         internal static string lclHeader_Text {
             get {
                 return ResourceManager.GetString("lclHeader.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ECommerce: A MVC Web Application with .NET.
+        /// </summary>
+        internal static string lclPageTitle_Text {
+            get {
+                return ResourceManager.GetString("lclPageTitle.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Authentication.
+        /// </summary>
+        internal static string lnkAuthenticate_Text {
+            get {
+                return ResourceManager.GetString("lnkAuthenticate.Text", resourceCulture);
             }
         }
         
@@ -97,20 +133,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Link to orderItems..
+        ///   Busca una cadena traducida similar a Logout.
         /// </summary>
-        internal static string lnkShowOrderItemsByOrderId_Text {
+        internal static string lnkLogout_Text {
             get {
-                return ResourceManager.GetString("lnkShowOrderItemsByOrderId.Text", resourceCulture);
+                return ResourceManager.GetString("lnkLogout.Text", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Show my orders..
+        ///   Busca una cadena traducida similar a Update Profile.
         /// </summary>
-        internal static string lnkShowOrdersByLogin_Text {
+        internal static string lnkUpdate_Text {
             get {
-                return ResourceManager.GetString("lnkShowOrdersByLogin.Text", resourceCulture);
+                return ResourceManager.GetString("lnkUpdate.Text", resourceCulture);
             }
         }
     }

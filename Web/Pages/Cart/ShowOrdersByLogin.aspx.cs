@@ -1,6 +1,7 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC;
 using Es.Udc.DotNet.PracticaMaD.Web.Properties;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
             /* Get User Identifier passed as parameter in the request from
              * the previous page
              */
-            string login = Request.Params.Get("login");
+            string login = "";
+            if (CookiesManager.GetLoginName(Context) != null) { 
+                login = CookiesManager.GetLoginName(Context);
+            }
+            else
+            {
+                Response.Redirect(
+                    Response.ApplyAppPathModifier("~/Pages/User/Authentication.aspx"));
+            }
 
             /* Get Start Index */
             try

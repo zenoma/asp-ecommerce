@@ -117,34 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblWelcome.Hello.Text" xml:space="preserve">
-    <value>Welcome!</value>
+  <data name="btnLogin.Text" xml:space="preserve">
+    <value>Login</value>
   </data>
-  <data name="lblWelcome.Text" xml:space="preserve">
-    <value>Welcome to ECommerce</value>
+  <data name="checkRememberPassword.Text" xml:space="preserve">
+    <value>Remember my password (cookies must be enabled)</value>
   </data>
-  <data name="lclFooter.Text" xml:space="preserve">
-    <value>Copyright &amp;copy; Computer Science Department - Univesity of A Coruña</value>
+  <data name="lblLoginError.Text" xml:space="preserve">
+    <value>User not found</value>
   </data>
-  <data name="lclHeader.Text" xml:space="preserve">
-    <value>MiniBank: A Sample Model-View-Controller Application with .NET</value>
+  <data name="lblPasswordError.Text" xml:space="preserve">
+    <value>Incorrect password</value>
   </data>
-  <data name="lclPageTitle.Text" xml:space="preserve">
-    <value>ECommerce: A MVC Web Application with .NET</value>
+  <data name="lclLogin.Text" xml:space="preserve">
+    <value>User</value>
   </data>
-  <data name="lnkAuthenticate.Text" xml:space="preserve">
+  <data name="lclMenuExplanation.Text" xml:space="preserve">
     <value>Authentication</value>
   </data>
-  <data name="lnkHome.Text" xml:space="preserve">
-    <value>Home</value>
+  <data name="lclPassword.Text" xml:space="preserve">
+    <value>Password</value>
   </data>
-  <data name="lnkLocale.Text" xml:space="preserve">
-    <value>Select Locale</value>
+  <data name="lnkRegister.Text" xml:space="preserve">
+    <value>Register (user not registered)</value>
   </data>
-  <data name="lnkLogout.Text" xml:space="preserve">
-    <value>Logout</value>
-  </data>
-  <data name="lnkUpdate.Text" xml:space="preserve">
-    <value>Update Profile</value>
+  <data name="Page.Title" xml:space="preserve">
+    <value>ECommerce - Authentication Page</value>
   </data>
 </root>

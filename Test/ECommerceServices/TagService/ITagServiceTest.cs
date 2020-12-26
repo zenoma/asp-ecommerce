@@ -42,6 +42,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
         private const string surnames = "surname1 surname2";
         private const string email = "email@email.es";
         private const string postalAddress = "address";
+        private const string language = "es";
+        private const string country = "es";
 
         private const string productName = "Some name";
         private DateTime productDate = System.DateTime.Now;
@@ -107,6 +109,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.TagService
             user.surnames = surnames;
             user.email = email;
             user.postalAddress = postalAddress;
+            user.language = language;
+            user.country = country;
 
             userDao.Create(user);
 

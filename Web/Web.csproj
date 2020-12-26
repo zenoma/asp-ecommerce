@@ -210,6 +210,7 @@
     <Content Include="Pages\Cart\Errors\App_LocalResources\Errors.resx" />
     <Content Include="Pages\Cart\App_LocalResources\ShowOrdersByLogin.aspx.resx" />
     <Content Include="Pages\Cart\App_LocalResources\ShowOrderItemsByOrderId.aspx.resx" />
+    <Content Include="Pages\App_LocalResources\MainPage.aspx.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -242,9 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\UpdateUserDetails.aspx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\ECommerce.Master.aspx.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\ChangePassword.aspx.resx" />
