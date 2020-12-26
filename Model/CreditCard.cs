@@ -80,8 +80,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     	    
             CreditCard target = obj as CreditCard;
     
-    		return true
-               &&  (this.creditCardId == target.creditCardId )       
+    		return true    
                &&  (this.userId == target.userId )       
                &&  (this.type == target.type )       
                &&  (this.number == target.number )       

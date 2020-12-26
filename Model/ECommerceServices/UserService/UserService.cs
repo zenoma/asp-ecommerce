@@ -128,33 +128,40 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
         /// <exception cref="DuplicateInstanceException"/>
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
-        public long CreateCreditCard(CreditCard creditCard, long userId)
+        public long CreateCreditCard(CreditCardDto creditCard, long userId)
         {
             User user = UserDao.Find(userId);
+            CreditCard creditCardModel = new CreditCard();
+
+            creditCardModel.type = creditCard.type;
+            creditCardModel.number = creditCard.number;
+            creditCardModel.verifyCode = creditCard.verifyCode;
+            creditCardModel.expDate = creditCard.expDate;
+            creditCardModel.isFav = creditCard.isFav;
 
             if (user.Equals(null))
             {
                 throw new InstanceNotFoundException(userId, "User");
             }
 
+            creditCardModel.userId = userId;
+
             List<CreditCard> creditCards = CreditCardDao.FindAllByUserId(userId);
 
-            if (creditCards.Contains(creditCard))
+            if (creditCards.Contains(creditCardModel))
             {
                 throw new DuplicateInstanceException(creditCard, "CreditCard");
             }
 
-            creditCard.userId = userId;
+            CreditCardDao.Create(creditCardModel);
 
-            CreditCardDao.Create(creditCard);
-
-            return creditCard.creditCardId;
+            return creditCardModel.creditCardId;
         }
 
         /// <exception cref="InstanceNotFoundException"/>
         /// <exception cref="ForbiddenException"/>
         [Transactional]
-        public void UpdateCreditCard(CreditCard creditCard, long userId)
+        public void UpdateCreditCard(CreditCardDto creditCard, long userId)
         {
             CreditCard creditCardFound = CreditCardDao.Find(creditCard.creditCardId);
 
@@ -168,14 +175,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 throw new ForbiddenException(userId);
             }
 
-            creditCard.userId = userId;
+            creditCardFound.type = creditCard.type;
+            creditCardFound.number = creditCard.number;
+            creditCardFound.verifyCode = creditCard.verifyCode;
+            creditCardFound.expDate = creditCard.expDate;
+            creditCardFound.isFav = creditCard.isFav;
+            creditCardFound.userId = userId;
 
-            CreditCardDao.Update(creditCard);
+            CreditCardDao.Update(creditCardFound);
         }
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
-        public List<CreditCard> FindCreditCardsByUserId(long userId)
+        public List<CreditCardDto> FindCreditCardsByUserId(long userId)
         {
             User userFound = UserDao.Find(userId);
 
@@ -184,12 +196,36 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 throw new InstanceNotFoundException(userId, "User");
             }
 
-            return CreditCardDao.FindAllByUserId(userId);
+            List<CreditCard> listCreditCards = CreditCardDao.FindAllByUserId(userId);
+            List<CreditCardDto> listCreditCardsDto = new List<CreditCardDto>();
+
+            foreach (var creditCard in listCreditCards)
+            {
+                listCreditCardsDto.Add(new CreditCardDto(creditCard.creditCardId, creditCard.type, 
+                    creditCard.number, creditCard.verifyCode, creditCard.expDate, creditCard.isFav));
+            }
+
+            return listCreditCardsDto;
         }
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
-        public CreditCard FindFavCreditCardByUserId(long userId)
+        public CreditCardDto FindCreditCardById(long creditCardId)
+        {
+            CreditCard creditCard = CreditCardDao.Find(creditCardId);
+
+            if (creditCard.Equals(null))
+            {
+                throw new InstanceNotFoundException(creditCardId, "Credit Card");
+            }
+
+            return new CreditCardDto(creditCard.creditCardId, creditCard.type, creditCard.number, 
+                creditCard.verifyCode, creditCard.expDate, creditCard.isFav);
+        }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public CreditCardDto FindFavCreditCardByUserId(long userId)
         {
             User userFound = UserDao.Find(userId);
 
@@ -198,7 +234,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 throw new InstanceNotFoundException(userId, "User");
             }
 
-            return CreditCardDao.FindFavByUserId(userId);
+            CreditCard creditCard = CreditCardDao.FindFavByUserId(userId);
+
+            return new CreditCardDto(creditCard.creditCardId, creditCard.type, creditCard.number,
+                creditCard.verifyCode, creditCard.expDate, creditCard.isFav);
         }
 
         /// <exception cref="InstanceNotFoundException"/>
