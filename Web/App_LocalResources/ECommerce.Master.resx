@@ -119,6 +119,7 @@
   </resheader>
   <data name="lblWelcome.Hello.Text" xml:space="preserve">
     <value>Welcome!</value>
+  </data>
   <data name="lblDash1Resource1.Text" xml:space="preserve">
     <value>-</value>
   </data>
@@ -157,6 +158,7 @@
   </data>
   <data name="lnkLocale.Text" xml:space="preserve">
     <value>Select Locale</value>
+  </data>
   <data name="lnkHome.ToolTip" xml:space="preserve">
     <value />
   </data>
