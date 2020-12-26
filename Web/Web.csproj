@@ -164,6 +164,7 @@
     </Compile>
     <Compile Include="Pages\Products\ShowProducts.aspx.designer.cs">
       <DependentUpon>ShowProducts.aspx</DependentUpon>
+	</Compile>
     <Compile Include="Pages\User\AddCreditCard.aspx.cs">
       <DependentUpon>AddCreditCard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
