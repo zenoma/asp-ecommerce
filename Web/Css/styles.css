@@ -79,31 +79,35 @@ form {
 div.field {
     clear: both;
     padding-top: 1em;
-    width: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
     div.field span.label {
-        float: left;
-        text-align: right;
+        flex: 1;
         font-weight: bold;
         vertical-align: middle;
         padding-top: 0.3em;
-        width: 49.5%;
+        padding-right: 0.3em;
+        text-align: right;
     }
 
     div.field span.entry {
-        float: right;
-        text-align: left;
-        width: 49.5%;
-    height: 60px;
-}
+        flex: 2;
+    }
 
-div.checkbox {
-    clear: both;
-    padding-top: 1em;
-    text-align: center;
-    width: 100%;
-}
+        div.field span.entry input {
+            width: 100%;
+        }
+
+    div.checkbox {
+        clear: both;
+        padding-top: 1em;
+        text-align: center;
+        width: 100%;
+    }
 
 div.button {
     clear: both;
@@ -114,6 +118,14 @@ div.button {
 
 input, select, textarea {
     background-color: #f4f4f4;
+}
+
+/* Credit card's accounts. */
+
+table.creditCards {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
 }
 
 /* Error messages. */

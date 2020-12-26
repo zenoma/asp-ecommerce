@@ -117,31 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="editButton" xml:space="preserve">
-    <value>Edit</value>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
-  <data name="expDate" xml:space="preserve">
-    <value>Expiration Date</value>
-  </data>
-  <data name="isFav" xml:space="preserve">
+  <data name="checkIsFav.Text" xml:space="preserve">
     <value>Is Favorite</value>
   </data>
-  <data name="mandatoryField" xml:space="preserve">
-    <value>Mandatory Field</value>
+  <data name="lblAddError.Text" xml:space="preserve">
+    <value>Credit Card already exists</value>
   </data>
-  <data name="number" xml:space="preserve">
+  <data name="lclExpDate.Text" xml:space="preserve">
+    <value>Expiration Date</value>
+  </data>
+  <data name="lclNumber.Text" xml:space="preserve">
     <value>Number</value>
   </data>
-  <data name="removeButton" xml:space="preserve">
-    <value>Remove</value>
-  </data>
-  <data name="searchButton" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="type" xml:space="preserve">
+  <data name="lclType.Text" xml:space="preserve">
     <value>Type</value>
   </data>
-  <data name="verifyCode" xml:space="preserve">
+  <data name="lclVerifyCode.Text" xml:space="preserve">
     <value>Verify Code</value>
   </data>
 </root>
