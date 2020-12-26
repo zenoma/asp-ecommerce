@@ -101,7 +101,10 @@
     <Content Include="Pages\Products\FindProducts.aspx" />
     <Content Include="Pages\Products\ShowProductDetails.aspx" />
     <Content Include="Pages\Products\ShowProducts.aspx" />
+    <Content Include="Pages\User\Authentication.aspx" />
+    <Content Include="Pages\User\ChangePassword.aspx" />
     <Content Include="Pages\User\Register.aspx" />
+    <Content Include="Pages\User\UpdateUserDetails.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +160,19 @@
     </Compile>
     <Compile Include="Pages\Products\ShowProducts.aspx.designer.cs">
       <DependentUpon>ShowProducts.aspx</DependentUpon>
+    <Compile Include="Pages\User\Authentication.aspx.cs">
+      <DependentUpon>Authentication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\Authentication.aspx.designer.cs">
+      <DependentUpon>Authentication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -164,6 +180,13 @@
     </Compile>
     <Compile Include="Pages\User\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\UpdateUserDetails.aspx.cs">
+      <DependentUpon>UpdateUserDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\UpdateUserDetails.aspx.designer.cs">
+      <DependentUpon>UpdateUserDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -206,6 +229,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\Products\App_LocalResources\FindProducts.aspx.resx" />
+    <Content Include="Pages\User\App_LocalResources\Authentication.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\UpdateUserDetails.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ECommerce.Master.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ChangePassword.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

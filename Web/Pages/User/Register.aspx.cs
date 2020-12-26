@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.Log;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.View.AplicationsObjects;
 using System;
@@ -108,14 +109,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             {
                 try
                 {
-                    //TODO arreglar register
-                    //UserProfileDetails userProfileDetailsVO =
-                    //    new UserProfileDetails(txtFirstName.Text, txtSurname.Text,
-                    //        txtEmail.Text, comboLanguage.SelectedValue,
-                    //        comboCountry.SelectedValue);
+                    UserRegisterDetailsDto userRegisterDetailsDto =
+                        new UserRegisterDetailsDto(txtFirstName.Text, txtSurname.Text,
+                            txtEmail.Text, txtPostalAddress.Text, comboLanguage.SelectedValue,
+                            comboCountry.SelectedValue);
 
-                    //SessionManager.RegisterUser(Context, txtLogin.Text,
-                    //    txtPassword.Text, userProfileDetailsVO);
+                    SessionManager.SignUp(Context, txtLogin.Text,
+                        txtPassword.Text, userRegisterDetailsDto);
 
                     Response.Redirect(Response.
                         ApplyAppPathModifier("~/Pages/MainPage.aspx"));

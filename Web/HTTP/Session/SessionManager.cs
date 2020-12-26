@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.View.AplicationsObjects;
@@ -99,32 +100,31 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             userService = iocManager.Resolve<IUserService>();
         }
 
-        //TODO Cambiar por userDto(tiene que llevar locales,idioma y contraseña limpia)
         /// <summary>
         /// Registers the user.
         /// </summary>
         /// <param name="context">Http Context includes request, response, etc.</param>
         /// <param name="loginName">Username</param>
         /// <param name="clearPassword">Password in clear text</param>
-        /// <param name="loginUser">The user profile details.</param>
+        /// <param name="userDetails">The user profile details.</param>
         /// <exception cref="DuplicateInstanceException"/>
-        public static void SignUp(HttpContext context,
-            User user)
+        public static void SignUp(HttpContext context, string loginName,
+            string clearPassword, UserRegisterDetailsDto userDetails)
         {
             /* Register user. */
-            long usrId = userService.SignUp(user);
+            long userId = userService.SignUp(loginName, clearPassword, userDetails);
 
             /* Insert necessary objects in the session. */
             UserSession userSession = new UserSession();
-            userSession.UserProfileId = usrId;
-            userSession.FirstName = user.name;
+            userSession.UserProfileId = userId;
+            userSession.FirstName = userDetails.name;
 
-            //Locale locale = new Locale(user.Language,
-            //    loginUser.Country);
+            Locale locale = new Locale(userDetails.language,
+                userDetails.country);
 
-            UpdateSessionForAuthenticatedUser(context, userSession, new Locale());
+            UpdateSessionForAuthenticatedUser(context, userSession, locale);
 
-            FormsAuthentication.SetAuthCookie(user.login, false);
+            FormsAuthentication.SetAuthCookie(loginName, false);
         }
 
         /// <summary>
@@ -139,18 +139,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
         public static void Login(HttpContext context, String loginName,
            String clearPassword, Boolean rememberMyPassword)
         {
-            // TODO Añadir a LoginUser la contraseña encriptada
             /* Try to login, and if successful, update session with the necessary
              * objects for an authenticated user. */
             LoginUser loginUser = DoLogin(context, loginName,
-                clearPassword, false, rememberMyPassword);
+                clearPassword, false);
 
             /* Add cookies if requested. */
             if (rememberMyPassword)
             {
-                // TODO Cambiar email por la contraseña encriptada
                 CookiesManager.LeaveCookies(context, loginName,
-                    loginUser.email);
+                    loginUser.encryptedPassword);
             }
         }
 
@@ -169,8 +167,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
         /// <exception cref="IncorrectPasswordException"/>
         /// <exception cref="InstanceNotFoundException"/>
         private static LoginUser DoLogin(HttpContext context,
-             String loginName, String password, Boolean passwordIsEncrypted,
-             Boolean rememberMyPassword)
+             String loginName, String password, Boolean passwordIsEncrypted)
         {
             LoginUser loginUser =
                 userService.Login(loginName, password,
@@ -182,9 +179,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             userSession.UserProfileId = loginUser.userId;
             userSession.FirstName = loginUser.name;
 
-            //TODO descomentar
             Locale locale =
-                new Locale(/*loginUser.Language, loginUser.Country*/);
+                new Locale(loginUser.language, loginUser.country);
 
             UpdateSessionForAuthenticatedUser(context, userSession, locale);
 
@@ -229,49 +225,47 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             return locale;
         }
 
-
-        //TODO crear UserProfileDetails 
         /// <summary>
         /// Updates the user profile details.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="userProfileDetails">The user profile details.</param>
-        //public static void UpdateUserProfileDetails(HttpContext context,
-        //    UserProfileDetails userProfileDetails)
-        //{
-        //    /* Update user's profile details. */
+        public static void UpdateUserProfileDetails(HttpContext context,
+            UserRegisterDetailsDto userDto)
+        {
+            /* Update user's profile details. */
 
-        //    UserSession userSession =
-        //        (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+            UserSession userSession =
+                (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
 
-        //    userService.UpdateUserProfileDetails(userSession.UserProfileId,
-        //        userProfileDetails);
+            userService.UpdateUserDetails(userSession.UserProfileId,
+                userDto);
 
-        //    /* Update user's session objects. */
+            /* Update user's session objects. */
 
-        //    Locale locale = new Locale(userProfileDetails.Language,
-        //        userProfileDetails.Country);
+            Locale locale = new Locale(userDto.language,
+                userDto.country);
 
-        //    userSession.FirstName = userProfileDetails.FirstName;
+            userSession.FirstName = userDto.name;
 
-        //    UpdateSessionForAuthenticatedUser(context, userSession, locale);
-        //}
+            UpdateSessionForAuthenticatedUser(context, userSession, locale);
+        }
 
         /// <summary>
         /// Finds the user profile with the id stored in the session.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns></returns>
-        //public static UserProfileDetails FindUserProfileDetails(HttpContext context)
-        //{
-        //    UserSession userSession =
-        //        (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+        public static UserRegisterDetailsDto FindUserProfileDetails(HttpContext context)
+        {
+            UserSession userSession =
+                (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
 
-        //    UserProfileDetails userProfileDetails =
-        //        userService.FindUserProfileDetails(userSession.UserProfileId);
+            UserRegisterDetailsDto userProfileDetails =
+                userService.FindUserDetails(userSession.UserProfileId);
 
-        //    return userProfileDetails;
-        //}
+            return userProfileDetails;
+        }
 
         /// <summary>
         /// Gets the user info stored in the session.
@@ -286,7 +280,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
                 return null;
         }
 
-        //TODO crear metodo actualizar contraseña en el servicio de usuario
         /// <summary>
         /// Changes the user's password
         /// </summary>
@@ -294,18 +287,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
         /// <param name="oldClearPassword">The old password in clear text</param>
         /// <param name="newClearPassword">The new password in clear text</param>
         /// <exception cref="IncorrectPasswordException"/>
-        //public static void ChangePassword(HttpContext context,
-        //       String oldClearPassword, String newClearPassword)
-        //{
-        //    UserSession userSession =
-        //        (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+        public static void ChangePassword(HttpContext context,
+               String oldClearPassword, String newClearPassword)
+        {
+            UserSession userSession =
+                (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
 
-        //    userService.ChangePassword(userSession.UserProfileId,
-        //        oldClearPassword, newClearPassword);
+            userService.ChangePassword(userSession.UserProfileId,
+                oldClearPassword, newClearPassword);
 
-        //    /* Remove cookies. */
-        //    CookiesManager.RemoveCookies(context);
-        //}
+            /* Remove cookies. */
+            CookiesManager.RemoveCookies(context);
+        }
 
         /// <summary>
         /// Destroys the session, and removes the cookies if the user had
@@ -387,7 +380,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
              */
             try
             {
-                DoLogin(context, loginName, encryptedPassword, true, true);
+                DoLogin(context, loginName, encryptedPassword, true);
 
                 /* Authentication Ticket. */
                 FormsAuthentication.SetAuthCookie(loginName, true);

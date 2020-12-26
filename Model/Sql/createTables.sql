@@ -144,6 +144,8 @@ CREATE TABLE [User] (
 	surnames varchar(60) NOT NULL,
 	postalAddress varchar(60) NOT NULL,
 	email varchar(40) NOT NULL,
+	language varchar(2) NOT NULL,
+	country varchar(2) NOT NULL,
 
 	CONSTRAINT [PK_User] PRIMARY KEY (userId ASC)
 )
