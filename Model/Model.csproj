@@ -248,6 +248,7 @@
     <Compile Include="ECommerceServices\TagService\TagDetails.cs" />
     <Compile Include="ECommerceServices\TagService\TagService.cs" />
     <Compile Include="ECommerceServices\TagService\ITagService.cs" />
+    <Compile Include="ECommerceServices\UserService\UserRegisterDetailsDto.cs" />
     <Compile Include="Movie.cs">
       <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>

@@ -117,52 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnRegister.Text" xml:space="preserve">
-    <value>Register</value>
+  <data name="btnLogin.Text" xml:space="preserve">
+    <value>Login</value>
   </data>
-  <data name="cvPasswordCheck.Text" xml:space="preserve">
-    <value>Passwords do not match</value>
+  <data name="checkRememberPassword.Text" xml:space="preserve">
+    <value>Remember my password (cookies must be enabled)</value>
   </data>
   <data name="lblLoginError.Text" xml:space="preserve">
-    <value>User already exists</value>
+    <value>User not found</value>
   </data>
-  <data name="lclCountry.Text" xml:space="preserve">
-    <value>Country</value>
+  <data name="lblPasswordError.Text" xml:space="preserve">
+    <value>Incorrect password</value>
   </data>
-  <data name="lclEmail.Text" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="lclFirstName.Text" xml:space="preserve">
-    <value>First name</value>
-  </data>
-  <data name="lclLanguage.Text" xml:space="preserve">
-    <value>Language</value>
+  <data name="lclLogin.Text" xml:space="preserve">
+    <value>User</value>
   </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
-    <value>User registration</value>
+    <value>Authentication</value>
   </data>
   <data name="lclPassword.Text" xml:space="preserve">
     <value>Password</value>
   </data>
-  <data name="lclPostalAddress.Text" xml:space="preserve">
-    <value>Postal Address</value>
-  </data>
-  <data name="lclRetypePassword.Text" xml:space="preserve">
-    <value>Retype password</value>
-  </data>
-  <data name="lclSurname.Text" xml:space="preserve">
-    <value>Surname</value>
-  </data>
-  <data name="lclUserName.Text" xml:space="preserve">
-    <value>User name</value>
-  </data>
-  <data name="lnkUserExists.Text" xml:space="preserve">
-    <value>Check if user exists</value>
+  <data name="lnkRegister.Text" xml:space="preserve">
+    <value>Register (user not registered)</value>
   </data>
   <data name="Page.Title" xml:space="preserve">
-    <value>Miniportal - User Registration</value>
-  </data>
-  <data name="revEmail.ErrorMessage" xml:space="preserve">
-    <value>Incorrect email syntax</value>
+    <value>ECommerce - Authentication Page</value>
   </data>
 </root>

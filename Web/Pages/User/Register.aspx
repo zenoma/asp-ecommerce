@@ -11,10 +11,6 @@
     runat="server">
     <div id="form">
         <form id="RegisterForm" method="post" runat="server">
-
-            <div class="field">
-                <asp:HyperLink ID="lnkUserExists" runat="server" meta:resourcekey="lnkUserExists" NavigateUrl="~/Pages/UserExists.aspx"></asp:HyperLink>
-            </div>
             <div class="field">
                 <span class="label">
                     <asp:Localize ID="lclUserName" runat="server" meta:resourcekey="lclUserName" />
@@ -82,6 +78,16 @@
                         <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail"
                             Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                             meta:resourcekey="revEmail"></asp:RegularExpressionValidator></span>
+            </div>
+            <div class="field">
+                <span class="label">
+                    <asp:Localize ID="lclPostalAddress" runat="server" meta:resourcekey="lclPostalAddress" /></span><span
+                        class="entry">
+                        <asp:TextBox ID="txtPostalAddress" runat="server" Width="100px" Columns="16"
+                            meta:resourcekey="txtPostalAddressResource1"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvPostalAdress" runat="server" ControlToValidate="txtPostalAddress"
+                            Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
+                            meta:resourcekey="rfvPostalAddressResource1"></asp:RequiredFieldValidator></span>
             </div>
             <div class="field">
                 <span class="label">

@@ -29,6 +29,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         public string surnames { get; set; }
         public string postalAddress { get; set; }
         public string email { get; set; }
+        public string language { get; set; }
+        public string country { get; set; }
     
         
         /// <summary>
@@ -68,6 +70,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			hash = hash * multiplier + (surnames == null ? 0 : surnames.GetHashCode());
     			hash = hash * multiplier + (postalAddress == null ? 0 : postalAddress.GetHashCode());
     			hash = hash * multiplier + (email == null ? 0 : email.GetHashCode());
+    			hash = hash * multiplier + (language == null ? 0 : language.GetHashCode());
+    			hash = hash * multiplier + (country == null ? 0 : country.GetHashCode());
     
     			return hash;
     	    }
@@ -95,6 +99,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                &&  (this.surnames == target.surnames )       
                &&  (this.postalAddress == target.postalAddress )       
                &&  (this.email == target.email )       
+               &&  (this.language == target.language )       
+               &&  (this.country == target.country )       
                ;
     
         }
@@ -136,6 +142,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
            strUser.Append(" surnames = " + surnames + " | " );       
            strUser.Append(" postalAddress = " + postalAddress + " | " );       
            strUser.Append(" email = " + email + " | " );       
+           strUser.Append(" language = " + language + " | " );       
+           strUser.Append(" country = " + country + " | " );       
             strUser.Append("] ");    
     
     		return strUser.ToString();

@@ -81,6 +81,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
             user.surnames = "surname1 surname2";
             user.email = "email@email.es";
             user.postalAddress = "address";
+            user.language = "es";
+            user.country = "es";
 
             userDao.Create(user);
 

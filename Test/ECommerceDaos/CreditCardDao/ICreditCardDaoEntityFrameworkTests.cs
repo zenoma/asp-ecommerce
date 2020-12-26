@@ -28,6 +28,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CreditCardDao
         private const string surnames = "surname1 surname2";
         private const string email = "email@email.es";
         private const string postalAddress = "address";
+        private const string language = "es";
+        private const string country = "es";
 
         private const string type = "VISA";
         private const long number = 1234123412341234L;
@@ -78,6 +80,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CreditCardDao
             user.surnames = surnames;
             user.email = email;
             user.postalAddress = postalAddress;
+            user.language = language;
+            user.country = country;
 
             userDao.Create(user);
 
