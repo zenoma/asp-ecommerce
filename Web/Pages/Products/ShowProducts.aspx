@@ -14,7 +14,8 @@
                 <asp:HyperLinkField DataTextField="name" HeaderText="Name" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="./ShowProductDetails.aspx?productID={0}" />
                 <asp:BoundField DataField="category" HeaderText="Category" />
                 <asp:BoundField DataField="productDate" HeaderText="Registration Date" />
-                <asp:BoundField DataField="unitPrice" HeaderText="Price" />
+                <asp:BoundField DataField="unitPrice" HeaderText="Price" />                
+                <asp:HyperLinkField Text="<%$ Resources:Common, addLink %>" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/AddToCart.aspx?productID={0}"  />
             </Columns>
         </asp:GridView>
     </form>

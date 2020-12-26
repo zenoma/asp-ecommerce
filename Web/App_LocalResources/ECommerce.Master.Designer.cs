@@ -61,6 +61,60 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.App_LocalResources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a -.
+        /// </summary>
+        internal static string lblDash1Resource1_Text {
+            get {
+                return ResourceManager.GetString("lblDash1Resource1.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string lblDash1Resource1_ToolTip {
+            get {
+                return ResourceManager.GetString("lblDash1Resource1.ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a -.
+        /// </summary>
+        internal static string lblDash2Resource1_Text {
+            get {
+                return ResourceManager.GetString("lblDash2Resource1.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string lblDash2Resource1_ToolTip {
+            get {
+                return ResourceManager.GetString("lblDash2Resource1.ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a -.
+        /// </summary>
+        internal static string lblDash3Resource1_Text {
+            get {
+                return ResourceManager.GetString("lblDash3Resource1.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string lblDash3Resource1_ToolTip {
+            get {
+                return ResourceManager.GetString("lblDash3Resource1.ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Welcome!.
         /// </summary>
         internal static string lblWelcome_Hello_Text {
@@ -124,6 +178,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.App_LocalResources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string lnkHome_ToolTip {
+            get {
+                return ResourceManager.GetString("lnkHome.ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select Locale.
         /// </summary>
         internal static string lnkLocale_Text {
@@ -142,11 +205,38 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Update Profile.
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string lnkLogout_ToolTip {
+            get {
+                return ResourceManager.GetString("lnkLogout.ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Search.
+        /// </summary>
+        internal static string lnkSearch_Text {
+            get {
+                return ResourceManager.GetString("lnkSearch.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Update.
         /// </summary>
         internal static string lnkUpdate_Text {
             get {
                 return ResourceManager.GetString("lnkUpdate.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string lnkUpdate_ToolTip {
+            get {
+                return ResourceManager.GetString("lnkUpdate.ToolTip", resourceCulture);
             }
         }
     }

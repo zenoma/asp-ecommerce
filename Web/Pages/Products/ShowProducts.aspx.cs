@@ -89,5 +89,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                 this.lnkNext.Visible = true;
             }
         }
+        protected void BtnAddToCartClick(object sender, EventArgs e)
+        {
+        }
     }
 }

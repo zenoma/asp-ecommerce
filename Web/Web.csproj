@@ -102,6 +102,10 @@
     <Content Include="Pages\Cart\ShowOrderItemsByOrderId.aspx" />
     <Content Include="Pages\Cart\Errors\InstanceNotFoundError.aspx" />
     <Content Include="Pages\MainPage.aspx" />
+    <EmbeddedResource Include="Pages\Products\App_LocalResources\ShowProducts.aspx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ShowProducts.aspx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <Content Include="Pages\Products\FindProducts.aspx" />
     <Content Include="Pages\Products\ShowProductDetails.aspx" />
     <Content Include="Pages\Products\ShowProducts.aspx" />
@@ -176,6 +180,11 @@
     </Compile>
     <Compile Include="Pages\MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Products\App_LocalResources\ShowProducts.aspx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShowProducts.aspx.resx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Products\FindProducts.aspx.cs">
       <DependentUpon>FindProducts.aspx</DependentUpon>
