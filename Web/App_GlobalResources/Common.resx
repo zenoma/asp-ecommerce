@@ -153,4 +153,7 @@
   <data name="verifyCode" xml:space="preserve">
     <value>Verify Code</value>
   </data>
+  <data name="positiveField" xml:space="preserve">
+    <value>Number must be greater than 0</value>
+  </data>
 </root>
