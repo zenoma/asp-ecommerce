@@ -305,6 +305,7 @@
       <DependentUpon>ECommerce.edmx</DependentUpon>
       <LastGenOutput>ECommerce.cs</LastGenOutput>
     </Content>
+    <Content Include="Sql\populate.sql" />
     <Content Include="Sql\createTables.sql" />
   </ItemGroup>
   <ItemGroup>

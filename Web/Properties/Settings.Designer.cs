@@ -25,7 +25,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public int ECommerce_defaultCount {
             get {
                 return ((int)(this["ECommerce_defaultCount"]));

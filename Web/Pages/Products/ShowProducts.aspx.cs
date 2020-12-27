@@ -64,11 +64,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             this.gvProducts.DataBind();
 
             /* "Previous" link */
-            if ((startIndex - count) > 0)
+            if ((startIndex - 1) > 0)
             {
                 String url = /*Settings.Default.MiniBank_applicationURL +*/
                     "/Pages/Products/ShowProducts.aspx" + "?keywords=" + keywords + "&category=" + category +
-                    "&startIndex=" + (startIndex - count) + "&count=" +
+                    "&startIndex=" + (startIndex - 1) + "&count=" +
                     count;
 
                 this.lnkPrevious.NavigateUrl =
@@ -81,7 +81,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             {
                 String url = /*Settings.Default.MiniBank_applicationURL +*/
                     "/Pages/Products/ShowProducts.aspx" + "?keywords=" + keywords + "&category=" + category +
-                    "&startIndex=" + (startIndex + count) + "&count=" +
+                    "&startIndex=" + (startIndex + 1) + "&count=" +
                     count;
 
                 this.lnkNext.NavigateUrl =

@@ -20,12 +20,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             /* Get Accounts Info */
             CategoryBlock categoryBlock = categoryService.ListAllCategories();
 
-            //if (productBlock.Products.Count == 0)
-            //{
-            //    //lblNoUserAccounts.Visible = true;
-            //    return;
-            //}
-
             this.drpdCategory.DataSource = categoryBlock.Categories;
             this.drpdCategory.DataValueField = "categoryId";
             this.drpdCategory.DataTextField = "visualName";
