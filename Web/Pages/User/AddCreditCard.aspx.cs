@@ -22,6 +22,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
         protected void BtnAddClick(object sender, EventArgs e)
         {
+            string returnUrl = Request["ReturnUrl"];
             if (Page.IsValid)
             {
                 try
@@ -38,8 +39,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
                     if (creditCardId > 0)
                     {
-                        Response.Redirect(Response.
-                        ApplyAppPathModifier("~/Pages/User/ListCreditCards.aspx"));
+                        if (returnUrl != null)
+                        {
+                            Response.Redirect(Response.
+                                ApplyAppPathModifier(returnUrl));
+                        }
+                        else
+                        {
+                            Response.Redirect(Response.
+                                ApplyAppPathModifier("~/Pages/User/ListCreditCards.aspx"));
+                        }
                     }
                     else
                     {

@@ -26,6 +26,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         public string address { get; set; }
         public System.DateTime orderDate { get; set; }
         public double price { get; set; }
+        public string orderAlias { get; set; }
     
         
         /// <summary>
@@ -64,6 +65,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			hash = hash * multiplier + (address == null ? 0 : address.GetHashCode());
     			hash = hash * multiplier + orderDate.GetHashCode();
     			hash = hash * multiplier + price.GetHashCode();
+    			hash = hash * multiplier + (orderAlias == null ? 0 : orderAlias.GetHashCode());
     
     			return hash;
     	    }
@@ -90,6 +92,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                &&  (this.address == target.address )       
                &&  (this.orderDate == target.orderDate )       
                &&  (this.price == target.price )       
+               &&  (this.orderAlias == target.orderAlias )       
                ;
     
         }
@@ -130,6 +133,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
            strOrder.Append(" address = " + address + " | " );       
            strOrder.Append(" orderDate = " + orderDate + " | " );       
            strOrder.Append(" price = " + price + " | " );       
+           strOrder.Append(" orderAlias = " + orderAlias + " | " );       
             strOrder.Append("] ");    
     
     		return strOrder.ToString();

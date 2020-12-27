@@ -33,7 +33,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
         ICreditCardDao creditCardDao { set; }
 
         [Transactional]
-        OrderDto CreateOrder(string login, CartDto cart, long creditCardId, string address);
+        OrderDto CreateOrder(string login, CartDto cart, long creditCardId, string address, string orderAlias);
 
         [Transactional]
         OrderBlock FindByUserLogin(string login, int page, int count);

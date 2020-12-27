@@ -90,7 +90,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
 
         private static IUserService userService;
         private static ICartService cartService;
-        private static IOrderService orderService;
 
         public IUserService UserService
         {
@@ -100,10 +99,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
         {
             set { cartService = value; }
         }
-        public IOrderService OrderService
-        {
-            set { orderService = value; }
-        }
 
         static SessionManager()
         {
@@ -112,7 +107,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
 
             userService = iocManager.Resolve<IUserService>();
             cartService = iocManager.Resolve<ICartService>();
-            orderService = iocManager.Resolve<IOrderService>();
         }
 
         /// <summary>
@@ -445,59 +439,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
 
             context.Session.Add(USER_CART, cartService.RemoveProductFromCart(cartDto, productId));
 
-        }
-
-
-
-        /*CreditCard management*/
-        // TODO Create credit card
-        public static void CreateCreditCard(HttpContext context, CreditCardDto creditCard, long userId) { }
-
-
-        public static void UpdateCreditCard(CreditCardDto creditCard, long userId) { }
-
-
-        public static List<CreditCardDto> FindCreditCardsByUserId(HttpContext context)
-        {
-            UserSession userSession =
-                (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
-
-            return userService.FindCreditCardsByUserId(userSession.UserProfileId);
-        }
-
-        public static CreditCardDto FindFavCreditCardByUserId(HttpContext context)
-        {
-            UserSession userSession =
-                (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
-
-            return userService.FindFavCreditCardByUserId(userSession.UserProfileId);
-        }
-
-
-        // TODO Delete credit card
-        public static void DeleteCreditCard(long creditCardId, long userId) { }
-
-
-
-        /*Order Management*/
-
-
-        public static void CreateOrder(HttpContext context, long creditCardId, string address)
-        {
-
-            String loginName = CookiesManager.GetLoginName(context);
-
-            CartDto cartDto =
-               (CartDto)context.Session[USER_CART];
-
-            if (cartDto != null && loginName != null && cartDto.cartLines.Count != 0)
-            {
-                orderService.CreateOrder(loginName, cartDto, creditCardId, address);
-            }
-            else
-            {
-                throw new InvalidOperationException("Cart must have one item");
-            }
         }
 
     }

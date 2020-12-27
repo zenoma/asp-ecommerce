@@ -124,6 +124,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Number must be greater than 0.
+        /// </summary>
+        internal static string positiveField {
+            get {
+                return ResourceManager.GetString("positiveField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Previous.
         /// </summary>
         internal static string Previous {

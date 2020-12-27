@@ -9,7 +9,7 @@
                     <asp:TextBox ID="txtName" runat="server" Width="100" Columns="16"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvName" runat="server"
                         ControlToValidate="txtName" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>" /></span>
-        </div>      
+        </div>
         <div class="field">
             <span class="label">
                 <asp:Localize ID="lclPostalAddress" runat="server" meta:resourcekey="lclPostalAddress" /></span><span class="entry">
@@ -20,9 +20,11 @@
         <div class="field">
             <span class="label">
                 <asp:Localize ID="lclCreditCard" runat="server" meta:resourcekey="lclCreditCard" /></span><span class="entry">
-                    <asp:DropDownList ID="comboCreditCard" runat="server" AutoPostBack="True"
-                        Width="100px">
+                    <asp:DropDownList ID="comboCreditCard" runat="server" Width="100px">
                     </asp:DropDownList></span>
+            <asp:HyperLink ID="lnkAddCreditCard" runat="server"
+                NavigateUrl="~/Pages/User/AddCreditCard.aspx?ReturnUrl=~/Pages/Order/CreateOrder.aspx"
+                meta:resourcekey="lnkAddCreditCard" />
         </div>
         <div class="button">
             <asp:Button ID="btnCreateOrder" runat="server" OnClick="BtnCreateOrder" meta:resourcekey="btnCreateOrder" />

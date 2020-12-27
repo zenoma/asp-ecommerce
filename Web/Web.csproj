@@ -104,7 +104,7 @@
     <Content Include="Pages\Order\ShowOrderItemsByOrderId.aspx" />
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\Cart\App_LocalResources\AddToCart.aspx.resx" />
-    <Content Include="Pages\Order\App_LocalResources\CreateOrder.asxp.resx" />
+    <Content Include="Pages\Order\App_LocalResources\CreateOrder.aspx.resx" />
     <EmbeddedResource Include="Pages\Products\App_LocalResources\ShowProducts.aspx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ShowProducts.aspx.Designer.cs</LastGenOutput>
@@ -118,6 +118,7 @@
     <Content Include="Pages\User\ChangePassword.aspx" />
     <Content Include="Pages\User\EditCreditCard.aspx" />
     <Content Include="Pages\User\ListCreditCards.aspx" />
+    <Content Include="Pages\User\Logout.aspx" />
     <Content Include="Pages\User\Register.aspx" />
     <Content Include="Pages\User\RemoveCreditCard.aspx" />
     <Content Include="Pages\User\UpdateUserDetails.aspx" />
@@ -263,6 +264,13 @@
     </Compile>
     <Compile Include="Pages\User\ListCreditCards.aspx.designer.cs">
       <DependentUpon>ListCreditCards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
