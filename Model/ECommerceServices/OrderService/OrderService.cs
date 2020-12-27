@@ -101,7 +101,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
 
         private OrderDto toOrderDto(Order order)
         {
-            OrderDto orderDTO = new OrderDto(order.orderId, order.creditCardId, order.address, order.orderDate, order.price, order.orderAlias);
+            CreditCard creditCard = creditCardDao.Find(order.creditCardId);
+            OrderDto orderDTO = new OrderDto(order.orderId, creditCard.number, order.address, order.orderDate, order.price, order.orderAlias);
             List<OrderItem> orderItems = orderItemDao.FindByOrderId(order.orderId);
             foreach (var orderItem in orderItems)
             {

@@ -11,12 +11,12 @@
         <asp:GridView ID="gvUserOrders" runat="server" AutoGenerateColumns="False" Width="505px">
             <Columns>
                 <asp:HyperLinkField DataTextField="orderId" HeaderText="Id" DataNavigateUrlFields="orderId" DataNavigateUrlFormatString="./ShowOrderItemsByOrderId.aspx?orderId={0}" />
-                <asp:BoundField DataField="address" HeaderText="Address" />
-                <asp:BoundField DataField="creditCardNumber" HeaderText="Payed with" />
+                <asp:BoundField DataField="orderAlias" HeaderText="Order Alias" />
+                <asp:BoundField DataField="address" HeaderText="Sended address" />
                 <asp:BoundField DataField="orderDate" HeaderText="Order Date" />
                 <asp:BoundField DataField="orderItems.Count" HeaderText="Total Items" />
                 <asp:BoundField DataField="price" HeaderText="Total Price" />
-                <asp:BoundField DataField="orderAlias" HeaderText="Order Alias" />
+                <asp:BoundField DataField="creditCardNumber" HeaderText="Payed with" />
             </Columns>
         </asp:GridView>
     </form>
