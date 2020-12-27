@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.BookDao
 {
-    interface IBookDao :
-        IProductDao
+    public interface IBookDao : ModelUtil.Dao.IGenericDao<Book, Int64>
     {
     }
 }

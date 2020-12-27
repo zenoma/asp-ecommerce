@@ -16,6 +16,9 @@ using System.Configuration;
 using System.Data.Entity;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MusicDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MovieDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.BookDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test
 {
@@ -48,6 +51,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             kernel.Bind<ICreditCardDao>().To<CreditCardDaoEntityFramework>();
 
             kernel.Bind<ICommentDao>().To<CommentDaoEntityFramework>();
+
+            kernel.Bind<IMusicDao>().To<MusicDaoEntityFramework>();
+
+            kernel.Bind<IMovieDao>().To<MovieDaoEntityFramework>();
+
+            kernel.Bind<IBookDao>().To<BookDaoEntityFramework>();
 
             // SERVICES
             kernel.Bind<IProductService>().To<ProductService>();

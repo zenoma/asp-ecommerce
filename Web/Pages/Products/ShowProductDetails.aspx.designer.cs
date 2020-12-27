@@ -15,6 +15,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
     {
 
         /// <summary>
+        /// Control form1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
         /// Control tbProductDetails.
         /// </summary>
         /// <remarks>
@@ -60,6 +69,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
         protected global::System.Web.UI.WebControls.TableCell cellUnitPrice;
 
         /// <summary>
+        /// Control cellCaptionProductCategory.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionProductCategory;
+
+        /// <summary>
+        /// Control cellProductCategory.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell cellProductCategory;
+
+        /// <summary>
         /// Control cellCaptionStockUnits.
         /// </summary>
         /// <remarks>
@@ -94,41 +121,5 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellProductDate;
-
-        /// <summary>
-        /// Control cellCaptionProductCategory.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionProductCategory;
-
-        /// <summary>
-        /// Control cellProductCategory.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell cellProductCategory;
-
-        /// <summary>
-        /// Control cellCaptionProductType.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionProductType;
-
-        /// <summary>
-        /// Control cellProductType.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell cellProductType;
     }
 }
