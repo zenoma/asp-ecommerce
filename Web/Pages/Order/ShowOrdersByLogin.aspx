@@ -16,6 +16,7 @@
                 <asp:BoundField DataField="orderDate" HeaderText="Order Date" />
                 <asp:BoundField DataField="orderItems.Count" HeaderText="Total Items" />
                 <asp:BoundField DataField="price" HeaderText="Total Price" />
+                <asp:BoundField DataField="orderAlias" HeaderText="Order Alias" />
             </Columns>
         </asp:GridView>
     </form>

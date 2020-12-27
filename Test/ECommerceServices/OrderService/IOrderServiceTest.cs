@@ -141,7 +141,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.OrderService
             cart = cartService.AddProductToCart(cart, productA.productId, 1, false);
             cart = cartService.AddProductToCart(cart, productB.productId, 2, false);
 
-            OrderDto actual = orderService.CreateOrder(user.login, cart, creditCard.creditCardId, "New address");
+            OrderDto actual = orderService.CreateOrder(user.login, cart, creditCard.creditCardId, "New address", "test");
 
             OrderDto expected = orderService.FindByOrderId(actual.orderId);
             Assert.AreEqual(expected.orderItems.Count, actual.orderItems.Count);

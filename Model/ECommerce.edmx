@@ -75,6 +75,7 @@
           <Property Name="userId" Type="bigint" Nullable="false" />
           <Property Name="creditCardId" Type="bigint" Nullable="false" />
           <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="orderAlias" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="orderDate" Type="date" Nullable="false" />
           <Property Name="price" Type="float" Nullable="false" />
         </EntityType>
@@ -432,6 +433,7 @@
           <NavigationProperty Name="OrderItem" Relationship="Self.FK_OrderItemOrderId" FromRole="Order" ToRole="OrderItem" />
           <NavigationProperty Name="User" Relationship="Self.FK_OrderUserId" FromRole="Order" ToRole="User" />
           <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="orderAlias" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="OrderItem">
           <Key>
@@ -686,6 +688,7 @@
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="ecommerceModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="orderAlias" ColumnName="orderAlias" />
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="orderId" ColumnName="orderId" />
                 <ScalarProperty Name="userId" ColumnName="userId" />

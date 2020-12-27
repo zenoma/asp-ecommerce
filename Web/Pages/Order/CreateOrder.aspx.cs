@@ -71,7 +71,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Order
             {
                 string login = CookiesManager.GetLoginName(Context);
                 CartDto cartDto = (CartDto)Context.Session["userCart"];
-                orderService.CreateOrder(login, cartDto, long.Parse(comboCreditCard.SelectedValue), txtPostalAddress.Text);
+                orderService.CreateOrder(login, cartDto, long.Parse(comboCreditCard.SelectedValue), txtPostalAddress.Text, txtName.Text);
                 SessionManager.RemoveCart(Context);
                 Response.Redirect(
                     Response.ApplyAppPathModifier("~/Pages/MainPage.aspx"));

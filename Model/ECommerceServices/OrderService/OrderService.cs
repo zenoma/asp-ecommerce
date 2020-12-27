@@ -34,7 +34,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
 
 
         /// <exception cref="EmptyOrderItemListException"/>
-        public OrderDto CreateOrder(string login, CartDto cart, long creditCardId, string address)
+        public OrderDto CreateOrder(string login, CartDto cart, long creditCardId, string address, string orderAlias)
         {
 
             if (cart.cartLines.IsNullOrEmpty())
@@ -52,6 +52,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
                 order.creditCardId = creditCardId;
                 order.address = address;
                 order.orderDate = DateTime.Now;
+                order.orderAlias = orderAlias;
                 orderDao.Create(order);
 
                 foreach (var cartLine in cart.cartLines)
@@ -100,7 +101,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
 
         private OrderDto toOrderDto(Order order)
         {
-            OrderDto orderDTO = new OrderDto(order.orderId, order.creditCardId, order.address, order.orderDate, order.price);
+            OrderDto orderDTO = new OrderDto(order.orderId, order.creditCardId, order.address, order.orderDate, order.price, order.orderAlias);
             List<OrderItem> orderItems = orderItemDao.FindByOrderId(order.orderId);
             foreach (var orderItem in orderItems)
             {
