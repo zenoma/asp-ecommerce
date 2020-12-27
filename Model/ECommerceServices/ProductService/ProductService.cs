@@ -65,42 +65,48 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         [Transactional]
         public ProductDetails FindProductDetails(long productId)
         {
-            Product product = productDao.Find(productId);
-            Category category = categoryDao.Find(product.categoryId.GetValueOrDefault());
+            //Category category = categoryDao.Find(product.categoryId.GetValueOrDefault());
             ProductDetails productDetails;
 
-            if (product.type == "Music")
+            if (musicDao.Exists(productId))
             {
                 Music music = musicDao.Find(productId);
 
-                productDetails = new ProductDetails(product.productId, category.visualName,
-                product.name, product.stockUnits, product.unitPrice, product.type, product.productDate,
+                productDetails = new ProductDetails(music.productId, music.Category.visualName,
+                music.name, music.stockUnits, music.unitPrice, "Music", music.productDate,
                 music.album, music.artist, null, default, null, 0, null);
 
+                return productDetails;
             }
-            
-            if (product.type == "Movie")
+
+            if (movieDao.Exists(productId))
             {
                 Movie movie = movieDao.Find(productId);
 
-                productDetails = new ProductDetails(product.productId, category.visualName,
-                product.name, product.stockUnits, product.unitPrice, product.type, product.productDate, null,
+                productDetails = new ProductDetails(movie.productId, movie.Category.visualName,
+                movie.name, movie.stockUnits, movie.unitPrice, "Movie", movie.productDate, null,
                 null, movie.director, movie.movieDate, null, 0, null);
+
+                return productDetails;
             }
-            
-            if (product.type == "Book")
+
+            if (bookDao.Exists(productId))
             {
                 Book book = bookDao.Find(productId);
 
-                productDetails = new ProductDetails(product.productId, category.visualName,
-                product.name, product.stockUnits, product.unitPrice, product.type, product.productDate, null,
+                productDetails = new ProductDetails(book.productId, book.Category.visualName,
+                book.name, book.stockUnits, book.unitPrice, "Book", book.productDate, null,
                 null, null, default, book.isbn, book.editionNumber, book.author);
 
+                return productDetails;
             }
 
-            productDetails = new ProductDetails(product.productId, category.visualName,
-                product.name, product.stockUnits, product.unitPrice, product.type, product.productDate, null,
-                null, null, default, null, 0, null);
+            Product product = productDao.Find(productId);
+
+            productDetails = new ProductDetails(product.productId, product.Category.visualName,
+            product.name, product.stockUnits, product.unitPrice, "None", product.productDate, null,
+            null, null, default, null, 0, null);
+
 
             return productDetails;
         }
