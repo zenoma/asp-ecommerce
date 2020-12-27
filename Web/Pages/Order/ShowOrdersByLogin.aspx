@@ -12,7 +12,9 @@
             <Columns>
                 <asp:HyperLinkField DataTextField="orderId" HeaderText="Id" DataNavigateUrlFields="orderId" DataNavigateUrlFormatString="./ShowOrderItemsByOrderId.aspx?orderId={0}" />
                 <asp:BoundField DataField="address" HeaderText="Address" />
+                <asp:BoundField DataField="creditCardNumber" HeaderText="Payed with" />
                 <asp:BoundField DataField="orderDate" HeaderText="Order Date" />
+                <asp:BoundField DataField="orderItems.Count" HeaderText="Total Items" />
                 <asp:BoundField DataField="price" HeaderText="Total Price" />
             </Columns>
         </asp:GridView>

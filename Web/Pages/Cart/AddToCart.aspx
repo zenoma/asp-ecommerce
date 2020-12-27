@@ -14,6 +14,9 @@
                         meta:resourcekey="rfvQuantity"></asp:RequiredFieldValidator>
                     <asp:Label ID="lblQuantityError" runat="server" ForeColor="Red" Style="position: relative"
                         Visible="False" meta:resourcekey="lblQuantityError"></asp:Label></span>
+                <span class="label">
+                    <asp:CheckBox ID="ckToPresent" Text="To Present?" runat="server" />
+                </span>
             </div>
             <div class="button">
                 <asp:Button ID="btnAddToCart" runat="server" OnClick="BtnAddToCart" meta:resourcekey="btnAddToCart" />

@@ -17,7 +17,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
 
         /// <exception cref="InstanceNotFoundException"/>
         /// <exception cref="OutOfStockProductException"/>
-        CartDto AddProductToCart(CartDto cart, long productId, int quantity);
+        CartDto AddProductToCart(CartDto cart, long productId, int quantity, bool toPresent);
 
         /// <exception cref="OutOfStockProductException"/>
         CartDto UpdateCart(CartDto cart, long productId, int quantity, bool isPresent);

@@ -421,12 +421,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             context.Session.Add(USER_CART, cartService.CreateCart());
         }
 
-        public static void AddProductToCart(HttpContext context, long productId, int quantity)
+        public static void AddProductToCart(HttpContext context, long productId, int quantity, bool toPresent)
         {
             CartDto cartDto =
                 (CartDto)context.Session[USER_CART];
 
-            context.Session.Add(USER_CART, cartService.AddProductToCart(cartDto, productId, quantity));
+            context.Session.Add(USER_CART, cartService.AddProductToCart(cartDto, productId, quantity, toPresent));
         }
 
         /// <exception cref="OutOfStockProductException"/>

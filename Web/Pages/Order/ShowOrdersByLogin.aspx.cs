@@ -66,7 +66,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
             try
             {
                 // FIXME cambiar calculo pagina
-                OrderBlock orderBlock = orderService.FindByUserLogin("zenoma", 1, 10);
+                OrderBlock orderBlock = orderService.FindByUserLogin(login, 1, 10);
                 if (orderBlock.Orders.Count == 0)
                 {
                     lblNoUserOrders.Visible = true;

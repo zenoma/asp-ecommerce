@@ -22,9 +22,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
         {
             int productId = Int32.Parse(Request.Params.Get("productID"));
             int quantity = Int32.Parse(txtQuantity.Text);
+            bool toPresent = ckToPresent.Checked;
             try
             {
-                SessionManager.AddProductToCart(Context, productId, quantity);
+                SessionManager.AddProductToCart(Context, productId, quantity, toPresent);
 
                 Response.Redirect("~/Pages/Cart/ShowCartByLogin.aspx");
 

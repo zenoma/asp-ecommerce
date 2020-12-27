@@ -69,6 +69,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
         protected global::System.Web.UI.WebControls.Label lblQuantityError;
 
         /// <summary>
+        /// Control ckToPresent.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ckToPresent;
+
+        /// <summary>
         /// Control btnAddToCart.
         /// </summary>
         /// <remarks>
