@@ -212,6 +212,12 @@ CREATE TABLE Category (
 PRINT N'Table Category created.'
 GO
 
+INSERT INTO Category (visualName)
+VALUES ('New');
+
+INSERT INTO Category (visualName)
+VALUES ('Sale');
+
 /* Product */
 
 CREATE TABLE Product (
@@ -234,6 +240,12 @@ ON Product (categoryId);
 
 PRINT N'Table Product created.'
 GO
+
+INSERT INTO Product (categoryId, name, unitPrice, productDate, stockUnits, type)
+VALUES (2, 'Energize', 9.99, CURRENT_TIMESTAMP, 10, 'Music');
+
+INSERT INTO Product (categoryId, name, unitPrice, productDate, stockUnits, type)
+VALUES (1, 'Slay3r', 12.99, CURRENT_TIMESTAMP, 50, 'Music');
 
 /* Movie */
 
@@ -283,6 +295,12 @@ CREATE TABLE Music (
 
 PRINT N'Table Music created.'
 GO
+
+INSERT INTO Music (productId, album, artist)
+VALUES (1, 'Basiel EP', 'Amelie Lens');
+
+INSERT INTO Music (productId, album, artist)
+VALUES (2, 'Whole Lotta Red', 'Playboi Carti');
 
 /* Order Item */
 

@@ -1,7 +1,10 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Transactions;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.BookDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MovieDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MusicDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Ninject;
 using System;
@@ -13,6 +16,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
     {
         [Inject]
         public IProductDao productDao { private get; set; }
+
+        [Inject]
+        public IMusicDao musicDao { private get; set; }
+
+        [Inject]
+        public IBookDao bookDao { private get; set; }
+
+        [Inject]
+        public IMovieDao movieDao { private get; set; }
 
         [Inject]
         public ICategoryDao categoryDao { private get; set; }
@@ -53,10 +65,48 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         [Transactional]
         public ProductDetails FindProductDetails(long productId)
         {
-            Product product = productDao.Find(productId);
-            Category category = categoryDao.Find(product.categoryId.GetValueOrDefault());
+            //Category category = categoryDao.Find(product.categoryId.GetValueOrDefault());
+            ProductDetails productDetails;
 
-            ProductDetails productDetails = new ProductDetails(product.productId, category.visualName, product.name, product.stockUnits, product.unitPrice, product.type, product.productDate);
+            if (musicDao.Exists(productId))
+            {
+                Music music = musicDao.Find(productId);
+
+                productDetails = new ProductDetails(music.productId, music.Category.visualName,
+                music.name, music.stockUnits, music.unitPrice, "Music", music.productDate,
+                music.album, music.artist, null, default, null, 0, null);
+
+                return productDetails;
+            }
+
+            if (movieDao.Exists(productId))
+            {
+                Movie movie = movieDao.Find(productId);
+
+                productDetails = new ProductDetails(movie.productId, movie.Category.visualName,
+                movie.name, movie.stockUnits, movie.unitPrice, "Movie", movie.productDate, null,
+                null, movie.director, movie.movieDate, null, 0, null);
+
+                return productDetails;
+            }
+
+            if (bookDao.Exists(productId))
+            {
+                Book book = bookDao.Find(productId);
+
+                productDetails = new ProductDetails(book.productId, book.Category.visualName,
+                book.name, book.stockUnits, book.unitPrice, "Book", book.productDate, null,
+                null, null, default, book.isbn, book.editionNumber, book.author);
+
+                return productDetails;
+            }
+
+            Product product = productDao.Find(productId);
+
+            productDetails = new ProductDetails(product.productId, product.Category.visualName,
+            product.name, product.stockUnits, product.unitPrice, "None", product.productDate, null,
+            null, null, default, null, 0, null);
+
 
             return productDetails;
         }
@@ -70,7 +120,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
                 category = categoryDao.Find(product.categoryId.GetValueOrDefault());
                 productsDetail.Add(new ProductDetails(product.productId, category.visualName,
                     product.name, product.stockUnits, product.unitPrice,
-                    product.type, product.productDate));
+                    product.type, product.productDate, null, null, null, default, null, 0, null));
             });
 
             return productsDetail;

@@ -5,6 +5,10 @@ using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.BookDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MovieDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MusicDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
@@ -41,6 +45,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             /* ICategoryDao  */
             kernel.Bind<ICategoryDao>().
                 To<CategoryDaoEntityFramework>();
+
+            /* MusicDao */
+            kernel.Bind<IMusicDao>().
+                To<MusicDaoEntityFramework>();
+
+            /* MovieDao */
+            kernel.Bind<IMovieDao>().
+                To<MovieDaoEntityFramework>();
+
+            /* BookDao */
+            kernel.Bind<IBookDao>().
+                To<BookDaoEntityFramework>();
 
             /* CategoryService */
             kernel.Bind<ICategoryService>().
