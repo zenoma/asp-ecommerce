@@ -23,6 +23,9 @@
                     <asp:DropDownList ID="comboCreditCard" runat="server" AutoPostBack="True"
                         Width="100px">
                     </asp:DropDownList></span>
+            <asp:HyperLink ID="lnkAddCreditCard" runat="server"
+                NavigateUrl="~/Pages/User/AddCreditCard.aspx?ReturnUrl=~/Pages/Order/CreateOrder.aspx"
+                meta:resourcekey="lnkAddCreditCard" />
         </div>
         <div class="button">
             <asp:Button ID="btnCreateOrder" runat="server" OnClick="BtnCreateOrder" meta:resourcekey="btnCreateOrder" />
