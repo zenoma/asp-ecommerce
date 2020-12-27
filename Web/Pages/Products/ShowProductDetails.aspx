@@ -37,6 +37,6 @@
             <asp:TableCell ID="cellProductType" runat="server"></asp:TableCell>
         </asp:TableRow>--%>
         </asp:Table>
-        <asp:Button ID="btnUpdateProduct" runat="server" Text="Button" OnClick="btnUpdateProduct_Click" />
+        <asp:Button ID="btnUpdateProduct" runat="server" Text="Update info" OnClick="btnUpdateProduct_Click" Height="22px" Width="78px" />
     </form>
 </asp:Content>
