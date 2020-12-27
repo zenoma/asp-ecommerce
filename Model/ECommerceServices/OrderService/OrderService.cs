@@ -75,6 +75,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
                     }
                 }
                 order.price = price;
+                orderDao.Update(order);
                 return toOrderDto(order);
             }
         }
