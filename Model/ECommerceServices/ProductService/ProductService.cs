@@ -6,6 +6,7 @@ using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MovieDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MusicDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
+using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -66,9 +67,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public ProductDetails FindProductDetails(long productId)
         {
             //Category category = categoryDao.Find(product.categoryId.GetValueOrDefault());
+            Product product = productDao.Find(productId);
             ProductDetails productDetails;
 
-            if (musicDao.Exists(productId))
+            if (typeof(Music).IsAssignableFrom(product.GetType()))
             {
                 Music music = musicDao.Find(productId);
 
@@ -79,7 +81,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
                 return productDetails;
             }
 
-            if (movieDao.Exists(productId))
+            if (typeof(Movie).IsAssignableFrom(product.GetType()))
             {
                 Movie movie = movieDao.Find(productId);
 
@@ -90,7 +92,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
                 return productDetails;
             }
 
-            if (bookDao.Exists(productId))
+            if (typeof(Book).IsAssignableFrom(product.GetType()))
             {
                 Book book = bookDao.Find(productId);
 
@@ -99,14 +101,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
                 null, null, default, book.isbn, book.editionNumber, book.author);
 
                 return productDetails;
-            }
-
-            Product product = productDao.Find(productId);
+            }            
 
             productDetails = new ProductDetails(product.productId, product.Category.visualName,
             product.name, product.stockUnits, product.unitPrice, "None", product.productDate, null,
             null, null, default, null, 0, null);
-
 
             return productDetails;
         }
