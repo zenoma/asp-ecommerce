@@ -105,6 +105,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Order
         protected global::System.Web.UI.WebControls.DropDownList comboCreditCard;
 
         /// <summary>
+        /// Control lnkAddCreditCard.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkAddCreditCard;
+
+        /// <summary>
         /// Control btnCreateOrder.
         /// </summary>
         /// <remarks>

@@ -22,6 +22,9 @@
                 <asp:Localize ID="lclCreditCard" runat="server" meta:resourcekey="lclCreditCard" /></span><span class="entry">
                     <asp:DropDownList ID="comboCreditCard" runat="server" Width="100px">
                     </asp:DropDownList></span>
+            <asp:HyperLink ID="lnkAddCreditCard" runat="server"
+                NavigateUrl="~/Pages/User/AddCreditCard.aspx?ReturnUrl=~/Pages/Order/CreateOrder.aspx"
+                meta:resourcekey="lnkAddCreditCard" />
         </div>
         <div class="button">
             <asp:Button ID="btnCreateOrder" runat="server" OnClick="BtnCreateOrder" meta:resourcekey="btnCreateOrder" />

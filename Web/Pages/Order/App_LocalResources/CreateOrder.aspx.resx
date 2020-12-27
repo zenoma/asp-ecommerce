@@ -129,4 +129,7 @@
   <data name="lclPostalAddress.Text" xml:space="preserve">
     <value>Postal Address</value>
   </data>
+  <data name="lnkAddCreditCard.Text" xml:space="preserve">
+    <value>Add Credit Card</value>
+  </data>
 </root>

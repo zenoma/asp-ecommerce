@@ -169,11 +169,29 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.App_LocalResources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Credit Cards.
+        /// </summary>
+        internal static string lnkCreditCard_Text {
+            get {
+                return ResourceManager.GetString("lnkCreditCard.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Home.
         /// </summary>
         internal static string lnkHome_Text {
             get {
                 return ResourceManager.GetString("lnkHome.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Home.
+        /// </summary>
+        internal static string lnkHome_Text1 {
+            get {
+                return ResourceManager.GetString("lnkHome.Text1", resourceCulture);
             }
         }
         
@@ -219,6 +237,33 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.App_LocalResources {
         internal static string lnkSearch_Text {
             get {
                 return ResourceManager.GetString("lnkSearch.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Show my cart.
+        /// </summary>
+        internal static string lnkShowCartByLogin_Text {
+            get {
+                return ResourceManager.GetString("lnkShowCartByLogin.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Link to orderItems.
+        /// </summary>
+        internal static string lnkShowOrderItemsByOrderId_Text {
+            get {
+                return ResourceManager.GetString("lnkShowOrderItemsByOrderId.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Show my orders.
+        /// </summary>
+        internal static string lnkShowOrdersByLogin_Text {
+            get {
+                return ResourceManager.GetString("lnkShowOrdersByLogin.Text", resourceCulture);
             }
         }
         
