@@ -9,6 +9,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao
 {
     public interface IOrderItemDao : IGenericDao<OrderItem, Int64>
     {
-        List<OrderItem> findByOrderId(long orderId, int startIndex, int count);
+        List<OrderItem> FindByOrderId(long orderId);
     }
 }

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblWelcome.Hello.Text" xml:space="preserve">
+    <value>Welcome!</value>
+  </data>
   <data name="lblDash1Resource1.Text" xml:space="preserve">
     <value>-</value>
   </data>
@@ -141,29 +144,23 @@
   <data name="lblWelcome.Text" xml:space="preserve">
     <value>Welcome to ECommerce</value>
   </data>
-  <data name="lblWelcome.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="lclFooter.Text" xml:space="preserve">
-    <value />
+    <value>Copyright &amp;copy; Computer Science Department - Univesity of A Coruña</value>
+  </data>
+  <data name="lclHeader.Text" xml:space="preserve">
+    <value>MiniBank: A Sample Model-View-Controller Application with .NET</value>
   </data>
   <data name="lclPageTitle.Text" xml:space="preserve">
-    <value />
+    <value>ECommerce: A MVC Web Application with .NET</value>
   </data>
   <data name="lnkAuthenticate.Text" xml:space="preserve">
-    <value>Authenticate</value>
-  </data>
-  <data name="lnkAuthenticate.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lnkFindProducts.Text" xml:space="preserve">
-    <value>Find Products</value>
-  </data>
-  <data name="lnkFindProducts.ToolTip" xml:space="preserve">
-    <value />
+    <value>Authentication</value>
   </data>
   <data name="lnkHome.Text" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="lnkLocale.Text" xml:space="preserve">
+    <value>Select Locale</value>
   </data>
   <data name="lnkHome.ToolTip" xml:space="preserve">
     <value />
@@ -182,5 +179,17 @@
   </data>
   <data name="lnkUpdate.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="lnkHome.Text1" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="lnkShowCartByLogin.Text" xml:space="preserve">
+    <value>Show my cart</value>
+  </data>
+  <data name="lnkShowOrderItemsByOrderId.Text" xml:space="preserve">
+    <value>Link to orderItems</value>
+  </data>
+  <data name="lnkShowOrdersByLogin.Text" xml:space="preserve">
+    <value>Show my orders</value>
   </data>
 </root>

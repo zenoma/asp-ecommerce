@@ -31,5 +31,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Properties {
                 return ((int)(this["ECommerce_defaultCount"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/Pages/MainPage.aspx")]
+        public string ECommerce_applicationURL {
+            get {
+                return ((string)(this["ECommerce_applicationURL"]));
+            }
+        }
     }
 }

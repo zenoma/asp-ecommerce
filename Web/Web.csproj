@@ -16,7 +16,7 @@
     <AssemblyName>ECommerce.Web</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort>44340</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -97,7 +97,18 @@
   <ItemGroup>
     <Content Include="Css\styles.css" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\Cart\AddToCart.aspx" />
+    <Content Include="Pages\Cart\ShowCartByLogin.aspx" />
+    <Content Include="Pages\Order\CreateOrder.aspx" />
+    <Content Include="Pages\Order\ShowOrdersByLogin.aspx" />
+    <Content Include="Pages\Order\ShowOrderItemsByOrderId.aspx" />
     <Content Include="Pages\MainPage.aspx" />
+    <Content Include="Pages\Cart\App_LocalResources\AddToCart.aspx.resx" />
+    <Content Include="Pages\Order\App_LocalResources\CreateOrder.asxp.resx" />
+    <EmbeddedResource Include="Pages\Products\App_LocalResources\ShowProducts.aspx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ShowProducts.aspx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <Content Include="Pages\Products\FindProducts.aspx" />
     <Content Include="Pages\Products\ShowProductDetails.aspx" />
     <Content Include="Pages\Products\ShowProducts.aspx" />
@@ -117,6 +128,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Common.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\ECommerce.Master.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ECommerce.Master.resx</DependentUpon>
     </Compile>
     <Compile Include="ECommerce.Master.cs">
       <DependentUpon>ECommerce.Master</DependentUpon>
@@ -138,12 +154,52 @@
     <Compile Include="HTTP\View\AplicationsObjects\Countries.cs" />
     <Compile Include="HTTP\View\AplicationsObjects\Languages.cs" />
     <Compile Include="HTTP\View\AplicationsObjects\Locale.cs" />
+    <Compile Include="Pages\Cart\AddToCart.aspx.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Cart\AddToCart.aspx.designer.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Cart\ShowCartByLogin.aspx.cs">
+      <DependentUpon>ShowCartByLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Cart\ShowCartByLogin.aspx.designer.cs">
+      <DependentUpon>ShowCartByLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Order\CreateOrder.aspx.cs">
+      <DependentUpon>CreateOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Order\CreateOrder.aspx.designer.cs">
+      <DependentUpon>CreateOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Order\ShowOrdersByLogin.aspx.cs">
+      <DependentUpon>ShowOrdersByLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Order\ShowOrdersByLogin.aspx.designer.cs">
+      <DependentUpon>ShowOrdersByLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Order\ShowOrderItemsByOrderId.aspx.cs">
+      <DependentUpon>ShowOrderItemsByOrderId.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Order\ShowOrderItemsByOrderId.aspx.designer.cs">
+      <DependentUpon>ShowOrderItemsByOrderId.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Products\App_LocalResources\ShowProducts.aspx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShowProducts.aspx.resx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Products\FindProducts.aspx.cs">
       <DependentUpon>FindProducts.aspx</DependentUpon>
@@ -238,6 +294,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ECommerce.Master" />
+    <EmbeddedResource Include="App_LocalResources\ECommerce.Master.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ECommerce.Master.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="Pages\Order\App_LocalResources\ShowOrdersByLogin.aspx.resx" />
+    <Content Include="Pages\Order\App_LocalResources\ShowOrderItemsByOrderId.aspx.resx" />
+    <Content Include="Pages\App_LocalResources\MainPage.aspx.resx" />
+    <Content Include="Pages\Cart\App_LocalResources\ShowCartByLogin.aspx.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -264,9 +328,6 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Common.Designer.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\ECommerce.Master.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\Products\App_LocalResources\FindProducts.aspx.resx" />
