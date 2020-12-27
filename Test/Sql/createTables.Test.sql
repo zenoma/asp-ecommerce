@@ -212,7 +212,6 @@ PRINT N'Table Category created.'
 GO
 
 /* Product */
-
 CREATE TABLE Product (
 	productId bigint IDENTITY(1,1) NOT NULL,
 	categoryId bigint DEFAULT NULL,

@@ -13,17 +13,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /* Get Keyword passed as parameter in the request from
+            /* Get Product ID passed as parameter in the request from
              * the previous page
              */
-
             long productId = Convert.ToInt64(Request.Params.Get("productId"));
 
             /* Get the Service */
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             IProductService productService = iocManager.Resolve<IProductService>();
 
-            /* Get Accounts Info */
+            /* Get Product Info */
             ProductDetails productDetails = productService.FindProductDetails(productId);
 
             cellProductName.Text = productDetails.name;
@@ -147,6 +146,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
 
                 tbProductDetails.DataBind();
             }
+        }
+
+        //SOLO PUEDE EJECUTAR ESTE BOTON ROL ADMIN
+        protected void btnUpdateProduct_Click(object sender, EventArgs e)
+        {
+            /* Get Product ID passed as parameter in the request from
+             * the previous page
+             */
+            long productId = Convert.ToInt64(Request.Params.Get("productId"));
+
+            /* Do action. */
+            String url = String.Format("./UpdateProductDetails.aspx?productId={0}", productId);
+            Response.Redirect(Response.ApplyAppPathModifier(url));
         }
     }
 }

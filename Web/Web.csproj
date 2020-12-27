@@ -101,6 +101,7 @@
     <Content Include="Pages\Products\FindProducts.aspx" />
     <Content Include="Pages\Products\ShowProductDetails.aspx" />
     <Content Include="Pages\Products\ShowProducts.aspx" />
+    <Content Include="Pages\Products\UpdateProductDetails.aspx" />
     <Content Include="Pages\User\AddCreditCard.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
     <Content Include="Pages\User\ChangePassword.aspx" />
@@ -164,7 +165,14 @@
     </Compile>
     <Compile Include="Pages\Products\ShowProducts.aspx.designer.cs">
       <DependentUpon>ShowProducts.aspx</DependentUpon>
-	</Compile>
+    </Compile>
+    <Compile Include="Pages\Products\UpdateProductDetails.aspx.cs">
+      <DependentUpon>UpdateProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Products\UpdateProductDetails.aspx.designer.cs">
+      <DependentUpon>UpdateProductDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\User\AddCreditCard.aspx.cs">
       <DependentUpon>AddCreditCard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
