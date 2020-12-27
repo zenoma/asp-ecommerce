@@ -61,11 +61,37 @@ namespace Resources {
         }
         
         /// <summary>
+<<<<<<< HEAD
         ///   Busca una cadena traducida similar a Add.
         /// </summary>
         internal static string addLink {
             get {
                 return ResourceManager.GetString("addLink", resourceCulture);
+=======
+        ///   Busca una cadena traducida similar a Edit.
+        /// </summary>
+        internal static string editButton {
+            get {
+                return ResourceManager.GetString("editButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Expiration Date.
+        /// </summary>
+        internal static string expDate {
+            get {
+                return ResourceManager.GetString("expDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Is Favorite.
+        /// </summary>
+        internal static string isFav {
+            get {
+                return ResourceManager.GetString("isFav", resourceCulture);
+>>>>>>> 65fe06376c745268ab3f0a5288477b774ba2a24a
             }
         }
         
@@ -79,20 +105,36 @@ namespace Resources {
         }
         
         /// <summary>
+<<<<<<< HEAD
         ///   Busca una cadena traducida similar a Next.
         /// </summary>
         internal static string Next {
             get {
                 return ResourceManager.GetString("Next", resourceCulture);
+=======
+        ///   Busca una cadena traducida similar a Number.
+        /// </summary>
+        internal static string number {
+            get {
+                return ResourceManager.GetString("number", resourceCulture);
+>>>>>>> 65fe06376c745268ab3f0a5288477b774ba2a24a
             }
         }
         
         /// <summary>
+<<<<<<< HEAD
         ///   Busca una cadena traducida similar a Previous.
         /// </summary>
         internal static string Previous {
             get {
                 return ResourceManager.GetString("Previous", resourceCulture);
+=======
+        ///   Busca una cadena traducida similar a Remove.
+        /// </summary>
+        internal static string removeButton {
+            get {
+                return ResourceManager.GetString("removeButton", resourceCulture);
+>>>>>>> 65fe06376c745268ab3f0a5288477b774ba2a24a
             }
         }
         
@@ -102,6 +144,24 @@ namespace Resources {
         internal static string searchButton {
             get {
                 return ResourceManager.GetString("searchButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Type.
+        /// </summary>
+        internal static string type {
+            get {
+                return ResourceManager.GetString("type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Verify Code.
+        /// </summary>
+        internal static string verifyCode {
+            get {
+                return ResourceManager.GetString("verifyCode", resourceCulture);
             }
         }
     }
