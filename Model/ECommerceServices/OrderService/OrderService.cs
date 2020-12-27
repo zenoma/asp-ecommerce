@@ -34,16 +34,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
 
 
         /// <exception cref="EmptyOrderItemListException"/>
-        public OrderDto CreateOrder(string login, CartDto cart, long creditCardId, string address)
+        public OrderDto CreateOrder(string login, CartDto cart, long creditCardId, string address, string orderAlias)
         {
-            
+
             if (cart.cartLines.IsNullOrEmpty())
             {
                 throw new EmptyOrderItemListException(login);
             }
             else
             {
-                Order order = new Order(); 
+                Order order = new Order();
                 Product product;
                 double price = 0;
                 User user = userDao.FindByLogin(login);
@@ -52,12 +52,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
                 order.creditCardId = creditCardId;
                 order.address = address;
                 order.orderDate = DateTime.Now;
+                order.orderAlias = orderAlias;
                 orderDao.Create(order);
 
                 foreach (var cartLine in cart.cartLines)
                 {
                     product = productDao.Find(cartLine.productId);
-                    if (isSalable(product, cartLine.quantity)) {
+                    if (isSalable(product, cartLine.quantity))
+                    {
                         OrderItem orderItem = new OrderItem();
                         orderItem.orderId = order.orderId;
                         orderItem.productId = cartLine.productId;
@@ -65,10 +67,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
                         orderItem.unitPrice = product.unitPrice;
                         orderItemDao.Create(orderItem);
                         price += cartLine.quantity * product.unitPrice;
+                        product.stockUnits -= cartLine.quantity;
+                        productDao.Update(product);
                     }
-                    
+                    else
+                    {
+                        throw new OutOfStockProductException(product.name);
+                    }
                 }
                 order.price = price;
+                orderDao.Update(order);
                 return toOrderDto(order);
             }
         }
@@ -93,7 +101,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
 
         private OrderDto toOrderDto(Order order)
         {
-            OrderDto orderDTO = new OrderDto(order.orderId, order.creditCardId, order.address, order.orderDate, order.price);
+            CreditCard creditCard = creditCardDao.Find(order.creditCardId);
+            OrderDto orderDTO = new OrderDto(order.orderId, creditCard.number, order.address, order.orderDate, order.price, order.orderAlias);
             List<OrderItem> orderItems = orderItemDao.FindByOrderId(order.orderId);
             foreach (var orderItem in orderItems)
             {

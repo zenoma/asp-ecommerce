@@ -33,6 +33,105 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
         protected global::System.Web.UI.HtmlControls.HtmlForm RegisterForm;
 
         /// <summary>
+        /// Control tbProductDetails.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tbProductDetails;
+
+        /// <summary>
+        /// Control cellCaptionProductName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionProductName;
+
+        /// <summary>
+        /// Control cellProductName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell cellProductName;
+
+        /// <summary>
+        /// Control cellCaptionUnitPrice.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionUnitPrice;
+
+        /// <summary>
+        /// Control cellUnitPrice.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell cellUnitPrice;
+
+        /// <summary>
+        /// Control cellCaptionProductCategory.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionProductCategory;
+
+        /// <summary>
+        /// Control cellProductCategory.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell cellProductCategory;
+
+        /// <summary>
+        /// Control cellCaptionStockUnits.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionStockUnits;
+
+        /// <summary>
+        /// Control cellStockUnits.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell cellStockUnits;
+
+        /// <summary>
+        /// Control cellCaptionProductDate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionProductDate;
+
+        /// <summary>
+        /// Control cellProductDate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell cellProductDate;
+
+        /// <summary>
         /// Control lclQuantity.
         /// </summary>
         /// <remarks>
@@ -58,6 +157,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvQuantity;
+
+        /// <summary>
+        /// Control rfvQuantityPositive.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator rfvQuantityPositive;
 
         /// <summary>
         /// Control lblQuantityError.
