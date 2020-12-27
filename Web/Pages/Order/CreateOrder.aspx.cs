@@ -52,6 +52,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Order
                 try
                 {
                     SessionManager.CreateOrder(Context, Int64.Parse(comboCreditCard.Text), lclPostalAddress.Text);
+                    SessionManager.RemoveCart(Context);
                     Response.Redirect(
                         Response.ApplyAppPathModifier("~/Pages/MainPage.aspx"));
                 }
