@@ -41,6 +41,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
                     lblNoOrderItems.Visible = true;
                     return;
                 }
+                this.gvOrderItems.DataSource = orderDto.orderItems;
                 this.gvOrderItems.DataBind();
             }
             catch (InstanceNotFoundException)
