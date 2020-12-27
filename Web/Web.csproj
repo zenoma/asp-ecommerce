@@ -104,7 +104,7 @@
     <Content Include="Pages\Order\ShowOrderItemsByOrderId.aspx" />
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\Cart\App_LocalResources\AddToCart.aspx.resx" />
-    <Content Include="Pages\Order\App_LocalResources\CreateOrder.asxp.resx" />
+    <Content Include="Pages\Order\App_LocalResources\CreateOrder.aspx.resx" />
     <EmbeddedResource Include="Pages\Products\App_LocalResources\ShowProducts.aspx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ShowProducts.aspx.Designer.cs</LastGenOutput>

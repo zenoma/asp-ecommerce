@@ -124,9 +124,9 @@
     <value>Credit Card</value>
   </data>
   <data name="lclName.Text" xml:space="preserve">
-    <value>Buy alias</value>
+    <value>Buy Alias</value>
   </data>
   <data name="lclPostalAddress.Text" xml:space="preserve">
-    <value>Postal Addres</value>
+    <value>Postal Address</value>
   </data>
 </root>
