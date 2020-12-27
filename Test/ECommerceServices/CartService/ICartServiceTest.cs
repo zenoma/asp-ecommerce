@@ -119,7 +119,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CartService
 
             Assert.IsFalse(cart.cartLines.Count > 0);
 
-            cart = cartService.AddProductToCart(cart, product1.productId, 1);
+            cart = cartService.AddProductToCart(cart, product1.productId, 1, false);
 
             Assert.IsTrue(cart.cartLines.Count > 0);
         }
@@ -132,7 +132,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CartService
 
             Assert.IsFalse(cart.cartLines.Count > 0);
 
-            cart = cartService.AddProductToCart(cart, product2.productId, 100);
+            cart = cartService.AddProductToCart(cart, product2.productId, 100, false);
         }
 
         [TestMethod()]
@@ -143,14 +143,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CartService
 
             Assert.IsFalse(cart.cartLines.Count > 0);
 
-            cart = cartService.AddProductToCart(cart, -1L, 1);
+            cart = cartService.AddProductToCart(cart, -1L, 1, false);
         }
 
         [TestMethod()]
         public void TestUpdateCart()
         {
             cart = cartService.CreateCart();
-            cart = cartService.AddProductToCart(cart, product1.productId, 1);
+            cart = cartService.AddProductToCart(cart, product1.productId, 1, false);
 
             cart = cartService.UpdateCart(cart, product1.productId, 9, true);
 
@@ -164,7 +164,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CartService
         {
             cart = cartService.CreateCart();
 
-            cart = cartService.AddProductToCart(cart, product2.productId, 1);
+            cart = cartService.AddProductToCart(cart, product2.productId, 1, false);
 
             cart = cartService.UpdateCart(cart, product2.productId, 100, false);
         }
@@ -176,12 +176,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CartService
 
             Assert.IsFalse(cart.cartLines.Count > 0);
 
-            cart = cartService.AddProductToCart(cart, product1.productId, 1);
+            cart = cartService.AddProductToCart(cart, product1.productId, 1, false);
 
             Assert.IsTrue(cart.cartLines.Count > 0);
             int cartSize = cart.cartLines.Count;
 
-            cart = cartService.AddProductToCart(cart, product1.productId, 1);
+            cart = cartService.AddProductToCart(cart, product1.productId, 1, false);
 
             Assert.AreEqual(cartSize, cart.cartLines.Count);
             Assert.AreEqual(2, cart.cartLines.ElementAt(0).quantity);
@@ -192,7 +192,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CartService
         {
             cart = cartService.CreateCart();
 
-            cart = cartService.AddProductToCart(cart, product1.productId, 1);
+            cart = cartService.AddProductToCart(cart, product1.productId, 1, false);
 
             CartLineDto line = cart.cartLines.ElementAt(0);
 

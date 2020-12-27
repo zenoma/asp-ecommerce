@@ -94,7 +94,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
         private OrderDto toOrderDto(Order order)
         {
             OrderDto orderDTO = new OrderDto(order.orderId, order.creditCardId, order.address, order.orderDate, order.price);
-            foreach (var orderItem in order.OrderItem)
+            List<OrderItem> orderItems = orderItemDao.FindByOrderId(order.orderId);
+            foreach (var orderItem in orderItems)
             {
                 orderDTO.orderItems.Add(toOrderItemDto(orderItem));
             }

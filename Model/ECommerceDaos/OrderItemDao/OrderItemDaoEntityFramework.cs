@@ -10,14 +10,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao
 {
     public class OrderItemDaoEntityFramework : GenericDaoEntityFramework<OrderItem, Int64>, IOrderItemDao
     {
-        public List<OrderItem> findByOrderId(long orderId, int startIndex, int count)
+        public List<OrderItem> FindByOrderId(long orderId)
         {
             using (var context = new ecommerceEntities())
             {
                 var result = (from oi in context.OrderItem
                               where oi.orderId == orderId
                               orderby oi.orderId
-                              select oi).Skip(startIndex).Take(count).ToList();
+                              select oi).ToList();
 
                 return result;
             }

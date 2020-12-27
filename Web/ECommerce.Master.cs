@@ -12,6 +12,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SessionManager.InitializeCart(Context);
             if (!SessionManager.IsUserAuthenticated(Context))
             {
 

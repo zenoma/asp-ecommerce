@@ -5,5 +5,8 @@
     <Setting Name="ECommerce_defaultCount" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">3</Value>
     </Setting>
+    <Setting Name="ECommerce_applicationURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Pages/MainPage.aspx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -1,8 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="ShowProducts.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Products.ShowProducts" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_MenuWelcome" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation" runat="server">
-</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_MenuLinks" runat="server">
     <asp:HyperLink ID="lnkHome" runat="server"
         Text="Home" NavigateUrl="~/Pages/MainPage.aspx" />
@@ -14,7 +10,8 @@
                 <asp:HyperLinkField DataTextField="name" HeaderText="Name" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="./ShowProductDetails.aspx?productID={0}" />
                 <asp:BoundField DataField="category" HeaderText="Category" />
                 <asp:BoundField DataField="productDate" HeaderText="Registration Date" DataFormatString="{0:dd/MM/yyyy}" />
-                <asp:BoundField DataField="unitPrice" HeaderText="Price" DataFormatString="{0:C}" />
+                <asp:BoundField DataField="unitPrice" HeaderText="Price" DataFormatString="{0:C}" />                
+                <asp:HyperLinkField Text="<%$ Resources:Common, addLink %>" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/AddToCart.aspx?productID={0}"  />
             </Columns>
         </asp:GridView>
     </form>

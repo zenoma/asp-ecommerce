@@ -1,8 +1,12 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
-using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.BookDao;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.BookDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MovieDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MusicDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
@@ -27,8 +31,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
 
             /* UserProfileDao */
             kernel.Bind<IUserDao>().
-                To<UserDaoEntityFramework>(); 
-            
+                To<UserDaoEntityFramework>();
+
+            /* ICreditCardDao  */
             kernel.Bind<ICreditCardDao>().
                  To<CreditCardDaoEntityFramework>();
 
@@ -36,13 +41,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             kernel.Bind<IUserService>().
                 To<UserService>();
 
-            /* ProductService */
-            kernel.Bind<IProductService>().
-                To<ProductService>();
-
-            /* ProductDao */
-            kernel.Bind<IProductDao>().
-                To<ProductDaoEntityFramework>();
+            /* ICategoryDao  */
+            kernel.Bind<ICategoryDao>().
+                To<CategoryDaoEntityFramework>();
 
             /* MusicDao */
             kernel.Bind<IMusicDao>().
@@ -59,10 +60,30 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             /* CategoryService */
             kernel.Bind<ICategoryService>().
                 To<CategoryService>();
+                
+            /* IProductDao  */
+            kernel.Bind<IProductDao>().
+                To<ProductDaoEntityFramework>();
 
-            /* CategoryDao */
-            kernel.Bind<ICategoryDao>().
-                To<CategoryDaoEntityFramework>();
+            /* IProductService  */
+            kernel.Bind<IProductService>().
+                To<ProductService>();
+
+            /* OrderItemDao */
+            kernel.Bind<IOrderItemDao>().
+                To<OrderItemDaoEntityFramework>();
+
+            /* OrderDao */
+            kernel.Bind<IOrderDao>().
+                To<OrderDaoEntityFramework>();
+
+            /* OrderService */
+            kernel.Bind<IOrderService>().
+                To<OrderService>();
+            
+            /* CartService */
+            kernel.Bind<ICartService>().
+                To<CartService>();
 
             /* DbContext */
             string connectionString =

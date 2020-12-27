@@ -19,14 +19,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
             return new CartDto();
         }
 
-        public CartDto AddProductToCart(CartDto cart, long productId, int quantity)
+        public CartDto AddProductToCart(CartDto cart, long productId, int quantity, bool toPresent)
         {
             ProductDetails product = ProductService.FindProductDetails(productId);
-            CartLineDto line = new CartLineDto(productId, quantity, false);
+            CartLineDto line = new CartLineDto(productId, quantity, toPresent);
 
             if (cart.cartLines.Contains(line))
             {
-                return this.UpdateCart(cart, productId, quantity, false);
+                return UpdateCart(cart, productId, quantity, toPresent);
             }
 
             if (product.stockUnits < quantity)

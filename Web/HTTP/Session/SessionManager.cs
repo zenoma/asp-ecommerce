@@ -1,5 +1,7 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC;
@@ -82,14 +84,25 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
     {
         public static readonly String LOCALE_SESSION_ATTRIBUTE = "locale";
 
-        public static readonly String USER_SESSION_ATTRIBUTE =
-               "userSession";
+        public static readonly String USER_SESSION_ATTRIBUTE = "userSession";
+
+        public static readonly String USER_CART = "userCart";
 
         private static IUserService userService;
+        private static ICartService cartService;
+        private static IOrderService orderService;
 
         public IUserService UserService
         {
             set { userService = value; }
+        }
+        public ICartService CartService
+        {
+            set { cartService = value; }
+        }
+        public IOrderService OrderService
+        {
+            set { orderService = value; }
         }
 
         static SessionManager()
@@ -98,6 +111,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
                 (IIoCManager)HttpContext.Current.Application["managerIoC"];
 
             userService = iocManager.Resolve<IUserService>();
+            cartService = iocManager.Resolve<ICartService>();
+            orderService = iocManager.Resolve<IOrderService>();
         }
 
         /// <summary>
@@ -390,5 +405,100 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
                 return;
             }
         }
+
+
+        /*Cart management*/
+
+        public static void InitializeCart(HttpContext context)
+        {
+            if ((CartDto)context.Session[USER_CART] == null)
+            {
+                context.Session.Add(USER_CART, cartService.CreateCart());
+            }
+        }
+        public static void RemoveCart(HttpContext context)
+        {
+            context.Session.Add(USER_CART, cartService.CreateCart());
+        }
+
+        public static void AddProductToCart(HttpContext context, long productId, int quantity, bool toPresent)
+        {
+            CartDto cartDto =
+                (CartDto)context.Session[USER_CART];
+
+            context.Session.Add(USER_CART, cartService.AddProductToCart(cartDto, productId, quantity, toPresent));
+        }
+
+        /// <exception cref="OutOfStockProductException"/>
+        public static void UpdateCart(HttpContext context, long productId, int quantity, bool isPresent)
+        {
+            CartDto cartDto =
+                (CartDto)context.Session[USER_CART];
+
+            context.Session.Add(USER_CART, cartService.UpdateCart(cartDto, productId, quantity, isPresent));
+        }
+
+        public static void RemoveProductFromCart(HttpContext context, long productId)
+        {
+            CartDto cartDto =
+                   (CartDto)context.Session[USER_CART];
+
+            context.Session.Add(USER_CART, cartService.RemoveProductFromCart(cartDto, productId));
+
+        }
+
+
+
+        /*CreditCard management*/
+        // TODO Create credit card
+        public static void CreateCreditCard(HttpContext context, CreditCardDto creditCard, long userId) { }
+
+
+        public static void UpdateCreditCard(CreditCardDto creditCard, long userId) { }
+
+
+        public static List<CreditCardDto> FindCreditCardsByUserId(HttpContext context)
+        {
+            UserSession userSession =
+                (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+
+            return userService.FindCreditCardsByUserId(userSession.UserProfileId);
+        }
+
+        public static CreditCardDto FindFavCreditCardByUserId(HttpContext context)
+        {
+            UserSession userSession =
+                (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+
+            return userService.FindFavCreditCardByUserId(userSession.UserProfileId);
+        }
+
+
+        // TODO Delete credit card
+        public static void DeleteCreditCard(long creditCardId, long userId) { }
+
+
+
+        /*Order Management*/
+
+
+        public static void CreateOrder(HttpContext context, long creditCardId, string address)
+        {
+
+            String loginName = CookiesManager.GetLoginName(context);
+
+            CartDto cartDto =
+               (CartDto)context.Session[USER_CART];
+
+            if (cartDto != null && loginName != null && cartDto.cartLines.Count != 0)
+            {
+                orderService.CreateOrder(loginName, cartDto, creditCardId, address);
+            }
+            else
+            {
+                throw new InvalidOperationException("Cart must have one item");
+            }
+        }
+
     }
 }
