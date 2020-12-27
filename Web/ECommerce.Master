@@ -65,10 +65,10 @@
                                 meta:resourcekey="lnkSearch" /></li>
                         <li>
                             <asp:HyperLink ID="lnkShowOrdersByLogin" runat="server"
-                                meta:resourcekey="lnkShowOrdersByLogin" NavigateUrl="~/Pages/Cart/ShowOrdersByLogin.aspx" /></li>
+                                meta:resourcekey="lnkShowOrdersByLogin" NavigateUrl="~/Pages/Order/ShowOrdersByLogin.aspx" /></li>
                         <li>
                             <asp:HyperLink ID="lnkShowOrderItemsByOrderId" runat="server"
-                                meta:resourcekey="lnkShowOrderItemsByOrderId" NavigateUrl="~/Pages/Cart/ShowOrderItemsByOrderId.aspx" /></li>
+                                meta:resourcekey="lnkShowOrderItemsByOrderId" NavigateUrl="~/Pages/Order/ShowOrderItemsByOrderId.aspx" /></li>
                         <li>
                             <asp:HyperLink ID="lnkShowCartByLogin" runat="server"
                                 meta:resourcekey="lnkShowCartByLogin" NavigateUrl="~/Pages/Cart/ShowCartByLogin.aspx" /></li>

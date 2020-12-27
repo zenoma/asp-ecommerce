@@ -61,13 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
-<<<<<<< HEAD
         ///   Busca una cadena traducida similar a Add.
         /// </summary>
         internal static string addLink {
             get {
                 return ResourceManager.GetString("addLink", resourceCulture);
-=======
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Edit.
         /// </summary>
         internal static string editButton {
@@ -91,7 +93,6 @@ namespace Resources {
         internal static string isFav {
             get {
                 return ResourceManager.GetString("isFav", resourceCulture);
->>>>>>> 65fe06376c745268ab3f0a5288477b774ba2a24a
             }
         }
         
@@ -105,36 +106,38 @@ namespace Resources {
         }
         
         /// <summary>
-<<<<<<< HEAD
         ///   Busca una cadena traducida similar a Next.
         /// </summary>
         internal static string Next {
             get {
                 return ResourceManager.GetString("Next", resourceCulture);
-=======
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Number.
         /// </summary>
         internal static string number {
             get {
                 return ResourceManager.GetString("number", resourceCulture);
->>>>>>> 65fe06376c745268ab3f0a5288477b774ba2a24a
             }
         }
         
         /// <summary>
-<<<<<<< HEAD
         ///   Busca una cadena traducida similar a Previous.
         /// </summary>
         internal static string Previous {
             get {
                 return ResourceManager.GetString("Previous", resourceCulture);
-=======
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Remove.
         /// </summary>
         internal static string removeButton {
             get {
                 return ResourceManager.GetString("removeButton", resourceCulture);
->>>>>>> 65fe06376c745268ab3f0a5288477b774ba2a24a
             }
         }
         

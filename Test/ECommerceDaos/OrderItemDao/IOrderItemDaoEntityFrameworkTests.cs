@@ -152,7 +152,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
             List<OrderItem> totalRetrievedOrderItems = new List<OrderItem>(numberOfOrderItems);
             do
             {
-                listOrdersItems = orderItemDao.findByOrderId(order.orderId, startIndex, count);
+                listOrdersItems = orderItemDao.FindByOrderId(order.orderId);
                 totalRetrievedOrderItems.AddRange(listOrdersItems);
 
                 Assert.IsTrue(listOrdersItems.Count <= count);
@@ -172,10 +172,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
         [TestMethod()]
         public void FindByOrderIdWithoutOrdersTest()
         {
-            int count = 10;
-            int startIndex = 10;
-
-            List<OrderItem> retrievedOrderItems = orderItemDao.findByOrderId(order.orderId, startIndex, count);
+            List<OrderItem> retrievedOrderItems = orderItemDao.FindByOrderId(order.orderId);
 
             Assert.IsTrue(retrievedOrderItems.Count == 0);
         }

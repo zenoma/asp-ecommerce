@@ -7,6 +7,7 @@
         <asp:GridView ID="gvOrderItems" runat="server" CssClass="orderItems" GridLines="None"
             AutoGenerateColumns="True" HorizontalAlign="Center">
         </asp:GridView>
+        <asp:HyperLink Text ="Buy Cart" CssClass="buyLink" NavigateUrl="~/Pages/Order/CreateOrder.aspx" runat="server" />
     </form>
     <br />
 </asp:Content>

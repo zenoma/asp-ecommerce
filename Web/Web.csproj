@@ -104,6 +104,7 @@
     <Content Include="Pages\Order\ShowOrderItemsByOrderId.aspx" />
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\Cart\App_LocalResources\AddToCart.aspx.resx" />
+    <Content Include="Pages\Order\App_LocalResources\CreateOrder.asxp.resx" />
     <EmbeddedResource Include="Pages\Products\App_LocalResources\ShowProducts.aspx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ShowProducts.aspx.Designer.cs</LastGenOutput>
@@ -219,7 +220,7 @@
     </Compile>
     <Compile Include="Pages\Products\ShowProducts.aspx.designer.cs">
       <DependentUpon>ShowProducts.aspx</DependentUpon>
-	  </Compile>
+    </Compile>
     <Compile Include="Pages\User\AddCreditCard.aspx.cs">
       <DependentUpon>AddCreditCard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

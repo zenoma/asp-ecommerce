@@ -26,7 +26,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
              * the previous page
              */
             string login = "";
-            if (CookiesManager.GetLoginName(Context) != null) { 
+            if (CookiesManager.GetLoginName(Context) != null)
+            {
                 login = CookiesManager.GetLoginName(Context);
             }
             else
@@ -57,14 +58,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
             }
 
             /* Get the Service */
-            
+
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             IOrderService orderService = iocManager.Resolve<IOrderService>();
 
             /* Get Accounts Info */
             try
             {
-                OrderBlock orderBlock = orderService.FindByUserLogin(login,count,startIndex);
+                // FIXME cambiar calculo pagina
+                OrderBlock orderBlock = orderService.FindByUserLogin("zenoma", 1, 10);
                 if (orderBlock.Orders.Count == 0)
                 {
                     lblNoUserOrders.Visible = true;
@@ -103,12 +105,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
                 }
             }
             catch (InstanceNotFoundException)
-            { 
+            {
                 lblIdentifierError.Visible = true;
                 lblIdentifierError.Text = GetLocalResourceObject("InstanceNotFound.Text").ToString();
             }
 
-            
+
         }
     }
 }
