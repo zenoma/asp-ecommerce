@@ -44,6 +44,5 @@
             <asp:TableCell ID="cellProductType" runat="server"></asp:TableCell>
         </asp:TableRow>--%>
     </asp:Table>
-        <asp:Button ID="btnUpdateProduct" runat="server" OnClick="btnUpdateProduct_Click" Text="Button" />
     </form>
 </asp:Content>

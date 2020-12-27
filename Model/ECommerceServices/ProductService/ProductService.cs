@@ -77,14 +77,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
                 product.name, product.stockUnits, product.unitPrice, product.type, product.productDate,
                 music.album, music.artist, null, default, null, 0, null);
 
-            } else if (product.type == "Movie")
+            }
+            
+            if (product.type == "Movie")
             {
                 Movie movie = movieDao.Find(productId);
 
                 productDetails = new ProductDetails(product.productId, category.visualName,
                 product.name, product.stockUnits, product.unitPrice, product.type, product.productDate, null,
                 null, movie.director, movie.movieDate, null, 0, null);
-            } else
+            }
+            
+            if (product.type == "Book")
             {
                 Book book = bookDao.Find(productId);
 
@@ -92,7 +96,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
                 product.name, product.stockUnits, product.unitPrice, product.type, product.productDate, null,
                 null, null, default, book.isbn, book.editionNumber, book.author);
 
-            }            
+            }
+
+            productDetails = new ProductDetails(product.productId, category.visualName,
+                product.name, product.stockUnits, product.unitPrice, product.type, product.productDate, null,
+                null, null, default, null, 0, null);
 
             return productDetails;
         }
