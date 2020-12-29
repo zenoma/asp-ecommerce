@@ -73,9 +73,9 @@
                         <asp:RequiredFieldValidator ID="rfvUnitPrice" runat="server"
                             ControlToValidate="txtUnitPrice" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>" />
                         <asp:RegularExpressionValidator ErrorMessage="Invalid Price" meta:resourcekey="InvalidPriceUpdate"
-                            ControlToValidate="txtUnitPrice" ValidationExpression="^(\d*\.?\d+|\d*(,\d*)*(\,\d+)?)$" Display="Dynamic" runat="server" />
-                        <%--<asp:CompareValidator ID="rfvPositivePrice" runat="server" ValueToCompare="0,00" ControlToValidate="txtEditionNumber"
-                            Text="<%$ Resources:Common, positiveField %>" Operator="GreaterThan" Type="Double"></asp:CompareValidator>--%>
+                            ControlToValidate="txtUnitPrice" ValidationExpression="^(?!0*(\,0+)?$)(\d+|\d*\,\d+)$" Display="Dynamic" runat="server" />
+
+
                     </span>
             </div>
             <div class="field">
