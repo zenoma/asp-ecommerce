@@ -12,6 +12,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         #region Properties Region
 
         public long productId { get; set; }
+        public long categoryId { get; set; }
         public string category { get; set; }
         public string name { get; set; }
         public double unitPrice { get; set; }
@@ -31,11 +32,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
 
         #endregion
 
-        public ProductDetails(long productId, string category, string name, int stockUnits,
+        public ProductDetails(long productId, long categoryId, string category, string name, int stockUnits,
             double unitPrice, string type, DateTime productDate, string album, string artist,
             string director, System.DateTime movieDate, string isbn, int editionNumber, string author)
         {
             this.productId = productId;
+            this.categoryId = categoryId;
             this.category = category;
             this.name = name;
             this.stockUnits = stockUnits;
@@ -56,6 +58,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         {
             return obj is ProductDetails details &&
                    productId == details.productId &&
+                   categoryId == details.categoryId &&
                    category == details.category &&
                    name == details.name &&
                    unitPrice == details.unitPrice &&
@@ -88,6 +91,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
             hash.Add(isbn);
             hash.Add(editionNumber);
             hash.Add(author);
+            hash.Add(categoryId);
             return hash.ToHashCode();
         }
     }

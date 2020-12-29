@@ -31,7 +31,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             if (Page.IsValid)
             {
                 /* Get data. */
-                //String identifierType = this.ddlFindBy.SelectedValue;
                 String keywords = this.txtKeywords.Text;
                 long category = Convert.ToInt64(this.drpdCategory.SelectedValue);
 

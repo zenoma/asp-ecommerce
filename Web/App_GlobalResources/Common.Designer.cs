@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Update product.
+        /// </summary>
+        internal static string btnUpdateProduct_Text {
+            get {
+                return ResourceManager.GetString("btnUpdateProduct_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Edit.
         /// </summary>
         internal static string editButton {
@@ -93,6 +102,15 @@ namespace Resources {
         internal static string isFav {
             get {
                 return ResourceManager.GetString("isFav", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No products found.
+        /// </summary>
+        internal static string lblNoProductFound {
+            get {
+                return ResourceManager.GetString("lblNoProductFound", resourceCulture);
             }
         }
         
@@ -138,6 +156,114 @@ namespace Resources {
         internal static string Previous {
             get {
                 return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Album.
+        /// </summary>
+        internal static string prodAlbum_Text {
+            get {
+                return ResourceManager.GetString("prodAlbum_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Artist.
+        /// </summary>
+        internal static string prodArtist_Text {
+            get {
+                return ResourceManager.GetString("prodArtist_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Author.
+        /// </summary>
+        internal static string prodAuthor_Text {
+            get {
+                return ResourceManager.GetString("prodAuthor_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Category.
+        /// </summary>
+        internal static string prodCategory_Text {
+            get {
+                return ResourceManager.GetString("prodCategory_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registration date.
+        /// </summary>
+        internal static string prodDate_Text {
+            get {
+                return ResourceManager.GetString("prodDate_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Director.
+        /// </summary>
+        internal static string prodDirector_Text {
+            get {
+                return ResourceManager.GetString("prodDirector_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Edition number.
+        /// </summary>
+        internal static string prodEditionNumber_Text {
+            get {
+                return ResourceManager.GetString("prodEditionNumber_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ISBN.
+        /// </summary>
+        internal static string prodIsbn_Text {
+            get {
+                return ResourceManager.GetString("prodIsbn_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Name.
+        /// </summary>
+        internal static string prodName_Text {
+            get {
+                return ResourceManager.GetString("prodName_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Premiere date.
+        /// </summary>
+        internal static string prodPremiereDate_Text {
+            get {
+                return ResourceManager.GetString("prodPremiereDate_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Stock units.
+        /// </summary>
+        internal static string prodStockUnits_Text {
+            get {
+                return ResourceManager.GetString("prodStockUnits_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Unit price.
+        /// </summary>
+        internal static string prodUnitPrice_Text {
+            get {
+                return ResourceManager.GetString("prodUnitPrice_Text", resourceCulture);
             }
         }
         

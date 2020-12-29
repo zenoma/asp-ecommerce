@@ -54,19 +54,63 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
         public void UpdateProduct(long productId, ProductDetails productDetails)
         {
             Product product = productDao.Find(productId);
-            product.name = productDetails.name;
-            product.stockUnits = productDetails.stockUnits;
-            product.unitPrice = productDetails.unitPrice;
-            product.type = productDetails.type;
 
-            productDao.Update(product);
+            if (typeof(Music).IsAssignableFrom(product.GetType()))
+            {
+                Music music = musicDao.Find(productId);
+
+                music.name = productDetails.name;
+                music.Category = categoryDao.Find(productDetails.categoryId);
+                music.unitPrice = productDetails.unitPrice;
+                music.stockUnits = productDetails.stockUnits;
+                music.artist = productDetails.artist;
+                music.album = productDetails.album;
+
+                musicDao.Update(music);
+
+                return;
+            }
+
+            if (typeof(Book).IsAssignableFrom(product.GetType()))
+            {
+                Book book = bookDao.Find(productId);
+
+                book.name = productDetails.name;
+                book.Category = categoryDao.Find(productDetails.categoryId);
+                book.unitPrice = productDetails.unitPrice;
+                book.stockUnits = productDetails.stockUnits;
+                book.author = productDetails.author;
+                book.isbn = productDetails.isbn;
+                book.editionNumber = productDetails.editionNumber;
+
+                bookDao.Update(book);
+
+                return;
+            }
+
+            if (typeof(Movie).IsAssignableFrom(product.GetType()))
+            {
+                Movie movie = movieDao.Find(productId);
+
+                movie.name = productDetails.name;
+                movie.Category = categoryDao.Find(productDetails.categoryId);
+                movie.unitPrice = productDetails.unitPrice;
+                movie.stockUnits = productDetails.stockUnits;
+                movie.director = productDetails.director;
+                movie.movieDate = productDetails.movieDate;
+
+                movieDao.Update(movie);
+
+                return;
+            }
+
+            return;
         }
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
         public ProductDetails FindProductDetails(long productId)
         {
-            //Category category = categoryDao.Find(product.categoryId.GetValueOrDefault());
             Product product = productDao.Find(productId);
             ProductDetails productDetails;
 
@@ -74,7 +118,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
             {
                 Music music = musicDao.Find(productId);
 
-                productDetails = new ProductDetails(music.productId, music.Category.visualName,
+                productDetails = new ProductDetails(music.productId, music.Category.categoryId, music.Category.visualName,
                 music.name, music.stockUnits, music.unitPrice, "Music", music.productDate,
                 music.album, music.artist, null, default, null, 0, null);
 
@@ -85,7 +129,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
             {
                 Movie movie = movieDao.Find(productId);
 
-                productDetails = new ProductDetails(movie.productId, movie.Category.visualName,
+                productDetails = new ProductDetails(movie.productId, movie.Category.categoryId, movie.Category.visualName,
                 movie.name, movie.stockUnits, movie.unitPrice, "Movie", movie.productDate, null,
                 null, movie.director, movie.movieDate, null, 0, null);
 
@@ -96,14 +140,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
             {
                 Book book = bookDao.Find(productId);
 
-                productDetails = new ProductDetails(book.productId, book.Category.visualName,
+                productDetails = new ProductDetails(book.productId, book.Category.categoryId, book.Category.visualName,
                 book.name, book.stockUnits, book.unitPrice, "Book", book.productDate, null,
                 null, null, default, book.isbn, book.editionNumber, book.author);
 
                 return productDetails;
-            }            
+            }
 
-            productDetails = new ProductDetails(product.productId, product.Category.visualName,
+            productDetails = new ProductDetails(product.productId, product.Category.categoryId, product.Category.visualName,
             product.name, product.stockUnits, product.unitPrice, "None", product.productDate, null,
             null, null, default, null, 0, null);
 
@@ -117,7 +161,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
             products.ForEach(product =>
             {
                 category = categoryDao.Find(product.categoryId.GetValueOrDefault());
-                productsDetail.Add(new ProductDetails(product.productId, category.visualName,
+                productsDetail.Add(new ProductDetails(product.productId, category.categoryId, category.visualName,
                     product.name, product.stockUnits, product.unitPrice,
                     product.type, product.productDate, null, null, null, default, null, 0, null));
             });

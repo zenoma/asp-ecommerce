@@ -156,4 +156,46 @@
   <data name="positiveField" xml:space="preserve">
     <value>Number must be greater than 0</value>
   </data>
+  <data name="lblNoProductFound" xml:space="preserve">
+    <value>No products found</value>
+  </data>
+  <data name="btnUpdateProduct_Text" xml:space="preserve">
+    <value>Update product</value>
+  </data>
+  <data name="prodAlbum_Text" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="prodArtist_Text" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="prodAuthor_Text" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="prodCategory_Text" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="prodDate_Text" xml:space="preserve">
+    <value>Registration date</value>
+  </data>
+  <data name="prodDirector_Text" xml:space="preserve">
+    <value>Director</value>
+  </data>
+  <data name="prodEditionNumber_Text" xml:space="preserve">
+    <value>Edition number</value>
+  </data>
+  <data name="prodIsbn_Text" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
+  <data name="prodName_Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="prodPremiereDate_Text" xml:space="preserve">
+    <value>Premiere date</value>
+  </data>
+  <data name="prodStockUnits_Text" xml:space="preserve">
+    <value>Stock units</value>
+  </data>
+  <data name="prodUnitPrice_Text" xml:space="preserve">
+    <value>Unit price</value>
+  </data>
 </root>

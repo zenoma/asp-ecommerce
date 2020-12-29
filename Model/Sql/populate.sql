@@ -39,7 +39,7 @@ VALUES (1, 'VISA', 999999999999, 999, '27/03/2022', 1);
 
 /* Credit Card 1 */
 INSERT INTO CreditCard (userId, type, number, verifyCode, expDate, isFav)
-VALUES (1, 'Master', 111111111111, 111, '02/11/2023', 1);
+VALUES (1, 'Master', 111111111111, 111, '02/11/2023', 0);
 
 /* Populate sCategory */
 
