@@ -40,5 +40,23 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Properties {
                 return ((string)(this["ECommerce_applicationURL"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string ECommerce_default_search_MainPage_keywords {
+            get {
+                return ((string)(this["ECommerce_default_search_MainPage_keywords"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long ECommerce_default_search_MainPage_categoryId {
+            get {
+                return ((long)(this["ECommerce_default_search_MainPage_categoryId"]));
+            }
+        }
     }
 }

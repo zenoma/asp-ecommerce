@@ -105,6 +105,14 @@
     <Content Include="Pages\MainPage.aspx" />
     <Content Include="Pages\Cart\App_LocalResources\AddToCart.aspx.resx" />
     <Content Include="Pages\Order\App_LocalResources\CreateOrder.aspx.resx" />
+    <Content Include="Pages\Products\App_LocalResources\ShowProductDetails.aspx.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ShowProductDetails.aspx.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Pages\Products\App_LocalResources\UpdateProductDetails.aspx.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UpdateProductDetails.aspx.Designer.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="Pages\Products\App_LocalResources\ShowProducts.aspx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ShowProducts.aspx.Designer.cs</LastGenOutput>
@@ -197,10 +205,20 @@
     <Compile Include="Pages\MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Products\App_LocalResources\ShowProductDetails.aspx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShowProductDetails.aspx.resx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Products\App_LocalResources\ShowProducts.aspx.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ShowProducts.aspx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Products\App_LocalResources\UpdateProductDetails.aspx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdateProductDetails.aspx.resx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Products\FindProducts.aspx.cs">
       <DependentUpon>FindProducts.aspx</DependentUpon>

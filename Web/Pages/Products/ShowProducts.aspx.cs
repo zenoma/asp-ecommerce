@@ -19,6 +19,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
 
             lnkPrevious.Visible = false;
             lnkNext.Visible = false;
+            lblNoProductFound.Visible = false;
 
             /* Get Keyword passed as parameter in the request from
              * the previous page
@@ -56,7 +57,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
 
             if (productBlock.Products.Count == 0)
             {
-                //lblNoUserAccounts.Visible = true;
+                lblNoProductFound.Visible = true;
                 return;
             }
 
@@ -88,9 +89,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                     Response.ApplyAppPathModifier(url);
                 this.lnkNext.Visible = true;
             }
-        }
-        protected void BtnAddToCartClick(object sender, EventArgs e)
-        {
         }
     }
 }

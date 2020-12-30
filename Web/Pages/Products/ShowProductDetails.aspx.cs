@@ -30,14 +30,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             cellProductCategory.Text = productDetails.category;
             cellStockUnits.Text = productDetails.stockUnits.ToString();
             cellProductDate.Text = productDetails.productDate.ToString("dd/MM/yyyy");
-            //cellProductType.Text = productDetails.type;
 
             if (productDetails.type == "Music")
             {
                 // Fila de Artist
                 TableRow rowArtist = new TableRow();
                 TableHeaderCell cellCaptionArtist = new TableHeaderCell();
-                cellCaptionArtist.Text = "Artist";
+                cellCaptionArtist.Text = GetGlobalResourceObject("Common", "prodArtist_Text").ToString();
 
                 TableCell cellArtist = new TableCell();
                 cellArtist.Text = productDetails.artist;
@@ -52,7 +51,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                 // Fila de Album
                 TableRow rowAlbum = new TableRow();
                 TableHeaderCell cellCaptionAlbum = new TableHeaderCell();
-                cellCaptionAlbum.Text = "Album";
+                cellCaptionAlbum.Text = GetGlobalResourceObject("Common", "prodAlbum_Text").ToString();
 
                 TableCell cellAlbum = new TableCell();
                 cellAlbum.Text = productDetails.album;
@@ -71,7 +70,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                 // Fila de Director
                 TableRow rowDirector = new TableRow();
                 TableHeaderCell cellCaptionDirector = new TableHeaderCell();
-                cellCaptionDirector.Text = "Director";
+                cellCaptionDirector.Text = GetGlobalResourceObject("Common", "prodDirector_Text").ToString();
 
                 TableCell cellDirector = new TableCell();
                 cellDirector.Text = productDetails.director;
@@ -86,7 +85,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                 // Fila de MovieDate
                 TableRow rowMovieDate = new TableRow();
                 TableHeaderCell cellCaptionMovieDate = new TableHeaderCell();
-                cellCaptionMovieDate.Text = "Premiere date";
+                cellCaptionMovieDate.Text = GetGlobalResourceObject("Common", "prodPremiereDate_Text").ToString();
 
                 TableCell cellMovieDate = new TableCell();
                 cellMovieDate.Text = productDetails.movieDate.Date.ToString("yyyy");
@@ -104,7 +103,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                 // Fila de Author
                 TableRow rowAuthor = new TableRow();
                 TableHeaderCell cellCaptionAuthor = new TableHeaderCell();
-                cellCaptionAuthor.Text = "Author";
+                cellCaptionAuthor.Text = GetGlobalResourceObject("Common", "prodAuthor_Text").ToString();
 
                 TableCell cellAuthor = new TableCell();
                 cellAuthor.Text = productDetails.author;
@@ -119,7 +118,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                 // Fila de EditionNumber
                 TableRow rowEditionNumber = new TableRow();
                 TableHeaderCell cellCaptionEditionNumber = new TableHeaderCell();
-                cellCaptionEditionNumber.Text = "Edition number";
+                cellCaptionEditionNumber.Text = GetGlobalResourceObject("Common", "prodEditionNumber_Text").ToString();
 
                 TableCell cellEditionNumber = new TableCell();
                 cellEditionNumber.Text = productDetails.editionNumber.ToString();
@@ -134,7 +133,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                 // Fila de Isbn
                 TableRow rowIsbn = new TableRow();
                 TableHeaderCell cellCaptionIsbn = new TableHeaderCell();
-                cellCaptionIsbn.Text = "Edition number";
+                cellCaptionIsbn.Text = GetGlobalResourceObject("Common", "prodIsbn_Text").ToString();
 
                 TableCell cellIsbn = new TableCell();
                 cellIsbn.Text = productDetails.isbn.ToString();
@@ -142,7 +141,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                 rowIsbn.Cells.Add(cellCaptionIsbn);
                 rowIsbn.Cells.Add(cellIsbn);
 
-                tbProductDetails.Rows.AddAt(2, rowIsbn);
+                tbProductDetails.Rows.AddAt(3, rowIsbn);
 
                 tbProductDetails.DataBind();
             }
