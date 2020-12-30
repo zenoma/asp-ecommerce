@@ -4,14 +4,15 @@
     <p>
         <asp:Label ID="lblNoProductFound" runat="server" Text="<%$ Resources:Common, lblNoProductFound %>"></asp:Label>
     </p>
-    <form id="form1" runat="server">
+    <form id="formShowProductsSearch" runat="server">
         <asp:GridView ID="gvProducts" runat="server" AutoGenerateColumns="False" Width="505px">
             <Columns>
-                <asp:HyperLinkField DataTextField="name" HeaderText="Name" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="./ShowProductDetails.aspx?productID={0}" />
-                <asp:BoundField DataField="category" HeaderText="Category" />
-                <asp:BoundField DataField="productDate" HeaderText="Registration Date" DataFormatString="{0:dd/MM/yyyy}" />
-                <asp:BoundField DataField="unitPrice" HeaderText="Price" DataFormatString="{0:C}" />
-                <asp:HyperLinkField Text="<%$ Resources:Common, addLink %>" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/AddToCart.aspx?productID={0}" />
+                <asp:HyperLinkField DataTextField="name" HeaderText="<%$ Resources:Common, prodName_Text %>" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="./ShowProductDetails.aspx?productID={0}" />
+                <asp:BoundField DataField="category" HeaderText="<%$ Resources:Common, prodCategory_Text %>" />
+                <asp:BoundField DataField="productDate" HeaderText="<%$ Resources:Common, prodDate_Text %>" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="unitPrice" HeaderText="<%$ Resources:Common, prodUnitPrice_Text %>" DataFormatString="{0:C}" />
+                <asp:BoundField DataField="stockUnits" HeaderText="<%$ Resources:Common, prodStockUnits_Text %>" />
+                <asp:HyperLinkField Text="<%$ Resources:Common, addLink %>" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/AddToCart.aspx?productID={0}" />                
             </Columns>
         </asp:GridView>
     </form>

@@ -71,7 +71,7 @@
                     <asp:Localize ID="lclUnitPrice" runat="server" Text="<%$ Resources:Common, prodUnitPrice_Text %>" /></span><span class="entry">
                         <asp:TextBox ID="txtUnitPrice" runat="server" Width="100" Columns="16"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvUnitPrice" runat="server"
-                            ControlToValidate="txtUnitPrice" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>" />
+                            ControlToValidate="txtUnitPrice" Display="Dynamic" CssClass="errorMessage" Text="<%$ Resources:Common, mandatoryField %>" />
                         <asp:RegularExpressionValidator ErrorMessage="Invalid Price" meta:resourcekey="InvalidPriceUpdate"
                             ControlToValidate="txtUnitPrice" ValidationExpression="^(?!0*(\,0+)?$)(\d+|\d*\,\d+)$" Display="Dynamic" runat="server" />
 
