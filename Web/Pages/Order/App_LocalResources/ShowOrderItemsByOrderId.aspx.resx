@@ -123,4 +123,7 @@
   <data name="lblNoOrderItems.Text" xml:space="preserve">
     <value>Order Empty</value>
   </data>
+  <data name="titlePage.Text" xml:space="preserve">
+    <value>Order Details</value>
+  </data>
 </root>

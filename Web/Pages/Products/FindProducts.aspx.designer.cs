@@ -24,6 +24,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
         protected global::System.Web.UI.HtmlControls.HtmlForm FindForm;
 
         /// <summary>
+        /// Control titlePage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize titlePage;
+
+        /// <summary>
         /// Control lclKeywords.
         /// </summary>
         /// <remarks>

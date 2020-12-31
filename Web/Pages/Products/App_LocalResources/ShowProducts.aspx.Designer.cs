@@ -78,5 +78,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products.App_LocalResources {
                 return ResourceManager.GetString("lclQuantity.Text", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Search Results.
+        /// </summary>
+        internal static string titlePage_Text {
+            get {
+                return ResourceManager.GetString("titlePage.Text", resourceCulture);
+            }
+        }
     }
 }

@@ -15,15 +15,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Order
     {
 
         /// <summary>
-        /// Control lblIdentifierError.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdentifierError;
-
-        /// <summary>
         /// Control CreateOrderForm.
         /// </summary>
         /// <remarks>
@@ -31,6 +22,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Order
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm CreateOrderForm;
+
+        /// <summary>
+        /// Control titlePage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize titlePage;
+
+        /// <summary>
+        /// Control lblIdentifierError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdentifierError;
 
         /// <summary>
         /// Control lclName.

@@ -1,16 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="ListCreditCards.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.User.ListCreditCards" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation" runat="server">
-    -
-    <asp:Localize ID="lclMenuExplanation" runat="server" meta:resourcekey="lclMenuExplanation" />
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuLinks" runat="server">
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
-    <asp:HyperLink ID="lnkAddCreditCard" runat="server" NavigateUrl="~/Pages/User/AddCreditCard.aspx" meta:resourcekey="lnkAddCreditCard" />
+<asp:Content ID="Content" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form runat="server">
-        <p>
-            <asp:Label ID="lblNoCreditCards" meta:resourcekey="lblNoCreditCards" runat="server"></asp:Label>
-        </p>
+        <h1>
+            <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
+        </h1>
+        <asp:HyperLink ID="lnkAddCreditCard" runat="server" NavigateUrl="~/Pages/User/AddCreditCard.aspx" meta:resourcekey="lnkAddCreditCard" />
+        <div class="containerErrors">
+            <asp:Label ID="lblNoCreditCards" runat="server" CssClass="errorMessage" meta:resourcekey="lblNoCreditCards"></asp:Label>
+        </div>
         <asp:GridView ID="gvCreditCards" runat="server" CssClass="creditCards" GridLines="None"
             AutoGenerateColumns="False">
             <Columns>

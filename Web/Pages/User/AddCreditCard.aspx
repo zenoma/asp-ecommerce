@@ -2,11 +2,12 @@
 <asp:Content ID="Content" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
         <form id="AddCreditCardForm" method="post" runat="server">
-            <p>
-                <span class="label">
-                    <asp:Localize ID="lblAddError" runat="server" meta:resourcekey="lblAddError" />
-                </span>
-            </p>
+            <h1>
+                <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
+            </h1>
+            <div class="containerErrors">
+                <asp:Label ID="lblAddError" runat="server" CssClass="errorMessage" meta:resourcekey="lblAddError"></asp:Label>
+            </div>
             <div class="field">
                 <span class="label">
                     <asp:Localize ID="lclType" runat="server" meta:resourcekey="lclType" />

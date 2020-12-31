@@ -132,4 +132,7 @@
   <data name="lnkAddCreditCard.Text" xml:space="preserve">
     <value>Add Credit Card</value>
   </data>
+  <data name="titlePage.Text" xml:space="preserve">
+    <value>Checkout</value>
+  </data>
 </root>

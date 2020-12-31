@@ -17,7 +17,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblAddError.Visible = false;
         }
 
         protected void BtnAddClick(object sender, EventArgs e)

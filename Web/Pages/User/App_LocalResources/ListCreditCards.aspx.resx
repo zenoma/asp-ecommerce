@@ -123,4 +123,7 @@
   <data name="lnkAddCreditCard.Text" xml:space="preserve">
     <value>Create new credit card</value>
   </data>
+  <data name="titlePage.Text" xml:space="preserve">
+    <value>My Credit Cards</value>
+  </data>
 </root>

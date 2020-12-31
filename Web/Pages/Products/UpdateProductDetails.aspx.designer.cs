@@ -24,6 +24,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
         protected global::System.Web.UI.HtmlControls.HtmlForm UpdateUserProductForm;
 
         /// <summary>
+        /// Control titlePage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize titlePage;
+
+        /// <summary>
         /// Control lclName.
         /// </summary>
         /// <remarks>
@@ -337,6 +346,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUnitPrice;
+
+        /// <summary>
+        /// Control lblCategory.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lblCategory;
 
         /// <summary>
         /// Control drpdCategory.

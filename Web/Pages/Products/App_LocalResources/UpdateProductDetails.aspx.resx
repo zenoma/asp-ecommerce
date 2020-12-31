@@ -120,4 +120,10 @@
   <data name="InvalidPriceUpdate.Text" xml:space="preserve">
     <value>Invalid price</value>
   </data>
+  <data name="lblCategory.Text" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="titlePage.Text" xml:space="preserve">
+    <value>Update Product</value>
+  </data>
 </root>

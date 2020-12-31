@@ -138,4 +138,7 @@
   <data name="lclVerifyCode.Text" xml:space="preserve">
     <value>Verify Code</value>
   </data>
+  <data name="titlePage.Text" xml:space="preserve">
+    <value>New Credit Card</value>
+  </data>
 </root>

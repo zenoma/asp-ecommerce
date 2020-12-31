@@ -123,4 +123,7 @@
   <data name="lclQuantity.Text" xml:space="preserve">
     <value>Quantity</value>
   </data>
+  <data name="titlePage.Text" xml:space="preserve">
+    <value>Search Results</value>
+  </data>
 </root>

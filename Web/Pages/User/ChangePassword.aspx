@@ -2,11 +2,14 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
         <form id="ChangePasswordForm" method="post" runat="server">
+            <h1>
+                <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
+            </h1>
             <div class="field">
                 <span class="label">
                     <asp:Localize ID="lclOldPassword" runat="server" meta:resourcekey="lclOldPassword" /></span><span
                         class="entry">
-                        <asp:TextBox ID="txtOldPassword" TextMode="Password" runat="server" Width="100" Columns="16">
+                        <asp:TextBox ID="txtOldPassword" TextMode="Password" runat="server" Columns="16">
                         </asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvOldPassword" runat="server" ControlToValidate="txtOldPassword"
                             Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>
@@ -19,7 +22,7 @@
                 <span class="label">
                     <asp:Localize ID="lclNewPassword" runat="server" meta:resourcekey="lclNewPassword" /></span><span
                         class="entry">
-                        <asp:TextBox TextMode="Password" ID="txtNewPassword" runat="server" Width="100" Columns="16">
+                        <asp:TextBox TextMode="Password" ID="txtNewPassword" runat="server" Columns="16">
                         </asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvNewPassword" runat="server" ControlToValidate="txtNewPassword"
                             Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>
@@ -31,7 +34,7 @@
                 <span class="label">
                     <asp:Localize ID="lclRetypePassword" runat="server" meta:resourcekey="lclRetypePassword" /></span><span
                         class="entry">
-                        <asp:TextBox TextMode="Password" ID="txtRetypePassword" runat="server" Width="100"
+                        <asp:TextBox TextMode="Password" ID="txtRetypePassword" runat="server"
                             Columns="16"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvRetypePassword" runat="server" ControlToValidate="txtRetypePassword"
                             Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>

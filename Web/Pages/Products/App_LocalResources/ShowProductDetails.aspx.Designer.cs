@@ -60,5 +60,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products.App_LocalResources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Product Details.
+        /// </summary>
+        public static string titlePage_Text {
+            get {
+                return ResourceManager.GetString("titlePage.Text", resourceCulture);
+            }
+        }
     }
 }

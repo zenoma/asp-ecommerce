@@ -69,5 +69,23 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products.App_LocalResources {
                 return ResourceManager.GetString("InvalidPriceUpdate.Text", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Category.
+        /// </summary>
+        public static string lblCategory_Text {
+            get {
+                return ResourceManager.GetString("lblCategory.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Update Product.
+        /// </summary>
+        public static string titlePage_Text {
+            get {
+                return ResourceManager.GetString("titlePage.Text", resourceCulture);
+            }
+        }
     }
 }

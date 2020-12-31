@@ -123,4 +123,7 @@
   <data name="lblNoUserOrders.Text" xml:space="preserve">
     <value>No orders</value>
   </data>
+  <data name="titlePage.Text" xml:space="preserve">
+    <value>My Orders</value>
+  </data>
 </root>

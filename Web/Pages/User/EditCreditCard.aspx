@@ -2,6 +2,9 @@
 <asp:Content ID="Content" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
         <form id="EditCreditCardForm" method="post" runat="server">
+            <h1>
+                <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
+            </h1>
             <div class="field">
                 <span class="label">
                     <asp:Localize ID="lclType" runat="server" meta:resourcekey="lclType" />

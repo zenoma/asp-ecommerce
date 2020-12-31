@@ -150,4 +150,7 @@
   <data name="revEmail.ErrorMessage" xml:space="preserve">
     <value>Incorrect email syntax</value>
   </data>
+  <data name="titlePage.Text" xml:space="preserve">
+    <value>Update My Data</value>
+  </data>
 </root>

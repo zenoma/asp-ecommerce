@@ -132,6 +132,9 @@
   <data name="OutOfStockProductException.Text" xml:space="preserve">
     <value>Not enough stock</value>
   </data>
+  <data name="titlePage.Text" xml:space="preserve">
+    <value>Add To Cart</value>
+  </data>
   <data name="txtQuantity" xml:space="preserve">
     <value>Quantity</value>
   </data>

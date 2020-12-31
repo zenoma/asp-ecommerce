@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <form id="form1" runat="server">
+        <h1>
+            <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
+        </h1>
         <asp:Table ID="tbProductDetails" runat="server">
             <asp:TableRow runat="server">     
                 <asp:TableHeaderCell ID="cellCaptionProductName" runat="server" Text="<%$ Resources:Common, prodName_Text %>"></asp:TableHeaderCell>
@@ -28,6 +31,6 @@
                 <asp:TableCell ID="cellProductDate" runat="server"></asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-        <asp:Button ID="btnUpdateProduct" runat="server" Text="<%$ Resources:Common, btnUpdateProduct_Text %>" OnClick="btnUpdateProduct_Click" Height="22px" Width="103px" />
+        <asp:Button ID="btnUpdateProduct" runat="server" Text="<%$ Resources:Common, btnUpdateProduct_Text %>" OnClick="btnUpdateProduct_Click" />
     </form>
 </asp:Content>

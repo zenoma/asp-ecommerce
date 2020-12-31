@@ -123,4 +123,7 @@
   <data name="lblNoCartItems.Text" xml:space="preserve">
     <value>Cart Empty</value>
   </data>
+  <data name="titlePage.Text" xml:space="preserve">
+    <value>My Cart</value>
+  </data>
 </root>
