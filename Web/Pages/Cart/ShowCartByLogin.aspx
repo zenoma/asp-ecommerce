@@ -9,14 +9,18 @@
             <asp:Label ID="lblNoCartItems" runat="server" CssClass="errorMessage" meta:resourcekey="lblNoCartItems"></asp:Label>
             <asp:Label ID="lblIdentifierError" runat="server" CssClass="errorMessage" meta:resourcekey="lblIdentifierError" />
         </div>
-        <asp:GridView ID="gvOrderItems" runat="server" AutoGenerateColumns="False" Width="505px">
+        <asp:GridView ID="gvOrderItems" runat="server" AutoGenerateColumns="False" Width="505px" GridLines="None">
             <Columns>
                 <asp:HyperLinkField DataTextField="productId" HeaderText="Id" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Products/ShowProductDetails.aspx?productId={0}" />
+                <asp:BoundField DataField="productName" HeaderText="Product Name" />
                 <asp:BoundField DataField="quantity" HeaderText="Quantity" />
+                <asp:BoundField DataField="unitPrice" HeaderText="Unit Price" />
                 <asp:CheckBoxField DataField="toPresent" HeaderText="To Present" />
+                <asp:HyperLinkField Text="Add more units" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/AddToCart.aspx?productId={0}" />
+                <asp:HyperLinkField Text="Delete Item" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/DeleteFromCart.aspx?productId={0}" />
             </Columns>
         </asp:GridView>
-        <asp:HyperLink Text="Buy Cart" CssClass="buyLink" NavigateUrl="~/Pages/Order/CreateOrder.aspx" runat="server" />
+        <asp:HyperLink ID="lnkBuyCart" Text="Buy Cart" CssClass="buyLink" NavigateUrl="~/Pages/Order/CreateOrder.aspx" runat="server" />
     </form>
     <br />
 </asp:Content>

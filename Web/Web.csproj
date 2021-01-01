@@ -98,6 +98,7 @@
     <Content Include="Css\styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Pages\Cart\AddToCart.aspx" />
+    <Content Include="Pages\Cart\DeleteFromCart.aspx" />
     <Content Include="Pages\Cart\ShowCartByLogin.aspx" />
     <Content Include="Pages\Order\CreateOrder.aspx" />
     <Content Include="Pages\Order\ShowOrdersByLogin.aspx" />
@@ -169,6 +170,13 @@
     </Compile>
     <Compile Include="Pages\Cart\AddToCart.aspx.designer.cs">
       <DependentUpon>AddToCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Cart\DeleteFromCart.aspx.cs">
+      <DependentUpon>DeleteFromCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Cart\DeleteFromCart.aspx.designer.cs">
+      <DependentUpon>DeleteFromCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Cart\ShowCartByLogin.aspx.cs">
       <DependentUpon>ShowCartByLogin.aspx</DependentUpon>
