@@ -14,6 +14,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
         protected void Page_Load(object sender, EventArgs e)
         {
             lblNoCartItems.Visible = false;
+            lnkBuyCart.Visible = true;
 
             CartDto cartDto = (CartDto)Context.Session["userCart"];
             if (cartDto.cartLines.Count != 0) 
@@ -25,6 +26,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
             else
             {
                 lblNoCartItems.Visible = true;
+                lnkBuyCart.Visible = false;
             }
            
         }

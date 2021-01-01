@@ -43,7 +43,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
             }
             catch (ArgumentNullException)
             {
-                startIndex = 0;
+                startIndex = 1;
             }
 
             /* Get Count */
@@ -66,7 +66,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
             try
             {
                 // FIXME cambiar calculo pagina
-                OrderBlock orderBlock = orderService.FindByUserLogin(login, 1, 10);
+                OrderBlock orderBlock = orderService.FindByUserLogin(login, startIndex, count);
                 if (orderBlock.Orders.Count == 0)
                 {
                     lblNoUserOrders.Visible = true;
@@ -77,12 +77,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
                 this.gvUserOrders.DataBind();
 
                 /* "Previous" link */
-                if ((startIndex - count) >= 0)
+                if ((startIndex - 1) > 0)
                 {
-                    String url =
-                        Settings.Default.ECommerce_applicationURL +
-                        "/Pages/ShowAccountsByUserID.aspx" + "?login=" + login +
-                        "&startIndex=" + (startIndex - count) + "&count=" +
+                    String url = "/Pages/Order/ShowOrdersByLogin.aspx" + "?login=" + login +
+                        "&startIndex=" + (startIndex - 1) + "&count=" +
                         count;
 
                     this.lnkPrevious.NavigateUrl =
@@ -93,10 +91,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
                 /* "Next" link */
                 if (orderBlock.existMoreOrders)
                 {
-                    String url =
-                        Settings.Default.ECommerce_applicationURL +
-                        "/Pages/ShowAccountsByUserID.aspx" + "?login=" + login +
-                        "&startIndex=" + (startIndex + count) + "&count=" +
+                    String url = "/Pages/Order/ShowOrdersByLogin.aspx" + "?login=" + login +
+                        "&startIndex=" + (startIndex + 1) + "&count=" +
                         count;
 
                     this.lnkNext.NavigateUrl =

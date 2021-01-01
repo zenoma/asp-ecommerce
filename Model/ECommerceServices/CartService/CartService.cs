@@ -22,7 +22,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
         public CartDto AddProductToCart(CartDto cart, long productId, int quantity, bool toPresent)
         {
             ProductDetails product = ProductService.FindProductDetails(productId);
-            CartLineDto line = new CartLineDto(productId, quantity, toPresent);
+            CartLineDto line = new CartLineDto(productId,product.name, quantity, product.unitPrice, toPresent);
 
             if (cart.cartLines.Contains(line))
             {

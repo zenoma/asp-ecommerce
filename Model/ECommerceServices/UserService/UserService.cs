@@ -7,6 +7,7 @@ using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.Util;
 using Ninject;
+using System;
 using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
@@ -235,6 +236,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
             }
 
             CreditCard creditCard = CreditCardDao.FindFavByUserId(userId);
+
+            if (creditCard == null )
+            {
+                throw new InstanceNotFoundException(userId, "Not Favorite creditCard");
+            }
 
             return new CreditCardDto(creditCard.creditCardId, creditCard.type, creditCard.number,
                 creditCard.verifyCode, creditCard.expDate, creditCard.isFav);

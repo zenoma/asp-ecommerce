@@ -15,7 +15,7 @@
                 <asp:BoundField DataField="productDate" HeaderText="<%$ Resources:Common, prodDate_Text %>" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="unitPrice" HeaderText="<%$ Resources:Common, prodUnitPrice_Text %>" DataFormatString="{0:C}" />
                 <asp:BoundField DataField="stockUnits" HeaderText="<%$ Resources:Common, prodStockUnits_Text %>" />
-                <asp:HyperLinkField Text="<%$ Resources:Common, addLink %>" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/AddToCart.aspx?productID={0}" />                
+                <asp:HyperLinkField Text="<%$ Resources:Common, addLink %>" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/AddToCart.aspx?productId={0}" />                
             </Columns>
         </asp:GridView>
         <div class="previousNextLinks">
