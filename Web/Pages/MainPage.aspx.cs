@@ -67,8 +67,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
             /* "Previous" link */
             if ((startIndex - 1) > 0)
             {
-                String url = /*Settings.Default.MiniBank_applicationURL +*/
-                    "~/Pages/MainPage.aspx" +
+                String url = Settings.Default.ECommerce_applicationURL +
                     "?startIndex=" + (startIndex - 1) + "&count=" +
                     count;
 
@@ -80,9 +79,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages
             /* "Next" link */
             if (productBlock.ExistMoreProducts)
             {
-                String url = /*Settings.Default.MiniBank_applicationURL +*/
-                    "~/Pages/MainPage.aspx?" +
-                    "startIndex=" + (startIndex + 1) + "&count=" +
+                String url = Settings.Default.ECommerce_applicationURL +
+                    "?startIndex=" + (startIndex + 1) + "&count=" +
                     count;
 
                 this.lnkNext.NavigateUrl =

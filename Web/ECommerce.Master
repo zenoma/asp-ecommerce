@@ -5,11 +5,6 @@
 <head id="Head1" runat="server">
     <title>ECommerce</title>
     <link href="~/Css/Styles.css" rel="stylesheet" type="text/css" />
-    <style type="text/css">
-        #sidebar {
-            width: 145px;
-        }
-    </style>
 </head>
 <body>
     <!-- Window. -->
@@ -63,7 +58,7 @@
                         <ul>
                             <li>
                                 <asp:HyperLink ID="lnkHome" runat="server"
-                                    meta:resourcekey="lnkHome" NavigateUrl="~/Pages/MainPage.aspx" /></li>
+                                    meta:resourcekey="lnkHome" NavigateUrl="/" /></li>
                             <li>
                                 <asp:HyperLink ID="lnkSearch" runat="server"
                                     NavigateUrl="~/Pages/Products/FindProducts.aspx"

@@ -6,7 +6,7 @@
       <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="ECommerce_applicationURL" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">/Pages/MainPage.aspx</Value>
+      <Value Profile="(Default)">/</Value>
     </Setting>
     <Setting Name="ECommerce_default_search_MainPage_keywords" Type="System.String" Scope="Application">
       <Value Profile="(Default)">""</Value>

@@ -93,7 +93,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Order
                 orderService.CreateOrder(login, cartDto, long.Parse(comboCreditCard.SelectedValue), txtPostalAddress.Text, txtName.Text);
                 SessionManager.RemoveCart(Context);
                 Response.Redirect(
-                    Response.ApplyAppPathModifier("~/Pages/MainPage.aspx"));
+                    Response.ApplyAppPathModifier("~/Pages/Order/ShowOrdersByLogin.aspx"));
             }
             catch (InvalidOperationException ex)
             {

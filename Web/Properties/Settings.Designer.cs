@@ -34,7 +34,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("/Pages/MainPage.aspx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("/")]
         public string ECommerce_applicationURL {
             get {
                 return ((string)(this["ECommerce_applicationURL"]));
