@@ -37,7 +37,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         private const string tipo = "VISA";
         private const long number = 1234123412341234L;
         private const short verifyCode = 123;
-        private System.DateTime expDate = System.DateTime.Now;
+        private System.DateTime expDate = System.DateTime.Today;
 
         private TransactionScope transactionScope;
         private TestContext testContextInstance;
