@@ -147,20 +147,27 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
         [TestMethod()]
         public void UpdateProductTest()
         {
-            int numberProducts = 10;
-            createProductsTest(numberProducts);
+            Music oldProduct = new Music();
+            oldProduct.categoryId = category.categoryId;
+            oldProduct.productDate = System.DateTime.Now;
+            oldProduct.stockUnits = 100;
+            oldProduct.unitPrice = 5;
+            oldProduct.type = "Tipo";
+            oldProduct.name = "Old Name";
+            oldProduct.album = "Old Album";
+            oldProduct.artist = "Old Artist";
+            productDao.Create(oldProduct);
 
             using (var scope = new TransactionScope())
             {
-                Block<Product> list = productDao.FindByName("Test", 1, 1);
-                Product productFound = list.Results.Find(p => p.name.Contains("Test"));
-                ProductDetails product = new ProductDetails(productFound.productId, category.categoryId,"new", "proba", 100, 500, "test", System.DateTime.Now, null, null, null, default, null, 0, null);
-                productService.UpdateProduct(productFound.productId, product);
+                Product productFound = productDao.FindByName("Old Name",1,1).Results[0];
+                ProductDetails newDetails = new ProductDetails(productFound.productId, category.categoryId,"New category", "New Name", 5, 10, "New Type", System.DateTime.Now, "New Album", "New Artist", null, default, null, 0, null);
+                productService.UpdateProduct(productFound.productId, newDetails);
 
-                var obtained =
+                var updatedProduct =
                     productService.FindProductDetails(productFound.productId);
 
-                Assert.AreEqual(product.name, obtained.name);
+                Assert.AreEqual(newDetails.name, updatedProduct.name);
             }
 
         }

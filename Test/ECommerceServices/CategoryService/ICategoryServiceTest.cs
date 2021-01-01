@@ -80,7 +80,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CategoryService
 
         private void createCategoryTest(int size)
         {
-            List<long> categories = new List<long>();
             Category category = new Category();
             for (int i=0; i<size; i++)
             {

@@ -88,7 +88,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
         {
             User user = UserDao.Find(userId);
 
-            return new UserRegisterDetailsDto(user.name, user.surnames, user.email, 
+            return new UserRegisterDetailsDto(user.name, user.surnames, user.email,
                 user.postalAddress, user.language, user.country);
         }
 
@@ -147,11 +147,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
             creditCardModel.userId = userId;
 
+
+
             List<CreditCard> creditCards = CreditCardDao.FindAllByUserId(userId);
 
-            if (creditCards.Contains(creditCardModel))
+            foreach (var userCreditCard in creditCards)
             {
-                throw new DuplicateInstanceException(creditCard, "CreditCard");
+                if (userCreditCard.type == creditCard.type &&
+                    userCreditCard.number == creditCard.number && 
+                    userCreditCard.expDate == creditCard.expDate && 
+                    userCreditCard.verifyCode == creditCard.verifyCode)
+
+                    throw new DuplicateInstanceException(creditCard, "CreditCard");
             }
 
             CreditCardDao.Create(creditCardModel);
@@ -202,7 +209,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
             foreach (var creditCard in listCreditCards)
             {
-                listCreditCardsDto.Add(new CreditCardDto(creditCard.creditCardId, creditCard.type, 
+                listCreditCardsDto.Add(new CreditCardDto(creditCard.creditCardId, creditCard.type,
                     creditCard.number, creditCard.verifyCode, creditCard.expDate, creditCard.isFav));
             }
 
@@ -220,7 +227,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 throw new InstanceNotFoundException(creditCardId, "Credit Card");
             }
 
-            return new CreditCardDto(creditCard.creditCardId, creditCard.type, creditCard.number, 
+            return new CreditCardDto(creditCard.creditCardId, creditCard.type, creditCard.number,
                 creditCard.verifyCode, creditCard.expDate, creditCard.isFav);
         }
 
@@ -237,7 +244,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
             CreditCard creditCard = CreditCardDao.FindFavByUserId(userId);
 
-            if (creditCard == null )
+            if (creditCard == null)
             {
                 throw new InstanceNotFoundException(userId, "Not Favorite creditCard");
             }

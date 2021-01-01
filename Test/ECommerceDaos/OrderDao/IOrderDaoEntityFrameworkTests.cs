@@ -107,6 +107,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderDao
                 order.userId = user.userId;
                 order.orderDate = System.DateTime.Now;
                 order.address = user.postalAddress;
+                order.orderAlias = "test";
                 order.creditCardNumber = creditCard.number;
 
                 orderDao.Create(order);
