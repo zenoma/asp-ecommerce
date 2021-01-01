@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserSession user = SessionManager.GetUserSession(Context);
+            if (user!=null && user.Role == "ADMIN")
+            {
+                btnUpdateProduct.Visible = true;
+            }
+
             /* Get Product ID passed as parameter in the request from
              * the previous page
              */

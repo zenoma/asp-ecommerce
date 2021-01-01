@@ -1,36 +1,20 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Services.Util;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
 
-namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.UserDao
+namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.RoleDao
 {
     [TestClass()]
-    public class IUserDaoEntityFrameworkTests
+    public class IRoleDaoEntityFrameworkTests
     {
         private static IKernel kernel;
         private static IRoleDao roleDao;
-        private static IUserDao userDao;
         private static Role role;
-        private static User user;
 
-        private const string login = "loginTest";
-
-        private const string clearPassword = "password";
-        private const string name = "name";
-        private const string surnames = "surname1 surname2";
-        private const string email = "email@email.es";
-        private const string postalAddress = "address";
-        private const string language = "es";
-        private const string country = "es";
+        private const string name = "test";
 
         private TransactionScope transactionScope;
         private TestContext testContextInstance;
@@ -54,7 +38,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.UserDao
         {
             kernel = TestManager.ConfigureNInjectKernel();
             roleDao = kernel.Get<IRoleDao>();
-            userDao = kernel.Get<IUserDao>();
         }
         //Use ClassCleanup to run code after all tests in a class have run
         [ClassCleanup()]
@@ -70,22 +53,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.UserDao
             transactionScope = new TransactionScope();
 
             role = new Role();
-            role.name = "TEST";
+            role.name = name;
 
             roleDao.Create(role);
-
-            user = new User();
-            user.roleId = roleDao.FindByName(role.name).roleId;
-            user.login = login;
-            user.password = PasswordEncrypter.Crypt(clearPassword);
-            user.name = name;
-            user.surnames = surnames;
-            user.email = email;
-            user.postalAddress = postalAddress;
-            user.language = language;
-            user.country = country;
-
-            userDao.Create(user);
         }
 
         //Use TestCleanup to run code after each test has run
@@ -98,13 +68,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.UserDao
         #endregion Additional test attributes
 
         [TestMethod()]
-        public void DAO_FindByLoginTest()
+        public void DAO_FindByNameTest()
         {
             try
             {
-                User actual = userDao.FindByLogin(user.login);
+                Role actual = roleDao.FindByName(role.name);
 
-                Assert.AreEqual(user.userId, actual.userId);
+                Assert.AreEqual(role.roleId, actual.roleId);
             }
             catch (Exception e)
             {

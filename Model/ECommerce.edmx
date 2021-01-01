@@ -101,6 +101,13 @@
           <Property Name="stockUnits" Type="int" Nullable="false" />
           <Property Name="type" Type="varchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="roleId" />
+          </Key>
+          <Property Name="roleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
         <EntityType Name="Tag">
           <Key>
             <PropertyRef Name="tagId" />
@@ -113,6 +120,7 @@
             <PropertyRef Name="userId" />
           </Key>
           <Property Name="userId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleId" Type="bigint" Nullable="false" />
           <Property Name="login" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
@@ -290,6 +298,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserRoleId">
+          <End Role="Role" Type="Self.Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="roleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="roleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ecommerceModelStoreContainer">
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
@@ -301,6 +323,7 @@
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BookProductId" Association="Self.FK_BookProductId">
@@ -350,6 +373,10 @@
           <AssociationSet Name="FK_ProductCategoryId" Association="Self.FK_ProductCategoryId">
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRoleId" Association="Self.FK_UserRoleId">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -468,6 +495,8 @@
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderUserId" FromRole="User" ToRole="Order" />
           <Property Name="language" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="country" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="roleId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="ecommerceModel.FK_UserRoleId" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_ProductCategoryId">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1">
@@ -612,7 +641,34 @@
             <End Role="Comment" EntitySet="Comment" />
             <End Role="Tag" EntitySet="Tag" />
           </AssociationSet>
+          <EntitySet Name="Role" EntityType="ecommerceModel.Role" />
+          <AssociationSet Name="FK_UserRoleId" Association="ecommerceModel.FK_UserRoleId">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="roleId" />
+          </Key>
+          <Property Name="roleId" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="ecommerceModel.FK_UserRoleId" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_UserRoleId">
+          <End Type="ecommerceModel.Role" Role="Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ecommerceModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="roleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="roleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -721,6 +777,7 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="ecommerceModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
                 <ScalarProperty Name="country" ColumnName="country" />
                 <ScalarProperty Name="language" ColumnName="language" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
@@ -741,6 +798,14 @@
               <ScalarProperty Name="tagId" ColumnName="tagId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="ecommerceModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

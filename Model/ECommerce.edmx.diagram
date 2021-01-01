@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4bd20db292ad4f359d0d468d052fcd06" Name="Diagram1" ZoomLevel="93">
+      <Diagram DiagramId="4bd20db292ad4f359d0d468d052fcd06" Name="Diagram1" ZoomLevel="112">
         <EntityTypeShape EntityType="ecommerceModel.Book" Width="1.5" PointX="4.875" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ecommerceModel.Category" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="ecommerceModel.Comment" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ecommerceModel.CreditCard" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.CreditCard" Width="1.5" PointX="5.375" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ecommerceModel.Movie" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ecommerceModel.Music" Width="1.5" PointX="1.125" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ecommerceModel.Order" Width="1.5" PointX="4.875" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="ecommerceModel.OrderItem" Width="1.5" PointX="7.875" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ecommerceModel.Product" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ecommerceModel.Tag" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ecommerceModel.User" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecommerceModel.User" Width="1.5" PointX="2.625" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="ecommerceModel.FK_ProductCategoryId" ManuallyRouted="false" />
         <AssociationConnector Association="ecommerceModel.FK_CommentProductId" ManuallyRouted="false" />
         <AssociationConnector Association="ecommerceModel.FK_CommentUserId" ManuallyRouted="false" />
@@ -27,6 +27,8 @@
         <InheritanceConnector EntityType="ecommerceModel.Book" />
         <InheritanceConnector EntityType="ecommerceModel.Movie" />
         <InheritanceConnector EntityType="ecommerceModel.Music" />
+        <EntityTypeShape EntityType="ecommerceModel.Role" Width="1.5" PointX="0.5" PointY="1.75" />
+        <AssociationConnector Association="ecommerceModel.FK_UserRoleId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

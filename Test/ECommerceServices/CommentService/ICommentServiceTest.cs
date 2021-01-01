@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
@@ -24,11 +25,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
         private static ICommentService commentService;
         private static IProductDao productDao;
         private static ICommentDao commentDao;
+        private static IRoleDao roleDao;
         private static IUserDao userDao;
         private static ICategoryDao categoryDao;
         private static ITagDao tagDao;
 
         // Variables used in several tests are initialized 
+        private Role role = new Role();
         private User user = new User();
         private Product product = new Product();
         private Comment comment = new Comment();
@@ -67,6 +70,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
             productDao = kernel.Get<IProductDao>();
             commentDao = kernel.Get<ICommentDao>();
             categoryDao = kernel.Get<ICategoryDao>();
+            roleDao = kernel.Get<IRoleDao>();
             userDao = kernel.Get<IUserDao>();
             tagDao = kernel.Get<ITagDao>();
         }
@@ -82,7 +86,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
         [TestInitialize()]
         public void MyTestInitialize()
         {
+            role.name = "ADMIN";
+            roleDao.Create(role);
+
+            role.name = "USER";
+            roleDao.Create(role);
+
             transactionScope = new TransactionScope();
+            user.roleId = roleDao.FindByName("USER").roleId;
             user.login = "login";
             user.password = "password";
             user.email = "email";

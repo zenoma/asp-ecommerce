@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
@@ -19,6 +20,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
     {
         private static IKernel kernel;
         private static IUserService userService;
+        private static IRoleDao roleDao;
         private static IUserDao userDao;
         private static ICreditCardDao creditCardDao;
         private static UserRegisterDetailsDto userDetails;
@@ -60,6 +62,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         public static void MyClassInitialize(TestContext testContext)
         {
             kernel = TestManager.ConfigureNInjectKernel();
+            roleDao = kernel.Get<IRoleDao>();
             userDao = kernel.Get<IUserDao>();
             creditCardDao = kernel.Get<ICreditCardDao>();
             userService = kernel.Get<IUserService>();
@@ -80,6 +83,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
             userDetails = new UserRegisterDetailsDto(name, surnames, email, postalAddress, language, country);
 
             creditCard = new CreditCardDto(0, tipo, number, verifyCode, expDate, false);
+
+            Role role = new Role();
+            role.name = "ADMIN";
+
+            roleDao.Create(role);
+
+            role = new Role();
+            role.name = "USER";
+
+            roleDao.Create(role);
         }
 
         //Use TestCleanup to run code after each test has run
@@ -123,7 +136,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         {
             var userId = userService.SignUp(login, clearPassword, userDetails);
 
-            var expected = new LoginUser(userId, PasswordEncrypter.Crypt(clearPassword), name, language, country);
+            var expected = new LoginUser(userId, roleDao.FindByName("USER").name, PasswordEncrypter.Crypt(clearPassword), name, language, country);
 
             var actual =
                 userService.Login(login,
@@ -137,7 +150,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         {
             var userId = userService.SignUp(login, clearPassword, userDetails);
 
-            var expected = new LoginUser(userId, PasswordEncrypter.Crypt(clearPassword), name, language, country);
+            var expected = new LoginUser(userId, roleDao.FindByName("USER").name, PasswordEncrypter.Crypt(clearPassword), name, language, country);
 
             var obtained =
                 userService.Login(login,

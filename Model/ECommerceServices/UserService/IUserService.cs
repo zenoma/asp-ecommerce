@@ -4,6 +4,7 @@ using Ninject;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using System.Collections.Generic;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 {
@@ -11,6 +12,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
     {
         [Inject]
         IUserDao UserDao { set; }
+
+        [Inject]
+        IRoleDao RoleDao { set; get; }
+
         [Inject]
         ICreditCardDao CreditCardDao { set; }
 

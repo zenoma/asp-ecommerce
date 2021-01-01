@@ -16,6 +16,7 @@ using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Ninject;
 using System.Configuration;
 using System.Data.Entity;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
 {
@@ -28,6 +29,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
         {
             settings = new NinjectSettings() { LoadExtensions = true };
             kernel = new StandardKernel(settings);
+
+            /* RoleDao */
+            kernel.Bind<IRoleDao>().
+                To<RoleDaoEntityFramework>();
 
             /* UserProfileDao */
             kernel.Bind<IUserDao>().

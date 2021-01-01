@@ -2,6 +2,7 @@
 using Es.Udc.DotNet.PracticaMaD.Model;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -19,11 +20,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             if (!IsPostBack)
             {
 
-
                 /* Get Product ID passed as parameter in the request from
                  * the previous page
                  */
                 long productId = Convert.ToInt64(Request.Params.Get("productId"));
+
+
+                if (SessionManager.GetUserSession(Context).Role != "ADMIN")
+                {
+                    String url = String.Format("./ShowProductDetails.aspx?productID={0}", productId);
+                    Response.Redirect(Response.ApplyAppPathModifier(url));
+                }
 
                 /* Get the Service */
                 IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];

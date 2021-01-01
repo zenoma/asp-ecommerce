@@ -134,10 +134,23 @@ GO
  * Create tables.
  */
 
+/* Role */
+
+CREATE TABLE [Role] (
+	roleId bigint IDENTITY(1,1) NOT NULL,
+	name varchar(10) NOT NULL,
+
+	CONSTRAINT [PK_Role] PRIMARY KEY (roleId ASC)
+)
+
+PRINT N'Table Role created.'
+GO
+
 /* User */
 
 CREATE TABLE [User] (
 	userId bigint IDENTITY(1,1) NOT NULL,
+	roleId bigint NOT NULL,
 	login varchar(30) NOT NULL,
 	password varchar(64) NOT NULL,
 	name varchar(30) NOT NULL,
@@ -147,7 +160,9 @@ CREATE TABLE [User] (
 	language varchar(2) NOT NULL,
 	country varchar(2) NOT NULL,
 
-	CONSTRAINT [PK_User] PRIMARY KEY (userId ASC)
+	CONSTRAINT [PK_User] PRIMARY KEY (userId ASC),
+	CONSTRAINT [FK_UserRoleId] FOREIGN KEY(roleId)
+		REFERENCES [Role] (roleId) ON DELETE CASCADE
 )
 
 PRINT N'Table User created.'

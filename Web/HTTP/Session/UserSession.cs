@@ -10,6 +10,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
 
         private long userProfileId;
         private String firstName;
+        private String role;
 
         public long UserProfileId
         {
@@ -21,6 +22,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
         {
             get { return firstName; }
             set { firstName = value; }
+        }
+
+        public String Role
+        {
+            get { return role; }
+            set { role = value; }
         }
     }
 }

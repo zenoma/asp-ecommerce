@@ -27,9 +27,12 @@ USE ecommerce
 
 /* Populate User */
 
+/* Roles */
+INSERT INTO Role (name) VALUES ('ADMIN'), ('USER');
+
 /* User Admin*/
-INSERT INTO  [User] (login, password, name, surnames, postalAddress, email, language, country)
-VALUES ('admin', 'jGl25bVBBBW96Qi9Te4V37Fnqchz/Eu4qB9vKrRIqRg=', 'Admin', 'Admin', 'Admin', 'admin@admin.com', 'es', 'ES');
+INSERT INTO  [User] (roleId, login, password, name, surnames, postalAddress, email, language, country)
+VALUES (1, 'admin', 'jGl25bVBBBW96Qi9Te4V37Fnqchz/Eu4qB9vKrRIqRg=', 'Admin', 'Admin', 'Admin', 'admin@admin.com', 'es', 'ES');
 
 /* Populate Credit Card */
 

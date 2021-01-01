@@ -220,6 +220,8 @@
     <Compile Include="ECommerceDaos\OrderItemDao\OrderItemDaoEntityFramework.cs" />
     <Compile Include="ECommerceDaos\ProductDao\ProductDaoEntityFramework.cs" />
     <Compile Include="ECommerceDaos\ProductDao\IProductDao.cs" />
+    <Compile Include="ECommerceDaos\RoleDao\IRoleDao.cs" />
+    <Compile Include="ECommerceDaos\RoleDao\RoleDaoEntityFramework.cs" />
     <Compile Include="ECommerceDaos\TagDao\ITagDao.cs" />
     <Compile Include="ECommerceDaos\TagDao\TagDaoEntityFramework.cs" />
     <Compile Include="ECommerceDaos\UserDao\IUserDao.cs" />
@@ -274,6 +276,9 @@
     <Compile Include="ECommerceServices\UserService\LoginUser.cs" />
     <Compile Include="ECommerceServices\UserService\UserService.cs" />
     <Compile Include="ECommerceServices\Util\PasswordEncrypter.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>ECommerce.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tag.cs">
       <DependentUpon>ECommerce.tt</DependentUpon>
     </Compile>

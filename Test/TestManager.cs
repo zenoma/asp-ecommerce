@@ -19,6 +19,7 @@ using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MusicDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MovieDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.BookDao;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test
 {
@@ -57,6 +58,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             kernel.Bind<IMovieDao>().To<MovieDaoEntityFramework>();
 
             kernel.Bind<IBookDao>().To<BookDaoEntityFramework>();
+
+            kernel.Bind<IRoleDao>().To<RoleDaoEntityFramework>();
 
             // SERVICES
             kernel.Bind<IProductService>().To<ProductService>();

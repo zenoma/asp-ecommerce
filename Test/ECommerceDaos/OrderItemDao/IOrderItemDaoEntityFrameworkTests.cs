@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
@@ -19,12 +20,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
     public class IOrderItemDaoEntityFrameworkTests
     {
         private static IKernel kernel;
+        private static IRoleDao roleDao;
         private static IUserDao userDao;
         private static IOrderDao orderDao;
         private static IOrderItemDao orderItemDao;
         private static ICreditCardDao creditCardDao;
         private static IProductDao productDao;
         private static ICategoryDao categoryDao;
+        private static Role role;
         private static User user;
         private static CreditCard creditCard;
         private static Order order;
@@ -55,6 +58,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
         {
             kernel = TestManager.ConfigureNInjectKernel();
             userDao = kernel.Get<IUserDao>();
+            roleDao = kernel.Get<IRoleDao>();
             orderDao = kernel.Get<IOrderDao>();
             orderItemDao = kernel.Get<IOrderItemDao>();
             creditCardDao = kernel.Get<ICreditCardDao>();
@@ -74,7 +78,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
         {
             transactionScope = new TransactionScope();
 
+            role = new Role();
+            role.name = "TEST";
+
+            roleDao.Create(role);
+
             user = new User();
+            user.roleId = roleDao.FindByName(role.name).roleId;
             user.login = "loginTest";
             user.password = PasswordEncrypter.Crypt("password");
             user.name = "name";

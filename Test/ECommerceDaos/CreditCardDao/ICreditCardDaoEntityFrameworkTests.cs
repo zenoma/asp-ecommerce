@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.Util;
@@ -18,8 +19,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CreditCardDao
     {
         private static IKernel kernel;
         private static ICreditCardDao creditCardDao;
+        private static IRoleDao roleDao;
         private static IUserDao userDao;
         private static CreditCard creditCard;
+        private static Role role;
         private static User user;
 
         private const string login = "loginTest";
@@ -57,6 +60,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CreditCardDao
         public static void MyClassInitialize(TestContext testContext)
         {
             kernel = TestManager.ConfigureNInjectKernel();
+            roleDao = kernel.Get<IRoleDao>();
             userDao = kernel.Get<IUserDao>();
             creditCardDao = kernel.Get<ICreditCardDao>();
         }
@@ -73,7 +77,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CreditCardDao
         {
             transactionScope = new TransactionScope();
 
+            role = new Role();
+            role.name = "TEST";
+
+            roleDao.Create(role);
+
             user = new User();
+            user.roleId = roleDao.FindByName(role.name).roleId;
             user.login = login;
             user.password = PasswordEncrypter.Crypt(password);
             user.name = name;

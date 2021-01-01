@@ -31,6 +31,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         public string email { get; set; }
         public string language { get; set; }
         public string country { get; set; }
+        public long roleId { get; set; }
     
         
         /// <summary>
@@ -47,6 +48,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         /// Relationship Name (Foreign Key in ER-Model): FK_OrderUserId
         /// </summary>
         public virtual ICollection<Order> Order { get; set; }
+        
+        /// <summary>
+        /// Relationship Name (Foreign Key in ER-Model): FK_UserRoleId
+        /// </summary>
+        public virtual Role Role { get; set; }
     
     	/// <summary>
     	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 
@@ -72,6 +78,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     			hash = hash * multiplier + (email == null ? 0 : email.GetHashCode());
     			hash = hash * multiplier + (language == null ? 0 : language.GetHashCode());
     			hash = hash * multiplier + (country == null ? 0 : country.GetHashCode());
+    			hash = hash * multiplier + roleId.GetHashCode();
     
     			return hash;
     	    }
@@ -101,6 +108,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                &&  (this.email == target.email )       
                &&  (this.language == target.language )       
                &&  (this.country == target.country )       
+               &&  (this.roleId == target.roleId )       
                ;
     
         }
@@ -144,6 +152,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
            strUser.Append(" email = " + email + " | " );       
            strUser.Append(" language = " + language + " | " );       
            strUser.Append(" country = " + country + " | " );       
+           strUser.Append(" roleId = " + roleId + " | " );       
             strUser.Append("] ");    
     
     		return strUser.ToString();

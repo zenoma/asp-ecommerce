@@ -9,10 +9,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
     [Serializable()]
     public class LoginUser
     {
-        public LoginUser(long userId, string encryptedPassword, string name, string language,
+        public LoginUser(long userId, string role, string encryptedPassword, string name, string language,
             string country)
         {
             this.userId = userId;
+            this.role = role;
             this.encryptedPassword = encryptedPassword;
             this.name = name;
             this.language = language;
@@ -20,6 +21,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
         }
 
         public long userId { get; set; }
+        public string role { get; set; }
         public string encryptedPassword { get; set; }
         public string name { get; set; }
         public string language { get; set; }
@@ -32,6 +34,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 int multiplier = 31;
                 int hash = GetType().GetHashCode();
 
+                hash = hash * multiplier + (role == null ? 0 : role.GetHashCode());
                 hash = hash * multiplier + (encryptedPassword == null ? 0 : encryptedPassword.GetHashCode());
                 hash = hash * multiplier + (name == null ? 0 : name.GetHashCode());
                 hash = hash * multiplier + (language == null ? 0 : language.GetHashCode());
@@ -56,7 +59,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
             LoginUser target = obj as LoginUser;
 
             return true
-               && (this.userId == target.userId)
+               && (this.role == target.role)
                && (this.encryptedPassword == target.encryptedPassword)
                && (this.name == target.name)
                && (this.language == target.language)
@@ -71,6 +74,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
             strUser.Append("[ ");
             strUser.Append(" userId = " + userId + " | ");
+            strUser.Append(" role = " + role + " | ");
             strUser.Append(" encryptedPassword = " + encryptedPassword + " | ");
             strUser.Append(" name = " + name + " | ");
             strUser.Append(" language = " + language + " | ");

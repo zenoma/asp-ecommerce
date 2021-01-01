@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.Transactions;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
@@ -23,6 +24,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
         public IUserDao UserDao { set; get; }
 
         [Inject]
+        public IRoleDao RoleDao { set; get; }
+
+        [Inject]
         public ICreditCardDao CreditCardDao { set; get; }
 
         /// <exception cref="DuplicateInstanceException"/>
@@ -38,6 +42,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
             catch (InstanceNotFoundException)
             {
                 User user = new User();
+                user.roleId = RoleDao.FindByName("USER").roleId;
                 user.login = login;
                 user.password = PasswordEncrypter.Crypt(password);
                 user.name = userDetails.name;
@@ -78,7 +83,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 }
             }
 
-            return new LoginUser(user.userId, user.password, user.name, user.language,
+            
+
+            return new LoginUser(user.userId, RoleDao.Find(user.roleId).name, user.password, user.name, user.language,
                 user.country);
         }
 

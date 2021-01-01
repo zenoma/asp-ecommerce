@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
@@ -25,8 +26,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
         private static ICommentDao commentDao;
         private static IProductDao productDao;
         private static ITagDao tagDao;
+        private static IRoleDao roleDao;
         private static IUserDao userDao;
         private static ICategoryDao categoryDao;
+        private static Role role;
         private static User user;
         private static Product product;
         private static Comment comment;
@@ -77,6 +80,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
             kernel = TestManager.ConfigureNInjectKernel();
             productDao = kernel.Get<IProductDao>();
             commentDao = kernel.Get<ICommentDao>();
+            roleDao = kernel.Get<IRoleDao>();
             userDao = kernel.Get<IUserDao>();
             tagDao = kernel.Get<ITagDao>();
             categoryDao = kernel.Get<ICategoryDao>();
@@ -94,7 +98,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
         {
             transactionScope = new TransactionScope();
 
+            role = new Role();
+            role.name = "TEST";
+
+            roleDao.Create(role);
+
             user = new User();
+            user.roleId = roleDao.FindByName(role.name).roleId;
             user.login = login;
             user.password = PasswordEncrypter.Crypt(password);
             user.name = name;
