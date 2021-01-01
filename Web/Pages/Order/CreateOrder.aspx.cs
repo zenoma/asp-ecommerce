@@ -1,4 +1,5 @@
-﻿using Es.Udc.DotNet.ModelUtil.IoC;
+﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
+using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
@@ -19,6 +20,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Order
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            comboCreditCard.Visible = false;
+            lblIdentifierError.Visible = false;
             if (!IsPostBack)
             {
                 IIoCManager iocManager =
@@ -26,38 +29,54 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Order
 
                 IUserService userService = iocManager.Resolve<IUserService>();
 
-                lblIdentifierError.Visible = false;
-                //TODO Combobox(con fav selecionada) tarjeta favorita (añadir otra), poner input (copiar de update), boton de realizar pedido
+                UserRegisterDetailsDto userDto =
+                    SessionManager.FindUserProfileDetails(Context);
 
+                txtPostalAddress.Text = userDto.postalAddress;
+
+                long userId = SessionManager.GetUserSession(Context).UserProfileId;
+
+                List<CreditCardDto> creditCards;
                 try
                 {
-                    UserRegisterDetailsDto userDto =
-                        SessionManager.FindUserProfileDetails(Context);
-
-                    txtPostalAddress.Text = userDto.postalAddress;
-
-                    long userId = SessionManager.GetUserSession(Context).UserProfileId;
-
-                    List<CreditCardDto> creditCards = userService.FindCreditCardsByUserId(userId);
-                    CreditCardDto creditCardFav = userService.FindFavCreditCardByUserId(userId);
-
+                    creditCards = userService.FindCreditCardsByUserId(userId);
                     /* Combo box initialization */
-                    UpdateComboCreditCard(creditCards, creditCardFav);
+                    UpdateComboCreditCard(creditCards);
                 }
-                catch (Exception)
+                catch (InstanceNotFoundException)
                 {
-
                 }
+
             }
 
         }
-        private void UpdateComboCreditCard(List<CreditCardDto> creditCards, CreditCardDto creditCardFav)
+        private void UpdateComboCreditCard(List<CreditCardDto> creditCards)
         {
-            comboCreditCard.DataSource = creditCards;
-            comboCreditCard.DataTextField = "number";
-            comboCreditCard.DataValueField = "creditCardId";
-            comboCreditCard.DataBind();
-            comboCreditCard.SelectedValue = creditCardFav.creditCardId.ToString();
+            if (creditCards.Count != 0)
+            {
+
+                comboCreditCard.Visible = true;
+                comboCreditCard.DataSource = creditCards;
+                comboCreditCard.DataTextField = "number";
+                comboCreditCard.DataValueField = "number";
+                comboCreditCard.DataBind();
+                CreditCardDto creditCardFav;
+                try
+                {
+                    IIoCManager iocManager =
+                          (IIoCManager)HttpContext.Current.Application["managerIoC"];
+
+                    IUserService userService = iocManager.Resolve<IUserService>();
+                    long userId = SessionManager.GetUserSession(Context).UserProfileId;
+                    creditCardFav = userService.FindFavCreditCardByUserId(userId);
+
+                    comboCreditCard.SelectedValue = creditCardFav.creditCardId.ToString();
+                }
+                catch (InstanceNotFoundException)
+                { }
+            }
+
+
         }
 
         protected void BtnCreateOrder(object sender, EventArgs e)

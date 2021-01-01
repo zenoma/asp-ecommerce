@@ -29,7 +29,7 @@
           <Property Name="userId" Type="bigint" Nullable="false" />
           <Property Name="productId" Type="bigint" Nullable="false" />
           <Property Name="body" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="commentDate" Type="date" Nullable="false" />
+          <Property Name="commentDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="CommentTag">
           <Key>
@@ -73,10 +73,10 @@
           </Key>
           <Property Name="orderId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userId" Type="bigint" Nullable="false" />
-          <Property Name="creditCardId" Type="bigint" Nullable="false" />
+          <Property Name="creditCardNumber" Type="bigint" Nullable="false" />
           <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="orderAlias" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="orderDate" Type="date" Nullable="false" />
+          <Property Name="orderDate" Type="datetime" Nullable="false" />
           <Property Name="price" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderItem">
@@ -97,7 +97,7 @@
           <Property Name="categoryId" Type="bigint" />
           <Property Name="name" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="unitPrice" Type="float" Nullable="false" />
-          <Property Name="productDate" Type="date" Nullable="false" />
+          <Property Name="productDate" Type="datetime" Nullable="false" />
           <Property Name="stockUnits" Type="int" Nullable="false" />
           <Property Name="type" Type="varchar" MaxLength="30" />
         </EntityType>
@@ -234,18 +234,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderCreditCardId">
-          <End Role="CreditCard" Type="Self.CreditCard" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CreditCard">
-              <PropertyRef Name="creditCardId" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="creditCardId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderItemOrderId">
           <End Role="Order" Type="Self.Order" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -347,10 +335,6 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Music" EntitySet="Music" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderCreditCardId" Association="Self.FK_OrderCreditCardId">
-            <End Role="CreditCard" EntitySet="CreditCard" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderItemOrderId" Association="Self.FK_OrderItemOrderId">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderItem" EntitySet="OrderItem" />
@@ -393,7 +377,7 @@
           <Property Name="userId" Type="Int64" Nullable="false" />
           <Property Name="productId" Type="Int64" Nullable="false" />
           <Property Name="body" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="commentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="commentDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Product" Relationship="Self.FK_CommentProductId" FromRole="Comment" ToRole="Product" />
           <NavigationProperty Name="User" Relationship="Self.FK_CommentUserId" FromRole="Comment" ToRole="User" />
           <NavigationProperty Name="Tag" Relationship="Self.CommentTag" FromRole="Comment" ToRole="Tag" />
@@ -410,7 +394,6 @@
           <Property Name="expDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="isFav" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_CreditCardUserId" FromRole="CreditCard" ToRole="User" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_OrderCreditCardId" FromRole="CreditCard" ToRole="Order" />
         </EntityType>
         <EntityType Name="Movie" BaseType="ecommerceModel.Product">
           <Property Name="director" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
@@ -426,14 +409,13 @@
           </Key>
           <Property Name="orderId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="userId" Type="Int64" Nullable="false" />
-          <Property Name="creditCardId" Type="Int64" Nullable="false" />
           <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="orderDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="CreditCard" Relationship="Self.FK_OrderCreditCardId" FromRole="Order" ToRole="CreditCard" />
+          <Property Name="orderDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="OrderItem" Relationship="Self.FK_OrderItemOrderId" FromRole="Order" ToRole="OrderItem" />
           <NavigationProperty Name="User" Relationship="Self.FK_OrderUserId" FromRole="Order" ToRole="User" />
           <Property Name="price" Type="Double" Nullable="false" />
           <Property Name="orderAlias" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="creditCardNumber" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderItem">
           <Key>
@@ -455,7 +437,7 @@
           <Property Name="categoryId" Type="Int64" />
           <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="unitPrice" Type="Double" Nullable="false" />
-          <Property Name="productDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="productDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stockUnits" Type="Int32" Nullable="false" />
           <Property Name="type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Category" Relationship="Self.FK_ProductCategoryId" FromRole="Product" ToRole="Category" />
@@ -543,18 +525,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderCreditCardId">
-          <End Role="CreditCard" Type="Self.CreditCard" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CreditCard">
-              <PropertyRef Name="creditCardId" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="creditCardId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderItemOrderId">
           <End Role="Order" Type="Self.Order" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -626,10 +596,6 @@
             <End Role="User" EntitySet="User" />
             <End Role="CreditCard" EntitySet="CreditCard" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderCreditCardId" Association="Self.FK_OrderCreditCardId">
-            <End Role="CreditCard" EntitySet="CreditCard" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderItemOrderId" Association="Self.FK_OrderItemOrderId">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderItem" EntitySet="OrderItem" />
@@ -688,11 +654,11 @@
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="ecommerceModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="creditCardNumber" ColumnName="creditCardNumber" />
                 <ScalarProperty Name="orderAlias" ColumnName="orderAlias" />
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="orderId" ColumnName="orderId" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
-                <ScalarProperty Name="creditCardId" ColumnName="creditCardId" />
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="orderDate" ColumnName="orderDate" />
               </MappingFragment>

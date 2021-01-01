@@ -15,11 +15,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
     
     public partial class CreditCard
     {
-        public CreditCard()
-        {
-            this.Order = new HashSet<Order>();
-        }
-    
         public long creditCardId { get; set; }
         public long userId { get; set; }
         public string type { get; set; }
@@ -33,11 +28,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         /// Relationship Name (Foreign Key in ER-Model): FK_CreditCardUserId
         /// </summary>
         public virtual User User { get; set; }
-        
-        /// <summary>
-        /// Relationship Name (Foreign Key in ER-Model): FK_OrderCreditCardId
-        /// </summary>
-        public virtual ICollection<Order> Order { get; set; }
     
     	/// <summary>
     	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 

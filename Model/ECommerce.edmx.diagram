@@ -20,7 +20,6 @@
         <AssociationConnector Association="ecommerceModel.FK_CommentProductId" ManuallyRouted="false" />
         <AssociationConnector Association="ecommerceModel.FK_CommentUserId" ManuallyRouted="false" />
         <AssociationConnector Association="ecommerceModel.FK_CreditCardUserId" ManuallyRouted="false" />
-        <AssociationConnector Association="ecommerceModel.FK_OrderCreditCardId" ManuallyRouted="false" />
         <AssociationConnector Association="ecommerceModel.FK_OrderItemOrderId" ManuallyRouted="false" />
         <AssociationConnector Association="ecommerceModel.FK_OrderUserId" ManuallyRouted="false" />
         <AssociationConnector Association="ecommerceModel.FK_OrderItemProductId" ManuallyRouted="false" />

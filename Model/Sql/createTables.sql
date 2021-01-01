@@ -181,18 +181,16 @@ GO
 CREATE TABLE [Order] (
 	orderId bigint IDENTITY(1,1) NOT NULL, 
 	userId bigint NOT NULL,
-	creditCardId bigint NOT NULL,
+	creditCardNumber bigint NOT NULL,
 	address varchar(50) NOT NULL,
 	orderAlias varchar(50) NOT NULL,
-	orderDate date NOT NULL,
+	orderDate datetime NOT NULL,
 	price float NOT NULL,
 	
 	CONSTRAINT [PK_Order] PRIMARY KEY (orderId ASC),
 	
 	CONSTRAINT [FK_OrderUserId] FOREIGN KEY(userId)
-		REFERENCES [User] (userId) ON DELETE CASCADE,
-	CONSTRAINT [FK_OrderCreditCardId] FOREIGN KEY(creditCardId)
-		REFERENCES [CreditCard] (creditCardId)
+		REFERENCES [User] (userId) ON DELETE CASCADE
 )
 
 CREATE NONCLUSTERED INDEX IX_FK_OrderIndexByUserId
@@ -220,7 +218,7 @@ CREATE TABLE Product (
 	categoryId bigint DEFAULT NULL,
 	name varchar(40) NOT NULL,
 	unitPrice float NOT NULL,
-	productDate date NOT NULL,
+	productDate datetime NOT NULL,
 	stockUnits int NOT NULL,
 	type varchar(30),
 	
@@ -316,7 +314,7 @@ CREATE TABLE Comment  (
 	userId bigint NOT NULL,
 	productId bigint NOT NULL,
 	body varchar(100) NOT NULL,
-	commentDate date NOT NULL,
+	commentDate datetime NOT NULL,
 	
 	CONSTRAINT [PK_Comment] PRIMARY KEY (commentId ASC),
 	

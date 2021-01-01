@@ -99,7 +99,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
             order.userId = user.userId;
             order.orderDate = System.DateTime.Now;
             order.address = user.postalAddress;
-            order.creditCardId = creditCard.creditCardId;
+            order.creditCardNumber = creditCard.number;
 
             orderDao.Create(order);
 
