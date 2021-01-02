@@ -242,7 +242,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
             Assert.AreEqual(number, creditCardFound.number);
             Assert.AreEqual(verifyCode, creditCardFound.verifyCode);
             Assert.AreEqual(expDate, creditCardFound.expDate);
-            Assert.AreEqual(false, creditCardFound.isFav);
+            Assert.AreEqual(true, creditCardFound.isFav);
         }
 
         [TestMethod]
