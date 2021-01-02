@@ -198,4 +198,7 @@
   <data name="prodUnitPrice_Text" xml:space="preserve">
     <value>Unit price</value>
   </data>
+  <data name="btnCommentProduct_Text" xml:space="preserve">
+    <value>Comment</value>
+  </data>
 </root>

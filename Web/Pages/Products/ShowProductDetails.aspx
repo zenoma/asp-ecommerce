@@ -33,5 +33,6 @@
         </asp:Table>
         <asp:Label ID="test" runat="server"></asp:Label>
         <asp:Button ID="btnUpdateProduct" Visible="false" runat="server" Text="<%$ Resources:Common, btnUpdateProduct_Text %>" OnClick="btnUpdateProduct_Click" />
+        <asp:Button ID="btnCommentProduct" Visible="false" runat="server" Text="<%$ Resources:Common, btnCommentProduct_Text %>" OnClick="btnCommentProduct_Click" />
     </form>
 </asp:Content>

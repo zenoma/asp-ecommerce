@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Comment.
+        /// </summary>
+        internal static string btnCommentProduct_Text {
+            get {
+                return ResourceManager.GetString("btnCommentProduct_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Update product.
         /// </summary>
         internal static string btnUpdateProduct_Text {

@@ -100,6 +100,7 @@
     <Content Include="Pages\Cart\AddToCart.aspx" />
     <Content Include="Pages\Cart\DeleteFromCart.aspx" />
     <Content Include="Pages\Cart\ShowCartByLogin.aspx" />
+    <Content Include="Pages\Comment\CommentProduct.aspx" />
     <Content Include="Pages\Order\CreateOrder.aspx" />
     <Content Include="Pages\Order\ShowOrdersByLogin.aspx" />
     <Content Include="Pages\Order\ShowOrderItemsByOrderId.aspx" />
@@ -184,6 +185,13 @@
     </Compile>
     <Compile Include="Pages\Cart\ShowCartByLogin.aspx.designer.cs">
       <DependentUpon>ShowCartByLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Comment\CommentProduct.aspx.cs">
+      <DependentUpon>CommentProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Comment\CommentProduct.aspx.designer.cs">
+      <DependentUpon>CommentProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Order\CreateOrder.aspx.cs">
       <DependentUpon>CreateOrder.aspx</DependentUpon>
