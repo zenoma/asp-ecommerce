@@ -92,6 +92,22 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         }
 
         [Transactional]
+        public CommentDetails FindCommentById(long commentId)
+        {
+            /*
+            * Find count+1 comments to determine if there exist more accounts above
+            * the specified range.
+            */
+            Comment comment =
+                commentDao.Find(commentId);
+            User user = userDao.Find(comment.userId);
+            Product product = productDao.Find(comment.productId);
+
+            return new CommentDetails(comment.commentId, user.login, product.name, 
+                comment.body, comment.commentDate);
+        }
+
+        [Transactional]
         public void UpdateComment(long commentId, string body, ICollection<string> tags)
         {
             Comment comment = commentDao.Find(commentId);

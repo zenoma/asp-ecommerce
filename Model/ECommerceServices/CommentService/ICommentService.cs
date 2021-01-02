@@ -19,6 +19,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         Comment CreateComment(long productId, long userId, string body, ICollection<string> tags);
 
         [Transactional]
+        CommentDetails FindCommentById(long commentId);
+
+        [Transactional]
         void UpdateComment(long commentId, string body, ICollection<string> tags);
 
         [Transactional]
