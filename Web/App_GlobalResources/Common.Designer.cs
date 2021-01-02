@@ -70,11 +70,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Text Comment.
+        /// </summary>
+        internal static string body {
+            get {
+                return ResourceManager.GetString("body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Update product.
         /// </summary>
         internal static string btnUpdateProduct_Text {
             get {
                 return ResourceManager.GetString("btnUpdateProduct_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Comment Date.
+        /// </summary>
+        internal static string commentDate {
+            get {
+                return ResourceManager.GetString("commentDate", resourceCulture);
             }
         }
         
@@ -291,6 +309,15 @@ namespace Resources {
         internal static string type {
             get {
                 return ResourceManager.GetString("type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User.
+        /// </summary>
+        internal static string userLogin {
+            get {
+                return ResourceManager.GetString("userLogin", resourceCulture);
             }
         }
         

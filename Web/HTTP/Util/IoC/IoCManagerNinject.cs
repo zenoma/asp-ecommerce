@@ -17,6 +17,9 @@ using Ninject;
 using System.Configuration;
 using System.Data.Entity;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
 {
@@ -89,6 +92,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             /* CartService */
             kernel.Bind<ICartService>().
                 To<CartService>();
+
+            /* CommentDao */
+            kernel.Bind<ICommentDao>().
+                To<CommentDaoEntityFramework>();
+
+            /* CommentService */
+            kernel.Bind<ICommentService>().
+                To<CommentService>();
+
+            /* TagDao */
+            kernel.Bind<ITagDao>().
+                To<TagDaoEntityFramework>();
 
             /* DbContext */
             string connectionString =

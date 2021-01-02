@@ -173,7 +173,7 @@ input, select, textarea {
 
 /* Credit card's accounts. */
 
-table.creditCards {
+table.creditCards, table.comments {
     margin: 0 auto;
     text-align: center;
     width: 100%;
@@ -249,4 +249,8 @@ table.accountOperations {
 .previousNextLinks{
     text-align: center;
     margin-top: 10px;
+}
+.previousNextLinks a{
+    display: inline-block;
+    margin-right: 10px;
 }

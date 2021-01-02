@@ -26,6 +26,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
                     lnkCreditCard.Visible = false;
                 if (lblDash4 != null)
                     lblDash3.Visible = false;
+                if (lnkMyComments != null)
+                    lnkMyComments.Visible = false;
+                if (lblDash5 != null)
+                    lblDash4.Visible = false;
                 if (lnkLogout != null)
                     lnkLogout.Visible = false;
 

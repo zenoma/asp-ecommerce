@@ -198,4 +198,13 @@
   <data name="prodUnitPrice_Text" xml:space="preserve">
     <value>Unit price</value>
   </data>
+  <data name="commentDate" xml:space="preserve">
+    <value>Comment Date</value>
+  </data>
+  <data name="body" xml:space="preserve">
+    <value>Text Comment</value>
+  </data>
+  <data name="userLogin" xml:space="preserve">
+    <value>User</value>
+  </data>
 </root>

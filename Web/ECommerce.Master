@@ -42,6 +42,10 @@
                         NavigateUrl="~/Pages/User/ListCreditCards.aspx"
                         meta:resourcekey="lnkCreditCard" />
                     <asp:Label ID="lblDash4" runat="server" Text="-" />
+                    <asp:HyperLink ID="lnkMyComments" runat="server"
+                        NavigateUrl="~/Pages/Comments/ShowCommentsByUserLogin.aspx"
+                        meta:resourcekey="lnkMyComments" />
+                    <asp:Label ID="lblDash5" runat="server" Text="-" />
                     <asp:HyperLink ID="lnkLogout" runat="server"
                         NavigateUrl="~/Pages/User/Logout.aspx"
                         meta:resourcekey="lnkLogout" />

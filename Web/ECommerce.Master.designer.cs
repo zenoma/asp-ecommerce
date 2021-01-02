@@ -132,6 +132,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
         protected global::System.Web.UI.WebControls.Label lblDash4;
 
         /// <summary>
+        /// Control lnkMyComments.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkMyComments;
+
+        /// <summary>
+        /// Control lblDash5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDash5;
+
+        /// <summary>
         /// Control lnkLogout.
         /// </summary>
         /// <remarks>
