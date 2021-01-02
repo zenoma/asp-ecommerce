@@ -69,8 +69,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Order
                     IUserService userService = iocManager.Resolve<IUserService>();
                     long userId = SessionManager.GetUserSession(Context).UserProfileId;
                     creditCardFav = userService.FindFavCreditCardByUserId(userId);
-
-                    comboCreditCard.SelectedValue = creditCardFav.creditCardId.ToString();
+                    comboCreditCard.SelectedValue = creditCardFav.number.ToString();
                 }
                 catch (InstanceNotFoundException)
                 { }
