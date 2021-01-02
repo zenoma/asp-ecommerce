@@ -29,5 +29,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
         [Transactional]
         CommentBlock ListCommentsByTag(long tagId, int page, int count);
+
+        [Transactional]
+        CommentBlock ListCommentsByUserId(long userId, int page, int count);
     }
 }

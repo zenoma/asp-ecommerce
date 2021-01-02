@@ -220,5 +220,27 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
             Assert.AreEqual(1, commentDao.Find(comment.commentId).Tag.Count);
             Assert.AreEqual("tag3", tagDao.FindByVisualName("tag3").name);
         }
+
+        [TestMethod()]
+        public void TestListCommentsByUserId()
+        {
+
+            int count = 10;
+            int page = 1;
+            CommentBlock commentBlock;
+
+            tagList.Add("tag");
+            comment = commentService.CreateComment(product.productId, user.userId, "Comment1", tagList);
+
+            do
+            {
+                commentBlock = commentService.ListCommentsByUserId(user.userId, page, count);
+
+                Assert.IsTrue(commentBlock.Comments.Count <= count);
+
+                page += count;
+
+            } while (commentBlock.ExistMoreComments);
+        }
     }
 }

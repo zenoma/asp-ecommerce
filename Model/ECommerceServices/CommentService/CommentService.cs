@@ -124,5 +124,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
             return new CommentBlock(comments.Results, existMoreComments);
         }
+
+        public CommentBlock ListCommentsByUserId(long userId, int startIndex, int count)
+        {
+            /*
+           * Find count+1 comments to determine if there exist more accounts above
+           * the specified range.
+           */
+            Block<Comment> comments =
+                commentDao.FindByUserId(userId, startIndex, count + 1);
+
+            bool existMoreComments = comments.CurrentPage < comments.PageCount;
+
+            return new CommentBlock(comments.Results, existMoreComments);
+        }
     }
 }
