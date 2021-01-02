@@ -9,11 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 {
     public class CommentService : ICommentService
     {
+        [Inject]
+        public IUserDao userDao { private get; set; }
+
+        [Inject]
+        public IProductDao productDao { private get; set; }
+
         [Inject]
         public ICommentDao commentDao { private get; set; }
 
@@ -80,7 +88,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
             bool existMoreComments = comments.CurrentPage < comments.PageCount;
 
-            return new CommentBlock(comments.Results, existMoreComments);
+            return new CommentBlock(toCommentDetails(comments.Results), existMoreComments);
         }
 
         [Transactional]
@@ -122,7 +130,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
             bool existMoreComments = comments.CurrentPage < comments.PageCount;
 
-            return new CommentBlock(comments.Results, existMoreComments);
+            return new CommentBlock(toCommentDetails(comments.Results), existMoreComments);
         }
 
         public CommentBlock ListCommentsByUserId(long userId, int startIndex, int count)
@@ -136,7 +144,22 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
             bool existMoreComments = comments.CurrentPage < comments.PageCount;
 
-            return new CommentBlock(comments.Results, existMoreComments);
+            return new CommentBlock(toCommentDetails(comments.Results), existMoreComments);
+        }
+
+        private List<CommentDetails> toCommentDetails(List<Comment> comments)
+        {
+            List<CommentDetails> commentDetails = new List<CommentDetails>();
+            User user;
+            Product product;
+            comments.ForEach(comment =>
+            {
+                user = userDao.Find(comment.userId);
+                product = productDao.Find(comment.productId);
+                commentDetails.Add(new CommentDetails(comment.commentId, user.login, product.name, comment.body, comment.commentDate));
+            });
+
+            return commentDetails;
         }
     }
 }
