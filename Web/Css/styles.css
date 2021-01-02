@@ -120,8 +120,9 @@ div.field {
         flex: 2;
     }
 
-        div.field span.entry input, div.field span.entry select {
+        div.field span.entry input, div.field span.entry select, div.field span.entry textarea {
             width: 100%;
+            max-width: 100%;
         }
 
     div.checkbox {

@@ -104,7 +104,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
             Product product = productDao.Find(comment.productId);
 
             return new CommentDetails(comment.commentId, user.login, product.name, 
-                comment.body, comment.commentDate);
+                comment.body, comment.commentDate, listTagsToListString(tagDao.FindByCommentId(comment.commentId)));
         }
 
         [Transactional]
@@ -172,10 +172,22 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
             {
                 user = userDao.Find(comment.userId);
                 product = productDao.Find(comment.productId);
-                commentDetails.Add(new CommentDetails(comment.commentId, user.login, product.name, comment.body, comment.commentDate));
+                commentDetails.Add(new CommentDetails(comment.commentId, user.login, product.name, comment.body,
+                    comment.commentDate, listTagsToListString(tagDao.FindByCommentId(comment.commentId))));
             });
 
             return commentDetails;
+        }
+
+        private List<String> listTagsToListString(List<Tag> tags)
+        {
+            List<String> tagsName = new List<String>();
+            tags.ForEach(tag =>
+            {
+                tagsName.Add(tag.name);
+            });
+
+            return tagsName;
         }
     }
 }

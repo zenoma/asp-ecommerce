@@ -13,14 +13,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         public string productName { get; set; }
         public string body { get; set; }
         public System.DateTime commentDate { get; set; }
+        
+        public List<String> tags { get; set; }
 
-        public CommentDetails(long commentId, string userLogin, string productName, string body, System.DateTime commentDate)
+        public CommentDetails(long commentId, string userLogin, string productName, string body, System.DateTime commentDate, List<String> tags)
         {
             this.commentId = commentId;
             this.userLogin = userLogin;
             this.productName = productName;
             this.body = body;
             this.commentDate = commentDate;
+            this.tags = tags;
         }
 
         public override int GetHashCode()
@@ -69,6 +72,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
             strComment.Append(" productName = " + productName + " | ");
             strComment.Append(" body = " + body + " | ");
             strComment.Append(" commentDate = " + commentDate + " | ");
+            strComment.Append(" tags = " + tags.ToString() + " | ");
             strComment.Append("] ");
 
             return strComment.ToString();
