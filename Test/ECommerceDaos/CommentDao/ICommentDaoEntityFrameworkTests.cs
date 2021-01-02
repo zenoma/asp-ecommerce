@@ -143,7 +143,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
         #endregion Additional test attributes
 
         [TestMethod()]
-        public void DAO_FindAllByUserIdTest()
+        public void DAO_FindAllByProductIdTest()
         {
             try
             {
@@ -189,6 +189,32 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
                 commentDao.Create(comment);
 
                 Block<Comment> actual = commentDao.FindByTag(tag.tagId, 1, 10);
+
+                actual.Results.ForEach(com =>
+                {
+                    Assert.AreEqual(com.body, comment.body);
+                });
+            }
+            catch (Exception e)
+            {
+                Assert.Fail(e.Message);
+            }
+        }
+
+        [TestMethod()]
+        public void DAO_FindAllByUserIdTest()
+        {
+            try
+            {
+                comment = new Comment();
+                comment.productId = product.productId;
+                comment.userId = user.userId;
+                comment.body = body;
+                comment.commentDate = System.DateTime.Now;
+
+                commentDao.Create(comment);
+
+                Block<Comment> actual = commentDao.FindByUserId(user.userId, 1, 10);
 
                 actual.Results.ForEach(com =>
                 {

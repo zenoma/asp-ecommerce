@@ -41,5 +41,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao
                 return result;
             }
         }
+
+        public Block<Comment> FindByUserId(long userId, int page, int count)
+        {
+            using (var context = new ecommerceEntities())
+            {
+                var query = from c in context.Comment
+                            where c.userId == userId
+                            orderby c.commentDate
+                            select c;
+
+                Block<Comment> result = BlockList.GetPaged(query, page, count);
+
+                return result;
+            }
+        }
     }
 }
