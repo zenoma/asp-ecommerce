@@ -7,7 +7,7 @@
         <div class="containerErrors">
             <asp:Label ID="lblNoComments" runat="server" CssClass="errorMessage" meta:resourcekey="lblNoComments"></asp:Label>
         </div>
-        <asp:GridView ID="gvComments" runat="server" CssClass="comments" GridLines="None"
+        <asp:GridView ID="gvComments" runat="server" CssClass="table-allwidth" GridLines="None"
             AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="productName" HeaderText="<%$ Resources:Common, prodName_Text %>" />

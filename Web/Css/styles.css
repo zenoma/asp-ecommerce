@@ -172,12 +172,12 @@ input, select, textarea {
         padding: 0 0 3px 5px;
     }
 
-/* Credit card's accounts. */
+/* Tables. */
 
-table.creditCards, table.comments {
+table.table-allwidth {
     margin: 0 auto;
     text-align: center;
-    width: 100%;
+    width: calc(100% - 20px);
 }
 
 /* Error messages. */
