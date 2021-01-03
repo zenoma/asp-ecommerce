@@ -123,20 +123,11 @@
   <data name="lblDash1Resource1.Text" xml:space="preserve">
     <value>-</value>
   </data>
-  <data name="lblDash1Resource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="lblDash2Resource1.Text" xml:space="preserve">
     <value>-</value>
   </data>
-  <data name="lblDash2Resource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="lblDash3Resource1.Text" xml:space="preserve">
     <value>-</value>
-  </data>
-  <data name="lblDash3Resource1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="lblWelcome.Text" xml:space="preserve">
     <value>Welcome to ECommerce</value>
@@ -159,23 +150,14 @@
   <data name="lnkLocale.Text" xml:space="preserve">
     <value>Select Locale</value>
   </data>
-  <data name="lnkHome.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="lnkLogout.Text" xml:space="preserve">
     <value>Logout</value>
-  </data>
-  <data name="lnkLogout.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="lnkSearch.Text" xml:space="preserve">
     <value>Search</value>
   </data>
   <data name="lnkUpdate.Text" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="lnkUpdate.ToolTip" xml:space="preserve">
-    <value />
+    <value>Update Profile</value>
   </data>
   <data name="lnkHome.Text1" xml:space="preserve">
     <value>Home</value>
@@ -191,5 +173,8 @@
   </data>
   <data name="lnkCreditCard.Text" xml:space="preserve">
     <value>Credit Cards</value>
+  </data>
+  <data name="lnkMyComments.Text" xml:space="preserve">
+    <value>My Comments</value>
   </data>
 </root>

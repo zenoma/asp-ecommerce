@@ -9,7 +9,7 @@
             <asp:Label ID="lblNoCartItems" runat="server" CssClass="errorMessage" meta:resourcekey="lblNoCartItems"></asp:Label>
             <asp:Label ID="lblIdentifierError" runat="server" CssClass="errorMessage" meta:resourcekey="lblIdentifierError" />
         </div>
-        <asp:GridView ID="gvOrderItems" runat="server" AutoGenerateColumns="False" Width="505px" GridLines="None">
+        <asp:GridView ID="gvOrderItems" runat="server" CssClass="table-allwidth" AutoGenerateColumns="False" GridLines="None">
             <Columns>
                 <asp:HyperLinkField DataTextField="productId" HeaderText="Id" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Products/ShowProductDetails.aspx?productId={0}" />
                 <asp:BoundField DataField="productName" HeaderText="Product Name" />

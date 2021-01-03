@@ -8,7 +8,6 @@ using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.Util;
 using Ninject;
-using System;
 using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
@@ -83,7 +82,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
                 }
             }
 
-            
+
 
             return new LoginUser(user.userId, RoleDao.Find(user.roleId).name, user.password, user.name, user.language,
                 user.country);
@@ -140,6 +139,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
         {
             User user = UserDao.Find(userId);
             CreditCard creditCardModel = new CreditCard();
+            CreditCardDto creditCardFavFound;
+
+            try
+            {
+                creditCardFavFound = FindFavCreditCardByUserId(userId);
+                if (creditCard.isFav)
+                {
+                    creditCardFavFound.isFav = false;
+                    UpdateCreditCard(creditCardFavFound, userId);
+                }
+            }
+            catch (InstanceNotFoundException)
+            {
+                creditCard.isFav = true;
+            }
 
             creditCardModel.type = creditCard.type;
             creditCardModel.number = creditCard.number;
@@ -154,15 +168,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 
             creditCardModel.userId = userId;
 
-
-
             List<CreditCard> creditCards = CreditCardDao.FindAllByUserId(userId);
 
             foreach (var userCreditCard in creditCards)
             {
                 if (userCreditCard.type == creditCard.type &&
-                    userCreditCard.number == creditCard.number && 
-                    userCreditCard.expDate == creditCard.expDate && 
+                    userCreditCard.number == creditCard.number &&
+                    userCreditCard.expDate == creditCard.expDate &&
                     userCreditCard.verifyCode == creditCard.verifyCode)
 
                     throw new DuplicateInstanceException(creditCard, "CreditCard");
@@ -179,6 +191,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
         public void UpdateCreditCard(CreditCardDto creditCard, long userId)
         {
             CreditCard creditCardFound = CreditCardDao.Find(creditCard.creditCardId);
+            CreditCardDto creditCardFavFound;
 
             if (creditCardFound.Equals(null))
             {
@@ -188,6 +201,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
             if (userId != creditCardFound.userId)
             {
                 throw new ForbiddenException(userId);
+            }
+
+            try
+            {
+                creditCardFavFound = FindFavCreditCardByUserId(userId);
+                if (creditCard.isFav)
+                {
+                    creditCardFavFound.isFav = false;
+                    UpdateCreditCard(creditCardFavFound, userId);
+                }
+            }
+            catch (InstanceNotFoundException)
+            {
+                creditCard.isFav = true;
             }
 
             creditCardFound.type = creditCard.type;

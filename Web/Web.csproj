@@ -101,6 +101,9 @@
     <Content Include="Pages\Cart\DeleteFromCart.aspx" />
     <Content Include="Pages\Cart\ShowCartByLogin.aspx" />
     <Content Include="Pages\Comment\CommentProduct.aspx" />
+    <Content Include="Pages\Comments\EditComment.aspx" />
+    <Content Include="Pages\Comments\RemoveComment.aspx" />
+    <Content Include="Pages\Comments\ShowCommentsByUserLogin.aspx" />
     <Content Include="Pages\Order\CreateOrder.aspx" />
     <Content Include="Pages\Order\ShowOrdersByLogin.aspx" />
     <Content Include="Pages\Order\ShowOrderItemsByOrderId.aspx" />
@@ -115,6 +118,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UpdateProductDetails.aspx.Designer.cs</LastGenOutput>
     </Content>
+    <Content Include="Pages\Comments\App_LocalResources\ShowCommentsByUserLogin.aspx.resx" />
+    <Content Include="Pages\Comments\App_LocalResources\EditComment.aspx.resx" />
     <EmbeddedResource Include="Pages\Products\App_LocalResources\ShowProducts.aspx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ShowProducts.aspx.Designer.cs</LastGenOutput>
@@ -192,6 +197,27 @@
     </Compile>
     <Compile Include="Pages\Comment\CommentProduct.aspx.designer.cs">
       <DependentUpon>CommentProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Comments\EditComment.aspx.cs">
+      <DependentUpon>EditComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Comments\EditComment.aspx.designer.cs">
+      <DependentUpon>EditComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Comments\RemoveComment.aspx.cs">
+      <DependentUpon>RemoveComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Comments\RemoveComment.aspx.designer.cs">
+      <DependentUpon>RemoveComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Comments\ShowCommentsByUserLogin.aspx.cs">
+      <DependentUpon>ShowCommentsByUserLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Comments\ShowCommentsByUserLogin.aspx.designer.cs">
+      <DependentUpon>ShowCommentsByUserLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Order\CreateOrder.aspx.cs">
       <DependentUpon>CreateOrder.aspx</DependentUpon>

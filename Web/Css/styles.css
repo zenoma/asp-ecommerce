@@ -120,8 +120,9 @@ div.field {
         flex: 2;
     }
 
-        div.field span.entry input, div.field span.entry select {
+        div.field span.entry input, div.field span.entry select, div.field span.entry textarea {
             width: 100%;
+            max-width: 100%;
         }
 
     div.checkbox {
@@ -171,12 +172,12 @@ input, select, textarea {
         padding: 0 0 3px 5px;
     }
 
-/* Credit card's accounts. */
+/* Tables. */
 
-table.creditCards {
+table.table-allwidth {
     margin: 0 auto;
     text-align: center;
-    width: 100%;
+    width: calc(100% - 20px);
 }
 
 /* Error messages. */
@@ -249,4 +250,8 @@ table.accountOperations {
 .previousNextLinks{
     text-align: center;
     margin-top: 10px;
+}
+.previousNextLinks a{
+    display: inline-block;
+    margin-right: 10px;
 }

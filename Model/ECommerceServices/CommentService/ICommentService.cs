@@ -19,6 +19,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         Comment CreateComment(long productId, long userId, string body, ICollection<string> tags);
 
         [Transactional]
+        CommentDetails FindCommentById(long commentId);
+
+        [Transactional]
         void UpdateComment(long commentId, string body, ICollection<string> tags);
 
         [Transactional]
@@ -29,5 +32,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
         [Transactional]
         CommentBlock ListCommentsByTag(long tagId, int page, int count);
+
+        [Transactional]
+        CommentBlock ListCommentsByUserId(long userId, int page, int count);
     }
 }

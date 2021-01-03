@@ -10,7 +10,7 @@
             <asp:Label ID="lblIdentifierError" runat="server" CssClass="errorMessage" meta:resourcekey="lblIdentifierError" />
             <asp:Label ID="lblNoOrderItems" runat="server" CssClass="errorMessage" meta:resourcekey="lblNoOrderItems"></asp:Label>
         </div>
-        <asp:GridView ID="gvOrderItems" runat="server" AutoGenerateColumns="False" Width="505px">
+        <asp:GridView ID="gvOrderItems" runat="server" CssClass="table-allwidth" AutoGenerateColumns="False" GridLines="None">
             <Columns>
                 <asp:BoundField DataField="productName" HeaderText="Product name" />
                 <asp:BoundField DataField="units" HeaderText="Quantity" />

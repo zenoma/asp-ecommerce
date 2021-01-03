@@ -8,7 +8,7 @@
         <div class="containerErrors">
             <asp:Label ID="lblNoProductFound" runat="server" CssClass="errorMessage" Text="<%$ Resources:Common, lblNoProductFound %>"></asp:Label>
         </div>
-        <asp:GridView ID="gvProducts" runat="server" AutoGenerateColumns="False" Width="505px">
+        <asp:GridView ID="gvProducts" runat="server" CssClass="table-allwidth" AutoGenerateColumns="False" GridLines="None">
             <Columns>
                 <asp:HyperLinkField DataTextField="name" HeaderText="<%$ Resources:Common, prodName_Text %>" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Products/ShowProductDetails.aspx?productID={0}" />
                 <asp:BoundField DataField="category" HeaderText="<%$ Resources:Common, prodCategory_Text %>" />

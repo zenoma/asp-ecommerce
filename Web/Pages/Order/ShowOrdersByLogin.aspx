@@ -9,10 +9,10 @@
             <asp:Label ID="lblIdentifierError" runat="server" CssClass="errorMessage" meta:resourcekey="lblIdentifierError" />
             <asp:Label ID="lblNoUserOrders" runat="server" CssClass="errorMessage" meta:resourcekey="lblNoUserOrders"></asp:Label>
         </div>
-        <asp:GridView ID="gvUserOrders" runat="server" AutoGenerateColumns="False" Width="505px">
+        <asp:GridView ID="gvUserOrders" runat="server" CssClass="table-allwidth" AutoGenerateColumns="False" GridLines="None">
             <Columns>
-                <asp:HyperLinkField DataTextField="orderId" HeaderText="Id" DataNavigateUrlFields="orderId" DataNavigateUrlFormatString="./ShowOrderItemsByOrderId.aspx?orderId={0}" />
-                <asp:BoundField DataField="orderAlias" HeaderText="Order Alias" />
+                <asp:BOundField DataField="orderId" HeaderText="Id" />
+                <asp:HyperLinkField DataTextField="orderAlias" HeaderText="Order Alias" DataNavigateUrlFields="orderId" DataNavigateUrlFormatString="./ShowOrderItemsByOrderId.aspx?orderId={0}" />
                 <asp:BoundField DataField="address" HeaderText="Sended address" />
                 <asp:BoundField DataField="orderDate" HeaderText="Order Date" />
                 <asp:BoundField DataField="orderItems.Count" HeaderText="Total Items" />

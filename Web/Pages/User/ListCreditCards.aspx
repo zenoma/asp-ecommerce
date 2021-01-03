@@ -8,7 +8,7 @@
         <div class="containerErrors">
             <asp:Label ID="lblNoCreditCards" runat="server" CssClass="errorMessage" meta:resourcekey="lblNoCreditCards"></asp:Label>
         </div>
-        <asp:GridView ID="gvCreditCards" runat="server" CssClass="creditCards" GridLines="None"
+        <asp:GridView ID="gvCreditCards" runat="server" CssClass="table-allwidth" GridLines="None"
             AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="type" HeaderText="<%$ Resources:Common, type %>" />
