@@ -132,6 +132,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
         protected global::System.Web.UI.WebControls.Label test;
 
         /// <summary>
+        /// Control btnShowComments.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnShowComments;
+
+        /// <summary>
+        /// Control btnCommentProduct.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCommentProduct;
+
+        /// <summary>
         /// Control btnUpdateProduct.
         /// </summary>
         /// <remarks>

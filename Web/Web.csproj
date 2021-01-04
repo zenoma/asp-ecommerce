@@ -100,8 +100,10 @@
     <Content Include="Pages\Cart\AddToCart.aspx" />
     <Content Include="Pages\Cart\DeleteFromCart.aspx" />
     <Content Include="Pages\Cart\ShowCartByLogin.aspx" />
+    <Content Include="Pages\Comments\AddComment.aspx" />
     <Content Include="Pages\Comments\EditComment.aspx" />
     <Content Include="Pages\Comments\RemoveComment.aspx" />
+    <Content Include="Pages\Comments\ShowCommentsByProductId.aspx" />
     <Content Include="Pages\Comments\ShowCommentsByUserLogin.aspx" />
     <Content Include="Pages\Order\CreateOrder.aspx" />
     <Content Include="Pages\Order\ShowOrdersByLogin.aspx" />
@@ -119,6 +121,8 @@
     </Content>
     <Content Include="Pages\Comments\App_LocalResources\ShowCommentsByUserLogin.aspx.resx" />
     <Content Include="Pages\Comments\App_LocalResources\EditComment.aspx.resx" />
+    <Content Include="Pages\Comments\App_LocalResources\AddComment.aspx.resx" />
+    <Content Include="Pages\Comments\App_LocalResources\ShowCommentsByProductId.aspx.resx" />
     <EmbeddedResource Include="Pages\Products\App_LocalResources\ShowProducts.aspx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ShowProducts.aspx.Designer.cs</LastGenOutput>
@@ -190,6 +194,13 @@
     <Compile Include="Pages\Cart\ShowCartByLogin.aspx.designer.cs">
       <DependentUpon>ShowCartByLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Comments\AddComment.aspx.cs">
+      <DependentUpon>AddComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Comments\AddComment.aspx.designer.cs">
+      <DependentUpon>AddComment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Comments\EditComment.aspx.cs">
       <DependentUpon>EditComment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,6 +214,13 @@
     </Compile>
     <Compile Include="Pages\Comments\RemoveComment.aspx.designer.cs">
       <DependentUpon>RemoveComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Comments\ShowCommentsByProductId.aspx.cs">
+      <DependentUpon>ShowCommentsByProductId.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Comments\ShowCommentsByProductId.aspx.designer.cs">
+      <DependentUpon>ShowCommentsByProductId.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Comments\ShowCommentsByUserLogin.aspx.cs">
       <DependentUpon>ShowCommentsByUserLogin.aspx</DependentUpon>

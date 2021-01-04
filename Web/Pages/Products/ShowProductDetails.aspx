@@ -31,5 +31,8 @@
             </asp:TableRow>
         </asp:Table>
         <asp:Label ID="test" runat="server"></asp:Label>
+        
+        <asp:Button ID="btnShowComments" runat="server" Text="<%$ Resources:Common, btnShowComments_Text %>" OnClick="btnShowComments_Click" />
+        <asp:Button ID="btnCommentProduct" runat="server" Text="<%$ Resources:Common, btnCommentProduct_Text %>" OnClick="btnCommentProduct_Click" />
         <asp:Button ID="btnUpdateProduct" Visible="false" runat="server" Text="<%$ Resources:Common, btnUpdateProduct_Text %>" OnClick="btnUpdateProduct_Click" />
 </asp:Content>

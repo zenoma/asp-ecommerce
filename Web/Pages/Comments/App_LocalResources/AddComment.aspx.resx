@@ -117,103 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="addLink" xml:space="preserve">
-    <value>Add</value>
+  <data name="btnAddComment.Text" xml:space="preserve">
+    <value>Add comment</value>
   </data>
-  <data name="editButton" xml:space="preserve">
-    <value>Edit</value>
+  <data name="lclBody.Text" xml:space="preserve">
+    <value>Body</value>
   </data>
-  <data name="expDate" xml:space="preserve">
-    <value>Expiration Date</value>
+  <data name="lclNewTags.Text" xml:space="preserve">
+    <value>New Tags</value>
   </data>
-  <data name="isFav" xml:space="preserve">
-    <value>Is Favorite</value>
+  <data name="lclTags.Text" xml:space="preserve">
+    <value>Tags</value>
   </data>
-  <data name="mandatoryField" xml:space="preserve">
-    <value>Mandatory Field</value>
-  </data>
-  <data name="Next" xml:space="preserve">
-    <value>Next</value>
-  </data>
-  <data name="Previous" xml:space="preserve">
-    <value>Previous</value>
-  </data>
-  <data name="number" xml:space="preserve">
-    <value>Number</value>
-  </data>
-  <data name="removeButton" xml:space="preserve">
-    <value>Remove</value>
-  </data>
-  <data name="searchButton" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="type" xml:space="preserve">
-    <value>Type</value>
-  </data>
-  <data name="verifyCode" xml:space="preserve">
-    <value>Verify Code</value>
-  </data>
-  <data name="positiveField" xml:space="preserve">
-    <value>Number must be greater than 0</value>
-  </data>
-  <data name="lblNoProductFound" xml:space="preserve">
-    <value>No products found</value>
-  </data>
-  <data name="btnUpdateProduct_Text" xml:space="preserve">
-    <value>Update product</value>
-  </data>
-  <data name="prodAlbum_Text" xml:space="preserve">
-    <value>Album</value>
-  </data>
-  <data name="prodArtist_Text" xml:space="preserve">
-    <value>Artist</value>
-  </data>
-  <data name="prodAuthor_Text" xml:space="preserve">
-    <value>Author</value>
-  </data>
-  <data name="prodCategory_Text" xml:space="preserve">
-    <value>Category</value>
-  </data>
-  <data name="prodDate_Text" xml:space="preserve">
-    <value>Registration date</value>
-  </data>
-  <data name="prodDirector_Text" xml:space="preserve">
-    <value>Director</value>
-  </data>
-  <data name="prodEditionNumber_Text" xml:space="preserve">
-    <value>Edition number</value>
-  </data>
-  <data name="prodIsbn_Text" xml:space="preserve">
-    <value>ISBN</value>
-  </data>
-  <data name="prodName_Text" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="prodPremiereDate_Text" xml:space="preserve">
-    <value>Premiere date</value>
-  </data>
-  <data name="prodStockUnits_Text" xml:space="preserve">
-    <value>Stock units</value>
-  </data>
-  <data name="prodUnitPrice_Text" xml:space="preserve">
-    <value>Unit price</value>
-  </data>
-  <data name="btnCommentProduct_Text" xml:space="preserve">
-    <value>Comment</value>
-  </data>
-  <data name="commentDate" xml:space="preserve">
-    <value>Comment Date</value>
-  </data>
-  <data name="body" xml:space="preserve">
-    <value>Text Comment</value>
-  </data>
-  <data name="userLogin" xml:space="preserve">
-    <value>User</value>
-  </data>
-  <data name="btnShowComments_Text" xml:space="preserve">
-    <value>Show Comments</value>
-  </data>
-  <data name="userLogin_Text" xml:space="preserve">
-    <value>User Login</value>
+  <data name="titlePage.Text" xml:space="preserve">
+    <value>Add Comment</value>
   </data>
 </root>

@@ -12,43 +12,35 @@ using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Comments
 {
-    public partial class EditComment : System.Web.UI.Page
+    public partial class AddComment : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
-                ICommentService commentService = iocManager.Resolve<ICommentService>();
                 ITagService tagService = iocManager.Resolve<ITagService>();
 
-                CommentDetails comment =
-                    commentService.FindCommentById(long.Parse(Request.Params.Get("CommentId")));
-
                 List<Tag> tagsFound = tagService.ListAllTags();
-
-                txtBody.Text = comment.body;
 
                 tagsFound.ForEach(tag =>
                 {
                     ListItem liTag = new ListItem();
                     liTag.Value = tag.tagId.ToString();
                     liTag.Text = tag.name;
-                    if (comment.tags.Contains(tag.name))
-                    {
-                        liTag.Selected = true;
-                    }
                     lbTags.Items.Add(liTag);
                 });
             }
         }
 
-        protected void BtnEditClick(object sender, EventArgs e)
+        protected void btnAddComment_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
                 IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
                 ICommentService commentService = iocManager.Resolve<ICommentService>();
+
+                long userId = SessionManager.GetUserSession(Context).UserProfileId;
 
                 List<String> commentTags = new List<String>();
 
@@ -60,9 +52,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Comments
                     }
                 }
 
-                String[] newTags=txtNewTags.Text.Split(',');
+                String[] newTags = txtNewTags.Text.Split(',');
 
-                for(int i=0; i<newTags.Length; i++)
+                for (int i = 0; i < newTags.Length; i++)
                 {
                     if (newTags[i].Trim() != "")
                     {
@@ -70,10 +62,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Comments
                     }
                 }
 
-                commentService.UpdateComment(SessionManager.GetUserSession(Context).UserProfileId, long.Parse(Request.Params.Get("CommentId")), txtBody.Text, commentTags);
+                commentService.CreateComment(long.Parse(Request.Params.Get("productId")), userId, txtBodyAddComment.Text, commentTags);
 
-                Response.Redirect(Response.
-                    ApplyAppPathModifier("~/Pages/Comments/ShowCommentsByUserLogin.aspx"));
+                /* Do action. */
+                String url = String.Format("~/Pages/Comments/ShowCommentsByProductId.aspx?productId={0}", long.Parse(Request.Params.Get("productId")));
+                Response.Redirect(Response.ApplyAppPathModifier(url));
             }
         }
     }

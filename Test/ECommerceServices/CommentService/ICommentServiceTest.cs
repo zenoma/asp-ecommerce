@@ -215,7 +215,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
 
             tagList.Add("tag3");
 
-            commentService.UpdateComment(comment.commentId, "new comment body", tagList);
+            commentService.UpdateComment(user.userId, comment.commentId, "new comment body", tagList);
 
             Assert.AreEqual(1, commentDao.Find(comment.commentId).Tag.Count);
             Assert.AreEqual("tag3", tagDao.FindByVisualName("tag3").name);
