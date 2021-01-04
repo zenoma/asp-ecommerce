@@ -22,6 +22,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
+        ProductBlock FindProductsByTagId(long tagId, int page, int count);
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
         void UpdateProduct(long productId, ProductDetails  productDetails);
 
         /// <exception cref="InstanceNotFoundException"/>
