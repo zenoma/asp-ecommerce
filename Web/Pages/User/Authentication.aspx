@@ -2,7 +2,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
         <asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/Pages/User/Register.aspx" meta:resourcekey="lnkRegister" />
-        <form id="AuthenticationForm" method="POST" runat="server">
             <h1>
                 <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
             </h1>
@@ -36,6 +35,5 @@
             <div class="button">
                 <asp:Button ID="btnLogin" runat="server" OnClick="BtnLoginClick" meta:resourcekey="btnLogin" />
             </div>
-        </form>
     </div>
 </asp:Content>

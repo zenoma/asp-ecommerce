@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="UpdateUserDetails.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.User.UpdateUserDetails" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
-        <form id="UpdateUserProfileForm" method="POST" runat="server">
             <h1>
                 <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
             </h1>
@@ -48,6 +47,5 @@
             <div class="button">
                 <asp:Button ID="btnUpdate" runat="server" OnClick="BtnUpdateClick" meta:resourcekey="btnUpdate"/>
             </div>
-        </form>
     </div>
 </asp:Content>

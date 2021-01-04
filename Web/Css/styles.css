@@ -37,12 +37,10 @@ a {
     font-weight: bold;
 }
 
-h1{
+h1 {
     text-align: center;
 }
-
 /* Menu. */
-
 #menu {
     background-color: #094069;
     color: #fff;
@@ -61,39 +59,19 @@ h1{
 /* Content. */
 
 #content {
-    margin: 0 0 10px;
-    width: 100%;
+    width: 90%;
+    min-height: 200px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
 }
 
-    #content .wrapper-content{
-        display: flex;
-        align-items: flex-start;
-    }
 
 p.info {
     font-size: 16px;
 }
 
-/* Forms. */
-form, #form{
-    margin-top: 20px;
-    width: 100%;
-}
 
-    form table{
-        margin: auto;
-        text-align: center;
-    }
-
-    form a, #form a{
-        display: block;
-        text-align: center;
-    }
-
-    form input[type=submit], #form input[type=submit] {
-        display: block;
-        margin: 10px auto;
-    }
 
 div.field {
     clear: both;
@@ -125,12 +103,12 @@ div.field {
             max-width: 100%;
         }
 
-    div.checkbox {
-        clear: both;
-        padding-top: 1em;
-        text-align: center;
-        width: 100%;
-    }
+div.checkbox {
+    clear: both;
+    padding-top: 1em;
+    text-align: center;
+    width: 100%;
+}
 
 div.button {
     clear: both;
@@ -143,23 +121,31 @@ input, select, textarea {
     background-color: #f4f4f4;
 }
 
-/* Sidebar. */
 
-#sidebar {
-    background-color: #097099;
-    min-width: 150px;
-    height: 100%;
+/* Wrapper. */
+.wrapper {
+    display: flex;
 }
 
-    #sidebar a {
+
+/* Sidebar. */
+.sidebar {
+    background-color: #097099;
+    width: 200px;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+    .sidebar a {
         color: #fffac6;
     }
 
-    #sidebar a:hover {
-        color: #cc0000;
-    }
+        .sidebar a:hover {
+            color: #cc0000;
+        }
 
-    #sidebar ul {
+    .sidebar ul {
         list-style: none;
         padding-top: 0px;
         /* Hack for correct indentation (the following three lines). */
@@ -168,17 +154,31 @@ input, select, textarea {
         text-indent: -1em;
     }
 
-    #sidebar li {
+    .sidebar li {
         padding: 0 0 3px 5px;
     }
 
+
+/* Tags.*/
+.tag {
+    color: white;
+    display: inline-block;
+    padding: 5px;
+}
+
+
+
 /* Tables. */
 
-table.table-allwidth {
+table{
     margin: 0 auto;
     text-align: center;
     width: calc(100% - 20px);
 }
+
+    .productDetails {
+        width: 40%;
+    }
 
 /* Error messages. */
 
@@ -211,47 +211,22 @@ table th, td {
     font-size: 12px;
 }
 
-/* Account details. */
-
 table.accountDetails {
-    margin: 0 auto;
-    border: #000 1px solid;
-    text-align: left;
-    width: 35%;
+    margin: auto;
 }
 
-    table.accountDetails th {
-        width: 60%;
-    }
 
-    table.accountDetails td {
-        width: 30%;
-    }
-
-/* User's accounts. */
-
-table.userAccounts {
-    margin: 0 auto;
-    text-align: center;
-    width: 35%;
-}
-
-/* Account operations. */
-
-table.accountOperations {
-    margin: 0 auto;
-    text-align: center;
-    width: 45%;
-}
 
 /*****************************/
 
 /***PAGINATE***/
-.previousNextLinks{
+.previousNextLinks {
     text-align: center;
     margin-top: 10px;
+    padding: 10px;
 }
-.previousNextLinks a{
-    display: inline-block;
-    margin-right: 10px;
-}
+
+    .previousNextLinks a {
+        display: inline-block;
+        margin-right: 10px;
+    }

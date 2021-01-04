@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="ShowCartByLogin.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart.ShowCartByLogin" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
-    <form runat="server">
         <h1>
             <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
         </h1>
@@ -21,6 +20,5 @@
             </Columns>
         </asp:GridView>
         <asp:HyperLink ID="lnkBuyCart" Text="Buy Cart" CssClass="buyLink" NavigateUrl="~/Pages/Order/CreateOrder.aspx" runat="server" />
-    </form>
     <br />
 </asp:Content>

@@ -1,4 +1,6 @@
-﻿using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
+﻿using Es.Udc.DotNet.ModelUtil.IoC;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            LoadTags();
             SessionManager.InitializeCart(Context);
             if (!SessionManager.IsUserAuthenticated(Context))
             {
@@ -44,6 +47,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
                     lblDash1.Visible = false;
                 if (lnkAuthenticate != null)
                     lnkAuthenticate.Visible = false;
+            }
+        }
+
+        protected void LoadTags()
+        {
+            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
+            ITagService tagService = iocManager.Resolve<ITagService>();
+
+            foreach (TagDetails tag in tagService.GetTopTags(5))
+            {
+                tagCloud.InnerHtml += "<div class='tag'> " + tag.visualName + "</div>";
             }
         }
     }

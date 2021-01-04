@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="ShowProducts.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Products.ShowProducts" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
-    <form id="formShowProductsSearch" runat="server">
         <h1>
             <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
         </h1>
@@ -26,5 +25,4 @@
             <asp:HyperLink ID="lnkNext" runat="server" Visible="False" Text="<%$ Resources:Common, Next %>"></asp:HyperLink>
         </span>
     </div>
-    </form>
 </asp:Content>

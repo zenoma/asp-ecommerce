@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.User.ChangePassword" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
-        <form id="ChangePasswordForm" method="post" runat="server">
             <h1>
                 <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
             </h1>
@@ -46,6 +45,5 @@
                 <asp:Button ID="btnChangePassword" runat="server" OnClick="BtnChangePasswordClick"
                     meta:resourcekey="btnChangePassword" />
             </div>
-        </form>
     </div>
 </asp:Content>

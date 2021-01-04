@@ -1,14 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="AddToCart.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart.AddToCart" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
-    <form id="RegisterForm" method="post" runat="server">
         <h1>
             <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
         </h1>
         <div class="containerErrors">
             <asp:Label ID="lblIdentifierError" runat="server" CssClass="errorMessage" meta:resourcekey="lblIdentifierError" />
         </div>
-        <asp:Table ID="tbProductDetails" runat="server">
+        <asp:Table ID="tbProductDetails" CssClass="productDetails" runat="server">
             <asp:TableRow runat="server">
                 <%--Text="<%$ Resources:Common, prodName %>">--%>
                 <asp:TableHeaderCell ID="cellCaptionProductName" runat="server" Text="Name"></asp:TableHeaderCell>
@@ -39,10 +38,6 @@
                 <asp:TableCell ID="cellProductDate" runat="server"></asp:TableCell>
             </asp:TableRow>
 
-            <%--<asp:TableRow runat="server"> <%--Text="<%$ Resources:Common, prodName %>">
-            <asp:TableHeaderCell ID="cellCaptionProductType" runat="server" Text="Type"></asp:TableHeaderCell>
-            <asp:TableCell ID="cellProductType" runat="server"></asp:TableCell>
-        </asp:TableRow>--%>
         </asp:Table>
         <div class="field">
             <span class="label">
@@ -65,5 +60,4 @@
         <div class="button">
             <asp:Button ID="btnAddToCart" runat="server" OnClick="BtnAddToCart" meta:resourcekey="btnAddToCart" />
         </div>
-    </form>
 </asp:Content>

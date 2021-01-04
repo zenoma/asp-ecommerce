@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="ShowCommentsByUserLogin.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Comments.ShowCommentsByUserLogin" %>
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
-    <form runat="server">
         <h1>
             <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
         </h1>
@@ -25,5 +24,4 @@
                 <asp:HyperLink ID="lnkNext" runat="server" Visible="False" Text="<%$ Resources:Common, Next %>"></asp:HyperLink>
             </span>
         </div>
-    </form>
 </asp:Content>

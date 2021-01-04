@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="FindProducts.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Products.FindProducts" meta:resourcekey="PageResource1" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
-    <form id="FindForm" method="post" runat="server">
         <h1>
             <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
         </h1>
@@ -23,5 +22,4 @@
         <div class="button">
             <asp:Button ID="btnFind" runat="server" OnClick="BtnFindClick" meta:resourcekey="btnFind" />
         </div>
-    </form>
 </asp:Content>

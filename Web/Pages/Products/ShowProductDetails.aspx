@@ -1,11 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="ShowProductDetails.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Products.ShowProductDetails" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
-    <form id="form1" runat="server">
         <h1>
             <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
         </h1>
-        <asp:Table ID="tbProductDetails" runat="server">
+        <asp:Table ID="tbProductDetails" CssClass="productDetails" runat="server">
             <asp:TableRow runat="server">     
                 <asp:TableHeaderCell ID="cellCaptionProductName" runat="server" Text="<%$ Resources:Common, prodName_Text %>"></asp:TableHeaderCell>
                 <asp:TableCell ID="cellProductName" runat="server"></asp:TableCell>
@@ -33,5 +32,4 @@
         </asp:Table>
         <asp:Label ID="test" runat="server"></asp:Label>
         <asp:Button ID="btnUpdateProduct" Visible="false" runat="server" Text="<%$ Resources:Common, btnUpdateProduct_Text %>" OnClick="btnUpdateProduct_Click" />
-    </form>
 </asp:Content>

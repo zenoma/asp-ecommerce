@@ -24,6 +24,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
 
         /// <summary>
+        /// Control form1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
         /// Control lclPageTitle.
         /// </summary>
         /// <remarks>
@@ -211,6 +220,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkShowCartByLogin;
+
+        /// <summary>
+        /// Control tagCloud.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tagCloud;
 
         /// <summary>
         /// Control ContentPlaceHolder_BodyContent.

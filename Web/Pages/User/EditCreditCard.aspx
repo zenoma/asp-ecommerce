@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ECommerce.Master" AutoEventWireup="true" CodeBehind="EditCreditCard.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.User.EditCreditCard" %>
 <asp:Content ID="Content" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
-        <form id="EditCreditCardForm" method="post" runat="server">
             <h1>
                 <asp:Localize ID="titlePage" meta:resourcekey="titlePage" runat="server"></asp:Localize>
             </h1>
@@ -54,6 +53,5 @@
             <div class="button">
                 <asp:Button ID="btnEdit" runat="server" OnClick="BtnEditClick" meta:resourcekey="btnEdit" />
             </div>
-        </form>
     </div>
 </asp:Content>
