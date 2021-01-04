@@ -16,7 +16,7 @@
                 <asp:BoundField DataField="quantity" HeaderText="Quantity" />
                 <asp:BoundField DataField="unitPrice" HeaderText="Unit Price" />
                 <asp:CheckBoxField DataField="toPresent" HeaderText="To Present" />
-                <asp:HyperLinkField Text="Add more units" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/AddToCart.aspx?productId={0}" />
+                <asp:HyperLinkField Text="Edit Item" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/AddToCart.aspx?productId={0}" />
                 <asp:HyperLinkField Text="Delete Item" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/DeleteFromCart.aspx?productId={0}" />
             </Columns>
         </asp:GridView>
