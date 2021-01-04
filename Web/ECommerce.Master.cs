@@ -52,23 +52,28 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
 
         protected void LoadTags()
         {
+            int numberOfComments = 5;
+
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             ITagService tagService = iocManager.Resolve<ITagService>();
-            foreach (TagDetails tag in tagService.GetTopTags(5))
+            foreach (var tag in tagService.GetTopTags(numberOfComments).Select((value, i) => new { i, value }))
             {
-                tagCloud.InnerHtml += "<span class='tag' style='font-size: "+ size(tag.count) +"px;'> " + tag.visualName + " </span>";
+                tagCloud.InnerHtml += "<a class='tag' style='font-size: " + size(numberOfComments, tag.i, tag.value.count) + "px;' href='/Pages/Products/ShowProducts.aspx?tag=" + tag.value.tagId + "'>" + tag.value.visualName + " </a>";
             }
         }
 
-        private int size(int count)
+        private int size(int numberOfComments, int index, int comments)
         {
+            int maxSize = 30 + numberOfComments;
+            int minSize = 10 + numberOfComments;
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             ITagService tagService = iocManager.Resolve<ITagService>();
             int maxComments = tagService.GetTopTags(1)[0].count;
+            int result = (int) (maxSize * comments / maxComments);
 
-            int size = 20 * count / maxComments;
-            return size < 10 ? 10 : size ;
-            
+            return result < minSize ? minSize - index : result;
+
+
         }
     }
 }
