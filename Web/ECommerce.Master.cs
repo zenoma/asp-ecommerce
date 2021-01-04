@@ -54,11 +54,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
         {
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             ITagService tagService = iocManager.Resolve<ITagService>();
-
             foreach (TagDetails tag in tagService.GetTopTags(5))
             {
-                tagCloud.InnerHtml += "<div class='tag'> " + tag.visualName + "</div>";
+                tagCloud.InnerHtml += "<span class='tag' style='font-size: "+ size(tag.count) +"px;'> " + tag.visualName + " </span>";
             }
+        }
+
+        private int size(int count)
+        {
+            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
+            ITagService tagService = iocManager.Resolve<ITagService>();
+            int maxComments = tagService.GetTopTags(1)[0].count;
+
+            int size = 20 * count / maxComments;
+            return size < 10 ? 10 : size ;
+            
         }
     }
 }
