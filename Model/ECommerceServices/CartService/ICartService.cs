@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
+using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Ninject;
 using System;
 using System.Collections.Generic;

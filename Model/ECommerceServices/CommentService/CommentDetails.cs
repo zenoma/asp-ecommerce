@@ -10,72 +10,43 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
     {
         public long commentId { get; set; }
         public string userLogin { get; set; }
+        public long userId { get; set; }
         public string productName { get; set; }
         public string body { get; set; }
         public System.DateTime commentDate { get; set; }
         
         public List<String> tags { get; set; }
 
-        public CommentDetails(long commentId, string userLogin, string productName, string body, System.DateTime commentDate, List<String> tags)
+        public CommentDetails(long commentId, long userId, string userLogin, string productName, string body, System.DateTime commentDate, List<String> tags)
         {
             this.commentId = commentId;
             this.userLogin = userLogin;
+            this.userId = userId;
             this.productName = productName;
             this.body = body;
             this.commentDate = commentDate;
             this.tags = tags;
         }
 
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                int multiplier = 31;
-                int hash = GetType().GetHashCode();
-
-                hash = hash * multiplier + (userLogin == null ? 0 : userLogin.GetHashCode());
-                hash = hash * multiplier + (productName == null ? 0 : productName.GetHashCode());
-                hash = hash * multiplier + (body == null ? 0 : body.GetHashCode());
-                hash = hash * multiplier + commentDate.GetHashCode();
-
-                return hash;
-            }
-
-        }
-
         public override bool Equals(object obj)
         {
-
-            if (ReferenceEquals(null, obj)) return false;        // Is Null?
-            if (ReferenceEquals(this, obj)) return true;         // Is same object?
-            if (obj.GetType() != this.GetType()) return false;   // Is same type?
-
-            CommentDetails target = obj as CommentDetails;
-
-            return true
-               && (this.commentId == target.commentId)
-               && (this.userLogin == target.userLogin)
-               && (this.productName == target.productName)
-               && (this.body == target.body)
-               && (this.commentDate == target.commentDate)
-               ;
-
+            return obj is CommentDetails details &&
+                   userLogin == details.userLogin &&
+                   userId == details.userId &&
+                   productName == details.productName &&
+                   body == details.body &&
+                   commentDate == details.commentDate &&
+                   EqualityComparer<List<string>>.Default.Equals(tags, details.tags);
         }
 
-        public override String ToString()
+        public override int GetHashCode()
         {
-            StringBuilder strComment = new StringBuilder();
+            return HashCode.Combine(userLogin, userId, productName, body, commentDate, tags);
+        }
 
-            strComment.Append("[ ");
-            strComment.Append(" commentId = " + commentId + " | ");
-            strComment.Append(" userLogin = " + userLogin + " | ");
-            strComment.Append(" productName = " + productName + " | ");
-            strComment.Append(" body = " + body + " | ");
-            strComment.Append(" commentDate = " + commentDate + " | ");
-            strComment.Append(" tags = " + tags.ToString() + " | ");
-            strComment.Append("] ");
-
-            return strComment.ToString();
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }

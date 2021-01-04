@@ -63,6 +63,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         }
 
         /// <exception cref="InstanceNotFoundException"/>
+        /// <exception cref="ArgumentException"/>
         [Transactional]
         public void RemoveComment(long userId, long commentId)
         {
@@ -103,15 +104,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
             User user = userDao.Find(comment.userId);
             Product product = productDao.Find(comment.productId);
 
-            return new CommentDetails(comment.commentId, user.login, product.name, 
+            return new CommentDetails(comment.commentId, user.userId, user.login, product.name, 
                 comment.body, comment.commentDate, listTagsToListString(tagDao.FindByCommentId(comment.commentId)));
         }
 
+        /// <exception cref="ArgumentException"/>
         [Transactional]
-        public void UpdateComment(long commentId, string body, ICollection<string> tags)
+        public void UpdateComment(long userId, long commentId, string body, ICollection<string> tags)
         {
             Comment comment = commentDao.Find(commentId);
             comment.body = body;
+
+            if (comment.User.userId != userId)
+            {
+                throw new ArgumentException("Invalid user");
+            }
 
             if (tags != null)
             {
@@ -172,7 +179,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
             {
                 user = userDao.Find(comment.userId);
                 product = productDao.Find(comment.productId);
-                commentDetails.Add(new CommentDetails(comment.commentId, user.login, product.name, comment.body,
+                commentDetails.Add(new CommentDetails(comment.commentId, user.userId, user.login, product.name, comment.body,
                     comment.commentDate, listTagsToListString(tagDao.FindByCommentId(comment.commentId))));
             });
 

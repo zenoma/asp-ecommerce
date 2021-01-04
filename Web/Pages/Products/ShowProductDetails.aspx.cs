@@ -176,7 +176,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             long productId = Convert.ToInt64(Request.Params.Get("productId"));
 
             /* Do action. */
-            String url = String.Format("~/Pages/Comment/CommentProduct.aspx?productId={0}", productId);
+            String url = String.Format("~/Pages/Comments/AddComment.aspx?productId={0}", productId);
+            Response.Redirect(Response.ApplyAppPathModifier(url));
+        }
+
+        protected void btnShowComments_Click(object sender, EventArgs e)
+        {
+            /* Get Product ID passed as parameter in the request from
+             * the previous page
+             */
+            long productId = Convert.ToInt64(Request.Params.Get("productId"));
+
+            /* Do action. */
+            String url = String.Format("~/Pages/Comments/ShowCommentsByProductId.aspx?productId={0}", productId);
             Response.Redirect(Response.ApplyAppPathModifier(url));
         }
     }

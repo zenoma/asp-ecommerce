@@ -7,21 +7,21 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Comment
+namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Comments
 {
 
 
-    public partial class CommentProduct
+    public partial class AddComment
     {
 
         /// <summary>
-        /// Control CreateOrderForm.
+        /// Control AddCommentForm.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm CreateOrderForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm AddCommentForm;
 
         /// <summary>
         /// Control titlePage.
@@ -33,48 +33,75 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Comment
         protected global::System.Web.UI.WebControls.Localize titlePage;
 
         /// <summary>
-        /// Control lblIdentifierError.
+        /// Control lclBody.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdentifierError;
+        protected global::System.Web.UI.WebControls.Localize lclBody;
 
         /// <summary>
-        /// Control lclBodyComment.
+        /// Control txtBodyAddComment.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lclBodyComment;
+        protected global::System.Web.UI.WebControls.TextBox txtBodyAddComment;
 
         /// <summary>
-        /// Control txtBodyComment.
+        /// Control rfvBodyAddComment.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBodyComment;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBodyAddComment;
 
         /// <summary>
-        /// Control rfvComment.
+        /// Control lclTags.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvComment;
+        protected global::System.Web.UI.WebControls.Localize lclTags;
 
         /// <summary>
-        /// Control btnCreateOrder.
+        /// Control lbTags.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateOrder;
+        protected global::System.Web.UI.WebControls.ListBox lbTags;
+
+        /// <summary>
+        /// Control lclNewTags.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclNewTags;
+
+        /// <summary>
+        /// Control txtNewTags.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewTags;
+
+        /// <summary>
+        /// Control btnAddComment.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddComment;
     }
 }
