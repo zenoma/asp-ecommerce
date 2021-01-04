@@ -51,6 +51,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
+        public ProductBlock FindProductsByTagId(long tagId, int page, int count)
+        {
+            Block<Product> products = new Block<Product>();
+
+            products = productDao.FindByTag(tagId, page, count);
+
+            bool existMoreProducts = products.CurrentPage < products.PageCount;
+
+            return new ProductBlock(toProductDetails(products.Results), existMoreProducts);
+        }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
         public void UpdateProduct(long productId, ProductDetails productDetails)
         {
             Product product = productDao.Find(productId);

@@ -10,5 +10,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao
         Block<Product> FindByName(string name, int page, int count);
 
         Block<Product> FindByNameAndCategory(string name, long categoryId, int page, int count);
+
+        Block<Product> FindByTag(long tagId, int page, int count);
     }
 }
