@@ -22,7 +22,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         CommentDetails FindCommentById(long commentId);
 
         [Transactional]
-        void UpdateComment(long commentId, string body, ICollection<string> tags);
+        void UpdateComment(long userId, long commentId, string body, ICollection<string> tags);
 
         [Transactional]
         void RemoveComment(long userId, long commentId);

@@ -18,7 +18,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao
             {
                 var query = from c in context.Comment
                             where c.productId == productId
-                            orderby c.commentId
+                            orderby c.commentDate descending
                             select c;
 
                 Block<Comment> result = BlockList.GetPaged(query, page, count);
@@ -48,7 +48,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao
             {
                 var query = from c in context.Comment
                             where c.userId == userId
-                            orderby c.commentDate
+                            orderby c.commentDate descending
                             select c;
 
                 Block<Comment> result = BlockList.GetPaged(query, page, count);

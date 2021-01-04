@@ -1,6 +1,7 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.ModelUtil.Transactions;
 using Ninject;
+using Es.Udc.DotNet.ModelUtil.Exceptions;
 using System.Collections.Generic;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
