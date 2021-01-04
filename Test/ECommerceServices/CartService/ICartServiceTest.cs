@@ -154,7 +154,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CartService
 
             cart = cartService.UpdateCart(cart, product1.productId, 9, true);
 
-            Assert.AreEqual(10, cart.cartLines.ElementAt(0).quantity);
+            Assert.AreEqual(9, cart.cartLines.ElementAt(0).quantity);
             Assert.AreEqual(true, cart.cartLines.ElementAt(0).toPresent);
         }
 
@@ -184,7 +184,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CartService
             cart = cartService.AddProductToCart(cart, product1.productId, 1, false);
 
             Assert.AreEqual(cartSize, cart.cartLines.Count);
-            Assert.AreEqual(2, cart.cartLines.ElementAt(0).quantity);
+            Assert.AreEqual(1, cart.cartLines.ElementAt(0).quantity);
         }
 
         [TestMethod()]
