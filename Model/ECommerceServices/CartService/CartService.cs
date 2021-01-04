@@ -22,7 +22,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
         public CartDto AddProductToCart(CartDto cart, long productId, int quantity, bool toPresent)
         {
             ProductDetails product = ProductService.FindProductDetails(productId);
-            CartLineDto line = new CartLineDto(productId,product.name, quantity, product.unitPrice, toPresent);
+            CartLineDto line = new CartLineDto(productId, product.name, quantity, product.unitPrice, toPresent);
 
             if (cart.cartLines.Contains(line))
             {
@@ -41,19 +41,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
 
         public CartDto UpdateCart(CartDto cart, long productId, int quantity, bool toPresent)
         {
-            if(cart.cartLines.Count > 0)
+            if (cart.cartLines.Count > 0)
             {
-                foreach (CartLineDto cartLine in cart.cartLines) {
+                foreach (CartLineDto cartLine in cart.cartLines)
+                {
                     if (cartLine.productId == productId)
                     {
                         ProductDetails product = ProductService.FindProductDetails(productId);
-                        if(quantity != 0)
+                        if (product.stockUnits < quantity)
                         {
-                            quantity += cartLine.quantity;
-                            if (product.stockUnits < quantity || quantity <=0)
-                            {
-                                throw new OutOfStockProductException(product.name);
-                            }
+                            throw new OutOfStockProductException(product.name);
+                        }
+
+                        if (quantity != 0)
+                        {
                             cartLine.quantity = quantity;
                         }
                         cartLine.toPresent = toPresent;
@@ -69,7 +70,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
         {
             if (cart.cartLines.Count > 0)
             {
-                foreach(CartLineDto cartLine in cart.cartLines){
+                foreach (CartLineDto cartLine in cart.cartLines)
+                {
                     if (cartLine.productId == productId)
                     {
                         cart.cartLines.Remove(cartLine);
