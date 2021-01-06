@@ -233,3 +233,14 @@ table.accountDetails {
         display: inline-block;
         margin-right: 10px;
     }
+
+
+/***ELLIPSIS TEXT***/
+.ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100px;
+    display: block;
+    border-bottom: 0px;
+    overflow: hidden;
+}

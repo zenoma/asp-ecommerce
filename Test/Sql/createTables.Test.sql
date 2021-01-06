@@ -130,11 +130,17 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[User]')
 AND type in ('U')) DROP TABLE [User]
 GO
 
+/* Drop Table Role if already exists */
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Role]') 
+AND type in ('U')) DROP TABLE [Role]
+GO
+
 /*
  * Create tables.
  */
 
-/* Role */
+ /* Role */
 
 CREATE TABLE [Role] (
 	roleId bigint IDENTITY(1,1) NOT NULL,
@@ -328,7 +334,7 @@ CREATE TABLE Comment  (
 	commentId bigint IDENTITY(1,1) NOT NULL,
 	userId bigint NOT NULL,
 	productId bigint NOT NULL,
-	body varchar(100) NOT NULL,
+	body varchar(5000) NOT NULL,
 	commentDate datetime NOT NULL,
 	
 	CONSTRAINT [PK_Comment] PRIMARY KEY (commentId ASC),

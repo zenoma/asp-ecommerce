@@ -28,7 +28,7 @@
           <Property Name="commentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userId" Type="bigint" Nullable="false" />
           <Property Name="productId" Type="bigint" Nullable="false" />
-          <Property Name="body" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="body" Type="varchar" MaxLength="5000" Nullable="false" />
           <Property Name="commentDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="CommentTag">
@@ -403,7 +403,7 @@
           <Property Name="commentId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="userId" Type="Int64" Nullable="false" />
           <Property Name="productId" Type="Int64" Nullable="false" />
-          <Property Name="body" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="body" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="commentDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Product" Relationship="Self.FK_CommentProductId" FromRole="Comment" ToRole="Product" />
           <NavigationProperty Name="User" Relationship="Self.FK_CommentUserId" FromRole="Comment" ToRole="User" />
