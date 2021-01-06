@@ -5,7 +5,6 @@ using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -60,9 +59,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Comments
                     }
                 }
 
-                String[] newTags=txtNewTags.Text.Split(',');
+                String[] newTags = txtNewTags.Text.Split(',');
 
-                for(int i=0; i<newTags.Length; i++)
+                for (int i = 0; i < newTags.Length; i++)
                 {
                     if (newTags[i].Trim() != "")
                     {

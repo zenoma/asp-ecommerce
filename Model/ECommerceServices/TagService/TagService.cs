@@ -2,12 +2,7 @@
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
 using Ninject;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
 {
@@ -33,7 +28,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
 
             return listTagDetails;
         }
-        
+
         [Transactional]
         public Tag CreateTag(string name, List<Comment> comments)
         {
@@ -44,7 +39,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
             {
                 tag.Comment.Add(comment);
             });
-            
+
             tagDao.Create(tag);
 
             return tag;

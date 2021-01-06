@@ -250,7 +250,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.UserService
         public void CreateDuplicateCreditCardTest()
         {
             var userId = userService.SignUp(login, clearPassword, userDetails);
-            
+
             userService.CreateCreditCard(creditCard, userId);
             userService.CreateCreditCard(creditCard, userId);
         }

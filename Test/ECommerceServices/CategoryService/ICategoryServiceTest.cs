@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using Es.Udc.DotNet.PracticaMaD.Model;
+﻿using Es.Udc.DotNet.PracticaMaD.Model;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
-using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
+using System.Transactions;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CategoryService
 {
@@ -81,7 +71,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CategoryService
         private void createCategoryTest(int size)
         {
             Category category = new Category();
-            for (int i=0; i<size; i++)
+            for (int i = 0; i < size; i++)
             {
                 category.visualName = "Test " + i;
                 categoryDao.Create(category);

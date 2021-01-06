@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using Es.Udc.DotNet.ModelUtil.Exceptions;
+﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
@@ -15,6 +9,9 @@ using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
+using System;
+using System.Collections.Generic;
+using System.Transactions;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
 {
@@ -208,7 +205,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CommentService
         [TestMethod()]
         public void TestUpdateComment()
         {
-            
+
             comment = commentService.CreateComment(product.productId, user.userId, "Comment1", null);
 
             Assert.AreEqual(0, commentDao.Find(comment.commentId).Tag.Count);

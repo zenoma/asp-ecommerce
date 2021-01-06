@@ -4,15 +4,12 @@ using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.Util;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using System;
-using System.Collections.Generic;
 using System.Transactions;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.OrderService

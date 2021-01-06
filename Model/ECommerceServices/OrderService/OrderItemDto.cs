@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
 {
@@ -17,7 +13,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService
 
         #endregion Properties Region
 
-        public OrderItemDto( string productName, int units, double unitPrice)
+        public OrderItemDto(string productName, int units, double unitPrice)
         {
             this.productName = productName;
             this.units = units;

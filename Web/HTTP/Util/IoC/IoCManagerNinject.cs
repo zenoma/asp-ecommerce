@@ -1,26 +1,26 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
-using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.BookDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MovieDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MusicDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Ninject;
 using System.Configuration;
 using System.Data.Entity;
-using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
-using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
-using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
 {
@@ -69,7 +69,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             /* CategoryService */
             kernel.Bind<ICategoryService>().
                 To<CategoryService>();
-                
+
             /* IProductDao  */
             kernel.Bind<IProductDao>().
                 To<ProductDaoEntityFramework>();
@@ -89,7 +89,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC
             /* OrderService */
             kernel.Bind<IOrderService>().
                 To<OrderService>();
-            
+
             /* CartService */
             kernel.Bind<ICartService>().
                 To<CartService>();

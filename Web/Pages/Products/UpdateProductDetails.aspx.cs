@@ -1,15 +1,10 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
-using Es.Udc.DotNet.PracticaMaD.Model;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CategoryService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
 {

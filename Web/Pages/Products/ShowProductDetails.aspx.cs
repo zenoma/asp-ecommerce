@@ -3,10 +3,7 @@ using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
@@ -16,7 +13,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
         protected void Page_Load(object sender, EventArgs e)
         {
             UserSession user = SessionManager.GetUserSession(Context);
-            if (user!=null && user.Role == "ADMIN")
+            if (user != null && user.Role == "ADMIN")
             {
                 btnUpdateProduct.Visible = true;
             }
@@ -33,8 +30,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
 
             /* Get Product Info */
             ProductDetails productDetails = productService.FindProductDetails(productId);
-            
-            if(commentService.ShowCommentsOfProduct(productId, 1, 1).Comments.Count>0){
+
+            if (commentService.ShowCommentsOfProduct(productId, 1, 1).Comments.Count > 0)
+            {
                 btnShowComments.Visible = true;
             }
 
@@ -70,14 +68,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
                 cellAlbum.Text = productDetails.album;
 
                 rowAlbum.Cells.Add(cellCaptionAlbum);
-                rowAlbum.Cells.Add(cellAlbum);                
+                rowAlbum.Cells.Add(cellAlbum);
 
                 tbProductDetails.Rows.AddAt(2, rowAlbum);
 
                 tbProductDetails.DataBind();
 
             }
-            
+
             if (productDetails.type == "Movie")
             {
                 // Fila de Director

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
 {
@@ -19,7 +15,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
 
         #endregion
 
-        public CartLineDto(long productId, string productName, int quantity,double unitPrice, bool toPresent)
+        public CartLineDto(long productId, string productName, int quantity, double unitPrice, bool toPresent)
         {
             this.productId = productId;
             this.productName = productName;

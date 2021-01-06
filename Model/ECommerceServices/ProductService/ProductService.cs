@@ -1,4 +1,5 @@
-﻿using Es.Udc.DotNet.ModelUtil.Transactions;
+﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
+using Es.Udc.DotNet.ModelUtil.Transactions;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.BookDao;
@@ -6,9 +7,7 @@ using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MovieDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.MusicDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
-using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Ninject;
-using System;
 using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService

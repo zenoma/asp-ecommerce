@@ -1,15 +1,9 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
-using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Web.Properties;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
 {
@@ -54,7 +48,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             if (keywords != null)
             {
                 findProdutsByKeywordsAndCategory(keywords, category, startIndex, count);
-            } else
+            }
+            else
             {
                 findProdutsByTag(tag, startIndex, count); ;
             }

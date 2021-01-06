@@ -1,16 +1,11 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
-using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC;
 using Es.Udc.DotNet.PracticaMaD.Web.Properties;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
 {
@@ -30,7 +25,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
              */
             string login = "";
 
-            if (CookiesManager.GetLoginName(Context)!=null)
+            if (CookiesManager.GetLoginName(Context) != null)
             {
                 login = CookiesManager.GetLoginName(Context);
             }
@@ -59,7 +54,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
 
                 count = Settings.Default.ECommerce_defaultCount;
             }
-            
+
             IOrderService orderService = iocManager.Resolve<IOrderService>();
 
             try

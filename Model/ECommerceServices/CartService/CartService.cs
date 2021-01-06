@@ -1,11 +1,6 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
 using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService
 {

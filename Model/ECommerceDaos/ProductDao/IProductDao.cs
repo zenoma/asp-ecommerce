@@ -1,7 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Dao;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using System;
-using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao
 {

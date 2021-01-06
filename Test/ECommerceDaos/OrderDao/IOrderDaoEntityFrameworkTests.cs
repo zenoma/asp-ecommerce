@@ -8,7 +8,6 @@ using Es.Udc.DotNet.PracticaMaD.Model.Services.Util;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Transactions;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderDao

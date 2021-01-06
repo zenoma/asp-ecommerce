@@ -1,16 +1,13 @@
-﻿using Es.Udc.DotNet.ModelUtil.Transactions;
-using Es.Udc.DotNet.ModelUtil.Exceptions;
+﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
+using Es.Udc.DotNet.ModelUtil.Transactions;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Ninject;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao;
-using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 {
@@ -80,12 +77,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         [Transactional]
         public CommentBlock ShowCommentsOfProduct(long productId, int startIndex, int count)
         {
-           /*
-           * Find count+1 comments to determine if there exist more accounts above
-           * the specified range.
-           */
+            /*
+            * Find count+1 comments to determine if there exist more accounts above
+            * the specified range.
+            */
             Block<Comment> comments =
-                commentDao.FindByProductId(productId, startIndex, count + 1);            
+                commentDao.FindByProductId(productId, startIndex, count + 1);
 
             bool existMoreComments = comments.CurrentPage < comments.PageCount;
 
@@ -104,7 +101,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
             User user = userDao.Find(comment.userId);
             Product product = productDao.Find(comment.productId);
 
-            return new CommentDetails(comment.commentId, user.userId, user.login, product.name, 
+            return new CommentDetails(comment.commentId, user.userId, user.login, product.name,
                 comment.body, comment.commentDate, listTagsToListString(tagDao.FindByCommentId(comment.commentId)));
         }
 

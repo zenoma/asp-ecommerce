@@ -1,6 +1,5 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
-using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
@@ -107,7 +106,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
 
         private void createProductsTest(int size)
         {
-            for(int i = 0; i<size; i++)
+            for (int i = 0; i < size; i++)
             {
                 product.name = "Test " + i;
                 productDao.Create(product);
@@ -120,7 +119,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
             int numberProducts = 10;
             createProductsTest(numberProducts);
 
-            ProductBlock list = productService.FindProducts("Test", NON_EXISTENT_CATEGORY_ID, 1, numberProducts/2);
+            ProductBlock list = productService.FindProducts("Test", NON_EXISTENT_CATEGORY_ID, 1, numberProducts / 2);
 
             Assert.IsTrue(list.Products.Count <= numberProducts / 2);
             Assert.IsTrue(list.ExistMoreProducts);
@@ -173,8 +172,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
 
             using (var scope = new TransactionScope())
             {
-                Product productFound = productDao.FindByName("Old Name",1,1).Results[0];
-                ProductDetails newDetails = new ProductDetails(productFound.productId, category.categoryId,"New category", "New Name", 5, 10, "New Type", System.DateTime.Now, "New Album", "New Artist", null, default, null, 0, null);
+                Product productFound = productDao.FindByName("Old Name", 1, 1).Results[0];
+                ProductDetails newDetails = new ProductDetails(productFound.productId, category.categoryId, "New category", "New Name", 5, 10, "New Type", System.DateTime.Now, "New Album", "New Artist", null, default, null, 0, null);
                 productService.UpdateProduct(productFound.productId, newDetails);
 
                 var updatedProduct =

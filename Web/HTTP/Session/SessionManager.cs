@@ -1,14 +1,10 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
-using Es.Udc.DotNet.PracticaMaD.Model;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
-using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.View.AplicationsObjects;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Security;
 

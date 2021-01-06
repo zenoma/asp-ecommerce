@@ -5,7 +5,6 @@ using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;

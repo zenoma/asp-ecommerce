@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web
 {
@@ -66,7 +64,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
                 {
                     string url = Response.ApplyAppPathModifier("~/Pages/Products/ShowProducts.aspx?tag=" + tag.value.tagId);
                     tagCloud.InnerHtml += "<a class='tag' style='font-size: " + size(numberOfComments, tag.i, tag.value.count) +
-                        "px;' href='"+url+"'>" + tag.value.visualName + " </a>";
+                        "px;' href='" + url + "'>" + tag.value.visualName + " </a>";
                 }
             }
         }

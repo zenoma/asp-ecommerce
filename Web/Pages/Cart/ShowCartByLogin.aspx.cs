@@ -1,11 +1,5 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
-using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
 {
@@ -17,9 +11,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
             lnkBuyCart.Visible = true;
 
             CartDto cartDto = (CartDto)Context.Session["userCart"];
-            if (cartDto.cartLines.Count != 0) 
-            { 
-                //TODO Sacar nombre del producto
+            if (cartDto.cartLines.Count != 0)
+            {
                 this.gvOrderItems.DataSource = cartDto.cartLines;
                 this.gvOrderItems.DataBind();
             }
@@ -28,7 +21,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
                 lblNoCartItems.Visible = true;
                 lnkBuyCart.Visible = false;
             }
-           
+
         }
     }
 }

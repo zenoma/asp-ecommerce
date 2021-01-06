@@ -26,8 +26,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao
             using (var context = new ecommerceEntities())
             {
                 var result = (from c in context.CreditCard
-                            where c.userId == userId && c.isFav
-                            select c).FirstOrDefault();
+                              where c.userId == userId && c.isFav
+                              select c).FirstOrDefault();
 
                 return result;
             }

@@ -1,10 +1,10 @@
-﻿using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
-using Es.Udc.DotNet.ModelUtil.Transactions;
-using Ninject;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
-using System.Collections.Generic;
-using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
+﻿using Es.Udc.DotNet.ModelUtil.Transactions;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.UserService;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
+using Ninject;
+using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Services.UserService
 {

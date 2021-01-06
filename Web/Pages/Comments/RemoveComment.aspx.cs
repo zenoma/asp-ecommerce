@@ -2,11 +2,7 @@
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Comments
 {
@@ -17,7 +13,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Comments
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             ICommentService commentService = iocManager.Resolve<ICommentService>();
 
-            commentService.RemoveComment(SessionManager.GetUserSession(Context).UserProfileId, 
+            commentService.RemoveComment(SessionManager.GetUserSession(Context).UserProfileId,
                 long.Parse(Request.Params.Get("CommentId")));
 
             Response.Redirect(Response.

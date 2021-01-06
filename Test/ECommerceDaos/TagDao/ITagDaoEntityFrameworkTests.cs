@@ -9,9 +9,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
@@ -190,7 +187,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.TagDao
             commentDao.Create(comment2);
 
             List<Tag> listTag = tagDao.FindByCommentId(comment.commentId);
-            
+
             Assert.IsTrue(listTag.Count > 0);
 
             listTag.ForEach(t =>

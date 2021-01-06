@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
 {
@@ -23,7 +19,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
             this.visualName = visualName;
             this.count = count;
             //this.Comments = comments;
-    
+
         }
 
         public override bool Equals(object obj)
@@ -32,7 +28,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.TagService
                    tagId == details.tagId &&
                    visualName == details.visualName &&
                    count == details.count;
-                   //EqualityComparer<List<Comment>>.Default.Equals(Comments, details.Comments);
+            //EqualityComparer<List<Comment>>.Default.Equals(Comments, details.Comments);
         }
 
         public override int GetHashCode()

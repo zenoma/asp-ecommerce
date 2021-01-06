@@ -4,14 +4,9 @@ using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CartService;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.CartService

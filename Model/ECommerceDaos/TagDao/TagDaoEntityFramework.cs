@@ -2,13 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
 {
 
-    public class Item {
+    public class Item
+    {
         public long id { get; set; }
         public int count { get; set; }
     }
@@ -21,7 +21,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
             DbSet<Tag> tags = Context.Set<Tag>();
 
             var result = (from t in tags
-                             select t).OrderByDescending(t => t.Comment.Count).Take(n).ToList();
+                          select t).OrderByDescending(t => t.Comment.Count).Take(n).ToList();
 
             return result;
         }
@@ -42,8 +42,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.TagDao
             DbSet<Tag> tags = Context.Set<Tag>();
 
             var result = (from t in tags
-                              where t.name == visualName
-                              select t).SingleOrDefault();
+                          where t.name == visualName
+                          select t).SingleOrDefault();
 
             return result;
         }

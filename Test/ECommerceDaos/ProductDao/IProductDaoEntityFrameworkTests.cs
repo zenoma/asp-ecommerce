@@ -303,7 +303,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
             Block<Product> retrievedNewProducts = productDao.FindByTag(newTag.tagId, 1, 10);
 
             Assert.IsTrue(retrievedNewProducts.Results.Count == 2);
-            
+
             Block<Product> retrievedOldProducts = productDao.FindByTag(oldTag.tagId, 1, 10);
 
             Assert.IsTrue(retrievedOldProducts.Results.Count == 1);

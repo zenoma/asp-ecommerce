@@ -7,7 +7,6 @@ using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Services.Exceptions;
 using Ninject;
 using System;
 using System.Collections.Generic;

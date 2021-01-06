@@ -31,7 +31,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         {
             if (Page.IsValid)
             {
-                CreditCardDto creditCard = new CreditCardDto(long.Parse(Request.Params.Get("CreditCardId")), 
+                CreditCardDto creditCard = new CreditCardDto(long.Parse(Request.Params.Get("CreditCardId")),
                     this.txtType.Text, long.Parse(this.txtNumber.Text), short.Parse(this.txtVerifyCode.Text),
                     System.DateTime.Parse(this.txtExpDate.Text), this.checkIsFav.Checked);
 

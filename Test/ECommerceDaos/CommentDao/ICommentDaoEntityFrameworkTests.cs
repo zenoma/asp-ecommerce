@@ -10,11 +10,6 @@ using Es.Udc.DotNet.PracticaMaD.Model.Services.Util;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
@@ -46,7 +41,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.CommentDao
         private const string country = "es";
 
         private const string commentName = "Some name";
-        private  DateTime productDate = System.DateTime.Now;
+        private DateTime productDate = System.DateTime.Now;
         private const int stockUnits = 100;
         private const int unitPrice = 5;
         private const string type = "Tipo";

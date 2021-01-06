@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 {
@@ -14,7 +11,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
         public string productName { get; set; }
         public string body { get; set; }
         public System.DateTime commentDate { get; set; }
-        
+
         public List<String> tags { get; set; }
 
         public CommentDetails(long commentId, long userId, string userLogin, string productName, string body, System.DateTime commentDate, List<String> tags)

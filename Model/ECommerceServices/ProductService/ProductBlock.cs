@@ -1,12 +1,5 @@
-﻿using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
-using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
-using Ninject;
-using System;
+﻿using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService
 {

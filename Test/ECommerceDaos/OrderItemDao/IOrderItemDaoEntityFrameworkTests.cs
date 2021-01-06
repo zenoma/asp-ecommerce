@@ -9,9 +9,7 @@ using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.Util;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Transactions;
 
 namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
@@ -141,7 +139,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceDaos.OrderItemDao
         [TestMethod()]
         public void FindByOrderIdTest()
         {
-            int numberOfOrderItems= 10;
+            int numberOfOrderItems = 10;
 
             List<OrderItem> createdOrderItems = new List<OrderItem>(numberOfOrderItems);
 

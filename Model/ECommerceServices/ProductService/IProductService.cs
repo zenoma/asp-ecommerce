@@ -1,10 +1,9 @@
-﻿using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
+﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.Transactions;
-using Ninject;
-using Es.Udc.DotNet.ModelUtil.Exceptions;
-using System.Collections.Generic;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
+using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao;
+using Ninject;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
 {
@@ -26,11 +25,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
-        void UpdateProduct(long productId, ProductDetails  productDetails);
+        void UpdateProduct(long productId, ProductDetails productDetails);
 
         /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
         ProductDetails FindProductDetails(long productId);
- 
+
     }
 }
