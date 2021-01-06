@@ -59,10 +59,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
 
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             ITagService tagService = iocManager.Resolve<ITagService>();
-            foreach (var tag in tagService.GetTopTags(numberOfComments).Select((value, i) => new { i, value }))
+            List<TagDetails> topTags = tagService.GetTopTags(numberOfComments);
+            foreach (var tag in topTags.Select((value, i) => new { i, value }))
             {
-                tagCloud.InnerHtml += "<a class='tag' style='font-size: " + size(numberOfComments, tag.i, tag.value.count) +
-                    "px;' href='/Pages/Products/ShowProducts.aspx?tag=" + tag.value.tagId + "'>" + tag.value.visualName + " </a>";
+                if (tag.value.count != 0)
+                {
+                    tagCloud.InnerHtml += "<a class='tag' style='font-size: " + size(numberOfComments, tag.i, tag.value.count) +
+                        "px;' href='/Pages/Products/ShowProducts.aspx?tag=" + tag.value.tagId + "'>" + tag.value.visualName + " </a>";
+                }
             }
         }
 
