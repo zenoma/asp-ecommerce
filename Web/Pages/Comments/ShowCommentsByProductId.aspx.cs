@@ -59,8 +59,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Comments
             // comentarios si usuario no esta logeado
             if (SessionManager.GetUserSession(Context) == null)
             {
-                gvComments.Columns[3].Visible = false;
                 gvComments.Columns[4].Visible = false;
+                gvComments.Columns[5].Visible = false;
             }
             else
             {
@@ -68,8 +68,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Comments
                 {
                     if (commentBlock.Comments[i].userId != SessionManager.GetUserSession(Context).UserProfileId)
                     {
-                        gvComments.Rows[i].Cells[3].Visible = false;
                         gvComments.Rows[i].Cells[4].Visible = false;
+                        gvComments.Rows[i].Cells[5].Visible = false;
                     }
                 }
             }

@@ -1,4 +1,5 @@
 ﻿using Es.Udc.DotNet.ModelUtil.IoC;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Model.Services.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System;
@@ -28,9 +29,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             /* Get the Service */
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             IProductService productService = iocManager.Resolve<IProductService>();
+            ICommentService commentService = iocManager.Resolve<ICommentService>();
 
             /* Get Product Info */
             ProductDetails productDetails = productService.FindProductDetails(productId);
+            
+            if(commentService.ShowCommentsOfProduct(productId, 1, 1).Comments.Count>0){
+                btnShowComments.Visible = true;
+            }
 
             cellProductName.Text = productDetails.name;
             cellUnitPrice.Text = productDetails.unitPrice.ToString("C");
@@ -154,7 +160,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Products
             }
         }
 
-        //SOLO PUEDE EJECUTAR ESTE BOTON ROL ADMIN
         protected void btnUpdateProduct_Click(object sender, EventArgs e)
         {
             /* Get Product ID passed as parameter in the request from

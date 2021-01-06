@@ -10,9 +10,9 @@
     <asp:GridView ID="gvComments" runat="server" CssClass="table-allwidth" GridLines="None"
         AutoGenerateColumns="False">
         <Columns>
-            <asp:BoundField DataField="productName" HeaderText="<%$ Resources:Common, prodName_Text %>" />
-            <asp:BoundField DataField="commentDate" HeaderText="<%$ Resources:Common, commentDate %>" />
-            <asp:BoundField DataField="body" HeaderText="<%$ Resources:Common, body %>" ItemStyle-Width="300px" />
+            <asp:BoundField DataField="productName" HeaderText="<%$ Resources:Common, prodName_Text %>" ItemStyle-Width="100px" />
+            <asp:BoundField DataField="commentDate" HeaderText="<%$ Resources:Common, commentDate %>" ItemStyle-Width="100px" />
+            <asp:BoundField DataField="body" HeaderText="<%$ Resources:Common, body %>" />
             <asp:TemplateField HeaderText="<%$ Resources:Common, tags %>" ItemStyle-Width="150px">
                 <ItemTemplate>
                     <asp:Repeater ID="tagId" runat="server" DataSource='<%# Eval("tags") %>'>
