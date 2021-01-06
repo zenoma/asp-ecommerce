@@ -1,23 +1,33 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Dao;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
+using System.Runtime.Caching;
 using System;
 using System.Linq;
+using System.Data.Entity;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao
 {
     public class ProductDaoEntityFramework :
         GenericDaoEntityFramework<Product, Int64>, IProductDao
     {
+        SearchCache<Product> cache = new SearchCache<Product>();
+
         public Block<Product> FindByName(String name, int page, int count)
         {
+            Block<Product> result = cache.getQueryFromCache<Product>("findProductByName" + page);
             using (var context = new ecommerceEntities())
             {
-                var query = from b in context.Product
-                            where b.name.Contains(name)
-                            orderby b.productId
-                            select b;
+                if (result == null)
+                {
+                    var query = from b in context.Product
+                                where b.name.Contains(name)
+                                orderby b.productId
+                                select b;
 
-                Block<Product> result = BlockList.GetPaged(query, page, count);
+                    result = BlockList.GetPaged(query, page, count);
+                }
+
+                cache.setQueryOnCache("findProductByName" + page, result);
 
                 return result;
             }

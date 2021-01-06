@@ -71,6 +71,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
         public void MyTestInitialize()
         {
             transactionScope = new TransactionScope();
+            SearchCache<Product> cache = new SearchCache<Product>();
+            cache.clearCache();
         }
 
         //Use TestCleanup to run code after each test has run
@@ -218,7 +220,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
         }
 
         [TestMethod]
-        public void FindByNameByTagTest()
+        public void FindByTagTest()
         {
 
             int numberOfProducts = 5;

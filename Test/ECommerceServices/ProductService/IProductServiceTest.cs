@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.PracticaMaD.Model;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.RoleDao;
+using Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.ProductService;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CategoryDao;
 using Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao;
@@ -93,6 +94,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.ECommerceServices.ProductService
             product.stockUnits = 100;
             product.unitPrice = 5;
             product.type = "Tipo";
+            SearchCache<Product> cache = new SearchCache<Product>();
+            cache.clearCache();
         }
 
         //Use TestCleanup to run code after each test has run
