@@ -64,8 +64,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
             {
                 if (tag.value.count != 0)
                 {
+                    string url = Response.ApplyAppPathModifier("~/Pages/Products/ShowProducts.aspx?tag=" + tag.value.tagId);
                     tagCloud.InnerHtml += "<a class='tag' style='font-size: " + size(numberOfComments, tag.i, tag.value.count) +
-                        "px;' href='/Pages/Products/ShowProducts.aspx?tag=" + tag.value.tagId + "'>" + tag.value.visualName + " </a>";
+                        "px;' href='"+url+"'>" + tag.value.visualName + " </a>";
                 }
             }
         }
