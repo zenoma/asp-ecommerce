@@ -122,6 +122,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.CommentService
 
             if (tags != null)
             {
+                comment.Tag = new List<Tag>();
                 foreach (var item in tags)
                 {
                     Tag tag = new Tag();

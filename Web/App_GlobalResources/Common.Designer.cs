@@ -322,6 +322,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Tags.
+        /// </summary>
+        internal static string tags {
+            get {
+                return ResourceManager.GetString("tags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Type.
         /// </summary>
         internal static string type {

@@ -12,7 +12,18 @@
         <Columns>
             <asp:BoundField DataField="productName" HeaderText="<%$ Resources:Common, prodName_Text %>" />
             <asp:BoundField DataField="commentDate" HeaderText="<%$ Resources:Common, commentDate %>" />
-            <asp:BoundField DataField="body" HeaderText="<%$ Resources:Common, body %>" />
+            <asp:BoundField DataField="body" HeaderText="<%$ Resources:Common, body %>" ItemStyle-Width="200px" />
+            <asp:TemplateField HeaderText="<%$ Resources:Common, tags %>" ItemStyle-Width="150px">
+                <ItemTemplate>
+                    <asp:Repeater ID="tagId" runat="server" DataSource='<%# Eval("tags") %>'>
+                        <ItemTemplate>
+                            <span class="tag">
+                                <%# Container.DataItem  %><br />
+                            </span>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:HyperLinkField Text="<%$ Resources:Common, editButton %>" DataNavigateUrlFields="CommentId" DataNavigateUrlFormatString="~/Pages/Comments/EditComment.aspx?CommentId={0}" />
             <asp:HyperLinkField Text="<%$ Resources:Common, removeButton %>" DataNavigateUrlFields="CommentId" DataNavigateUrlFormatString="~/Pages/Comments/RemoveComment.aspx?CommentId={0}" />
         </Columns>
