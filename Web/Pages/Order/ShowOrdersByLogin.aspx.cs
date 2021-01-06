@@ -1,6 +1,8 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService;
+using Es.Udc.DotNet.PracticaMaD.Model.Services.UserService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util.IoC;
 using Es.Udc.DotNet.PracticaMaD.Web.Properties;
 using System;
@@ -16,6 +18,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             int startIndex, count;
 
             lnkPrevious.Visible = false;
@@ -26,14 +29,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
              * the previous page
              */
             string login = "";
-            if (CookiesManager.GetLoginName(Context) != null)
+
+            if (CookiesManager.GetLoginName(Context)!=null)
             {
                 login = CookiesManager.GetLoginName(Context);
             }
             else
             {
-                Response.Redirect(
-                    Response.ApplyAppPathModifier("~/Pages/User/Authentication.aspx"));
+                login = SessionManager.GetUserSession(Context).Login;
             }
 
             /* Get Start Index */
@@ -56,16 +59,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
 
                 count = Settings.Default.ECommerce_defaultCount;
             }
-
-            /* Get the Service */
-
-            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
+            
             IOrderService orderService = iocManager.Resolve<IOrderService>();
 
-            /* Get Accounts Info */
             try
             {
-                // FIXME cambiar calculo pagina
                 OrderBlock orderBlock = orderService.FindByUserLogin(login, startIndex, count);
                 if (orderBlock.Orders.Count == 0)
                 {
@@ -79,7 +77,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
                 /* "Previous" link */
                 if ((startIndex - 1) > 0)
                 {
-                    String url = "/Pages/Order/ShowOrdersByLogin.aspx" + "?login=" + login +
+                    String url = "~/Pages/Order/ShowOrdersByLogin.aspx" + "?login=" + login +
                         "&startIndex=" + (startIndex - 1) + "&count=" +
                         count;
 
@@ -91,7 +89,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Cart
                 /* "Next" link */
                 if (orderBlock.existMoreOrders)
                 {
-                    String url = "/Pages/Order/ShowOrdersByLogin.aspx" + "?login=" + login +
+                    String url = "~/Pages/Order/ShowOrdersByLogin.aspx" + "?login=" + login +
                         "&startIndex=" + (startIndex + 1) + "&count=" +
                         count;
 

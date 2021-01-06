@@ -64,7 +64,7 @@
                                 <ul>
                                     <li>
                                         <asp:HyperLink ID="lnkHome" runat="server"
-                                            meta:resourcekey="lnkHome" NavigateUrl="/" /></li>
+                                            meta:resourcekey="lnkHome" NavigateUrl="~/" /></li>
                                     <li>
                                         <asp:HyperLink ID="lnkSearch" runat="server"
                                             NavigateUrl="~/Pages/Products/FindProducts.aspx"
