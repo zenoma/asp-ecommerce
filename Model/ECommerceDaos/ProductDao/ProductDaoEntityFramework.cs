@@ -25,9 +25,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.ProductDao
                                 select b;
 
                     result = BlockList.GetPaged(query, page, count);
+                    cache.setQueryOnCache("findProductByName" + page, result);
                 }
 
-                cache.setQueryOnCache("findProductByName" + page, result);
 
                 return result;
             }

@@ -88,7 +88,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
         [TestMethod()]
         public void FindByNameTest()
         {
-            int numberOfProducts = 10;
+            int numberOfProducts = 70;
 
             List<Product> createdProducts = new List<Product>(numberOfProducts);
             string name = "Some Name";
@@ -120,11 +120,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
             do
             {
                 listProducts = productDao.FindByName(name, page, count);
+                listProducts = productDao.FindByName(name, page, count);
                 totalRetrievedProducts.AddRange(listProducts.Results);
 
                 Assert.IsTrue(listProducts.Results.Count <= count);
-                page += count;
-            } while (page < numberOfProducts);
+                page += 1;
+            } while (page <= numberOfProducts/count);
 
 
             Assert.AreEqual(numberOfProducts, totalRetrievedProducts.Count);

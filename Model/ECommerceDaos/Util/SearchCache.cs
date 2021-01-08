@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Caching;
 
 namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util
@@ -9,49 +8,39 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util
     {
         private const int MAX_NUM_QUERIES_CACHE = 5;
 
-        private MemoryCache queueCache = MemoryCache.Default;
+        private ObjectCache cache = MemoryCache.Default;
 
-        private Queue<MemoryCache> queue { get; set; }
+        private Queue<string> queue = new Queue<string>();
 
         public SearchCache()
         {
-            initialize();
-        }
-
-        private void initialize()
-        {
-            CacheItem cache = queueCache.GetCacheItem("queue");
-            if (cache == null)
-            {
-                queue = new Queue<MemoryCache>();
-                queueCache.Add("queue", queue, DateTimeOffset.MaxValue);
-            } else
-            {
-                queue = (Queue<MemoryCache>) cache.Value;
-            }
         }
 
         public void setQueryOnCache<T>(string title, Block<T> result) where T : class
         {
-            initialize();
-            MemoryCache memCache = MemoryCache.Default;
+            var cacheItemPolicy = new CacheItemPolicy
+            {
+                AbsoluteExpiration = DateTimeOffset.Now.AddDays(1)
+            };
+
+
             if (queue.Count >= MAX_NUM_QUERIES_CACHE)
             {
-                queue.Dequeue();
+                cache.Remove(queue.Dequeue());
             }
-            memCache.Add(title, result, DateTimeOffset.UtcNow.AddHours(1));
-            queue.Enqueue(memCache);
+
+            cache.Add(title, result, cacheItemPolicy);
+            queue.Enqueue(title);
+
+            return;
         }
 
         public Block<T> getQueryFromCache<T>(string title) where T : class
         {
-            initialize();
-            foreach (MemoryCache item in queue)
+
+            if (cache.GetCacheItem(title) != null)
             {
-                if (item.GetCacheItem(title) != null)
-                {
-                    return (Block<T>)item.GetCacheItem(title).Value;
-                }
+                return (Block<T>)cache.Get(title);
             }
 
             return null;
@@ -59,10 +48,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util
 
         public void clearCache()
         {
-            if (queueCache != null)
+            foreach(var item in cache)
             {
-                queueCache.Dispose();
+                cache.Remove(item.Key);
             }
+            queue = new Queue<string>();
         }
     }
 }
