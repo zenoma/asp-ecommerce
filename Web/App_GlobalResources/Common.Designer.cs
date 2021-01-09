@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Address.
+        /// </summary>
+        internal static string address {
+            get {
+                return ResourceManager.GetString("address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Text Comment.
         /// </summary>
         internal static string body {
@@ -111,6 +120,15 @@ namespace Resources {
         internal static string commentDate {
             get {
                 return ResourceManager.GetString("commentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Delete.
+        /// </summary>
+        internal static string delete {
+            get {
+                return ResourceManager.GetString("delete", resourceCulture);
             }
         }
         
@@ -174,6 +192,42 @@ namespace Resources {
         internal static string number {
             get {
                 return ResourceManager.GetString("number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Order Alias.
+        /// </summary>
+        internal static string orderAlias {
+            get {
+                return ResourceManager.GetString("orderAlias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Order Date.
+        /// </summary>
+        internal static string orderDate {
+            get {
+                return ResourceManager.GetString("orderDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Id.
+        /// </summary>
+        internal static string orderId {
+            get {
+                return ResourceManager.GetString("orderId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Payed With.
+        /// </summary>
+        internal static string payedWith {
+            get {
+                return ResourceManager.GetString("payedWith", resourceCulture);
             }
         }
         
@@ -295,11 +349,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Product Name.
+        /// </summary>
+        internal static string productName {
+            get {
+                return ResourceManager.GetString("productName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Unit price.
         /// </summary>
         internal static string prodUnitPrice_Text {
             get {
                 return ResourceManager.GetString("prodUnitPrice_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Quantity.
+        /// </summary>
+        internal static string quantity {
+            get {
+                return ResourceManager.GetString("quantity", resourceCulture);
             }
         }
         
@@ -327,6 +399,24 @@ namespace Resources {
         internal static string tags {
             get {
                 return ResourceManager.GetString("tags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a To present?.
+        /// </summary>
+        internal static string toPresent {
+            get {
+                return ResourceManager.GetString("toPresent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Total Price.
+        /// </summary>
+        internal static string totalPrice {
+            get {
+                return ResourceManager.GetString("totalPrice", resourceCulture);
             }
         }
         

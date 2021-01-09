@@ -11,9 +11,9 @@
     </div>
     <asp:GridView ID="gvOrderItems" runat="server" CssClass="table-allwidth" AutoGenerateColumns="False" GridLines="None">
         <Columns>
-            <asp:BoundField DataField="productName" HeaderText="Product name" />
-            <asp:BoundField DataField="units" HeaderText="Quantity" />
-            <asp:BoundField DataField="unitPrice" HeaderText="Product price" />
+            <asp:BoundField DataField="productName" HeaderText="<%$ Resources:Common, productName %>" />
+            <asp:BoundField DataField="units" HeaderText="<%$ Resources:Common, quantity %>" />
+            <asp:BoundField DataField="unitPrice" HeaderText="<%$ Resources:Common, prodUnitPrice_Text %>" />
         </Columns>
     </asp:GridView>
     <div class="previousNextLinks">

@@ -219,4 +219,34 @@
   <data name="tags" xml:space="preserve">
     <value>Tags</value>
   </data>
+  <data name="address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="orderAlias" xml:space="preserve">
+    <value>Order Alias</value>
+  </data>
+  <data name="orderDate" xml:space="preserve">
+    <value>Order Date</value>
+  </data>
+  <data name="orderId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="payedWith" xml:space="preserve">
+    <value>Payed With</value>
+  </data>
+  <data name="productName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="totalPrice" xml:space="preserve">
+    <value>Total Price</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="toPresent" xml:space="preserve">
+    <value>To present?</value>
+  </data>
 </root>

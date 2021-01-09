@@ -10,13 +10,13 @@
         </div>
         <asp:GridView ID="gvUserOrders" runat="server" CssClass="table-allwidth" AutoGenerateColumns="False" GridLines="None">
             <Columns>
-                <asp:BOundField DataField="orderId" HeaderText="Id" />
-                <asp:HyperLinkField DataTextField="orderAlias" HeaderText="Order Alias" DataNavigateUrlFields="orderId" DataNavigateUrlFormatString="./ShowOrderItemsByOrderId.aspx?orderId={0}" />
-                <asp:BoundField DataField="address" HeaderText="Sended address" />
-                <asp:BoundField DataField="orderDate" HeaderText="Order Date" />
-                <asp:BoundField DataField="orderItems.Count" HeaderText="Total Items" />
-                <asp:BoundField DataField="price" HeaderText="Total Price" />
-                <asp:BoundField DataField="creditCardNumber" HeaderText="Payed with" />
+                <asp:BOundField DataField="orderId" HeaderText="<%$ Resources:Common, orderId %>" />
+                <asp:HyperLinkField DataTextField="orderAlias" HeaderText="<%$ Resources:Common, orderAlias %>" DataNavigateUrlFields="orderId" DataNavigateUrlFormatString="./ShowOrderItemsByOrderId.aspx?orderId={0}" />
+                <asp:BoundField DataField="address" HeaderText="<%$ Resources:Common, address %>" />
+                <asp:BoundField DataField="orderDate" HeaderText="<%$ Resources:Common, orderDate %>" />
+                <asp:BoundField DataField="orderItems.Count" HeaderText="<%$ Resources:Common, quantity %>" />
+                <asp:BoundField DataField="price" HeaderText="<%$ Resources:Common, totalPrice %>" />
+                <asp:BoundField DataField="creditCardNumber" HeaderText="<%$ Resources:Common, payedWith %>" />
             </Columns>
         </asp:GridView>
         <div class="previousNextLinks">
