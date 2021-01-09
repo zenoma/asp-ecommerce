@@ -18,10 +18,10 @@
         </Columns>
     </asp:GridView>
     <div class="previousNextLinks">
-        <span class="previousLink"><%--Text="<%$ Resources:Common, Previous %>"--%>
+        <span class="previousLink">
             <asp:HyperLink ID="lnkPrevious" runat="server" Text="<%$ Resources:Common, Previous %>"
                 Visible="False"></asp:HyperLink>
-        </span><span class="nextLink"><%--Text="<%$ Resources:Common, Next %>"--%>
+        </span><span class="nextLink">
             <asp:HyperLink ID="lnkNext" runat="server" Visible="False" Text="<%$ Resources:Common, Next %>"></asp:HyperLink>
         </span>
     </div>

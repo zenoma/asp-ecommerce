@@ -11,12 +11,12 @@
         <asp:GridView ID="gvOrderItems" runat="server" CssClass="table-allwidth" AutoGenerateColumns="False" GridLines="None">
             <Columns>
                 <asp:HyperLinkField DataTextField="productId" HeaderText="Id" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Products/ShowProductDetails.aspx?productId={0}" />
-                <asp:BoundField DataField="productName" HeaderText="Product Name" />
+                <asp:BoundField DataField="productName" HeaderText="<%$ Resources:Common, prodName_Text %>" />
                 <asp:BoundField DataField="quantity" HeaderText="Quantity" />
-                <asp:BoundField DataField="unitPrice" HeaderText="Unit Price" />
-                <asp:CheckBoxField DataField="toPresent" HeaderText="To Present" />
-                <asp:HyperLinkField Text="Edit Item" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/AddToCart.aspx?productId={0}" />
-                <asp:HyperLinkField Text="Delete Item" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/DeleteFromCart.aspx?productId={0}" />
+                <asp:BoundField DataField="unitPrice" HeaderText="<%$ Resources:Common, prodUnitPrice_Text %>" />
+                <asp:CheckBoxField DataField="toPresent" HeaderText="<%$ Resources:Common, toPresent %>" />
+                <asp:HyperLinkField Text="<%$ Resources:Common, editButton %>" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/AddToCart.aspx?productId={0}" />
+                <asp:HyperLinkField Text="<%$ Resources:Common, delete %>" DataNavigateUrlFields="productId" DataNavigateUrlFormatString="~/Pages/Cart/DeleteFromCart.aspx?productId={0}" />
             </Columns>
         </asp:GridView>
         <asp:HyperLink ID="lnkBuyCart" Text="Buy Cart" CssClass="buyLink" NavigateUrl="~/Pages/Order/CreateOrder.aspx" runat="server" />
