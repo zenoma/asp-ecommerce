@@ -14,10 +14,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util
 
         public SearchCache()
         {
-            queue = (Queue<string>) cache.AddOrGetExisting("queue", new Queue<string>(), DateTimeOffset.MaxValue);
-            if ( queue == null)
+            queue = (Queue<string>)cache.AddOrGetExisting("queue", new Queue<string>(), DateTimeOffset.MaxValue);
+            if (queue == null)
             {
-                queue = (Queue<string>) cache.Get("queue");
+                queue = (Queue<string>)cache.Get("queue");
             }
         }
 
@@ -52,7 +52,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util
 
         public void clearCache()
         {
-            foreach(var item in cache)
+            foreach (var item in cache)
             {
                 cache.Remove(item.Key);
             }

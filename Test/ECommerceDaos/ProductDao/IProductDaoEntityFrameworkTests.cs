@@ -124,7 +124,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
 
                 Assert.IsTrue(listProducts.Results.Count <= count);
                 page += 1;
-            } while (page <= numberOfProducts/count);
+            } while (page <= numberOfProducts / count);
 
 
             Assert.AreEqual(numberOfProducts, totalRetrievedProducts.Count);
