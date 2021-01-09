@@ -120,7 +120,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
             do
             {
                 listProducts = productDao.FindByName(name, page, count);
-                listProducts = productDao.FindByName(name, page, count);
                 totalRetrievedProducts.AddRange(listProducts.Results);
 
                 Assert.IsTrue(listProducts.Results.Count <= count);

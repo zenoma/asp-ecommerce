@@ -10,13 +10,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util
 
         private ObjectCache cache = MemoryCache.Default;
 
-        private Queue<string> queue = new Queue<string>();
+        private Queue<string> queue;
 
         public SearchCache()
         {
+            queue = (Queue<string>) cache.AddOrGetExisting("queue", new Queue<string>(), DateTimeOffset.MaxValue);
+            if ( queue == null)
+            {
+                queue = (Queue<string>) cache.Get("queue");
+            }
         }
 
-        public void setQueryOnCache<T>(string title, Block<T> result) where T : class
+        public void setQueryOnCache<U>(string title, Block<U> result) where U : class
         {
             var cacheItemPolicy = new CacheItemPolicy
             {
@@ -31,16 +36,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util
 
             cache.Add(title, result, cacheItemPolicy);
             queue.Enqueue(title);
-
-            return;
+            cache.Set("queue", queue, DateTimeOffset.MaxValue);
         }
 
-        public Block<T> getQueryFromCache<T>(string title) where T : class
+        public Block<U> getQueryFromCache<U>(string title) where U : class
         {
 
             if (cache.GetCacheItem(title) != null)
             {
-                return (Block<T>)cache.Get(title);
+                return (Block<U>)cache.Get(title);
             }
 
             return null;
@@ -53,6 +57,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.ECommerceDaos.Util
                 cache.Remove(item.Key);
             }
             queue = new Queue<string>();
+            cache.Set("queue", queue, DateTimeOffset.MaxValue);
         }
     }
 }
