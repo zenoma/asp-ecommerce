@@ -12,7 +12,7 @@
                         <asp:TextBox ID="txtType" runat="server" Columns="16"
                             meta:resourcekey="txtTypeResource"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvType" runat="server" ControlToValidate="txtType"
-                            Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
+                            Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
                             meta:resourcekey="rfvType"></asp:RequiredFieldValidator>
                         <asp:Label ID="lblTypeError" runat="server" ForeColor="Red" Style="position: relative"
                             Visible="False" meta:resourcekey="lblTypeError"></asp:Label></span>
@@ -24,7 +24,7 @@
                         <asp:TextBox TextMode="Number" ID="txtNumber" runat="server" Columns="16" 
                             meta:resourcekey="txtNumberResource"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvNumber" runat="server" ControlToValidate="txtNumber"
-                            Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
+                            Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
                             meta:resourcekey="rfvNumber"></asp:RequiredFieldValidator></span>
             </div>
             <div class="field">
@@ -34,7 +34,7 @@
                         <asp:TextBox TextMode="Number" ID="txtVerifyCode" runat="server"
                             Columns="16" meta:resourcekey="txtVerifyCodeResource"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvVerifyCode" runat="server" ControlToValidate="txtVerifyCode"
-                            Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
+                            Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
                             meta:resourcekey="rfvVerifyCode"></asp:RequiredFieldValidator></span>
             </div>
             <div class="field">
@@ -44,7 +44,7 @@
                         <asp:TextBox TextMode="Date" ID="txtExpDate" runat="server"
                             Columns="16" meta:resourcekey="txtExpDateResource"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvExpDate" runat="server" ControlToValidate="txtExpDate"
-                            Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
+                            Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
                             meta:resourcekey="rfvExpDate"></asp:RequiredFieldValidator></span>
             </div>
             <div class="checkbox">

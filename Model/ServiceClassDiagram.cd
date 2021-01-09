@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Es.Udc.DotNet.PracticaMaD.Model.ECommerceServices.OrderService.OrderService">
+    <Position X="6.25" Y="5.75" Width="6" />
+    <AssociationLine Name="userDao" Type="Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao.IUserDao" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="7.104" />
+        <Point X="4.125" Y="7.104" />
+        <Point X="4.125" Y="1.875" />
+        <Point X="4.5" Y="1.875" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="orderItemDao" Type="Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao.IOrderItemDao" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.25" Y="7.104" />
+        <Point X="14.5" Y="7.104" />
+        <Point X="14.5" Y="2.233" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAQAACAAAAAAAAAAiIAAAEAAgAAEIGAAAA=</HashCode>
+      <FileName>ECommerceServices\OrderService\OrderService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="orderDao" />
+      <Property Name="userDao" />
+      <Property Name="creditCardDao" />
+      <Property Name="orderItemDao" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao.ICreditCardDao">
+    <Position X="4.5" Y="3.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ECommerceDaos\CreditCardDao\ICreditCardDao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderDao.IOrderDao">
+    <Position X="9.75" Y="3.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ECommerceDaos\OrderDao\IOrderDao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.OrderItemDao.IOrderItemDao">
+    <Position X="11" Y="1" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ECommerceDaos\OrderItemDao\IOrderItemDao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.UserDao.IUserDao">
+    <Position X="4.5" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>ECommerceDaos\UserDao\IUserDao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Es.Udc.DotNet.ModelUtil.Dao.IGenericDao&lt;E, PK&gt;">
+    <Position X="7.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

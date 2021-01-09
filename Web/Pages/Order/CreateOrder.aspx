@@ -12,14 +12,14 @@
                 <asp:Localize ID="lclName" runat="server" meta:resourcekey="lclName" /></span><span class="entry">
                     <asp:TextBox ID="txtName" runat="server" Columns="16"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvName" runat="server"
-                        ControlToValidate="txtName" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>" /></span>
+                        ControlToValidate="txtName" Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>" /></span>
         </div>
         <div class="field">
             <span class="label">
                 <asp:Localize ID="lclPostalAddress" runat="server" meta:resourcekey="lclPostalAddress" /></span><span class="entry">
                     <asp:TextBox ID="txtPostalAddress" runat="server" Columns="16"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvPostalAddress" runat="server"
-                        ControlToValidate="txtPostalAddress" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>" /></span>
+                        ControlToValidate="txtPostalAddress" Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>" /></span>
         </div>
         <div class="field">
             <span class="label">

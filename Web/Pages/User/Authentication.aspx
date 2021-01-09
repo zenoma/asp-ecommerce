@@ -11,7 +11,7 @@
                         class="entry">
                         <asp:TextBox ID="txtLogin" runat="server" Columns="16"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvLogin" runat="server"
-                            ControlToValidate="txtLogin" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>
+                            ControlToValidate="txtLogin" Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>
                         <asp:Label ID="lblLoginError" runat="server" ForeColor="Red" Style="position: relative"
                             Visible="False" meta:resourcekey="lblLoginError">                        
                         </asp:Label>
@@ -23,7 +23,7 @@
                         class="entry">
                         <asp:TextBox TextMode="Password" ID="txtPassword" runat="server" Columns="16"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvPassword" runat="server"
-                            ControlToValidate="txtPassword" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>
+                            ControlToValidate="txtPassword" Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>
                         <asp:Label ID="lblPasswordError" runat="server" ForeColor="Red" Style="position: relative"
                             Visible="False" meta:resourcekey="lblPasswordError">       
                         </asp:Label>

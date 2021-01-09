@@ -13,7 +13,7 @@
                 <asp:TextBox ID="txtBody" runat="server" Columns="16" meta:resourcekey="txtBodyResource"
                     Rows="4" TextMode="MultiLine"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvBody" runat="server" ControlToValidate="txtBody"
-                    Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
+                    Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
                     meta:resourcekey="rfvBody"></asp:RequiredFieldValidator>
 
             </span>

@@ -42,11 +42,11 @@
                 <asp:TextBox ID="txtQuantity" runat="server" Columns="16"
                     meta:resourcekey="txtQuantity"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvQuantity" runat="server" ControlToValidate="txtQuantity"
-                    Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
+                    Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"
                     meta:resourcekey="rfvQuantity"></asp:RequiredFieldValidator>
                 <asp:CompareValidator ID="rfvQuantityPositive" runat="server" ValueToCompare="0" ControlToValidate="txtQuantity"
                     Text="<%$ Resources:Common, positiveField %>" Operator="GreaterThan" Type="Integer"></asp:CompareValidator>
-                <asp:Label ID="lblQuantityError" runat="server" ForeColor="Red" Style="position: relative"
+                <asp:Label ID="lblQuantityError" runat="server" Font-Bold="true" ForeColor="Red" Style="position: relative"
                     Visible="False" meta:resourcekey="lblQuantityError"></asp:Label></span>
             <span class="label">
                 <asp:CheckBox ID="ckToPresent" Text="To Present?" runat="server" />

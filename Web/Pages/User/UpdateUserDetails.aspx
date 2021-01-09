@@ -11,27 +11,27 @@
                 <span class="label"><asp:Localize ID="lclName" runat="server" meta:resourcekey="lclName" /></span><span class="entry">
                     <asp:TextBox ID="txtName" runat="server" Columns="16"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvName" runat="server"
-                        ControlToValidate="txtName" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/></span>
+                        ControlToValidate="txtName" Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/></span>
             </div>
             <div class="field">
                 <span class="label"><asp:Localize ID="lclSurnames" runat="server" meta:resourcekey="lclSurnames" /></span><span class="entry">
                     <asp:TextBox ID="txtSurnames" runat="server" Columns="16"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvSurnames" runat="server"
-                        ControlToValidate="txtSurnames" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/></span>
+                        ControlToValidate="txtSurnames" Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/></span>
             </div>
             <div class="field">
                 <span class="label"><asp:Localize ID="lclEmail" runat="server" meta:resourcekey="lclEmail" /></span><span class="entry">
                     <asp:TextBox ID="txtEmail" runat="server" Columns="16"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvEmail" runat="server"
-                        ControlToValidate="txtEmail" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>
+                        ControlToValidate="txtEmail" Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>
                     <asp:RegularExpressionValidator ID="revEmail" runat="server"
-                        ControlToValidate="txtEmail" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" meta:resourcekey="revEmail"></asp:RegularExpressionValidator></span>
+                        ControlToValidate="txtEmail" Font-Bold="true" ForeColor="Red" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" meta:resourcekey="revEmail"></asp:RegularExpressionValidator></span>
             </div>
             <div class="field">
                 <span class="label"><asp:Localize ID="lclPostalAddress" runat="server" meta:resourcekey="lclPostalAddress" /></span><span class="entry">
                     <asp:TextBox ID="txtPostalAddress" runat="server" Columns="16"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvPostalAddress" runat="server"
-                        ControlToValidate="txtPostalAddress" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/></span>
+                        ControlToValidate="txtPostalAddress" Font-Bold="true" ForeColor="Red" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/></span>
             </div>
             <div class="field">
                 <span class="label"><asp:Localize ID="lclLanguage" runat="server" meta:resourcekey="lclLanguage" /></span><span class="entry">
