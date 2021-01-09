@@ -71,6 +71,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
         public void MyTestInitialize()
         {
             transactionScope = new TransactionScope();
+            SearchCache<Product> cache = new SearchCache<Product>();
+            cache.clearCache();
         }
 
         //Use TestCleanup to run code after each test has run
@@ -86,7 +88,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
         [TestMethod()]
         public void FindByNameTest()
         {
-            int numberOfProducts = 10;
+            int numberOfProducts = 70;
 
             List<Product> createdProducts = new List<Product>(numberOfProducts);
             string name = "Some Name";
@@ -121,8 +123,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
                 totalRetrievedProducts.AddRange(listProducts.Results);
 
                 Assert.IsTrue(listProducts.Results.Count <= count);
-                page += count;
-            } while (page < numberOfProducts);
+                page += 1;
+            } while (page <= numberOfProducts / count);
 
 
             Assert.AreEqual(numberOfProducts, totalRetrievedProducts.Count);
@@ -218,7 +220,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test.Model1Daos.ProductDao
         }
 
         [TestMethod]
-        public void FindByNameByTagTest()
+        public void FindByTagTest()
         {
 
             int numberOfProducts = 5;
