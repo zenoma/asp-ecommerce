@@ -41,32 +41,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         /// Relationship Name (Foreign Key in ER-Model): CommentTag
         /// </summary>
         public virtual ICollection<Tag> Tag { get; set; }
-    
-    	/// <summary>
-    	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 
-    	/// like a hash table. It uses the Josh Bloch implementation from "Effective Java"
-        /// Primary key of entity is not included in the hash calculation to avoid errors
-    	/// with Entity Framework creation of key values.
-    	/// </summary>
-    	/// <returns>
-    	/// Returns a hash code for this instance.
-    	/// </returns>
-    	public override int GetHashCode()
-    	{
-    	    unchecked
-    	    {
-    			int multiplier = 31;
-    			int hash = GetType().GetHashCode();
-    
-    			hash = hash * multiplier + userId.GetHashCode();
-    			hash = hash * multiplier + productId.GetHashCode();
-    			hash = hash * multiplier + (body == null ? 0 : body.GetHashCode());
-    			hash = hash * multiplier + commentDate.GetHashCode();
-    
-    			return hash;
-    	    }
-    
-    	}
         
         /// <summary>
         /// Compare this object against another instance using a value approach (field-by-field) 

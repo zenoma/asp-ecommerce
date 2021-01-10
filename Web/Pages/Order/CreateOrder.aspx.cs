@@ -84,7 +84,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Order
 
             try
             {
-                string login = CookiesManager.GetLoginName(Context);
+                string login = "";
+
+                if (CookiesManager.GetLoginName(Context) != null)
+                {
+                    login = CookiesManager.GetLoginName(Context);
+                }
+                else
+                {
+                    login = SessionManager.GetUserSession(Context).Login;
+                }
                 CartDto cartDto = (CartDto)Context.Session["userCart"];
                 orderService.CreateOrder(login, cartDto, long.Parse(comboCreditCard.SelectedValue), txtPostalAddress.Text, txtName.Text);
                 SessionManager.RemoveCart(Context);

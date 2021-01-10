@@ -11,14 +11,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CreditCardDao
     {
         public List<CreditCard> FindAllByUserId(long userId)
         {
-            DbSet<CreditCard> creditCards = Context.Set<CreditCard>();
+            using (var context = new ecommerceEntities())
+            {
+                List<CreditCard> result = (from c in context.CreditCard
+                                           where c.userId == userId
+                                           orderby c.creditCardId
+                                           select c).ToList();
 
-            List<CreditCard> result = (from c in creditCards
-                                       where c.userId == userId
-                                       orderby c.creditCardId
-                                       select c).ToList();
-
-            return result;
+                return result;
+            }
         }
 
         public CreditCard FindFavByUserId(long userId)

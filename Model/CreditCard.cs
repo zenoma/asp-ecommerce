@@ -28,34 +28,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
         /// Relationship Name (Foreign Key in ER-Model): FK_CreditCardUserId
         /// </summary>
         public virtual User User { get; set; }
-    
-    	/// <summary>
-    	/// A hash code for this instance, suitable for use in hashing algorithms and data structures 
-    	/// like a hash table. It uses the Josh Bloch implementation from "Effective Java"
-        /// Primary key of entity is not included in the hash calculation to avoid errors
-    	/// with Entity Framework creation of key values.
-    	/// </summary>
-    	/// <returns>
-    	/// Returns a hash code for this instance.
-    	/// </returns>
-    	public override int GetHashCode()
-    	{
-    	    unchecked
-    	    {
-    			int multiplier = 31;
-    			int hash = GetType().GetHashCode();
-    
-    			hash = hash * multiplier + userId.GetHashCode();
-    			hash = hash * multiplier + (type == null ? 0 : type.GetHashCode());
-    			hash = hash * multiplier + number.GetHashCode();
-    			hash = hash * multiplier + verifyCode.GetHashCode();
-    			hash = hash * multiplier + expDate.GetHashCode();
-    			hash = hash * multiplier + isFav.GetHashCode();
-    
-    			return hash;
-    	    }
-    
-    	}
         
         /// <summary>
         /// Compare this object against another instance using a value approach (field-by-field) 
@@ -81,8 +53,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                ;
     
         }
-    
-    
     	public static bool operator ==(CreditCard  objA, CreditCard  objB)
         {
             // Check if the objets are the same CreditCard entity
@@ -90,7 +60,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model
                 return true;
       
             return objA.Equals(objB);
-    }
+        }
     
     
     	public static bool operator !=(CreditCard  objA, CreditCard  objB)

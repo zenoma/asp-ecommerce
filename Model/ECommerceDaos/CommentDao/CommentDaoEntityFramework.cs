@@ -49,20 +49,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.Model1Daos.CommentDao
 
         public Block<Comment> FindByUserId(long userId, int page, int count)
         {
-            Block<Comment> result = cache.getQueryFromCache<Comment>("findCommentByUserId=" + userId + "&page=" + page);
             using (var context = new ecommerceEntities())
             {
-                if (result == null)
-                {
-                    var query = from c in context.Comment
-                                where c.userId == userId
-                                orderby c.commentDate descending
-                                select c;
+                var query = from c in context.Comment
+                            where c.userId == userId
+                            orderby c.commentDate descending
+                            select c;
 
-                    result = BlockList.GetPaged(query, page, count);
-                    cache.setQueryOnCache("findCommentByUserId=" + userId + "&page=" + page, result);
-                }
-                return result;
+                return BlockList.GetPaged(query, page, count);
             }
         }
     }
